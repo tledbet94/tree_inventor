@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+body {
+    background-color: #000000;
+    font-family:Roboto Mono, sans-serif;
+    overflow: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.menu-div {
+    background-color: #c5ccb8;
+    border: 10px solid #9a9a97;
+    border-radius: 30px;
+    margin: 0;
+    padding: 0px;
+    box-shadow: inset -6px -6px 15px #6f6776;
+}
+
+.info-div {
+    background-color: #433455;
+    color: #c5ccb8;
+    border: 10px solid #5d6872;
+    border-radius: 30px;
+    margin: 0;
+    padding: 0px;
+    box-shadow: inset -6px -6px 15px #666092;
+}
+
+.info-text {
+    font-size: 32px;
+    text-shadow:
+        1px 1px 0px #9a9a97,
+        2px 2px 0px #6f6776,
+        3px 3px 0px #666092,
+        4px 4px 0px #5d6872;
+}
+
+/*Button*/
+/* Center content vertically and horizontally in buttons */
+.btn-clean {
+    height: 75px;
+    width: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c5ccb8;
+    color: #6f6776 !important;
+    border-radius: 50%;            /* Makes it a perfect circle */
+    padding:0px;                  /* Padding around the button */
+    font-size: 14px;
+    overflow: hidden;              /* Ensure no hidden elements affect alignment */
+}
+
+/* Customize hover effect */
+.btn-clean:hover {
+    background-color: #c5ccb8 !important;
+    color: #a593a5 !important;
+}
+
+/* Customize active effect */
+.btn-clean:active, .btn-clean:focus {
+    background-color: #c5ccb8!important;
+    color: #c38890 !important;
+    box-shadow: inset -10px 10px 5px #6f6776;
+}
+
+/* Default icon color */
+.icon-style {
+    font-size: 2.2rem; /* Increase or decrease as needed */
+    color: inherit;
+
+}
+
