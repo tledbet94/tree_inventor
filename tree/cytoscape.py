@@ -3,9 +3,9 @@ import dash_cytoscape as cyto
 # Internal imports
 from .elements import default_elements
 
-cytoscape_background_color = '#666092'
-node_background_color = '#be955c'
-node_border_color = '#8d6268'
+cytoscape_background_color = '#352b42'
+node_background_color = '#4b80ca'
+node_border_color = '#68c2d3'
 # edge_line_color = '#c28d75'
 target_arrow_color = '#be955c'
 
@@ -19,34 +19,36 @@ stylesheet = [
             'height': '60px',
             'width': '60px',
             'background-color': node_background_color,
-            'border-width': '8px',
+            'border-width': '4px',
             'border-color': node_border_color,
             'border-style': 'solid',
             'label': 'data(label)',
             'text-valign': 'center',
             'text-halign': 'center',
-            'color': '#c5ccb8',
+            'color': '#f2f0e5',
             'font-size': '14px',
             'shape': 'circle',
-            'border-opacity': 0.5,
+            'border-opacity': 0.75,
             'background-opacity': 1
         }
     },
     {
         'selector': 'edge',
         'style': {
-            # 'line-color': edge_line_color,  # Use the line color you defined
+            # 'line-color': '#d3a068',  # Use the line color you defined
             'line-fill': 'linear-gradient',
-            'line-gradient-stop-colors': '#8d6268 #c28d75',
+            'line-gradient-stop-colors': '#43436a #4b80ca',
             'line-gradient-stop-positions': '0% 100%',
             'width': '5px',  # Set the edge thickness
             'line-style': 'solid',  # Optional: 'solid', 'dashed', 'dotted', etc.
             'curve-style': 'bezier',  # Optional: 'bezier', 'straight', etc.
             # Optional Arrowhead Styling
             'target-arrow-shape': 'circle',
-            'target-arrow-color': target_arrow_color,
+            'target-arrow-color': '#68c2d3',
             'arrow-scale': .75,  # Adjust arrow size as needed,
-            'z-index': 2
+            'z-index': 2,
+            'opacity': 0.9,
+
         }
     },
 ]
@@ -57,9 +59,9 @@ cyto_component = cyto.Cytoscape(
     style={'height': '68vh',
            'width': '100%',
            'backgroundColor': cytoscape_background_color,
-           'border': '15px solid #5d6872',
+           'border': '15px solid #868188',
            'borderRadius': '30px',
-           'box-shadow': 'inset 0px 0px 40px 40px #433455'},
+           'box-shadow': 'inset 0px 0px 10px 10px #646365'},
     elements=default_elements,
     stylesheet=stylesheet
 )

@@ -14,18 +14,18 @@ body {
 }
 
 .menu-div {
-    background-color: #c5ccb8;
-    border: 10px solid #9a9a97;
+    background-color: #b8b5b9;
+    border: 10px solid #868188;
     border-radius: 30px;
     margin: 0;
     padding: 0px;
-    box-shadow: inset -6px -6px 15px #6f6776;
+    box-shadow: inset -6px -6px 15px #868188;
 }
 
 .info-div {
-    background-color: #433455;
-    color: #c5ccb8;
-    border: 10px solid #5d6872;
+    background-color: #3a3858;
+    color: #f2f0e5;
+    border: 10px solid #868188;
     border-radius: 30px;
     margin: 0;
     padding: 0px;
@@ -49,8 +49,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #c5ccb8;
-    color: #6f6776 !important;
+    background-color: #b8b5b9;
+    color: #5f556a !important;
     border-radius: 50%;            /* Makes it a perfect circle */
     padding:0px;                  /* Padding around the button */
     font-size: 14px;
@@ -59,20 +59,20 @@ body {
 
 /* Customize hover effect */
 .btn-clean:hover {
-    background-color: #c5ccb8 !important;
-    color: #a593a5 !important;
+    background-color: #b8b5b9 !important;
+    color: #4b80ca !important;
 }
 
 /* Customize active effect */
 .btn-clean:active, .btn-clean:focus {
-    background-color: #c5ccb8!important;
-    color: #c38890 !important;
-    box-shadow: inset -10px 10px 5px #6f6776;
+    background-color: #868188!important;
+    color: #68c2d3 !important;
+    box-shadow: inset -20px 20px 5px #646365;
 }
 
 /* Default icon color */
 .icon-style {
-    font-size: 2.2rem; /* Increase or decrease as needed */
+    font-size: 3rem; /* Increase or decrease as needed */
     color: inherit;
 
 }
