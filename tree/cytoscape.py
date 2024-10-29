@@ -29,7 +29,16 @@ stylesheet = [
             'font-size': '14px',
             'shape': 'circle',
             'border-opacity': 0.75,
-            'background-opacity': 1
+            'background-opacity': 1,
+            'overlay-opacity': 0
+        }
+    },
+    {
+        'selector': 'node:selected',
+        'style': {
+            'background-color': '#b45252',
+            'border-color': '#d3a068',
+            'overlay-opacity': 0  # Removes the default gray overlay box when selected
         }
     },
     {
@@ -44,13 +53,24 @@ stylesheet = [
             'curve-style': 'bezier',  # Optional: 'bezier', 'straight', etc.
             # Optional Arrowhead Styling
             'target-arrow-shape': 'circle',
-            'target-arrow-color': '#68c2d3',
-            'arrow-scale': .75,  # Adjust arrow size as needed,
+            'target-arrow-color': '#a2dcc7',
+            'arrow-scale': .6,  # Adjust arrow size as needed,
             'z-index': 2,
             'opacity': 0.9,
+            'overlay-opacity': 0
 
         }
     },
+    {
+        'selector': 'edge:selected',
+        'style': {
+            'line-fill': 'linear-gradient',
+            'line-gradient-stop-colors': '#b45252 #d3a068',
+            'line-gradient-stop-positions': '0% 100%',
+            'target-arrow-color': '#ede19e',
+            'overlay-opacity': 0
+        }
+    }
 ]
 
 cyto_component = cyto.Cytoscape(

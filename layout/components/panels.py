@@ -1,12 +1,13 @@
 from dash import html
 
 # Internal imports
+from .sub_components.controls import home
 from .sub_components.info_components import info_contents
 from .sub_components.button_row import button_row
 
 control_panel = html.Div(
     children=[
-        html.H1("Controls"),
+        home,
     ],
     style={
         'height': '90vh',
