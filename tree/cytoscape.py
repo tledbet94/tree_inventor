@@ -85,3 +85,9 @@ cyto_component = cyto.Cytoscape(
     elements=default_elements,
     stylesheet=stylesheet
 )
+
+# Fit the graph to the viewport when first loading
+cyto_component.fit = {
+    'padding': 50,  # Optional padding
+    'fit': True  # Fit graph to the available space
+}
