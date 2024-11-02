@@ -1,11 +1,16 @@
 from dash import html
 
 # Internal imports
-from .sub_components.controls import home
-from .sub_components.info_components import info_contents
-from .sub_components.button_row import button_row
+from .bottom_row.button_row import button_row
+
+from .control_panel.modes.home import home
+from .control_panel.modes.edit import edit
+
+from .info_panel.info_components import info_contents
+
 
 control_panel = html.Div(
+    id='control-panel',
     children=[
         home,
     ],

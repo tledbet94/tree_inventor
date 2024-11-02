@@ -2,8 +2,8 @@ from dash import html
 import dash_bootstrap_components as dbc
 
 # internal imports
-from .components.panels import button_panel, control_panel, info_panel
-from tree.cytoscape import cyto_component
+from .elements.panels import button_panel, control_panel, info_panel
+from cytoscape.cytoscape import cyto_component
 
 layout = html.Div([
     dbc.Row([

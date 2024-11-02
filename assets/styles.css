@@ -1,3 +1,14 @@
+/* Styles for entire app.py */
+
+
+/* METHODOLOGY: highest level components at the top & vice versa, e.g. body>panels>panel components> children of ... */
+/* within elements, properties in alphabetical order */
+
+
+/* SECTION: OVERALL STYLES & PAGE STYLES */
+
+
+/* Importing Rboto Mono */
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 
@@ -7,33 +18,37 @@ body {
     overflow: hidden;
 }
 
+/* ChatGPT code . . . makes sure rendered size does not exceed specified dimensions, makes layout consistent */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
+/* SECTION: PANEL STYLES */
+
 .menu-div {
     background-color: #b8b5b9;
     border: 10px solid #868188;
     border-radius: 30px;
+    box-shadow: inset -6px -6px 15px #868188;
     margin: 0;
     padding: 0px;
-    box-shadow: inset -6px -6px 15px #868188;
 }
 
 .info-div {
     background-color: #3a3858;
-    color: #f2f0e5;
     border: 10px solid #868188;
     border-radius: 30px;
+    box-shadow: inset -6px -6px 15px #666092;
+    color: #f2f0e5;
     margin: 0;
     padding: 0px;
-    box-shadow: inset -6px -6px 15px #666092;
 }
 
 .info-text {
     font-size: 32px;
+    /* colors and ofset create 3d effect */
     text-shadow:
         1px 1px 0px #9a9a97,
         2px 2px 0px #6f6776,
@@ -41,122 +56,245 @@ body {
         4px 4px 0px #5d6872;
 }
 
-/*Button*/
+/*SECTION: CHILDREN OF PANELS*/
+
+/* row-button */
+/* this button is planned to be used on the "bottom row panel" */
+
 /* Center content vertically and horizontally in buttons */
-.btn-clean {
-    height: 75px;
-    width: 75px;
-    display: flex;
+.bottom-row-button {
     align-items: center;
-    justify-content: center;
     background-color: #b8b5b9;
+    border-radius: 50%;
     color: #5f556a !important;
-    border-radius: 50%;            /* Makes it a perfect circle */
-    padding:0px;                  /* Padding around the button */
+    display: flex;
     font-size: 14px;
-    overflow: hidden;              /* Ensure no hidden elements affect alignment */
+    height: 75px;
+    justify-content: center;
+    overflow: hidden;
+    padding:0px;
     transition: all 0.2s ease-in-out;
+    width: 75px;
 }
 
-/* Customize hover effect */
-.btn-clean:hover {
-    background-color: #b8b5b9 !important;
-    color: #4b80ca !important;
-}
-
-/* Customize active effect */
-.btn-clean:active, .btn-clean:focus {
+.bottom-row-button:active,
+.bottom-row-button:focus,
+.bottom-row-button.active {
     background-color: #868188!important;
     color: #68c2d3 !important;
     box-shadow: inset -20px 20px 5px #646365;
     border: 5px solid #a2dcc7;
-    outline: none; /* Remove the default outline */
+    outline: none;
 }
 
-/* Default icon color */
-.icon-style {
-    font-size: 3rem; /* Increase or decrease as needed */
+.bottom-row-button:hover {
+    background-color: #b8b5b9 !important;
+    color: #4b80ca !important;
+}
+
+/* icon part of the button */
+.icon-style-bottom-row {
     color: inherit;
-
+    font-size: 3rem;
 }
 
-/* Alt button */
-.btn-clean-alt {
-    outline: none; /* Remove the default outline */
-    height: 125px;
-    width: 125px;
-    display: flex;
+/* alt-button */
+/* can be a part of any panel or panel-child; gives an alternative look to the bottom-row button */
+.book-button {
     align-items: center;
+    background-color: #b8b5b9 !important;
+    border: none;
+    border-radius: 20%;
+    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
+    color: #a77b5b !important;
+    display: flex;
+    height: 125px;
     justify-content: center;
-    background-color: #b8b5b9 !important; /* Background color */
-    color: #a77b5b !important; /* Text/icon color */
-    border-radius: 20%; /* Makes it a perfect circle */
-    padding: 0px; /* Padding around the button */
-    overflow: hidden; /* Ensure no hidden elements affect alignment */
-    transition: all 0.2s ease-in-out; /* Smooth transition for hover effect */
-    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3); /* Enhanced shadow for hover effect */
+    outline: none;
+    overflow: hidden;
+    padding: 0px;
+    transition: all 0.2s ease-in-out;
+    width: 125px;
 }
 
-/* Customize hover effect */
-.btn-clean-alt:hover {
-    background-color: #b8b5b9 !important; /* Hover background color */
-    color: #a77b5b !important; /* Hover text/icon color */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow for hover effect */
+.book-button:hover {
+    background-color: #b8b5b9 !important;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    color: #d3a068 !important;
+    outline: none;
 }
 
-/* Customize active and focus effect */
-.btn-clean-alt:active,
-.btn-clean-alt:focus {
-    background-color: #b8b5b9 !important; /* Hover background color */
-    color: #d3a068 !important; /* Text color when active */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow for hover effect */
-    outline: none; /* Remove the default outline */
-}
-
-/* Button pressed state (stays pressed) */
-.btn-clean-alt.pressed {
-    background-color: #b8b5b9; /* Change background for pressed */
-    color: #d3a068; /* Change text/icon color for pressed */
-    box-shadow: inset 0px 6px 12px rgba(0, 0, 0, 0.4); /* Inset shadow to make it look pressed */
-    transform: translateY(2px); /* Slightly push down to show it's pressed */
-}
-
-/* Default icon color */
-.icon-style-alt {
+/* Is icon part of the button */
+.icon-style-book {
     font-size: 5rem; /* Increase or decrease as needed */
     color: inherit;
 
 }
 
+/* Modal button
+ Inside modal  */
+.modal-button {
+    align-items: center;
+    background-color: #43436a !important;
+    border: none;
+    border-radius: 20%;
+    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
+    color: #f2f0e5 !important;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    outline: none;
+    overflow: hidden;
+    padding: 0px;
+    transition: all 0.2s ease-in-out;
+    width: 75px;
+}
+
+.modal-button:hover {
+    background-color: #b8b5b9 !important;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    color: #d3a068 !important;
+    outline: none;
+}
+
 /* dbc.Card */
-
-/* Define the custom style for dbc.Card */
-.clean-card {
+.home-card {
     background-color: #868188;
-    color: #f2f0e5;
-    border-radius: 50px; /* Rounded corners */
+    border-radius: 50px;
     box-shadow: inset 0 8px 16px #45444f;
-    padding: 20px; /* Internal padding for content */
-    transition: transform 0.2s ease-in-out; /* Smooth scale on hover */
+    color: #f2f0e5;
+    padding: 20px;
+    transition: transform 0.2s ease-in-out;
 }
 
-.clean-card:hover {
-    color: #a2dcc7; /* Update text color */
+.home-card:hover {
+    color: #a2dcc7;
 }
 
-.clean-card-title {
+.home-card-title {
     color: #f2f0e5;
     font-weight: bold;
 }
 
-.clean-card-text {
-    color: #f2f0e5; /* Dark gray text color */
-    line-height: 1.5; /* Line height for better readability */
+.home-card-text {
+    color: #f2f0e5;
     font-size: 20px;
+    line-height: 1.5;
 }
 
-.cool-card-body {
+/* Clean up, attempt to double style the card? */
+.home-card-body {
     background-color: #d3a068;
-    border-radius: 50px; /* Rounded corners */
+    border-radius: 50px;
     box-shadow: inset 0 8px 16px #646365;
+}
+
+/* Verify which part of the modal this is */
+.book-modal-header {
+    background-color: #f2f0e5;
+}
+
+.book-modal-body {
+    background-color: #f2f0e5;
+}
+
+.book-modal-footer {
+    background-color: #b8b5b9;
+}
+
+/* edit-button */
+/* used for modifying the tree in "edit" section */
+.edit-button {
+    align-items: center;
+    background-color: #352b42 !important;
+    border: none;
+    border-radius: 33%;
+    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
+    color: #868188 !important;
+    display: flex;
+    height: 110px;
+    justify-content: center;
+    outline: none;
+    overflow: hidden;
+    padding: 0px;
+    transition: all 0.2s ease-in-out;
+    width: 160px;
+}
+
+.edit-button:hover {
+    background-color: #352b42 !important;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    color: #f2f0e5 !important;
+    outline: none;
+}
+
+/* Is icon part of the button */
+.icon-style-edit {
+    font-size: 5rem; /* Increase or decrease as needed */
+    color: inherit;
+
+}
+
+/* For the tooltip question mark */
+/* Standalone icon */
+.icon-style-question-mark {
+    font-size: 6rem;
+    color: #352b42;
+    opacity: 0.2;
+    transition: color 0.5s ease-in-out;
+
+
+}
+
+.icon-style-question-mark:hover {
+    color: #6a536e;
+    opacity: 0.6;
+    text-shadow: -3px -3px 3px #352b42;
+
+
+
+}
+
+.edit-input-button {
+    align-items: center;
+    background-color: #646365 !important;
+    border: none;
+    border-radius: 10%;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    color: #b8b5b9 !important;
+    display: flex;
+    font-size: 20px;
+    height: 50px;
+    justify-content: center;
+    outline: none;
+    overflow: hidden;
+    padding: 0px;
+    transition: all 0.2s ease-in-out;
+    width: 90px;
+}
+
+.edit-input-button:hover {
+    background-color: #646365 !important;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    color: #f2f0e5 !important;
+    outline: none;
+}
+
+/* The input that pops up in edit mode */
+
+.edit-input {
+    border: 2px solid #4b80ca; /* Solid border with color */
+    border-radius: 5px; /* Optional: rounds the corners */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Adds a shadow with slight transparency */
+    color: #333; /* Font color */
+    padding: 10px; /* Adds padding inside the input */
+    font-size: 16px; /* Sets the font size */
+    outline: none; /* Removes the default blue outline on focus */
+    transition: box-shadow 0.3s ease-in-out; /* Adds a transition for shadow effect */
+}
+
+/* Change border and shadow when the input is focused */
+.edit-input:focus {
+    border-color: #68c2d3; /* Changes border color on focus */
+    box-shadow: 0 0 10px rgba(104, 194, 211, 0.5); /* Enhances shadow on focus */
 }

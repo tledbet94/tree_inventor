@@ -1,7 +1,7 @@
 import dash_cytoscape as cyto
 
 # Internal imports
-from .elements import default_elements
+from .tree_file import default_elements
 
 cytoscape_background_color = '#352b42'
 node_background_color = '#4b80ca'

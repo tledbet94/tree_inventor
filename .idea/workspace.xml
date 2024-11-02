@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="" />
+    <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/init_focus.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/callbacks/buttons/bottom_row/bottom_row_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/bottom_row/bottom_row_callback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/callbacks/panels/info/info_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/info/info_callback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/components/panels.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/panels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/components/sub_components/button_row.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/bottom_row/button_row.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/components/sub_components/controls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/components/sub_components/info_components.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/info_panel/info_components.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/layout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree/cytoscape.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/cytoscape.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree/elements.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/tree_file.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,16 +47,18 @@
   "keyToString": {
     "Python.app.executor": "Run",
     "Python.assembled.executor": "Run",
+    "Python.bottom_row_callback.executor": "Run",
     "Python.controls.executor": "Run",
     "Python.info_callback.executor": "Run",
     "Python.info_components.executor": "Run",
     "Python.main_pc_app.executor": "Run",
+    "Python.panel_change.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Dev/morph_tree/app.py",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General"
   }
 }]]></component>
   <component name="PyConsoleOptionsProvider">
@@ -54,12 +70,16 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Dev\morph_tree" />
+      <recent name="C:\Dev\tree_builder\layout\callbacks" />
+      <recent name="C:\Dev\tree_builder\layout\elements\bottom_row" />
+      <recent name="C:\Dev\tree_builder\layout\elements\control_panel" />
+      <recent name="C:\Dev\tree_builder\layout\elements\info_panel" />
+      <recent name="C:\Dev\tree_builder\layout\callbacks\panels\controls" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="main_pc_app" type="PythonConfigurationType" factoryName="Python">
-      <module name="morphTree" />
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="tree_builder" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -72,7 +92,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../morph_tree/app.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
