@@ -23,14 +23,13 @@ card = dbc.Card(
                 style={
                     'white-space': 'pre-wrap',  # Allows text to wrap instead of extending in one line
                     'overflow': 'hidden',  # Prevents the scrollbar from appearing
-                    'font-size': '16px'
+                    'font-size': '12px'
                 }
             ),
             html.H6("Author: "),
             html.P("Thomas Ledbetter"),
         ], className='home-card'
     ), className='home-card',
-    style={"width": "30rem", 'height': '50rem'},
 )
 
 book_modal = dbc.Modal(
@@ -55,7 +54,7 @@ book_modal = dbc.Modal(
         )
 
 
-book_button = html.Button(
+book_button = dbc.Button(
             id='book-button',
             children=html.I(className="fa-solid fa-book icon-style-book"),
             className="book-button",
@@ -64,15 +63,20 @@ book_button = html.Button(
 
 # this gets exported
 
-home = html.Div([card,
-                 html.Div([
-                     book_button,
-                     book_modal
-                     ],
-                     style={
-                         'display': 'flex',
-                         'justify-content': 'center',  # Horizontal centering
-                         'align-items': 'center',  # Vertical centering
-                     },
-                 )
-                 ])
+home = dbc.Container([
+    dbc.Row(
+        dbc.Col(
+            card,
+            width={"xs": 12, "sm": 10, "md": 8, "lg": 6, "xl": 4},
+            className="mb-2"
+        ),
+        justify="center",
+    ),
+    dbc.Row([
+        dbc.Col(width=4),
+        dbc.Col([book_button, book_modal]),
+        dbc.Col(width=4)
+    ])
+],
+    fluid=True,
+)
