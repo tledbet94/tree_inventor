@@ -75,7 +75,7 @@ stylesheet = [
 
 cyto_component = cyto.Cytoscape(
     id='cytoscape',
-    layout={'name': 'dagre', 'spacingFactor': 1},
+    layout={'name': 'dagre', 'spacingFactor': 1, 'animate': True, 'animationDuration': 1000},
     style={'height': '68vh',
            'width': '100%',
            'backgroundColor': cytoscape_background_color,

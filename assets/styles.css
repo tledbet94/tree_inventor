@@ -46,8 +46,19 @@ body {
     padding: 0px;
 }
 
-.info-text {
+.info-text-label {
     font-size: 32px;
+    /* colors and ofset create 3d effect */
+    text-shadow:
+        1px 1px 0px #9a9a97,
+        2px 2px 0px #6f6776,
+        3px 3px 0px #666092,
+        4px 4px 0px #5d6872;
+}
+
+.info-text-actual {
+    font-size: 28px;
+    text-align: center;
     /* colors and ofset create 3d effect */
     text-shadow:
         1px 1px 0px #9a9a97,
@@ -202,12 +213,22 @@ body {
     background-color: #b8b5b9;
 }
 
+/* H1 title of edit page */
+.edit-header-text {
+    color: #646365;
+    font-weight: bold;
+    text-align: center;
+    font-size: 4rem;
+    text-shadow:
+        3px 3px 2px #868188;
+}
+
 /* edit-button */
 /* used for modifying the tree in "edit" section */
 .edit-button {
     align-items: center;
     background-color: #352b42 !important;
-    border: none;
+    border: 8px solid #4b4158;
     border-radius: 33%;
     box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
     color: #868188 !important;
@@ -221,8 +242,28 @@ body {
     width: 160px;
 }
 
+/* While button is selected, managed in callback */
+
+.edit-button-selected {
+    align-items: center;
+    background-color: #352b42 !important;
+    border: 8px solid #4b4158;
+    border-radius: 33%;
+    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
+    color: #f2f0e5 !important;
+    display: flex;
+    height: 110px;
+    justify-content: center;
+    outline: none;
+    overflow: hidden;
+    padding: 0px;
+    transition: all 0.2s ease-in-out;
+    width: 160px;
+}
+
 .edit-button:hover {
     background-color: #352b42 !important;
+    border: 10px solid #4b4158;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
     color: #f2f0e5 !important;
     outline: none;
@@ -242,8 +283,6 @@ body {
     color: #352b42;
     opacity: 0.2;
     transition: color 0.5s ease-in-out;
-
-
 }
 
 .icon-style-question-mark:hover {
@@ -251,50 +290,81 @@ body {
     opacity: 0.6;
     text-shadow: -3px -3px 3px #352b42;
 
-
-
 }
 
 .edit-input-button {
     align-items: center;
-    background-color: #646365 !important;
-    border: none;
-    border-radius: 10%;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-    color: #b8b5b9 !important;
+    background-color: #8ab060;
+    border-radius: 20%;
+    box-shadow: 2px 2px 5px #646365;
+    color: #f2f0e5;
     display: flex;
-    font-size: 20px;
+    font-size: 28px;
     height: 50px;
     justify-content: center;
     outline: none;
     overflow: hidden;
     padding: 0px;
     transition: all 0.2s ease-in-out;
-    width: 90px;
+    height: 7vh;
+    width: 9vh;
 }
 
 .edit-input-button:hover {
-    background-color: #646365 !important;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    background-color: #8ab060 !important;
+    box-shadow: 4px 4px 5px #646365;
     color: #f2f0e5 !important;
     outline: none;
+}
+
+/* Feedback screen that pops up in edit mode */
+.input-feedback-div {
+    background-color: #3a3858;
+    border: 12px solid #5f556a;
+    border-radius: 35px;
+    box-shadow: 5px 5px 5px #45444f;
+    color: #f2f0e5;
+    display: block;
+    height: 12vh;
+    padding: 5px;
+    text-align: left;
+    vertical-align: top;
+    width: 80%;
 }
 
 /* The input that pops up in edit mode */
 
 .edit-input {
-    border: 2px solid #4b80ca; /* Solid border with color */
-    border-radius: 5px; /* Optional: rounds the corners */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Adds a shadow with slight transparency */
-    color: #333; /* Font color */
-    padding: 10px; /* Adds padding inside the input */
-    font-size: 16px; /* Sets the font size */
-    outline: none; /* Removes the default blue outline on focus */
-    transition: box-shadow 0.3s ease-in-out; /* Adds a transition for shadow effect */
+    border: 12px solid #b8b5b9;
+    background-color: #f2f0e5;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px #646365;
+    color: #352b42;
+    font-size: 24px;
+    outline: none;
+    padding: 10px;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 /* Change border and shadow when the input is focused */
 .edit-input:focus {
-    border-color: #68c2d3; /* Changes border color on focus */
-    box-shadow: 0 0 10px rgba(104, 194, 211, 0.5); /* Enhances shadow on focus */
+    background-color: #f2f0e5;
+    border: 12px solid #b8b5b9;
+    box-shadow: 4px 4px 5px #646365;
+    color: #352b42;
+}
+
+.edit-input-font {
+    font-size: 24px;
+    text-shadow: 2px 2px 4px #b8b5b9;
+}
+
+.hidden-opacity {
+    opacity: 0; /* Fully transparent */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+.visible-opacity {
+    opacity: 1; /* Fully visible */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition effect */
 }

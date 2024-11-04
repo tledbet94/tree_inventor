@@ -20,10 +20,8 @@ from layout.elements.control_panel.modes.edit import edit
 def update_mode(home_active, edit_active, current_mode):
     # at start
     if home_active:
-        print('home active')
         return home
     elif edit_active:
-        print('edit active')
         return edit
     else:
         return current_mode

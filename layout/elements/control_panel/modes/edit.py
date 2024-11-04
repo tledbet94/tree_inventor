@@ -81,43 +81,50 @@ remove_node_button = dbc.Button(
     style={'outline': 'none', 'margin_left': '15px'},
 )
 
-edit_input = dbc.Input(placeholder='', size='lg', valid=False, className='edit-input')
-edit_input_button = dbc.Button(children='ENTER', className='edit-input-button')
-edit_input_feedback = html.Div(
-    html.P('Placeholder', id='edit-input-feedback', style=({'color': '#f2f0e5', 'font-size': '18px'})),
-    style={'backgroundColor': '#8ab060', 'height': '10vh', "border": "5px solid #4e584a"}
-)
+# Input components only appear when they are needed
+edit_input = (
+    dbc.Input(id='edit-input', placeholder='', size='lg', valid=False, className='edit-input'))
+
+edit_input_button = (
+    dbc.Button(id='edit-input-button', children='ENTER', className='hidden-opacity'))
+
+edit_input_feedback = (
+    html.Div(
+        html.P('Placeholder', id='edit-input-feedback', className='edit-input-font'),
+        className='input-feedback-div'
+    ))
 
 edit = html.Div([
-    html.H1('MODIFY TREE', style={'color': '#646365', 'font-weight': 'bold', 'text-align': 'center',
-                                  'text-shadow': '-2px -2px 1px #45444f', 'font-size': '4rem'}),
+    dcc.Store(id='edit-enter-click-store', data=0),
+    dcc.Store(id='enter-pressed-bool', data=False),
+    dcc.Store(id='selected-edit', data=''),
+    html.H1('MODIFY TREE', className='edit-header-text'),
     html.Div(style={"height": "5vh"}),
     dbc.Row([
         dbc.Col(width=2),
-        dbc.Col(rename_node_button, width=7),
-        dbc.Col(rename_info, align='end', width=3)
-    ]),
-    html.Div(style={"height": "10vh"}),
-    dbc.Row([
-        dbc.Col(width=2),
-        dbc.Col(add_node_button, width=7),
-        dbc.Col(add_info, align='end', width=3)
-    ]),
-    html.Div(style={"height": "10vh"}),
-    dbc.Row([
-        dbc.Col(width=2),
-        dbc.Col(remove_node_button, width=7),
-        dbc.Col(remove_info, align='end', width=3),
+        dbc.Col(rename_node_button, width=5),
+        dbc.Col(rename_info, align='end', width=5)
     ]),
     html.Div(style={"height": "5vh"}),
     dbc.Row([
-        dbc.Col(width=1),
+        dbc.Col(width=2),
+        dbc.Col(add_node_button, width=5),
+        dbc.Col(add_info, align='end', width=5)
+    ]),
+    html.Div(style={"height": "5vh"}),
+    dbc.Row([
+        dbc.Col(width=2),
+        dbc.Col(remove_node_button, width=5),
+        dbc.Col(remove_info, align='end', width=5),
+    ]),
+    html.Div(style={"height": "8vh"}),
+    dbc.Row([
         dbc.Col(edit_input_feedback),
-        dbc.Col(width=3)
-    ]),
+    ], id='edit-input-feedback-row', className='hidden-opacity'),
+    html.Div(style={"height": "3vh"}),
     dbc.Row([
         dbc.Col(width=1),
         dbc.Col(edit_input, width=8),
         dbc.Col(edit_input_button, width=3),
-    ])
+    ], id='edit-input-row', className='hidden-opacity')
 ])

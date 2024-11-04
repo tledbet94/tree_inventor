@@ -1,9 +1,11 @@
 default_elements = [
     # Nodes with additional properties
     {'data':
-         {'id': 'one',
+         {'id': 'root',
           'label': 'Wake up',
-          'weight': 5,
+          'weight': 25,
+          'level': 1,
+          'children': 2,
           'Productive?': 'Yes',
           'Mood Impact': 'Increase',
           'Fun Level': '6'}},
@@ -11,7 +13,8 @@ default_elements = [
     {'data':
          {'id': 'two',
           'label': 'Check Phone',
-          'weight': 3,
+          'weight': 25,
+          'level': 2,
           'Productive?': 'Yes',
           'Mood Impact': 'Increase',
           'Fun Level': '6'}},
@@ -19,7 +22,9 @@ default_elements = [
     {'data':
          {'id': 'three',
           'label': 'Take Shower',
-          'weight': 4,
+          'weight': 25,
+          'children': 0,
+          'level': 2,
           'Productive?': 'Yes',
           'Mood Impact': 'Increase',
           'Fun Level': '6'}},
@@ -27,7 +32,9 @@ default_elements = [
     {'data':
          {'id': 'four',
           'label': 'Drink Coffee',
-          'weight': 2,
+          'weight': 25,
+          'children': 0,
+          'level': 3,
           'Productive?': 'Yes',
           'Mood Impact': 'Increase',
           'Fun Level': '6'}},
@@ -35,28 +42,30 @@ default_elements = [
     {'data':
          {'id': 'five',
           'label': 'Stretch',
-          'weight': 1,
+          'weight': 25,
+          'children': 0,
+          'level': 3,
           'Productive?': 'Yes',
           'Mood Impact': 'Increase',
           'Fun Level': '6'}},
 
     # Edges with additional properties
     {'data':
-         {'source': 'one',
+         {'source': 'root',
           'target': 'two',
-          'weight': 10}},
+          'weight': 37.5}},
 
     {'data':
-         {'source': 'one',
+         {'source': 'root',
           'target': 'three',
-          'weight': 8}},
+          'weight': 37.5}},
 
     {'data':
          {'source': 'two',
           'target': 'four',
-          'weight': 6}},
+          'weight': 75}},
 
     {'data':
          {'source': 'two', 'target':
-             'five', 'weight': 7}}
+             'five', 'weight': 75}}
 ]

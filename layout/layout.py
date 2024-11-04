@@ -1,4 +1,4 @@
-from dash import html
+from dash import dcc, html
 import dash_bootstrap_components as dbc
 
 # internal imports
@@ -6,6 +6,7 @@ from .elements.panels import button_panel, control_panel, info_panel
 from cytoscape.cytoscape import cyto_component
 
 layout = html.Div([
+    dcc.Store(id='name-store', data=''),
     dbc.Row([
         dbc.Col(
             control_panel,
