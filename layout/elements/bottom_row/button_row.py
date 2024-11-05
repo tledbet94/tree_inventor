@@ -14,8 +14,15 @@ edit_button = dbc.Button(
     className="bottom-row-button",
 )
 
+algo_button = dbc.Button(
+    id='algo-button',
+    children=html.I(className="fa-solid fa-shuffle icon-style-bottom-row"),
+    className="bottom-row-button",
+)
+
 button_row = dbc.Row([
     dbc.Col(home_button),
-    dbc.Col(edit_button)
+    dbc.Col(edit_button),
+    dbc.Col(algo_button),
 ],
     style={'marginLeft': '50px'})

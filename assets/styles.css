@@ -109,6 +109,44 @@ body {
     font-size: 5vh;
 }
 
+.algo-button {
+    align-items: center;
+    background-color: #5f556a;
+    border-radius: 10%;
+    box-shadow: 12px 12px 8px 0px #212123;
+    color: #b8b5b9 !important;
+    display: flex;
+    font-size: 42px;
+    height: 16vh;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0px;
+    transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.algo-button:hover {
+    background-color: #6a536e !important;
+    border: 8px double #68c2d3;
+    box-shadow: 3px 3px 4px 0px #212123;
+    color: #f2f0e5 !important;
+    transition: box-shadow 0.1s ease-in-out, border 0.2s ease-in-out,color 0.1s ease-in-out;
+}
+
+.algo-button:active,
+.algo-button:focus,
+.algo-button.active {
+    background-color: #4b4158 !important;
+    border: 8px double #a2dcc7 !important;
+    color: #68c2d3 !important;
+    box-shadow: inset 25px 25px 5px 0px #212123;
+    outline: none;
+    /* No change to border, so it stays consistent */
+    transition: box-shadow 0.1s ease-in-out, border 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+
+
+
 /* alt-button */
 /* can be a part of any panel or panel-child; gives an alternative look to the bottom-row button */
 .book-button {
@@ -368,3 +406,4 @@ body {
     opacity: 1; /* Fully visible */
     transition: opacity 0.3s ease-in-out; /* Smooth transition effect */
 }
+

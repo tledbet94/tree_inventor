@@ -3,6 +3,7 @@ from app_instance import app
 
 from layout.elements.control_panel.modes.home import home
 from layout.elements.control_panel.modes.edit import edit
+from layout.elements.control_panel.modes.algorithims import algo
 
 
 # Description of callback
@@ -14,14 +15,17 @@ from layout.elements.control_panel.modes.edit import edit
 @app.callback(
     Output('control-panel', 'children'),
     [Input('home-button', 'active'),
-     Input('edit-button', 'active')],
+     Input('edit-button', 'active'),
+     Input('algo-button', 'active')],
     State('control-panel', 'children')
 )
-def update_mode(home_active, edit_active, current_mode):
+def update_mode(home_active, edit_active, algo_active, current_mode):
     # at start
     if home_active:
         return home
     elif edit_active:
         return edit
+    elif algo_active:
+        return algo
     else:
         return current_mode
