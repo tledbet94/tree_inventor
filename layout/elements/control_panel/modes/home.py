@@ -17,13 +17,12 @@ card = dbc.Card(
                 "This app is configured to build Directed Acyclic Graphs (DAG) - a particular style of cytoscape. More"
                 " information can be found in the resources link below. Additionally the trees created in this "
                 "application can be described as General Trees, which are connected trees with n nodes, n-1 edges"
-                ", and no cycles.\n\nThe goal of cytoscape inventor is to provide a platform to visualize data structures"
-                " and/or create them, using this type of graph/cytoscape across its varied use cases.  ",
+                ", and no cycles.",
                 className="card-text",
                 style={
                     'white-space': 'pre-wrap',  # Allows text to wrap instead of extending in one line
                     'overflow': 'hidden',  # Prevents the scrollbar from appearing
-                    'font-size': '12px'
+                    'font-size': '18px'
                 }
             ),
             html.H6("Author: "),

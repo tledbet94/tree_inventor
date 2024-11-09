@@ -1,5 +1,7 @@
 # app.py
 from app_instance import app
+
+# Internal imports
 from layout.layout import layout
 
 # Internal callbacks

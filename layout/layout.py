@@ -5,7 +5,22 @@ import dash_bootstrap_components as dbc
 from .elements.panels import button_panel, control_panel, info_panel
 from cytoscape.cytoscape import cyto_component
 
+from .elements.control_panel.modes.algorithims import algo
+
+from .elements.control_panel.modes.edit import edit
+from .elements.control_panel.modes.edit import edit_input_button
+from .elements.control_panel.modes.edit import edit_input
+from .elements.control_panel.modes.edit import remove_node_button
+
+from .elements.control_panel.modes.home import home
+
 layout = html.Div([
+    dcc.Store(id='current-node-data'),
+    dcc.Interval(id='traversal-interval', interval=1000, n_intervals=0, disabled=True),
+    dcc.Store(id='traversal-state'),
+    dcc.Store(id='traversal-path'),
+    dcc.Store(id='current-step'),
+    # To assist with proper updating of selected node's name
     dcc.Store(id='name-store', data=''),
     dbc.Row([
         dbc.Col(

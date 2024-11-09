@@ -70,7 +70,27 @@ stylesheet = [
             'target-arrow-color': '#ede19e',
             'overlay-opacity': 0
         }
+    },
+{
+    'selector': '[traversed]',
+    'style': {
+        'background-color': '#567b79',
+        'line-gradient-stop-colors': '#4e584a #8ab060',
+        'border-color': '#8ab060',
+        'target-arrow-color': '#c2d368',
+        'overlay-opacity': 0
     }
+},
+{
+    'selector': '[common]',
+    'style': {
+        'background-color': '#edc8c4',
+        'line-gradient-stop-colors': '#5f556a #edc8c4',
+        'border-color': '#f2f0e5',
+        'target-arrow-color': '#f2f0e5',
+        'overlay-opacity': 0
+    }
+},
 ]
 
 cyto_component = cyto.Cytoscape(

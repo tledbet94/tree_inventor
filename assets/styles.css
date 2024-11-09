@@ -238,6 +238,37 @@ body {
     box-shadow: inset 0 8px 16px #646365;
 }
 
+.home-card {
+    background-color: #868188;
+    border-radius: 50px;
+    box-shadow: inset 0 8px 16px #45444f;
+    color: #f2f0e5;
+    padding: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.home-card:hover {
+    color: #a2dcc7;
+}
+
+.home-card-title {
+    color: #f2f0e5;
+    font-weight: bold;
+}
+
+.home-card-text {
+    color: #f2f0e5;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* Clean up, attempt to double style the card? */
+.home-card-body {
+    background-color: #d3a068;
+    border-radius: 50px;
+    box-shadow: inset 0 8px 16px #646365;
+}
+
 /* Verify which part of the modal this is */
 .book-modal-header {
     background-color: #f2f0e5;
@@ -253,12 +284,12 @@ body {
 
 /* H1 title of edit page */
 .edit-header-text {
-    color: #646365;
+    color: #6a536e;
     font-weight: bold;
     text-align: center;
-    font-size: 4rem;
+    font-size: 72px;
     text-shadow:
-        3px 3px 2px #868188;
+        -3px -3px 3px #4b4158;
 }
 
 /* edit-button */
@@ -268,7 +299,7 @@ body {
     background-color: #352b42 !important;
     border: 8px solid #4b4158;
     border-radius: 33%;
-    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
+    box-shadow: 6px 6px 4px 0px #212123;
     color: #868188 !important;
     display: flex;
     height: 110px;
@@ -407,3 +438,37 @@ body {
     transition: opacity 0.3s ease-in-out; /* Smooth transition effect */
 }
 
+.algo-output-active {
+    width: 25vh;
+    height: 25vh;
+    border-radius: 50%;
+    display: flex; /* Make sure it's flex to align text */
+    justify-content: center;
+    align-items: center;
+    background-color: #4b80ca;
+    border: 8px double #68c2d3;
+    border-opacity: 0.75;
+    box-shadow: -3px 3px 3px #f2f0e5, 10px -10px 5px #45444f;
+    font-size: 36px;
+    font-weight: bold;
+    color: #f2f0e5;
+    margin: 20px auto;
+    text-align: center; /* Ensure text is centered */
+    transition: background-color 2s ease-in-out, border 2s ease-in-out, box-shadow 4s ease-in-out, color 6s;
+}
+
+.algo-output-passive {
+    width: 25vh;
+    height: 25vh;
+    border-radius: 50%;
+    display: flex; /* Use flex to allow centering of children */
+    justify-content: center; /* Horizontally center text */
+    align-items: center; /* Vertically center text */
+    background-color: #868188;
+    box-shadow: inset -20px 20px 5px #45444f, inset 3px -3px 1px #f2f0e5;
+    font-size: 16px;
+    font-weight: bold;
+    color: #868188;
+    margin: 20px auto;
+    text-align: center; /* Ensure text is centered */
+}

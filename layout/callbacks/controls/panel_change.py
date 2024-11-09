@@ -1,31 +1,28 @@
-from dash import Input, Output, State
+# panel_change.py
+from dash import callback_context, Input, Output
 from app_instance import app
 
-from layout.elements.control_panel.modes.home import home
-from layout.elements.control_panel.modes.edit import edit
-from layout.elements.control_panel.modes.algorithims import algo
-
-
-# Description of callback
-# -This should trigger when a button is pressed
-# -The active property of a button changing represents being pressed
-# -The active property is being updated in button_row_callback
-# -A change in active button results in a change in the "mode" of the control panel
-
 @app.callback(
-    Output('control-panel', 'children'),
-    [Input('home-button', 'active'),
-     Input('edit-button', 'active'),
-     Input('algo-button', 'active')],
-    State('control-panel', 'children')
+    Output('home-mode', 'style'),
+    Output('edit-mode', 'style'),
+    Output('algo-mode', 'style'),
+    [Input('home-button', 'n_clicks'),
+     Input('edit-button', 'n_clicks'),
+     Input('algo-button', 'n_clicks')],
 )
-def update_mode(home_active, edit_active, algo_active, current_mode):
-    # at start
-    if home_active:
-        return home
-    elif edit_active:
-        return edit
-    elif algo_active:
-        return algo
+def update_mode(home_clicks, edit_clicks, algo_clicks):
+    ctx = callback_context
+
+    if not ctx.triggered:
+        button_id = 'home-button'
     else:
-        return current_mode
+        button_id = ctx.triggered[0]['prop_id'].split('.')[0]
+
+    if button_id == 'home-button':
+        return {'display': 'block'}, {'display': 'none'}, {'display': 'none'}
+    elif button_id == 'edit-button':
+        return {'display': 'none'}, {'display': 'block'}, {'display': 'none'}
+    elif button_id == 'algo-button':
+        return {'display': 'none'}, {'display': 'none'}, {'display': 'block'}
+    else:
+        return {'display': 'block'}, {'display': 'none'}, {'display': 'none'}
