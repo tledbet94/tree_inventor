@@ -10,21 +10,20 @@ single_traversal_button = dbc.Button(
 )
 
 traversal_output_display = html.Div(
-                                  children=[
-                                      html.Div(id='traversal-output-display',
-                                          children="",
-                                          className='algo-output-passive'
-                                      )
-                                  ],
-                                  style={
-                                            "display": "flex",
-                                            "justifyContent": "center",
-                                            "alignItems": "center",
-                                            "height": "5vh",
-                                            "backgroundColor": "#b8b5b9"
+    children=[
+        html.Div(id='traversal-output-display',
+                 children="",
+                 className='algo-output-passive'
+                 )
+    ],
+    style={
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "height": "5vh",
+        "backgroundColor": "#b8b5b9"
     }
-                                  )
-
+)
 
 multiple_traversal_button = dbc.Button(
     id='multiple-traversal-button',
@@ -38,6 +37,19 @@ interval_component = dcc.Interval(
     n_intervals=0,
     disabled=True
 )
+
+slider = html.Div([
+    dcc.Slider(0, 6,
+               id='algo-slider',
+               marks={i: '{}'.format(10 ** i) for i in range(7)},
+               value=2,
+               updatemode='drag',
+               step=None,
+               className='algo-slider'
+               ),
+    html.Div(style={"height": "3vh"}),
+    html.H3(id='algo-slider-text', children='', className='algo-slider-text')
+])
 
 algo = dbc.Container([
     interval_component,
@@ -54,7 +66,7 @@ algo = dbc.Container([
         dbc.Col(single_traversal_button, align='center'),
         dbc.Col(width=1)
     ], justify='center'),
-    html.Div(style={"height": "16vh"}),
+    html.Div(style={"height": "12vh"}),
     dbc.Row([
         dbc.Col(width=1),
         dbc.Col(
@@ -65,12 +77,14 @@ algo = dbc.Container([
         ),
         dbc.Col(width=1)
     ]),
-    html.Div(style={"height": "16vh"}),
+    html.Div(style={"height": "12vh"}),
     dbc.Row([
         dbc.Col(width=1),
         dbc.Col(multiple_traversal_button, align='center'),
         dbc.Col(width=1)
-    ], justify='center')
+    ], justify='center'),
+    html.Div(style={"height": "4vh"}),
+    dbc.Row(slider)
 ],
     fluid=True,
 )

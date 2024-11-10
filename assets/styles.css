@@ -472,3 +472,110 @@ body {
     margin: 20px auto;
     text-align: center; /* Ensure text is centered */
 }
+
+/* Slider styling */
+/* General styling for the slider container */
+.algo-slider-text {
+    color: #352b42;
+    text-align: center;
+}
+
+/* Styling for the entire slider */
+.algo-slider {
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+/* Track styling (the line on which the slider handle moves) */
+.rc-slider-track {
+    background-color: #4b80ca; /* Track color */
+    border: 4px solid #68c2d3;    /* Handle border */
+    height: 5vh;               /* Track height */
+    border-radius: 40px;        /* Rounded corners */
+}
+
+/* Slider handle styling */
+.rc-slider-handle {
+    width: 6vh;               /* Handle width */
+    height: 6vh;              /* Handle height */
+    background-color: #4b80ca; /* Handle color */
+    border: 2px solid #68c2d3;    /* Handle border */
+    box-shadow: 0 0 5px #a2dcc7; /* Handle shadow */
+    cursor: pointer;           /* Pointer cursor when hovered */
+}
+
+/* Handle styling when focused */
+.rc-slider-handle:focus {
+    background-color: #4b80ca; /* Handle color */
+    border: 4px solid #68c2d3;    /* Handle border */
+    box-shadow: 0 0 5px #a2dcc7; /* Handle shadow */
+}
+
+/* Styling for the handle when it is being actively clicked or dragged */
+.rc-slider-handle:active {
+    background-color: #4b80ca; /* Handle color */
+    border: 4px solid #68c2d3;    /* Handle border */
+    box-shadow: 0 0 5px #a2dcc7; /* Handle shadow */
+}
+
+/* Styling for the slider's inactive track (part without a handle) */
+.rc-slider-rail {
+    background-color: #646365; /* Track color */
+    border: 4px solid #868188;    /* Handle border */
+    height: 5vh;               /* Track height */
+    border-radius: 40px;        /* Rounded corners */
+}
+
+/* Styling for slider marks (the label on specific points of the slider) */
+.rc-slider-mark {
+    visibility: hidden;        /* Keep marks in the DOM but make them invisible */
+}
+
+/* Styling for the active mark (selected value label) */
+.rc-slider-mark-text-active {
+    color: #43436a;             /* Highlighted mark color */
+}
+
+/* Styling for the hover state of the slider handle */
+.rc-slider-handle:hover {
+    background-color: #4b80ca; /* Handle color */
+    border: 4px solid #68c2d3;    /* Handle border */
+    box-shadow: 0 0 5px #a2dcc7; /* Handle shadow */
+}
+
+
+/* Optional: animate the handle transitions */
+.rc-slider-handle {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Optional: set marks to be more prominent */
+.rc-slider-mark-text {
+    font-weight: bold;          /* Bold text for marks */
+    font-size: 14px;            /* Font size for marks */
+    color: #43436a;             /* Color for the mark labels */
+}
+
+/* Styling for slider marks/ticks (the small white dots) */
+.rc-slider-dot {
+    /* To completely hide the dots */
+    visibility: hidden;  /* Alternatively, use display: none; to remove them completely */
+
+    /* To modify the dots' appearance */
+    width: 0px; /* You can reduce the size to make them smaller */
+    height: 0px; /* Set to 0 to make them invisible without removing them */
+    background-color: transparent; /* Make them transparent if needed */
+    border: none; /* Remove any border around the dot */
+}
+
+/* To make the dots invisible but keep their interaction */
+.rc-slider-dot-active {
+    visibility: hidden;  /* Hide active dots as well */
+}
+
+/* Optional: Adjust the spacing between the dots and the rail */
+.algo-slider .rc-slider-mark {
+    margin-top: 10px; /* Adjust to make sure the invisible dots don't affect alignment */
+}
+

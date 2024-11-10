@@ -10,6 +10,12 @@ def single_traversal_with_steps(elements, current_node_id='root', path=None):
     if path is None:
         path = [current_node_id]
 
+    # Reset attributes
+    for element in elements:
+        data = element['data']
+        data['traversed'] = 'False'  # Reset traversed attribute
+        data['common'] = 'False'     # Reset common attribute
+
     # Get the current node's data
     current_node = next((elem for elem in elements if elem['data'].get('id') == current_node_id and 'source' not in elem['data']), None)
 
@@ -44,7 +50,7 @@ def single_traversal_with_steps(elements, current_node_id='root', path=None):
     if next_node_id != current_node_id:
         for edge in edges:
             if edge['data']['target'] == next_node_id:
-                edge['traversed'] = True
+                edge['data']['traversed'] = 'True'
 
     # If the chosen node is the current node, it is terminal
     if next_node_id == current_node_id:
@@ -85,32 +91,30 @@ def multiple_traversals(elements, num_traversals):
     # Reset attributes and update elements to mark traversed and common nodes and edges
     for element in elements:
         data = element['data']
-        data['traversed'] = False  # Reset traversed attribute
-        data['common'] = False     # Reset common attribute
+        data['traversed'] = 'False'  # Reset traversed attribute
+        data['common'] = 'False'     # Reset common attribute
 
         # Mark traversed nodes and edges
         if data['id'] in all_visited_nodes:
-            data['traversed'] = True
+            data['traversed'] = 'True'
 
         # Mark common nodes and edges
         if data['id'] in most_common_nodes:
-            data['common'] = True
+            data['common'] = 'True'
 
         if 'source' in data:
             edge_tuple = (data['source'], data['target'])
             if edge_tuple in all_visited_edges:
-                data['traversed'] = True
+                data['traversed'] = 'True'
 
             if edge_tuple in most_common_edges:
-                data['common'] = True
+                data['common'] = 'True'
 
     return {
         'paths': paths,
         'terminal_node_counts': terminal_node_counts,
         'most_common_node_id': most_common_node_id
     }
-
-
 
 @app.callback(
     [
@@ -140,23 +144,27 @@ def multiple_traversals(elements, num_traversals):
         State('traversal-output-display', 'className'),
         State('traversal-output-display', 'children'),
         State('terminal-node-info', 'data'),
+        State('algo-slider', 'value')
     ]
 )
 def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_intervals,
                 multiple_traversal_clicks, elements, tap_node, new_label, edit_selection,
-                traversal_path, current_step, output_display_class, display_name, terminal_node_info):
+                traversal_path, current_step, output_display_class, display_name, terminal_node_info,
+                selected_traversals):
+
     # Determine which Input triggered the callback
     triggered_id = ctx.triggered_id if ctx.triggered else None
-
-    for element in elements:
-        element['data']['traversed'] = False
-        element['data']['common'] = False
 
     # Initialize variables
     elements = copy.deepcopy(elements) if elements else []
     traversal_path = traversal_path or []
     current_step = current_step or 0
     current_node_data = None  # Initialize current_node_data
+
+    # Reset 'traversed' and 'common' attributes after copying elements
+    for element in elements:
+        element['data']['traversed'] = 'False'
+        element['data']['common'] = 'False'
 
     # CSS Classes for Transition
     active_class = 'algo-output-active'
@@ -190,7 +198,9 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                 'level': level,
                 'Productive?': tap_node['data'].get('Productive?', 'N/A'),
                 'Mood Impact': tap_node['data'].get('Mood Impact', 'N/A'),
-                'Fun Level': tap_node['data'].get('Fun Level', 'N/A')
+                'Fun Level': tap_node['data'].get('Fun Level', 'N/A'),
+                'traversed': 'False',  # Initialize 'traversed'
+                'common': 'False'      # Initialize 'common'
             }
         }
 
@@ -200,7 +210,9 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                 'id': f"edge-{tap_node['data']['id']}-{new_node_id}",
                 'source': tap_node['data']['id'],
                 'target': new_node_id,
-                'weight': 0  # Set weight as needed
+                'weight': 0,  # Set weight as needed
+                'traversed': 'False',  # Initialize 'traversed'
+                'common': 'False'      # Initialize 'common'
             }
         }
 
@@ -223,7 +235,6 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
 
     ### Single Traversal Function
     if triggered_id == 'single-traversal-button' and single_traversal_clicks:
-
         # Deselect all elements
         for element in elements:
             element['selected'] = False
@@ -243,22 +254,20 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
 
     ### Traversal Interval Function
     if triggered_id == 'traversal-interval' and traversal_path:
-
-        # Deselect all nodes and edges
+        # Reset 'traversed' attribute in element['data']
         for element in elements:
-            element['traversed'] = False
+            element['data']['traversed'] = 'False'
 
         # Select nodes and edges up to the current step
         for i in range(current_step + 1):
             node_id = traversal_path[i]
             for element in elements:
-                # Mark nodes as selected
+                # Mark nodes as traversed
                 if element['data']['id'] == node_id:
-                    element['traversed'] = True
-                # Mark edges as selected if they are part of the traversal path
-                if i > 0 and element['data'].get('source') == traversal_path[i - 1] and element['data'].get(
-                        'target') == node_id:
-                    element['traversed'] = True
+                    element['data']['traversed'] = 'True'
+                # Mark edges as traversed if they are part of the traversal path
+                if i > 0 and element['data'].get('source') == traversal_path[i - 1] and element['data'].get('target') == node_id:
+                    element['data']['traversed'] = 'True'
 
         # Check if traversal is complete
         if current_step >= len(traversal_path) - 1:
@@ -283,9 +292,9 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                     terminal_node_info)
 
     ### Multiple Traversal Function
-    if ctx.triggered_id == 'multiple-traversal-button' and multiple_traversal_clicks:
+    if triggered_id == 'multiple-traversal-button' and multiple_traversal_clicks:
         # Perform multiple traversals
-        traversal_results = multiple_traversals(elements, num_traversals=30)
+        traversal_results = multiple_traversals(elements, num_traversals=(int(10 ** selected_traversals)))
 
         # elements are already updated inside multiple_traversals with 'traversed' and 'common' attributes
         # So, you can return them directly

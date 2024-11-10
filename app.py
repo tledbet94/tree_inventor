@@ -12,6 +12,7 @@ from layout.callbacks.controls.edit.edit_button_highlight import manage_edit_but
 from layout.callbacks.controls.edit.edit_input import show_edit_input, edit_check_input
 from layout.callbacks.info import info_callback
 from layout.callbacks.cyto.cyto_callback import modify_cyto
+from layout.callbacks.controls.algo.slider import display_value
 
 app.layout = layout
 

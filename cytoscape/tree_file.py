@@ -10,8 +10,8 @@ default_elements = [
             'Productive?': 'Yes',
             'Mood Impact': 'Increase',
             'Fun Level': '6',
-            'traversed': False,  # Initial placeholder
-            'common': False      # Initial placeholder
+            'traversed': 'False',  # Initial placeholder
+            'common': 'False'      # Initial placeholder
         }
     },
     {
@@ -23,8 +23,8 @@ default_elements = [
             'Productive?': 'Yes',
             'Mood Impact': 'Increase',
             'Fun Level': '6',
-            'traversed': False,  # Initial placeholder
-            'common': False      # Initial placeholder
+            'traversed': 'False',  # Initial placeholder
+            'common': 'False'      # Initial placeholder
         }
     },
     {
@@ -37,8 +37,8 @@ default_elements = [
             'Productive?': 'Yes',
             'Mood Impact': 'Increase',
             'Fun Level': '6',
-            'traversed': False,  # Initial placeholder
-            'common': False      # Initial placeholder
+            'traversed': 'False',  # Initial placeholder
+            'common': 'False'      # Initial placeholder
         }
     },
     {
@@ -51,8 +51,8 @@ default_elements = [
             'Productive?': 'Yes',
             'Mood Impact': 'Increase',
             'Fun Level': '6',
-            'traversed': False,  # Initial placeholder
-            'common': False      # Initial placeholder
+            'traversed': 'False',  # Initial placeholder
+            'common': 'False'      # Initial placeholder
         }
     },
     {
@@ -65,8 +65,8 @@ default_elements = [
             'Productive?': 'Yes',
             'Mood Impact': 'Increase',
             'Fun Level': '6',
-            'traversed': False,  # Initial placeholder
-            'common': False      # Initial placeholder
+            'traversed': 'False',  # Initial placeholder
+            'common': 'False'      # Initial placeholder
         }
     },
     # Edges with additional properties
@@ -75,8 +75,8 @@ default_elements = [
             'source': 'root',
             'target': 'two',
             'weight': 37.5,
-            'traversed': False,  # Initial placeholder
-            'common': False      # Initial placeholder
+            'traversed': 'False',  # Initial placeholder
+            'common': 'False'      # Initial placeholder
         }
     },
     {
@@ -84,8 +84,8 @@ default_elements = [
             'source': 'root',
             'target': 'three',
             'weight': 37.5,
-            'traversed': False,  # Initial placeholder
-            'common': False      # Initial placeholder
+            'traversed': 'False',  # Initial placeholder
+            'common': 'False'      # Initial placeholder
         }
     },
     {
@@ -93,8 +93,8 @@ default_elements = [
             'source': 'two',
             'target': 'four',
             'weight': 75,
-            'traversed': False,  # Initial placeholder
-            'common': False      # Initial placeholder
+            'traversed': 'False',  # Initial placeholder
+            'common': 'False'      # Initial placeholder
         }
     },
     {
@@ -102,8 +102,8 @@ default_elements = [
             'source': 'two',
             'target': 'five',
             'weight': 75,
-            'traversed': False,  # Initial placeholder
-            'common': False      # Initial placeholder
+            'traversed': 'False',  # Initial placeholder
+            'common': 'False'      # Initial placeholder
         }
     }
 ]

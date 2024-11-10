@@ -72,22 +72,22 @@ stylesheet = [
         }
     },
 {
-    'selector': '[traversed]',
+    'selector': '[traversed = "True"]',
     'style': {
-        'background-color': '#567b79',
-        'line-gradient-stop-colors': '#4e584a #8ab060',
-        'border-color': '#8ab060',
-        'target-arrow-color': '#c2d368',
+        'background-color': '#8e478c',
+        'line-gradient-stop-colors': '#564064 #cd6093',
+        'border-color': '#cd6093',
+        'target-arrow-color': '#ffaeb6',
         'overlay-opacity': 0
     }
 },
 {
-    'selector': '[common]',
+    'selector': '[common = "True"]',
     'style': {
-        'background-color': '#edc8c4',
-        'line-gradient-stop-colors': '#5f556a #edc8c4',
-        'border-color': '#f2f0e5',
-        'target-arrow-color': '#f2f0e5',
+        'background-color': '#bf7958',
+        'line-gradient-stop-colors': '#7a444a #eea160',
+        'border-color': '#eea160',
+        'target-arrow-color': '#f4cca1',
         'overlay-opacity': 0
     }
 },

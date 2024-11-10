@@ -10,13 +10,10 @@
       <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cytoscape/cytoscape.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/cytoscape.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cytoscape/tree_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/tree_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/panel_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/panel_change.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/cyto_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/cyto_callback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/info/info_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/info/info_callback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/mutliple_recur.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/single_recur.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/algorithims.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/algorithims.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/home.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/panels.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/panels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/layout.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
