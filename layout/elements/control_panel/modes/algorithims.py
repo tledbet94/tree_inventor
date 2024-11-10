@@ -51,6 +51,12 @@ slider = html.Div([
     html.H3(id='algo-slider-text', children='', className='algo-slider-text')
 ])
 
+spinner = html.Div(id='algo-spinner',
+                   children=[dbc.Spinner(color='#4b80ca',
+                                         spinner_style={"width": "4vh", "height": "4vh"})],
+                   style={'textAlign': 'center', 'display': 'none'})
+
+
 algo = dbc.Container([
     interval_component,
     dcc.Store(id='terminal-node-info', data={}),
@@ -62,9 +68,9 @@ algo = dbc.Container([
     ),
     html.Div(style={"height": "2vh"}),
     dbc.Row([
-        dbc.Col(width=1),
+        dbc.Col(width=2),
         dbc.Col(single_traversal_button, align='center'),
-        dbc.Col(width=1)
+        dbc.Col(width=2)
     ], justify='center'),
     html.Div(style={"height": "12vh"}),
     dbc.Row([
@@ -79,12 +85,14 @@ algo = dbc.Container([
     ]),
     html.Div(style={"height": "12vh"}),
     dbc.Row([
-        dbc.Col(width=1),
+        dbc.Col(width=2),
         dbc.Col(multiple_traversal_button, align='center'),
-        dbc.Col(width=1)
+        dbc.Col(width=2)
     ], justify='center'),
     html.Div(style={"height": "4vh"}),
-    dbc.Row(slider)
+    dbc.Row(slider),
+    html.Div(style={"height": "1vh"}),
+    dbc.Row(spinner)
 ],
     fluid=True,
 )

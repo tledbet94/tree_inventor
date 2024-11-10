@@ -170,6 +170,10 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
     active_class = 'algo-output-active'
     passive_class = 'algo-output-passive'
 
+    # spinner for multiple traversal
+    not_loading = {'textAlign': 'center', 'display': 'block'}
+    loading = {'textAlign': 'center', 'display': 'none'}
+
     ### Rename Function
     if triggered_id == 'edit-input-button' and enter_clicks and tap_node and new_label and edit_selection == 'rename':
         # Update the label of the tapped node
@@ -178,7 +182,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                 element['data']['label'] = new_label
                 current_node_data = element['data']
                 break
-        return (elements, new_label, traversal_path, current_step, True, output_display_class, display_name, terminal_node_info)
+        return elements, new_label, traversal_path, current_step, True, output_display_class, display_name, terminal_node_info
 
     ### Add Function
     if triggered_id == 'edit-input-button' and enter_clicks and tap_node and new_label and edit_selection == 'add':
@@ -222,7 +226,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
         # Update current_node_data
         current_node_data = new_node['data']
 
-        return (elements, new_label, traversal_path, current_step, True, output_display_class, display_name, terminal_node_info)
+        return elements, new_label, traversal_path, current_step, True, output_display_class, display_name, terminal_node_info
 
     ### Remove Function
     if triggered_id == 'remove-button' and remove_clicks and tap_node:
@@ -231,7 +235,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                     and element['data'].get('source') != tap_node['data']['id']
                     and element['data'].get('target') != tap_node['data']['id']]
 
-        return (elements, '', traversal_path, current_step, True, output_display_class, display_name, terminal_node_info)
+        return elements, '', traversal_path, current_step, True, output_display_class, display_name, terminal_node_info
 
     ### Single Traversal Function
     if triggered_id == 'single-traversal-button' and single_traversal_clicks:
@@ -250,7 +254,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
         output_display_class = passive_class
         display_name = ''
 
-        return (elements, '', traversal_path, current_step, disabled, output_display_class, display_name, terminal_node_info)
+        return elements, '', traversal_path, current_step, disabled, output_display_class, display_name, terminal_node_info
 
     ### Traversal Interval Function
     if triggered_id == 'traversal-interval' and traversal_path:
@@ -288,8 +292,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
             # Continue traversal
             current_step += 1
             disabled = False
-            return (elements, '', traversal_path, current_step, disabled, output_display_class, display_name,
-                    terminal_node_info)
+            return elements, '', traversal_path, current_step, disabled, output_display_class, display_name, terminal_node_info
 
     ### Multiple Traversal Function
     if triggered_id == 'multiple-traversal-button' and multiple_traversal_clicks:
@@ -315,7 +318,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
         # No interval needed for multiple traversals
         disabled = True
 
-        return (elements, '', [], 0, disabled, output_display_class, display_name, terminal_node_info)
+        return elements, '', [], 0, disabled, output_display_class, display_name, terminal_node_info
 
     # Default return if no conditions are met
     raise PreventUpdate

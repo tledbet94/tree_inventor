@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/cytoscape.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/cytoscape.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/tree_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/tree_file.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/cyto_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/cyto_callback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/mutliple_recur.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/single_recur.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/algorithims.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/algorithims.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

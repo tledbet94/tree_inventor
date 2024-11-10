@@ -117,7 +117,7 @@ body {
     color: #b8b5b9 !important;
     display: flex;
     font-size: 42px;
-    height: 16vh;
+    height: 12vh;
     justify-content: center;
     overflow: hidden;
     padding: 0px;
@@ -579,3 +579,17 @@ body {
     margin-top: 10px; /* Adjust to make sure the invisible dots don't affect alignment */
 }
 
+/* Position the spinner at the bottom center */
+.dash-spinner {
+    position: fixed !important;
+    bottom: 20px !important;  /* Adjust this value to move the spinner up/down */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 4vh !important;    /* Adjust spinner size */
+    height: 4vh !important;
+}
+
+/* Ensure the loading overlay is transparent */
+.dash-loading-overlay {
+    background-color: transparent !important;
+}
