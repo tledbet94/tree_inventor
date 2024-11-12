@@ -587,9 +587,42 @@ body {
     transform: translateX(-50%) !important;
     width: 4vh !important;    /* Adjust spinner size */
     height: 4vh !important;
+
+}
+/* Progress bar container */
+.algo-progress {
+    background-color: #646365 !important; /* Background color */
+    height: 4vh; /* Adjust the height as needed */
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
 }
 
-/* Ensure the loading overlay is transparent */
-.dash-loading-overlay {
-    background-color: transparent !important;
+/* Progress bar */
+.algo-progress-bar {
+    background-color: #a2dcc7 !important; /* Set the progress bar color */
+    height: 100%; /* Fill the container vertically */
+    width: 0%; /* Initial width (will expand with progress) */
+    text-align: center;
+    color: #fff !important; /* Text color */
+    font-weight: bold; /* Make text bold */
+    font-size: 14px; /* Set text size */
+    transition: width 0.6s ease;
+    border-radius: 10px; /* Match container's border-radius */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+/* Remove striped effect and animation */
+.algo-progress-bar.algo-progress-bar-striped,
+.algo-progress-bar.algo-progress-bar-animated {
+    background-image: none !important;
+    animation: none !important;
+}
+
+/* Remove hover effect if not needed */
+.algo-progress-bar:hover {
+    cursor: default;
+}
+

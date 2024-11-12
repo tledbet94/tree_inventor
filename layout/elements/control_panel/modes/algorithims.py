@@ -1,7 +1,7 @@
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 
-algo_title = html.H1('ALGORITHIMS', className='edit-header-text')
+algo_title = html.H1('ALGORITHMS', className='edit-header-text')
 
 single_traversal_button = dbc.Button(
     id='single-traversal-button',
@@ -33,7 +33,7 @@ multiple_traversal_button = dbc.Button(
 
 interval_component = dcc.Interval(
     id='display-toggle-interval',
-    interval=2000,  # 1.2 seconds to allow opacity transition to complete
+    interval=2000,
     n_intervals=0,
     disabled=True
 )
@@ -51,15 +51,24 @@ slider = html.Div([
     html.H3(id='algo-slider-text', children='', className='algo-slider-text')
 ])
 
-spinner = html.Div(id='algo-spinner',
-                   children=[dbc.Spinner(color='#4b80ca',
-                                         spinner_style={"width": "4vh", "height": "4vh"})],
-                   style={'textAlign': 'center', 'display': 'none'})
-
+multiple_traversal_progress = dbc.Progress(
+    value=0,
+    id="multiple-traversal-progress",
+    animated=False,
+    striped=False,
+    style={
+        'display': 'none',
+    },
+    class_name='algo-progress algo-progress-bar',
+    max=100,
+    min=0
+)
 
 algo = dbc.Container([
     interval_component,
     dcc.Store(id='terminal-node-info', data={}),
+    dcc.Interval(id='multiple-traversal-interval', interval=500, n_intervals=0, disabled=True),
+    dcc.Store(id='multiple-traversal-state', data={}),
     dbc.Row(
         dbc.Col(
             algo_title
@@ -92,7 +101,7 @@ algo = dbc.Container([
     html.Div(style={"height": "4vh"}),
     dbc.Row(slider),
     html.Div(style={"height": "1vh"}),
-    dbc.Row(spinner)
+    dbc.Row(multiple_traversal_progress)
 ],
     fluid=True,
 )
