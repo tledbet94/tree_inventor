@@ -84,10 +84,10 @@ stylesheet = [
 {
     'selector': '[common = "True"]',
     'style': {
-        'background-color': '#bf7958',
-        'line-gradient-stop-colors': '#7a444a #eea160',
-        'border-color': '#eea160',
-        'target-arrow-color': '#f4cca1',
+        'background-color': '#cd6093',
+        'line-gradient-stop-colors': '#cd6093 #ffaeb6',
+        'border-color': '#ffaeb6',
+        'target-arrow-color': '#ffaeb6',
         'overlay-opacity': 0
     }
 },

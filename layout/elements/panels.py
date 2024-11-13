@@ -6,6 +6,7 @@ from .bottom_row.button_row import button_row
 from .control_panel.modes.home import home
 from .control_panel.modes.edit import edit
 from .control_panel.modes.algorithims import algo
+from .control_panel.modes.weights import weights
 # For info panel
 from .info_panel.info_components import info_contents
 
@@ -15,6 +16,7 @@ control_panel = html.Div(
         html.Div(home, id='home-mode', style={'display': 'block'}),
         html.Div(edit, id='edit-mode', style={'display': 'none'}),
         html.Div(algo, id='algo-mode', style={'display': 'none'}),
+        html.Div(weights, id='weights-mode', style={'display': 'none'}),
     ],
     style={
         'height': '90vh',
@@ -22,7 +24,6 @@ control_panel = html.Div(
     },
     className="menu-div"
 )
-
 
 info_panel = html.Div(
     children=[

@@ -88,6 +88,16 @@ body {
     width: 8vh;
 }
 
+/* Disabled state styles */
+.bottom-row-button:disabled {
+    opacity: 1; /* Ensure opacity is not reduced */
+    cursor: not-allowed; /* Optionally change cursor */
+    pointer-events: none; /* Disable interactions */
+    /* Retain existing styles */
+    background-color: #b8b5b9;
+    color: #5f556a !important;
+}
+
 .bottom-row-button:active,
 .bottom-row-button:focus,
 .bottom-row-button.active {
@@ -122,6 +132,16 @@ body {
     overflow: hidden;
     padding: 0px;
     transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Disabled state styles */
+.algo-button:disabled {
+    opacity: 1;
+    cursor: not-allowed;
+    pointer-events: none;
+    /* Retain existing styles */
+    background-color: #5f556a;
+    color: #b8b5b9 !important;
 }
 
 .algo-button:hover {
@@ -292,6 +312,17 @@ body {
         -3px -3px 3px #4b4158;
 }
 
+/* Disabled state styles */
+.edit-button:disabled {
+    opacity: 1;
+    cursor: not-allowed;
+    pointer-events: none;
+    /* Retain existing styles */
+    background-color: #352b42 !important;
+    color: #868188 !important;
+}
+
+
 /* edit-button */
 /* used for modifying the tree in "edit" section */
 .edit-button {
@@ -348,7 +379,7 @@ body {
 /* For the tooltip question mark */
 /* Standalone icon */
 .icon-style-question-mark {
-    font-size: 6rem;
+    font-size: 8vh;
     color: #352b42;
     opacity: 0.2;
     transition: color 0.5s ease-in-out;
@@ -369,7 +400,6 @@ body {
     color: #f2f0e5;
     display: flex;
     font-size: 28px;
-    height: 50px;
     justify-content: center;
     outline: none;
     overflow: hidden;
@@ -380,6 +410,30 @@ body {
 }
 
 .edit-input-button:hover {
+    background-color: #8ab060 !important;
+    box-shadow: 4px 4px 5px #646365;
+    color: #f2f0e5 !important;
+    outline: none;
+}
+
+.weights-input-button {
+    align-items: center;
+    background-color: #8ab060;
+    border-radius: 20%;
+    box-shadow: 2px 2px 5px #646365;
+    color: #f2f0e5;
+    display: flex;
+    font-size: 28px;
+    justify-content: center;
+    outline: none;
+    overflow: hidden;
+    padding: 0px;
+    transition: all 0.2s ease-in-out;
+    height: 7vh;
+    width: 9vh;
+}
+
+.weights-input-button:hover {
     background-color: #8ab060 !important;
     box-shadow: 4px 4px 5px #646365;
     color: #f2f0e5 !important;
@@ -399,6 +453,21 @@ body {
     text-align: left;
     vertical-align: top;
     width: 80%;
+}
+
+/* Feedback screen that pops up in edit mode */
+.input-feedback-div-weights {
+    background-color: #397b44;
+    border: 12px solid #3c5956;
+    border-radius: 35px;
+    box-shadow: 5px 5px 5px #45444f;
+    color: #f2f0e5;
+    display: block;
+    height: 12vh;
+    padding: 5px;
+    text-align: left;
+    vertical-align: top;
+    width: 100%;
 }
 
 /* The input that pops up in edit mode */
@@ -424,6 +493,32 @@ body {
 }
 
 .edit-input-font {
+    font-size: 24px;
+    text-shadow: 2px 2px 4px #b8b5b9;
+}
+
+
+.weights-input {
+    border: 12px solid #b8b5b9;
+    background-color: #f2f0e5;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px #646365;
+    color: #352b42;
+    font-size: 24px;
+    outline: none;
+    padding: 10px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Change border and shadow when the input is focused */
+.weights-input:focus {
+    background-color: #f2f0e5;
+    border: 12px solid #b8b5b9;
+    box-shadow: 4px 4px 5px #646365;
+    color: #352b42;
+}
+
+.weights-input-font {
     font-size: 24px;
     text-shadow: 2px 2px 4px #b8b5b9;
 }
@@ -579,6 +674,43 @@ body {
     margin-top: 10px; /* Adjust to make sure the invisible dots don't affect alignment */
 }
 
+/* Existing styles for the slider */
+
+/* Additional styling for the disabled state */
+.algo-slider .rc-slider-disabled {
+    pointer-events: none; /* Disable interactions */
+}
+
+/* Override unexpected background in the disabled state */
+.algo-slider .rc-slider-disabled .rc-slider-rail {
+    background-color: #646365; /* Set to match your active rail color */
+    border: 4px solid #868188;
+}
+
+/* Ensure the track and handle look the same when disabled */
+.algo-slider .rc-slider-disabled .rc-slider-track {
+    background-color: #4b80ca; /* Same as enabled */
+    border: 4px solid #68c2d3;
+}
+
+.algo-slider .rc-slider-disabled .rc-slider-handle {
+    background-color: #4b80ca; /* Same as enabled */
+    border: 2px solid #68c2d3;
+    box-shadow: 0 0 5px #a2dcc7;
+    opacity: 1; /* Prevent handle from appearing grayed out */
+}
+
+/* Additional overrides to prevent any unexpected backgrounds */
+.algo-slider .rc-slider-disabled {
+    background: none !important; /* Remove any additional background */
+}
+
+/* Ensure no background is applied to the slider wrapper or container */
+.algo-slider .rc-slider-disabled .rc-slider {
+    background: none !important;
+}
+
+
 /* Position the spinner at the bottom center */
 .dash-spinner {
     position: fixed !important;
@@ -589,40 +721,76 @@ body {
     height: 4vh !important;
 
 }
-/* Progress bar container */
+/* Style the background of the progress bar */
 .algo-progress {
-    background-color: #646365 !important; /* Background color */
-    height: 4vh; /* Adjust the height as needed */
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
+    background-color: #b8b5b9;
+    border-radius: 40px;
+    display: none;
+    height: 4vh;
+    padding: 0 0px;
+    width: 90%;
 }
 
-/* Progress bar */
-.algo-progress-bar {
-    background-color: #a2dcc7 !important; /* Set the progress bar color */
-    height: 100%; /* Fill the container vertically */
-    width: 0%; /* Initial width (will expand with progress) */
-    text-align: center;
-    color: #fff !important; /* Text color */
-    font-weight: bold; /* Make text bold */
-    font-size: 14px; /* Set text size */
+/* Style the filled bar */
+.algo-progress .progress-bar {
+    background-color: #a2dcc7;
+    border-radius: 40px;
+    color: #352b42;
+    font-size: 18px;
+    height: 4vh;
     transition: width 0.6s ease;
-    border-radius: 10px; /* Match container's border-radius */
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* Remove striped effect and animation */
-.algo-progress-bar.algo-progress-bar-striped,
-.algo-progress-bar.algo-progress-bar-animated {
-    background-image: none !important;
-    animation: none !important;
+/* Add stripes */
+.algo-progress .progress-bar {
+    background-image: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.15) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0.15) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size: 1rem 1rem;
 }
 
-/* Remove hover effect if not needed */
-.algo-progress-bar:hover {
-    cursor: default;
+/* Add animation */
+.algo-progress .progress-bar {
+    animation: progress-bar-stripes 1s linear infinite;
 }
 
+@keyframes progress-bar-stripes {
+    from {
+        background-position: 1rem 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+
+/* Responsive height */
+@media (max-width: 600px) {
+    .algo-progress {
+        height: 3vh;
+    }
+}
+
+/* Custom tooltip styling */
+.algo-tooltip .tooltip-inner {
+    width: 50vh; /* Make tooltip large */
+    height: 50vh; /* Make tooltip square */
+    max-width: none; /* Override default max-width */
+    background-color: #4b80ca; /* Custom background color */
+    color: #ffffff; /* Text color */
+    font-size: 24px; /* Font size for readability */
+    text-align: center; /* Center text */
+    border-radius: 10px; /* Optional: adjust radius for softer edges */
+    padding: 10px; /* Add padding */
+}
+
+/* Adjust tooltip arrow color to match the background */
+.algo-tooltip.bs-tooltip-right .arrow::before {
+    border-right-color: #4b80ca; /* Same as tooltip background color */
+}

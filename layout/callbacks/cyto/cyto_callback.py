@@ -130,6 +130,7 @@ def multiple_traversals_batch(graph, node_weights, batch_size, state=None):
         Output('multiple-traversal-progress', 'value'),
         Output('multiple-traversal-progress', 'style'),
         Output('multiple-traversal-progress', 'label'),
+        Output('traversal-running', 'data'),  # Added output for traversal-running state
     ],
     [
         Input('edit-input-button', 'n_clicks'),
@@ -138,6 +139,7 @@ def multiple_traversals_batch(graph, node_weights, batch_size, state=None):
         Input('traversal-interval', 'n_intervals'),
         Input('multiple-traversal-button', 'n_clicks'),
         Input('multiple-traversal-interval', 'n_intervals'),
+        Input('active-button-store', 'data')
     ],
     [
         State('cytoscape', 'elements'),
@@ -151,15 +153,16 @@ def multiple_traversals_batch(graph, node_weights, batch_size, state=None):
         State('terminal-node-info', 'data'),
         State('algo-slider', 'value'),
         State('multiple-traversal-state', 'data'),
+        State('traversal-running', 'data'),  # Added state for traversal-running
     ]
 )
 def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_intervals,
-                multiple_traversal_clicks, multiple_traversal_n_intervals,
+                multiple_traversal_clicks, multiple_traversal_n_intervals, selected_panel,
                 elements, tap_node, new_label, edit_selection,
                 traversal_path, current_step, output_display_class, display_name, terminal_node_info,
-                selected_traversals, multiple_traversal_state):
-
+                selected_traversals, multiple_traversal_state, traversal_running):
     # Determine which Input triggered the callback
+
     triggered_id = ctx.triggered_id if ctx.triggered else None
 
     # Initialize variables
@@ -167,13 +170,20 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
     traversal_path = traversal_path or []
     current_step = current_step or 0
     current_node_data = None  # Initialize current_node_data
-    progress_value = 0.0
+    progress_value = 0
     progress_style = {'display': 'none'}
     progress_label = ''
+    traversal_running = traversal_running or False  # Initialize traversal_running
 
     # CSS Classes for Transition
     active_class = 'algo-output-active'
     passive_class = 'algo-output-passive'
+
+    # wipe the common and traversed styles if traversal was run in algo section
+    if selected_panel != 'algo':
+        for element in elements:
+            element['data']['traversed'] = 'False'
+            element['data']['common'] = 'False'
 
     ### Rename Function
     if triggered_id == 'edit-input-button' and enter_clicks and tap_node and new_label and edit_selection == 'rename':
@@ -184,7 +194,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                 current_node_data = element['data']
                 break
         # Hide the progress bar
-        return elements, new_label, traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label
+        return elements, new_label, traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label, traversal_running
 
     ### Add Function
     if triggered_id == 'edit-input-button' and enter_clicks and tap_node and new_label and edit_selection == 'add':
@@ -229,7 +239,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
         current_node_data = new_node['data']
 
         # Hide the progress bar
-        return elements, new_label, traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label
+        return elements, new_label, traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label, traversal_running
 
     ### Remove Function
     if triggered_id == 'remove-button' and remove_clicks and tap_node:
@@ -239,7 +249,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                     and element['data'].get('target') != tap_node['data']['id']]
 
         # Hide the progress bar
-        return elements, '', traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label
+        return elements, '', traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label, traversal_running
 
     ### Single Traversal Function
     if triggered_id == 'single-traversal-button' and single_traversal_clicks:
@@ -263,8 +273,11 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
         output_display_class = passive_class
         display_name = ''
 
+        # Set traversal_running to True
+        traversal_running = True
+
         # Hide the progress bar
-        return elements, '', traversal_path, current_step, disabled, output_display_class, display_name, {}, True, {}, progress_value, progress_style, progress_label
+        return elements, '', traversal_path, current_step, disabled, output_display_class, display_name, {}, True, {}, progress_value, progress_style, progress_label, traversal_running
 
     ### Traversal Interval Function
     if triggered_id == 'traversal-interval' and traversal_path:
@@ -298,14 +311,18 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
             display_name = current_node_data['label'] if current_node_data else ''
             terminal_node_info = current_node_data
 
+            # Set traversal_running to False
+            traversal_running = False
+
             # Hide the progress bar
             return (elements, '', traversal_path, current_step, disabled, output_display_class, display_name,
-                    terminal_node_info, True, {}, progress_value, progress_style, progress_label)
+                    terminal_node_info, True, {}, progress_value, progress_style, progress_label, traversal_running)
         else:
             # Continue traversal
             current_step += 1
             disabled = False
-            return elements, '', traversal_path, current_step, disabled, output_display_class, display_name, {}, True, {}, progress_value, progress_style, progress_label
+            # traversal_running remains True
+            return elements, '', traversal_path, current_step, disabled, output_display_class, display_name, {}, True, {}, progress_value, progress_style, progress_label, traversal_running
 
     ### Multiple Traversal Function (Start)
     if triggered_id == 'multiple-traversal-button' and multiple_traversal_clicks:
@@ -340,18 +357,22 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
         disabled = False
 
         # Initialize progress bar
-        progress_value = 0.0
+        progress_value = 0
         progress_style = {'display': 'block', 'width': '100%'}
         progress_label = '0%'
 
-        return elements, '', [], 0, True, output_display_class, display_name, {}, disabled, state, progress_value, progress_style, progress_label
+        # Set traversal_running to True
+        traversal_running = True
+
+        return elements, '', [], 0, True, output_display_class, display_name, {}, disabled, state, progress_value, progress_style, progress_label, traversal_running
 
     ### Multiple Traversal Interval Function
     if triggered_id == 'multiple-traversal-interval':
         if multiple_traversal_state is None:
             # No state, nothing to do
             disabled = True
-            return elements, '', [], 0, True, output_display_class, display_name, {}, disabled, None, progress_value, progress_style, progress_label
+            traversal_running = False
+            return elements, '', [], 0, True, output_display_class, display_name, {}, disabled, None, progress_value, progress_style, progress_label, traversal_running
 
         # Read the state
         state = multiple_traversal_state
@@ -366,6 +387,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
         if batch_size <= 0:
             # All traversals completed
             disabled = True
+            traversal_running = False
 
             # Set progress bar value to 100, hide progress bar
             progress_value = 100.0
@@ -420,7 +442,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
             state.pop('graph', None)
             state.pop('node_weights', None)
 
-            return elements, '', [], 0, True, output_display_class, display_name, terminal_node_info, disabled, None, progress_value, progress_style, progress_label
+            return elements, '', [], 0, True, output_display_class, display_name, terminal_node_info, disabled, None, progress_value, progress_style, progress_label, traversal_running
 
         else:
             # Process a batch of traversals
@@ -431,7 +453,8 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
 
             # Compute progress value
             progress_value = (state['traversals_completed'] / state['total_traversals']) * 100.0
-            progress_label = f"{progress_value:.1f}%"
+            progress_value = int(progress_value)
+            progress_label = f"{progress_value}%"
 
             # Keep the progress bar visible
             progress_style = {'display': 'block', 'width': '100%'}
@@ -463,9 +486,11 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
 
             # Keep the interval enabled
             disabled = False
+            traversal_running = True
 
             # For performance, we can limit updates to elements periodically
-            return elements, '', [], 0, True, output_display_class, display_name, {}, disabled, state, progress_value, progress_style, progress_label
+            return elements, '', [], 0, True, output_display_class, display_name, {}, disabled, state, progress_value, progress_style, progress_label, traversal_running
 
     # Default return if no conditions are met
-    raise PreventUpdate
+    return elements, '', traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label, traversal_running
+

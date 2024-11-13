@@ -13,6 +13,8 @@ from layout.callbacks.controls.edit.edit_input import show_edit_input, edit_chec
 from layout.callbacks.info import info_callback
 from layout.callbacks.cyto.cyto_callback import modify_cyto
 from layout.callbacks.controls.algo.slider import display_value
+from layout.callbacks.controls.algo.traversal_deactivate import update_disabled_buttons
+from layout.callbacks.controls.weights.weights_input_callback import show_weights_input
 
 app.layout = layout
 
