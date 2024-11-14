@@ -99,29 +99,29 @@ edit = html.Div([
     dcc.Store(id='enter-pressed-bool', data=False),
     dcc.Store(id='selected-edit', data=''),
     html.H1('MODIFY TREE', className='edit-header-text'),
-    html.Div(style={"height": "2vh"}),
+    html.Div(style={"height": "5vh"}),
     dbc.Row([
         dbc.Col(width=2),
         dbc.Col(rename_node_button, width=5),
         dbc.Col(rename_info, align='end', width=5)
     ]),
-    html.Div(style={"height": "3vh"}),
+    html.Div(style={"height": "5vh"}),
     dbc.Row([
         dbc.Col(width=2),
         dbc.Col(add_node_button, width=5),
         dbc.Col(add_info, align='end', width=5)
     ]),
-    html.Div(style={"height": "3vh"}),
+    html.Div(style={"height": "5vh"}),
     dbc.Row([
         dbc.Col(width=2),
         dbc.Col(remove_node_button, width=5),
         dbc.Col(remove_info, align='end', width=5),
     ]),
-    html.Div(style={"height": "4vh"}),
+    html.Div(style={"height": "8vh"}),
     dbc.Row([
         dbc.Col(edit_input_feedback),
     ], id='edit-input-feedback-row', className='hidden-opacity'),
-    html.Div(style={"height": "2vh"}),
+    html.Div(style={"height": "3vh"}),
     dbc.Row([
         dbc.Col(width=1),
         dbc.Col(edit_input, width=8),

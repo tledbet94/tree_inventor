@@ -22,7 +22,7 @@ card = dbc.Card(
                 style={
                     'white-space': 'pre-wrap',  # Allows text to wrap instead of extending in one line
                     'overflow': 'hidden',  # Prevents the scrollbar from appearing
-                    'font-size': '18px'
+                    'font-size': '14px'
                 }
             ),
             html.H6("Author: "),
