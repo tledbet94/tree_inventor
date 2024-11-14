@@ -10,8 +10,9 @@ default_elements = [
             'Productive?': 'Yes',
             'Mood Impact': 'Increase',
             'Fun Level': '6',
-            'traversed': 'False',  # Initial placeholder
-            'common': 'False'      # Initial placeholder
+            'traversed': 'False',
+            'common': 'False',
+            'invalid_weight': 'False'  # Added invalid_weight attribute
         }
     },
     {
@@ -23,50 +24,54 @@ default_elements = [
             'Productive?': 'Yes',
             'Mood Impact': 'Increase',
             'Fun Level': '6',
-            'traversed': 'False',  # Initial placeholder
-            'common': 'False'      # Initial placeholder
+            'traversed': 'False',
+            'common': 'False',
+            'invalid_weight': 'False'  # Added invalid_weight attribute
         }
     },
     {
         'data': {
             'id': 'three',
             'label': 'Take Shower',
-            'weight': 25,
+            'weight': 100,
             'children': 0,
             'level': 2,
             'Productive?': 'Yes',
             'Mood Impact': 'Increase',
             'Fun Level': '6',
-            'traversed': 'False',  # Initial placeholder
-            'common': 'False'      # Initial placeholder
+            'traversed': 'False',
+            'common': 'False',
+            'invalid_weight': 'False'  # Added invalid_weight attribute
         }
     },
     {
         'data': {
             'id': 'four',
             'label': 'Drink Coffee',
-            'weight': 25,
+            'weight': 100,
             'children': 0,
             'level': 3,
             'Productive?': 'Yes',
             'Mood Impact': 'Increase',
             'Fun Level': '6',
-            'traversed': 'False',  # Initial placeholder
-            'common': 'False'      # Initial placeholder
+            'traversed': 'False',
+            'common': 'False',
+            'invalid_weight': 'False'  # Added invalid_weight attribute
         }
     },
     {
         'data': {
             'id': 'five',
             'label': 'Stretch',
-            'weight': 25,
+            'weight': 100,
             'children': 0,
             'level': 3,
             'Productive?': 'Yes',
             'Mood Impact': 'Increase',
             'Fun Level': '6',
-            'traversed': 'False',  # Initial placeholder
-            'common': 'False'      # Initial placeholder
+            'traversed': 'False',
+            'common': 'False',
+            'invalid_weight': 'False'  # Added invalid_weight attribute
         }
     },
     # Edges with additional properties
@@ -75,8 +80,9 @@ default_elements = [
             'source': 'root',
             'target': 'two',
             'weight': 37.5,
-            'traversed': 'False',  # Initial placeholder
-            'common': 'False'      # Initial placeholder
+            'traversed': 'False',
+            'common': 'False',
+            'invalid_weight': 'False'  # Added invalid_weight attribute
         }
     },
     {
@@ -84,8 +90,9 @@ default_elements = [
             'source': 'root',
             'target': 'three',
             'weight': 37.5,
-            'traversed': 'False',  # Initial placeholder
-            'common': 'False'      # Initial placeholder
+            'traversed': 'False',
+            'common': 'False',
+            'invalid_weight': 'False'  # Added invalid_weight attribute
         }
     },
     {
@@ -93,8 +100,9 @@ default_elements = [
             'source': 'two',
             'target': 'four',
             'weight': 75,
-            'traversed': 'False',  # Initial placeholder
-            'common': 'False'      # Initial placeholder
+            'traversed': 'False',
+            'common': 'False',
+            'invalid_weight': 'False'  # Added invalid_weight attribute
         }
     },
     {
@@ -102,8 +110,9 @@ default_elements = [
             'source': 'two',
             'target': 'five',
             'weight': 75,
-            'traversed': 'False',  # Initial placeholder
-            'common': 'False'      # Initial placeholder
+            'traversed': 'False',
+            'common': 'False',
+            'invalid_weight': 'False'  # Added invalid_weight attribute
         }
     }
 ]

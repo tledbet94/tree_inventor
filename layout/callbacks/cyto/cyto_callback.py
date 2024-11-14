@@ -1,4 +1,4 @@
-from dash import Input, Output, State, ctx, dcc
+from dash import Input, Output, State, ctx, dcc, dash
 from app_instance import app
 import copy
 import random
@@ -130,7 +130,12 @@ def multiple_traversals_batch(graph, node_weights, batch_size, state=None):
         Output('multiple-traversal-progress', 'value'),
         Output('multiple-traversal-progress', 'style'),
         Output('multiple-traversal-progress', 'label'),
-        Output('traversal-running', 'data'),  # Added output for traversal-running state
+        Output('traversal-running', 'data'),
+        # Outputs for weight adjustment
+        Output('manual-input-feedback', 'children'),
+        Output('system-weights-progress', 'value'),
+        Output('system-weights-progress', 'style'),
+        Output('system-weights-progress', 'label'),
     ],
     [
         Input('edit-input-button', 'n_clicks'),
@@ -139,11 +144,15 @@ def multiple_traversals_batch(graph, node_weights, batch_size, state=None):
         Input('traversal-interval', 'n_intervals'),
         Input('multiple-traversal-button', 'n_clicks'),
         Input('multiple-traversal-interval', 'n_intervals'),
-        Input('active-button-store', 'data')
+        Input('weights-input-button', 'n_clicks'),
+        Input('manual-button', 'n_clicks'),
+        Input('auto-button', 'n_clicks'),
+        Input('active-button-store', 'data'),
     ],
     [
         State('cytoscape', 'elements'),
         State('cytoscape', 'tapNode'),
+        State('cytoscape', 'tapEdge'),  # Added tapEdge here
         State('edit-input', 'value'),
         State('selected-edit', 'data'),
         State('traversal-path', 'data'),
@@ -153,16 +162,21 @@ def multiple_traversals_batch(graph, node_weights, batch_size, state=None):
         State('terminal-node-info', 'data'),
         State('algo-slider', 'value'),
         State('multiple-traversal-state', 'data'),
-        State('traversal-running', 'data'),  # Added state for traversal-running
+        State('traversal-running', 'data'),
+        # States for weight adjustment
+        State('weights-input', 'value'),
+        State('manual-button', 'className'),
+        State('auto-button', 'className'),
     ]
 )
 def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_intervals,
-                multiple_traversal_clicks, multiple_traversal_n_intervals, selected_panel,
-                elements, tap_node, new_label, edit_selection,
+                multiple_traversal_clicks, multiple_traversal_n_intervals,
+                weights_enter_clicks, manual_button_clicks, auto_button_clicks, selected_panel,
+                elements, tap_node, tap_edge, new_label, edit_selection,
                 traversal_path, current_step, output_display_class, display_name, terminal_node_info,
-                selected_traversals, multiple_traversal_state, traversal_running):
+                selected_traversals, multiple_traversal_state, traversal_running,
+                weights_input_value, manual_button_classname, auto_button_classname):
     # Determine which Input triggered the callback
-
     triggered_id = ctx.triggered_id if ctx.triggered else None
 
     # Initialize variables
@@ -170,20 +184,230 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
     traversal_path = traversal_path or []
     current_step = current_step or 0
     current_node_data = None  # Initialize current_node_data
-    progress_value = 0
-    progress_style = {'display': 'none'}
-    progress_label = ''
+    progress_value = dash.no_update
+    progress_style = dash.no_update
+    progress_label = dash.no_update
     traversal_running = traversal_running or False  # Initialize traversal_running
+    manual_input_feedback_children = dash.no_update
+    system_weights_progress_value = dash.no_update
+    system_weights_progress_style = dash.no_update
+    system_weights_progress_label = dash.no_update
 
     # CSS Classes for Transition
     active_class = 'algo-output-active'
     passive_class = 'algo-output-passive'
 
-    # wipe the common and traversed styles if traversal was run in algo section
+    # Wipe the common and traversed styles if traversal was run in algo section
     if selected_panel != 'algo':
         for element in elements:
             element['data']['traversed'] = 'False'
             element['data']['common'] = 'False'
+
+    ### Weight Adjustment Function
+    if triggered_id == 'weights-input-button' and weights_enter_clicks and weights_input_value is not None:
+        # Determine the mode
+        if 'active' in manual_button_classname:
+            mode = 'manual'
+        elif 'active' in auto_button_classname:
+            mode = 'automatic'
+        else:
+            mode = 'manual'  # Default to manual mode
+
+        # Convert input value to float
+        try:
+            entered_weight = float(weights_input_value)
+        except ValueError:
+            entered_weight = 0.0  # Handle invalid input
+
+        # Clamp entered_weight between 0 and 100
+        entered_weight = max(0.0, min(entered_weight, 100.0))
+
+        # Check if a node or an edge is selected
+        if tap_node:
+            selected_element_id = tap_node['data']['id']
+            selected_element_type = 'node'
+        elif tap_edge:
+            selected_element_id = tap_edge['data']['id']
+            selected_element_type = 'edge'
+        else:
+            # No element selected, do nothing
+            manual_input_feedback_children = "No element selected. Please select a node or edge."
+            return (
+                elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
+                terminal_node_info, True, multiple_traversal_state, dash.no_update, dash.no_update, dash.no_update,
+                traversal_running, manual_input_feedback_children, system_weights_progress_value,
+                system_weights_progress_style, system_weights_progress_label
+            )
+
+        # Update the weight of the selected element
+        for element in elements:
+            if element['data']['id'] == selected_element_id:
+                element['data']['weight'] = entered_weight
+                break
+
+        # Now, depending on whether it's a node or an edge, proceed accordingly
+        if selected_element_type == 'node':
+            # Get outgoing edges from the selected node
+            outgoing_edges = [elem for elem in elements if 'source' in elem['data'] and elem['data']['source'] == selected_element_id]
+
+            # Sum of outgoing edge weights
+            total_outgoing_edges_weight = sum(elem['data'].get('weight', 0) for elem in outgoing_edges)
+
+            # Calculate total system weight
+            total_system_weight = entered_weight + total_outgoing_edges_weight
+
+            if mode == 'manual':
+                # Manual mode: Validate the system and provide feedback
+                # Do not adjust any weights automatically
+                # Validate the current system
+                if abs(total_system_weight - 100.0) > 0.01:
+                    # System weight is invalid
+                    feedback_message = f"System weight is invalid: {total_system_weight:.2f}% (should be 100%)"
+                    # Mark nodes and edges in this system as invalid
+                    for element in elements:
+                        if element['data']['id'] == selected_element_id:
+                            element['data']['invalid_weight'] = 'True'
+                        if 'source' in element['data'] and element['data']['source'] == selected_element_id:
+                            element['data']['invalid_weight'] = 'True'
+                else:
+                    # System weight is valid
+                    feedback_message = "All system weights are valid"
+                    # Mark nodes and edges in this system as valid
+                    for element in elements:
+                        if element['data']['id'] == selected_element_id:
+                            element['data']['invalid_weight'] = 'False'
+                        if 'source' in element['data'] and element['data']['source'] == selected_element_id:
+                            element['data']['invalid_weight'] = 'False'
+
+                # Update progress bar
+                progress_value = max(0.0, min(total_system_weight, 100.0))
+                progress_label = ''  # Remove text from progress bar
+                progress_style = {'display': 'block', 'width': '100%'}
+
+                manual_input_feedback_children = feedback_message
+
+                return (
+                    elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
+                    terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label,
+                    traversal_running, manual_input_feedback_children, progress_value, progress_style, progress_label
+                )
+
+            elif mode == 'automatic':
+                # Automatic mode: Adjust outgoing edge weights to maintain 100% total
+                remaining_weight = 100.0 - entered_weight
+                num_edges = len(outgoing_edges)
+                if num_edges > 0:
+                    equal_weight = remaining_weight / num_edges
+                    for edge in outgoing_edges:
+                        edge['data']['weight'] = equal_weight
+                else:
+                    # No outgoing edges; total system weight is just the node's weight
+                    pass
+
+                # Update feedback
+                feedback_message = "Weights have been automatically adjusted to maintain a total system weight of 100%."
+
+                # Update progress bar to 100%
+                progress_value = 100.0
+                progress_label = "100.00%"
+                progress_style = {'display': 'block', 'width': '100%'}
+
+                manual_input_feedback_children = feedback_message
+
+                # Mark nodes and edges as valid
+                for element in elements:
+                    if element['data']['id'] == selected_element_id:
+                        element['data']['invalid_weight'] = 'False'
+                    if 'source' in element['data'] and element['data']['source'] == selected_element_id:
+                        element['data']['invalid_weight'] = 'False'
+
+                return (
+                    elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
+                    terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label,
+                    traversal_running, manual_input_feedback_children, progress_value, progress_style, progress_label
+                )
+
+        elif selected_element_type == 'edge':
+            # Get the source node of the edge
+            source_node_id = tap_edge['data']['source']
+            source_node = next((elem for elem in elements if elem['data']['id'] == source_node_id), None)
+            if source_node:
+                node_weight = source_node['data'].get('weight', 0)
+            else:
+                node_weight = 0
+
+            # Get outgoing edges from the source node
+            outgoing_edges = [elem for elem in elements if 'source' in elem['data'] and elem['data']['source'] == source_node_id]
+
+            # Sum of outgoing edge weights
+            total_outgoing_edges_weight = sum(elem['data'].get('weight', 0) for elem in outgoing_edges)
+
+            # Calculate total system weight
+            total_system_weight = node_weight + total_outgoing_edges_weight
+
+            if mode == 'manual':
+                # Manual mode: Validate the system and provide feedback
+                # Do not adjust any weights automatically
+                if abs(total_system_weight - 100.0) > 0.01:
+                    # System weight is invalid
+                    feedback_message = f"System weight is invalid: {total_system_weight:.2f}% (should be 100%)"
+                    # Mark nodes and edges in this system as invalid
+                    for element in elements:
+                        if element['data']['id'] == source_node_id:
+                            element['data']['invalid_weight'] = 'True'
+                        if 'source' in element['data'] and element['data']['source'] == source_node_id:
+                            element['data']['invalid_weight'] = 'True'
+                else:
+                    # System weight is valid
+                    feedback_message = "All system weights are valid"
+                    # Mark nodes and edges in this system as valid
+                    for element in elements:
+                        if element['data']['id'] == source_node_id:
+                            element['data']['invalid_weight'] = 'False'
+                        if 'source' in element['data'] and element['data']['source'] == source_node_id:
+                            element['data']['invalid_weight'] = 'False'
+
+                # Update progress bar
+                progress_value = max(0.0, min(total_system_weight, 100.0))
+                progress_label = f"{progress_value:.2f}%"
+                progress_style = {'display': 'block', 'width': '100%'}
+
+                manual_input_feedback_children = feedback_message
+
+                return (
+                    elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
+                    terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label,
+                    traversal_running, manual_input_feedback_children, progress_value, progress_style, progress_label
+                )
+
+            elif mode == 'automatic':
+                # Automatic mode: Adjust the source node's weight to maintain 100%
+                remaining_weight = 100.0 - (total_outgoing_edges_weight - entered_weight)
+                if source_node:
+                    source_node['data']['weight'] = remaining_weight
+
+                # Update feedback
+                feedback_message = "Weights have been automatically adjusted to maintain a total system weight of 100%."
+
+                # Update progress bar to 100%
+                progress_value = 100.0
+                progress_label = "100.00%"
+                progress_style = {'display': 'block', 'width': '100%'}
+
+                manual_input_feedback_children = feedback_message
+
+                # Mark nodes and edges as valid
+                for element in elements:
+                    if element['data']['id'] == source_node_id:
+                        element['data']['invalid_weight'] = 'False'
+                    if 'source' in element['data'] and element['data']['source'] == source_node_id:
+                        element['data']['invalid_weight'] = 'False'
+
+                return (
+                    elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
+                    terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label,
+                    traversal_running, manual_input_feedback_children, progress_value, progress_style, progress_label
+                )
 
     ### Rename Function
     if triggered_id == 'edit-input-button' and enter_clicks and tap_node and new_label and edit_selection == 'rename':
@@ -194,7 +418,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                 current_node_data = element['data']
                 break
         # Hide the progress bar
-        return elements, new_label, traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label, traversal_running
+        return elements, new_label, traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label, traversal_running, manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style, system_weights_progress_label
 
     ### Add Function
     if triggered_id == 'edit-input-button' and enter_clicks and tap_node and new_label and edit_selection == 'add':
@@ -216,7 +440,8 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                 'Mood Impact': tap_node['data'].get('Mood Impact', 'N/A'),
                 'Fun Level': tap_node['data'].get('Fun Level', 'N/A'),
                 'traversed': 'False',  # Initialize 'traversed'
-                'common': 'False'      # Initialize 'common'
+                'common': 'False',      # Initialize 'common'
+                'invalid_weight': 'False'  # Initialize 'invalid_weight'
             }
         }
 
@@ -228,7 +453,8 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                 'target': new_node_id,
                 'weight': 0,  # Set weight as needed
                 'traversed': 'False',  # Initialize 'traversed'
-                'common': 'False'      # Initialize 'common'
+                'common': 'False',      # Initialize 'common'
+                'invalid_weight': 'False'  # Initialize 'invalid_weight'
             }
         }
 
@@ -239,7 +465,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
         current_node_data = new_node['data']
 
         # Hide the progress bar
-        return elements, new_label, traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label, traversal_running
+        return elements, new_label, traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label, traversal_running, manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style, system_weights_progress_label
 
     ### Remove Function
     if triggered_id == 'remove-button' and remove_clicks and tap_node:
@@ -249,7 +475,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                     and element['data'].get('target') != tap_node['data']['id']]
 
         # Hide the progress bar
-        return elements, '', traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label, traversal_running
+        return elements, '', traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label, traversal_running, manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style, system_weights_progress_label
 
     ### Single Traversal Function
     if triggered_id == 'single-traversal-button' and single_traversal_clicks:
@@ -277,7 +503,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
         traversal_running = True
 
         # Hide the progress bar
-        return elements, '', traversal_path, current_step, disabled, output_display_class, display_name, {}, True, {}, progress_value, progress_style, progress_label, traversal_running
+        return elements, '', traversal_path, current_step, disabled, output_display_class, display_name, {}, True, {}, progress_value, progress_style, progress_label, traversal_running, manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style, system_weights_progress_label
 
     ### Traversal Interval Function
     if triggered_id == 'traversal-interval' and traversal_path:
@@ -316,13 +542,13 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
 
             # Hide the progress bar
             return (elements, '', traversal_path, current_step, disabled, output_display_class, display_name,
-                    terminal_node_info, True, {}, progress_value, progress_style, progress_label, traversal_running)
+                    terminal_node_info, True, {}, progress_value, progress_style, progress_label, traversal_running, manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style, system_weights_progress_label)
         else:
             # Continue traversal
             current_step += 1
             disabled = False
             # traversal_running remains True
-            return elements, '', traversal_path, current_step, disabled, output_display_class, display_name, {}, True, {}, progress_value, progress_style, progress_label, traversal_running
+            return elements, '', traversal_path, current_step, disabled, output_display_class, display_name, {}, True, {}, progress_value, progress_style, progress_label, traversal_running, manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style, system_weights_progress_label
 
     ### Multiple Traversal Function (Start)
     if triggered_id == 'multiple-traversal-button' and multiple_traversal_clicks:
@@ -364,7 +590,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
         # Set traversal_running to True
         traversal_running = True
 
-        return elements, '', [], 0, True, output_display_class, display_name, {}, disabled, state, progress_value, progress_style, progress_label, traversal_running
+        return elements, '', [], 0, True, output_display_class, display_name, {}, disabled, state, progress_value, progress_style, progress_label, traversal_running, manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style, system_weights_progress_label
 
     ### Multiple Traversal Interval Function
     if triggered_id == 'multiple-traversal-interval':
@@ -372,7 +598,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
             # No state, nothing to do
             disabled = True
             traversal_running = False
-            return elements, '', [], 0, True, output_display_class, display_name, {}, disabled, None, progress_value, progress_style, progress_label, traversal_running
+            return elements, '', [], 0, True, output_display_class, display_name, {}, disabled, None, progress_value, progress_style, progress_label, traversal_running, manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style, system_weights_progress_label
 
         # Read the state
         state = multiple_traversal_state
@@ -442,7 +668,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
             state.pop('graph', None)
             state.pop('node_weights', None)
 
-            return elements, '', [], 0, True, output_display_class, display_name, terminal_node_info, disabled, None, progress_value, progress_style, progress_label, traversal_running
+            return elements, '', [], 0, True, output_display_class, display_name, terminal_node_info, disabled, None, progress_value, progress_style, progress_label, traversal_running, manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style, system_weights_progress_label
 
         else:
             # Process a batch of traversals
@@ -489,8 +715,11 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
             traversal_running = True
 
             # For performance, we can limit updates to elements periodically
-            return elements, '', [], 0, True, output_display_class, display_name, {}, disabled, state, progress_value, progress_style, progress_label, traversal_running
+            return elements, '', [], 0, True, output_display_class, display_name, {}, disabled, state, progress_value, progress_style, progress_label, traversal_running, manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style, system_weights_progress_label
 
     # Default return if no conditions are met
-    return elements, '', traversal_path, current_step, True, output_display_class, display_name, terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label, traversal_running
-
+    return (
+        elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
+        terminal_node_info, True, multiple_traversal_state, dash.no_update, dash.no_update, dash.no_update,
+        traversal_running, manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style, system_weights_progress_label
+    )

@@ -15,6 +15,7 @@ from layout.callbacks.cyto.cyto_callback import modify_cyto
 from layout.callbacks.controls.algo.slider import display_value
 from layout.callbacks.controls.algo.traversal_deactivate import update_disabled_buttons
 from layout.callbacks.controls.weights.weights_input_callback import show_weights_input
+from layout.callbacks.controls.weights.manual_active_pressed import update_manual_auto_buttons
 
 app.layout = layout
 

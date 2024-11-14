@@ -9,11 +9,12 @@
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cytoscape/cytoscape.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/cytoscape.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/bottom_row/bottom_row_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/bottom_row/bottom_row_callback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/panel_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/panel_change.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cytoscape/tree_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/tree_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/algo/slider.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/algo/slider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/weights/weights_input_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/weights/weights_input_callback.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/cyto_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/cyto_callback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/bottom_row/button_row.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/bottom_row/button_row.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/algorithims.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/algorithims.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/info/info_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/info/info_callback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/weights.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/weights.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/elements/panels.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/panels.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,11 +73,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Dev\tree_builder\layout\callbacks\controls\weights" />
       <recent name="C:\Dev\tree_builder\layout\callbacks\cyto" />
       <recent name="C:\Dev\tree_builder\layout\callbacks\cyto\helper_functions" />
       <recent name="C:\Dev\tree_builder\layout\callbacks\controls\edit" />
       <recent name="C:\Dev\tree_builder\layout\callbacks\controls\home" />
-      <recent name="C:\Dev\tree_builder\layout\callbacks" />
     </key>
   </component>
   <component name="RunManager">

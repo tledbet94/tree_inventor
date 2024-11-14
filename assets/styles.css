@@ -510,6 +510,7 @@ body {
     transition: box-shadow 0.3s ease-in-out;
 }
 
+
 /* Change border and shadow when the input is focused */
 .weights-input:focus {
     background-color: #f2f0e5;
@@ -522,7 +523,46 @@ body {
     font-size: 24px;
     text-shadow: 2px 2px 4px #b8b5b9;
 }
+.auto-manual-button {
+    align-items: center;
+    background-color: #868188 !important;
+    border: 6px solid #646365;
+    border-radius: 10%;
+    box-shadow: 2px 2px 4px #45444f;
+    color: #f2f0e5 !important;
+    font-size: 28px;
+    display: flex;
+    height: 8vh;
+    justify-content: center;
+    outline: none;
+    overflow: hidden;
+    padding: 0px;
+    transition: all 0.2s ease-in-out;
+    width: 8vw;
+    transform: translateY(-2px); /* Gives a slightly raised effect */
+}
 
+/* Active state to show button is pressed */
+.auto-manual-button.active {
+    background-color: #868188 !important;
+    border: 2px solid #646365;
+    box-shadow: inset 10px 10px 8px #45444f;
+    color: #a2dcc7 !important;
+    transform: translateY(2px); /* Keeps it pressed */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover state to pop the button out */
+.auto-manual-button:hover:not(.active) {
+    background-color: #868188 !important;
+    border: 2px solid #646365;
+    box-shadow: 0px 6px 12px #45444f; /* Pops out on hover */
+    color: #a2dcc7 !important;
+    outline: none;
+    transform: translateY(-4px); /* Slightly more raised on hover */
+}
+
+/* Remove :active pseudo-class to avoid separate press appearance */
 .hidden-opacity {
     opacity: 0; /* Fully transparent */
     transition: opacity 0.3s ease-in-out; /* Smooth transition effect */

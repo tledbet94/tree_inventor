@@ -1,13 +1,13 @@
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 
-weights_title = html.H1('WEIGHTS', className='weights-header-text')
+weights_title = html.H1('WEIGHTS', className='edit-header-text')
 
 # Input components only appear when they are needed
 weights_input_feedback = (
     html.Div(
-        html.P('Placeholder', id='weights-input-feedback', className='weights-input-font'),
-        className='input-feedback-div-weights'
+        html.P('Select a Node and enter a weight.', id='weights-input-feedback', className='weights-input-font'),
+        className='input-feedback-div-weights', style={'width': '95%'}
     ))
 
 weights_input = (
@@ -16,19 +16,74 @@ weights_input = (
 weights_input_button = (
     dbc.Button(id='weights-input-button', children='ENTER', className='hidden-opacity'))
 
+manual_button = dbc.Button(
+    id='manual-button',
+    children=html.P("MANUAL"),
+    className="auto-manual-button",
+    style={'outline': 'none'},
+)
+
+auto_button = dbc.Button(
+    id='auto-button',
+    children=html.P("AUTOMATIC"),
+    className="auto-manual-button",
+    style={'outline': 'none'},
+)
+
+manual_input_feedback = html.Div(
+    html.P(
+        'Weights in system must equal 100%',
+        id='manual-input-feedback',
+        className='weights-input-font'
+    ),
+    className='input-feedback-div-weights',
+    style={'width': '95%'}
+)
+
+system_weights_progress = dbc.Progress(
+    value=0,
+    id="system-weights-progress",
+    animated=False,
+    striped=False,
+    style={
+        'display': 'block',
+        'margin-left': '15px'
+    },
+    class_name='algo-progress',
+    max=100,
+    min=0
+)
+
 weights = html.Div([
     dcc.Store(id='weights-enter-click-store', data=0),
-    html.H1('MODIFY WEIGHTS', className='edit-header-text'),
-    html.Div(style={"height": "8vh"}),
+    weights_title,
+    html.Div(style={"height": "2vh"}),
     dbc.Row([
-        dbc.Col(width=1),
-        dbc.Col(weights_input_feedback),
-        dbc.Col(width=1)
+        dbc.Col(weights_input_feedback)
     ], id='weights-input-feedback-row', justify='center'),
     html.Div(style={"height": "3vh"}),
     dbc.Row([
         dbc.Col(width=1),
         dbc.Col(weights_input, width=8),
-        dbc.Col(weights_input_button, width=3),
-    ], id='weights-input-row')
+        dbc.Col(weights_input_button, width=3)
+    ], id='weights-input-row'),
+    html.Div(style={"height": "5vh"}),
+    dbc.Row([
+        dbc.Col(width=1),
+        dbc.Col(auto_button, width=4),
+        dbc.Col(width=1),
+        dbc.Col(manual_button, width=4),
+        dbc.Col(width=1)
+    ], id='manual-auto-row', className='hidden-opacity'),
+    html.Div(style={"height": "15vh"}),
+    dbc.Row([
+        dbc.Col(manual_input_feedback)
+    ], id='manual-feedback-row', className='hidden-opacity', justify='center'),
+    html.Div(style={"height": "3vh"}),
+    dbc.Row([
+        dbc.Col(width=1),
+        dbc.Col(system_weights_progress),
+        dbc.Col(width=1),
+    ], id='weights-progress-row', className='hidden-opacity', justify='center'),
+    html.Div(style={"height": "3vh"})
 ])

@@ -1,5 +1,4 @@
 from dash import callback, Input, Output
-from app import app
 
 def transform_value(value):
     return 10 ** value

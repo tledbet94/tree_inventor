@@ -91,6 +91,16 @@ stylesheet = [
         'overlay-opacity': 0
     }
 },
+{
+    'selector': '[invalid_weight = "True"]',
+    'style': {
+        'background-color': '#d3a068',
+        'line-gradient-stop-colors': '#ede19e #d3a068',
+        'border-color': '#ede19e',
+        'target-arrow-color': '#e5ceb4',
+        'overlay-opacity': 0
+    }
+},
 ]
 
 cyto_component = cyto.Cytoscape(

@@ -1,4 +1,4 @@
-from dash import html
+from dash import dcc, html
 
 # Internal imports
 from .bottom_row.button_row import button_row
@@ -27,6 +27,7 @@ control_panel = html.Div(
 
 info_panel = html.Div(
     children=[
+        dcc.Store(id='info-panel-data'),
         info_contents,
     ],
     style={
