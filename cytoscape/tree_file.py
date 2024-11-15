@@ -12,7 +12,8 @@ default_elements = [
             'Fun Level': '6',
             'traversed': 'False',
             'common': 'False',
-            'invalid_weight': 'False'  # Added invalid_weight attribute
+            'invalid_weight': 'False',
+            'last_clicked': 'False'
         }
     },
     {
@@ -26,7 +27,8 @@ default_elements = [
             'Fun Level': '6',
             'traversed': 'False',
             'common': 'False',
-            'invalid_weight': 'False'  # Added invalid_weight attribute
+            'invalid_weight': 'False',
+            'last_clicked': 'False'
         }
     },
     {
@@ -41,7 +43,8 @@ default_elements = [
             'Fun Level': '6',
             'traversed': 'False',
             'common': 'False',
-            'invalid_weight': 'False'  # Added invalid_weight attribute
+            'invalid_weight': 'False',
+            'last_clicked': 'False'
         }
     },
     {
@@ -56,7 +59,8 @@ default_elements = [
             'Fun Level': '6',
             'traversed': 'False',
             'common': 'False',
-            'invalid_weight': 'False'  # Added invalid_weight attribute
+            'invalid_weight': 'False',
+            'last_clicked': 'False'
         }
     },
     {
@@ -71,48 +75,57 @@ default_elements = [
             'Fun Level': '6',
             'traversed': 'False',
             'common': 'False',
-            'invalid_weight': 'False'  # Added invalid_weight attribute
+            'invalid_weight': 'False',
+            'last_clicked': 'False'
         }
     },
     # Edges with additional properties
     {
         'data': {
+            'id': 'root_two',
             'source': 'root',
             'target': 'two',
             'weight': 37.5,
             'traversed': 'False',
             'common': 'False',
-            'invalid_weight': 'False'  # Added invalid_weight attribute
+            'invalid_weight': 'False',
+            'last_clicked': 'False'
         }
     },
     {
         'data': {
+            'id': 'root_three',
             'source': 'root',
             'target': 'three',
             'weight': 37.5,
             'traversed': 'False',
             'common': 'False',
-            'invalid_weight': 'False'  # Added invalid_weight attribute
+            'invalid_weight': 'False',
+            'last_clicked': 'False'
         }
     },
     {
         'data': {
+            'id': 'two_four',
             'source': 'two',
             'target': 'four',
             'weight': 75,
             'traversed': 'False',
             'common': 'False',
-            'invalid_weight': 'False'  # Added invalid_weight attribute
+            'invalid_weight': 'False',
+            'last_clicked': 'False'
         }
     },
     {
         'data': {
+            'id': 'two_five',
             'source': 'two',
             'target': 'five',
             'weight': 75,
             'traversed': 'False',
             'common': 'False',
-            'invalid_weight': 'False'  # Added invalid_weight attribute
+            'invalid_weight': 'False',
+            'last_clicked': 'False'
         }
     }
 ]

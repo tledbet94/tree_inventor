@@ -148,11 +148,11 @@ def multiple_traversals_batch(graph, node_weights, batch_size, state=None):
         Input('manual-button', 'n_clicks'),
         Input('auto-button', 'n_clicks'),
         Input('active-button-store', 'data'),
+        Input('cytoscape', 'tapNode'),
+        Input('cytoscape', 'tapEdge'),
     ],
     [
         State('cytoscape', 'elements'),
-        State('cytoscape', 'tapNode'),
-        State('cytoscape', 'tapEdge'),  # Added tapEdge here
         State('edit-input', 'value'),
         State('selected-edit', 'data'),
         State('traversal-path', 'data'),
@@ -172,7 +172,7 @@ def multiple_traversals_batch(graph, node_weights, batch_size, state=None):
 def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_intervals,
                 multiple_traversal_clicks, multiple_traversal_n_intervals,
                 weights_enter_clicks, manual_button_clicks, auto_button_clicks, selected_panel,
-                elements, tap_node, tap_edge, new_label, edit_selection,
+                tap_node, tap_edge, elements, new_label, edit_selection,
                 traversal_path, current_step, output_display_class, display_name, terminal_node_info,
                 selected_traversals, multiple_traversal_state, traversal_running,
                 weights_input_value, manual_button_classname, auto_button_classname):
@@ -192,6 +192,75 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
     system_weights_progress_value = dash.no_update
     system_weights_progress_style = dash.no_update
     system_weights_progress_label = dash.no_update
+
+    # Determine which property triggered the callback
+    triggered_props = [p['prop_id'] for p in ctx.triggered]
+
+    # Initialize selected_element_id and selected_element_type
+    selected_element_id = None
+    selected_element_type = None
+    selected_element = None
+
+    # Check if a node or edge was clicked
+    if 'cytoscape.tapNode' in triggered_props and tap_node:
+        # Reset last_clicked for all elements
+        for element in elements:
+            element['data']['last_clicked'] = False
+
+        selected_element_id = tap_node['data']['id']
+        selected_element_type = 'node'
+
+        # Set last_clicked = True for the tapped node
+        for element in elements:
+            if element['data']['id'] == selected_element_id:
+                element['data']['last_clicked'] = True
+                selected_element = element
+                break
+
+    elif 'cytoscape.tapEdge' in triggered_props and tap_edge:
+        # Reset last_clicked for all elements
+        for element in elements:
+            element['data']['last_clicked'] = False
+
+        selected_element_id = tap_edge['data']['id']
+        selected_element_type = 'edge'
+
+        # Set last_clicked = True for the tapped edge
+        for element in elements:
+            if element['data']['id'] == selected_element_id:
+                element['data']['last_clicked'] = True
+                selected_element = element
+                break
+    else:
+        # If no node or edge was clicked, keep last_clicked as it is
+        # Find the element that has last_clicked == True
+        for element in elements:
+            if element['data'].get('last_clicked'):
+                selected_element_id = element['data']['id']
+                if 'source' in element['data'] and 'target' in element['data']:
+                    selected_element_type = 'edge'
+                else:
+                    selected_element_type = 'node'
+                selected_element = element
+                break
+
+    # Clear the last_clicked attribute for all elements
+    selected_element_id = None
+    selected_element = None
+    # Determine which property triggered the callback
+    triggered_props = [p['prop_id'] for p in ctx.triggered]
+    if 'cytoscape.tapEdge' in triggered_props and tap_edge:
+        selected_element_id = tap_edge['data']['id']
+        selected_element_type = 'edge'
+    elif 'cytoscape.tapNode' in triggered_props and tap_node:
+        selected_element_id = tap_node['data']['id']
+        selected_element_type = 'node'
+
+    if selected_element_id:
+        for element in elements:
+            if element['data']['id'] == selected_element_id:
+                element['data']['last_clicked'] = 'True'
+                break
 
     # CSS Classes for Transition
     active_class = 'algo-output-active'
@@ -222,15 +291,12 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
         # Clamp entered_weight between 0 and 100
         entered_weight = max(0.0, min(entered_weight, 100.0))
 
-        # Check if a node or an edge is selected
-        if tap_node:
-            selected_element_id = tap_node['data']['id']
-            selected_element_type = 'node'
-        elif tap_edge:
-            selected_element_id = tap_edge['data']['id']
-            selected_element_type = 'edge'
-        else:
-            # No element selected, do nothing
+        for element in elements:
+            if element['data']['last_clicked'] == 'True':
+                selected_element = element
+        # Ensure we have a selected element
+        if not selected_element:
+            # No element selected, provide feedback
             manual_input_feedback_children = "No element selected. Please select a node or edge."
             return (
                 elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
@@ -239,17 +305,13 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                 system_weights_progress_style, system_weights_progress_label
             )
 
-        # Update the weight of the selected element
-        for element in elements:
-            if element['data']['id'] == selected_element_id:
-                element['data']['weight'] = entered_weight
-                break
+        # Proceed with updating the weight of the selected element
+        selected_element['data']['weight'] = entered_weight
 
         # Now, depending on whether it's a node or an edge, proceed accordingly
         if selected_element_type == 'node':
             # Get outgoing edges from the selected node
             outgoing_edges = [elem for elem in elements if 'source' in elem['data'] and elem['data']['source'] == selected_element_id]
-
             # Sum of outgoing edge weights
             total_outgoing_edges_weight = sum(elem['data'].get('weight', 0) for elem in outgoing_edges)
 
@@ -296,6 +358,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                 # Automatic mode: Adjust outgoing edge weights to maintain 100% total
                 remaining_weight = 100.0 - entered_weight
                 num_edges = len(outgoing_edges)
+                print(num_edges)
                 if num_edges > 0:
                     equal_weight = remaining_weight / num_edges
                     for edge in outgoing_edges:

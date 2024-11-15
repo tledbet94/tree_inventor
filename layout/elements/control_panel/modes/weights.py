@@ -37,7 +37,7 @@ manual_input_feedback = html.Div(
         className='weights-input-font'
     ),
     className='input-feedback-div-weights',
-    style={'width': '95%'}
+    style={'width': '95%', 'height': '20vh'}
 )
 
 system_weights_progress = dbc.Progress(
@@ -75,7 +75,7 @@ weights = html.Div([
         dbc.Col(manual_button, width=4),
         dbc.Col(width=1)
     ], id='manual-auto-row', className='hidden-opacity'),
-    html.Div(style={"height": "15vh"}),
+    html.Div(style={"height": "8vh"}),
     dbc.Row([
         dbc.Col(manual_input_feedback)
     ], id='manual-feedback-row', className='hidden-opacity', justify='center'),

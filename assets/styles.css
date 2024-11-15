@@ -49,7 +49,7 @@ body {
 }
 
 .info-text-label {
-    font-size: 32px;
+    font-size: 2vh;
     /* colors and ofset create 3d effect */
     text-shadow:
         1px 1px 0px #9a9a97,
@@ -59,7 +59,7 @@ body {
 }
 
 .info-text-actual {
-    font-size: 28px;
+    font-size: 2vh;
     text-align: center;
     /* colors and ofset create 3d effect */
     text-shadow:
@@ -118,7 +118,7 @@ body {
 /* icon part of the button */
 .icon-style-bottom-row {
     color: inherit;
-    font-size: 5vh;
+    font-size: 4vh;
 }
 
 .algo-button {
@@ -128,8 +128,9 @@ body {
     box-shadow: 12px 12px 8px 0px #212123;
     color: #b8b5b9 !important;
     display: flex;
-    font-size: 42px;
-    height: 12vh;
+    font-size: 2vh;
+    height: 10vh;
+    width: 10vw;
     justify-content: center;
     overflow: hidden;
     padding: 0px;
@@ -373,7 +374,7 @@ body {
 
 /* Is icon part of the button */
 .icon-style-edit {
-    font-size: 5rem; /* Increase or decrease as needed */
+    font-size: 7vh; /* Increase or decrease as needed */
     color: inherit;
 
 }
@@ -401,7 +402,7 @@ body {
     box-shadow: 2px 2px 5px #646365;
     color: #f2f0e5;
     display: flex;
-    font-size: 28px;
+    font-size: 2vh;
     justify-content: center;
     outline: none;
     overflow: hidden;
@@ -425,7 +426,7 @@ body {
     box-shadow: 2px 2px 5px #646365;
     color: #f2f0e5;
     display: flex;
-    font-size: 28px;
+    font-size: 2vh;
     justify-content: center;
     outline: none;
     overflow: hidden;
@@ -450,6 +451,7 @@ body {
     box-shadow: 5px 5px 5px #45444f;
     color: #f2f0e5;
     display: block;
+    font-size: 1vh;
     height: 12vh;
     padding: 5px;
     text-align: left;
@@ -495,7 +497,7 @@ body {
 }
 
 .edit-input-font {
-    font-size: 24px;
+    font-size: 2vh;
     text-shadow: 2px 2px 4px #b8b5b9;
 }
 
@@ -522,7 +524,7 @@ body {
 }
 
 .weights-input-font {
-    font-size: 24px;
+    font-size: 2vh;
     text-shadow: 2px 2px 4px #b8b5b9;
 }
 .auto-manual-button {
@@ -532,7 +534,7 @@ body {
     border-radius: 10%;
     box-shadow: 2px 2px 4px #45444f;
     color: #f2f0e5 !important;
-    font-size: 28px;
+    font-size: 2vh;
     display: flex;
     height: 8vh;
     justify-content: center;
@@ -586,7 +588,7 @@ body {
     border: 8px double #68c2d3;
     border-opacity: 0.75;
     box-shadow: -3px 3px 3px #f2f0e5, 10px -10px 5px #45444f;
-    font-size: 36px;
+    font-size: 3vh;
     font-weight: bold;
     color: #f2f0e5;
     margin: 20px auto;
@@ -603,7 +605,7 @@ body {
     align-items: center; /* Vertically center text */
     background-color: #868188;
     box-shadow: inset -20px 20px 5px #45444f, inset 3px -3px 1px #f2f0e5;
-    font-size: 16px;
+    font-size: 4vh;
     font-weight: bold;
     color: #868188;
     margin: 20px auto;
@@ -826,7 +828,7 @@ body {
     max-width: none; /* Override default max-width */
     background-color: #4b80ca; /* Custom background color */
     color: #ffffff; /* Text color */
-    font-size: 24px; /* Font size for readability */
+    font-size: 2vh; /* Font size for readability */
     text-align: center; /* Center text */
     border-radius: 10px; /* Optional: adjust radius for softer edges */
     padding: 10px; /* Add padding */
