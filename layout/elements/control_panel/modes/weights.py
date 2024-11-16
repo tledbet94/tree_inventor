@@ -28,6 +28,7 @@ auto_button = dbc.Button(
     children=html.P("AUTOMATIC"),
     className="auto-manual-button",
     style={'outline': 'none'},
+    disabled=False
 )
 
 manual_input_feedback = html.Div(

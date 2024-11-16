@@ -1,119 +1,13 @@
 from dash import Input, Output, State, ctx, dcc, dash
 from app_instance import app
 import copy
-import random
 from collections import Counter
-from dash.exceptions import PreventUpdate
 
-def build_graph(elements):
-    graph = {}
-    node_weights = {}
-    for element in elements:
-        data = element['data']
-        if 'source' in data and 'target' in data:
-            # It's an edge
-            source = data['source']
-            target = data['target']
-            weight = data.get('weight', 0)
-            if source not in graph:
-                graph[source] = []
-            graph[source].append((target, weight))
-        elif 'id' in data and 'source' not in data and 'target' not in data:
-            # It's a node
-            node_id = data['id']
-            weight = data.get('weight', 0)
-            node_weights[node_id] = weight
-            if node_id not in graph:
-                graph[node_id] = []
+from layout.callbacks.cyto.helper_functions.traversal_helper import \
+    build_graph, single_traversal_with_steps, multiple_traversals_batch
+from layout.callbacks.cyto.helper_functions.weight_helper import \
+    get_system_info, auto_balance_system, proximity_to_100
 
-    return graph, node_weights
-
-def single_traversal_with_steps(graph, node_weights, current_node_id='root', path=None):
-    if path is None:
-        path = [current_node_id]
-
-    # Get the current node's weight
-    current_node_weight = node_weights.get(current_node_id, 0)
-
-    # Get the edges from the current node
-    edges = graph.get(current_node_id, [])
-
-    if not edges:
-        # If there are no outgoing edges, it's a terminal node
-        return path
-
-    # Include the current node's weight and edges' weights for probability calculation
-    weighted_choices = [(current_node_id, current_node_weight)]  # Include the current node itself
-    weighted_choices.extend(edges)
-
-    # Choose the next node based on the weighted probabilities
-    next_node_id = random.choices(
-        [choice[0] for choice in weighted_choices],
-        weights=[choice[1] for choice in weighted_choices],
-        k=1
-    )[0]
-
-    path.append(next_node_id)
-
-    # If the chosen node is the current node, it is terminal
-    if next_node_id == current_node_id:
-        return path
-
-    # Recursively traverse the chosen node
-    return single_traversal_with_steps(graph, node_weights, current_node_id=next_node_id, path=path)
-
-def multiple_traversals_batch(graph, node_weights, batch_size, state=None):
-    if state is None:
-        state = {
-            'terminal_node_counts': Counter(),
-            'path_counts': Counter(),
-            'most_common_node_id': None,
-            'most_common_path': [],
-            'all_visited_nodes': set(),
-            'all_visited_edges': set(),
-        }
-    else:
-        # Convert lists back to sets and Counters
-        state['all_visited_nodes'] = set(state.get('all_visited_nodes', []))
-        state['all_visited_edges'] = set(tuple(edge) for edge in state.get('all_visited_edges', []))
-        state['path_counts'] = Counter(state.get('path_counts', {}))
-        state['terminal_node_counts'] = Counter(state.get('terminal_node_counts', {}))
-
-    for _ in range(batch_size):
-        path = single_traversal_with_steps(graph, node_weights)
-        terminal_node = path[-1]
-        state['terminal_node_counts'][terminal_node] += 1
-        path_tuple = tuple(path)
-        state['path_counts'][path_tuple] += 1
-
-        # Collect visited nodes and edges
-        state['all_visited_nodes'].update(path)
-        for i in range(len(path) - 1):
-            source = path[i]
-            target = path[i + 1]
-            state['all_visited_edges'].add((source, target))
-
-    # Update the most common node
-    most_common_node = state['terminal_node_counts'].most_common(1)
-    if most_common_node:
-        state['most_common_node_id'] = most_common_node[0][0]
-    else:
-        state['most_common_node_id'] = None
-
-    # Find the most common path
-    most_common_path = state['path_counts'].most_common(1)
-    if most_common_path:
-        state['most_common_path'] = most_common_path[0][0]
-    else:
-        state['most_common_path'] = []
-
-    # Convert sets back to lists for JSON serialization
-    state['all_visited_nodes'] = list(state['all_visited_nodes'])
-    state['all_visited_edges'] = [list(edge) for edge in state['all_visited_edges']]
-    state['path_counts'] = {str(k): v for k, v in state['path_counts'].items()}
-    state['terminal_node_counts'] = dict(state['terminal_node_counts'])
-
-    return state
 
 @app.callback(
     [
@@ -291,10 +185,9 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
         # Clamp entered_weight between 0 and 100
         entered_weight = max(0.0, min(entered_weight, 100.0))
 
-        for element in elements:
-            if element['data']['last_clicked'] == 'True':
-                selected_element = element
-        # Ensure we have a selected element
+        # Proceed only if a selected element is available
+        selected_element, element_type, system_elements, system_weight, message = get_system_info(elements)
+
         if not selected_element:
             # No element selected, provide feedback
             manual_input_feedback_children = "No element selected. Please select a node or edge."
@@ -305,172 +198,57 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                 system_weights_progress_style, system_weights_progress_label
             )
 
-        # Proceed with updating the weight of the selected element
+        # Update the weight of the selected element
         selected_element['data']['weight'] = entered_weight
 
-        # Now, depending on whether it's a node or an edge, proceed accordingly
-        if selected_element_type == 'node':
-            # Get outgoing edges from the selected node
-            outgoing_edges = [elem for elem in elements if 'source' in elem['data'] and elem['data']['source'] == selected_element_id]
-            # Sum of outgoing edge weights
-            total_outgoing_edges_weight = sum(elem['data'].get('weight', 0) for elem in outgoing_edges)
+        # Recalculate system weight
+        _, _, system_elements, system_weight, message = get_system_info(elements)
 
-            # Calculate total system weight
-            total_system_weight = entered_weight + total_outgoing_edges_weight
+        if mode == 'manual':
+            # Manual mode: Validate the system and provide feedback
+            # Do not adjust any weights automatically
+            feedback_message = message
 
-            if mode == 'manual':
-                # Manual mode: Validate the system and provide feedback
-                # Do not adjust any weights automatically
-                # Validate the current system
-                if abs(total_system_weight - 100.0) > 0.01:
-                    # System weight is invalid
-                    feedback_message = f"System weight is invalid: {total_system_weight:.2f}% (should be 100%)"
-                    # Mark nodes and edges in this system as invalid
-                    for element in elements:
-                        if element['data']['id'] == selected_element_id:
-                            element['data']['invalid_weight'] = 'True'
-                        if 'source' in element['data'] and element['data']['source'] == selected_element_id:
-                            element['data']['invalid_weight'] = 'True'
-                else:
-                    # System weight is valid
-                    feedback_message = "All system weights are valid"
-                    # Mark nodes and edges in this system as valid
-                    for element in elements:
-                        if element['data']['id'] == selected_element_id:
-                            element['data']['invalid_weight'] = 'False'
-                        if 'source' in element['data'] and element['data']['source'] == selected_element_id:
-                            element['data']['invalid_weight'] = 'False'
-
-                # Update progress bar
-                progress_value = max(0.0, min(total_system_weight, 100.0))
-                progress_label = ''  # Remove text from progress bar
-                progress_style = {'display': 'block', 'width': '100%'}
-
-                manual_input_feedback_children = feedback_message
-
-                return (
-                    elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
-                    terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label,
-                    traversal_running, manual_input_feedback_children, progress_value, progress_style, progress_label
-                )
-
-            elif mode == 'automatic':
-                # Automatic mode: Adjust outgoing edge weights to maintain 100% total
-                remaining_weight = 100.0 - entered_weight
-                num_edges = len(outgoing_edges)
-                print(num_edges)
-                if num_edges > 0:
-                    equal_weight = remaining_weight / num_edges
-                    for edge in outgoing_edges:
-                        edge['data']['weight'] = equal_weight
-                else:
-                    # No outgoing edges; total system weight is just the node's weight
-                    pass
-
-                # Update feedback
-                feedback_message = "Weights have been automatically adjusted to maintain a total system weight of 100%."
-
-                # Update progress bar to 100%
-                progress_value = 100.0
-                progress_label = "100.00%"
-                progress_style = {'display': 'block', 'width': '100%'}
-
-                manual_input_feedback_children = feedback_message
-
-                # Mark nodes and edges as valid
-                for element in elements:
-                    if element['data']['id'] == selected_element_id:
-                        element['data']['invalid_weight'] = 'False'
-                    if 'source' in element['data'] and element['data']['source'] == selected_element_id:
-                        element['data']['invalid_weight'] = 'False'
-
-                return (
-                    elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
-                    terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label,
-                    traversal_running, manual_input_feedback_children, progress_value, progress_style, progress_label
-                )
-
-        elif selected_element_type == 'edge':
-            # Get the source node of the edge
-            source_node_id = tap_edge['data']['source']
-            source_node = next((elem for elem in elements if elem['data']['id'] == source_node_id), None)
-            if source_node:
-                node_weight = source_node['data'].get('weight', 0)
+            # Update progress bar
+            progress_value = proximity_to_100(system_weight)
+            progress_label = ''
+            if system_weight != 100:
+                progress_style = {'display': 'block'}
+                traversal_running = True
             else:
-                node_weight = 0
+                progress_style = {'display': 'none'}
+                traversal_running = False
+            manual_input_feedback_children = feedback_message
 
-            # Get outgoing edges from the source node
-            outgoing_edges = [elem for elem in elements if 'source' in elem['data'] and elem['data']['source'] == source_node_id]
+            return (
+                elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
+                terminal_node_info, True, multiple_traversal_state,
+                progress_value, progress_style, progress_label,
+                traversal_running, manual_input_feedback_children,
+                progress_value, progress_style, progress_label
+            )
 
-            # Sum of outgoing edge weights
-            total_outgoing_edges_weight = sum(elem['data'].get('weight', 0) for elem in outgoing_edges)
+        elif mode == 'automatic':
+            # Automatic mode: Adjust the weights to maintain 100% total
+            elements, feedback_message = auto_balance_system(elements)
 
-            # Calculate total system weight
-            total_system_weight = node_weight + total_outgoing_edges_weight
+            # Recalculate system weight
+            _, _, _, system_weight, _ = get_system_info(elements)
 
-            if mode == 'manual':
-                # Manual mode: Validate the system and provide feedback
-                # Do not adjust any weights automatically
-                if abs(total_system_weight - 100.0) > 0.01:
-                    # System weight is invalid
-                    feedback_message = f"System weight is invalid: {total_system_weight:.2f}% (should be 100%)"
-                    # Mark nodes and edges in this system as invalid
-                    for element in elements:
-                        if element['data']['id'] == source_node_id:
-                            element['data']['invalid_weight'] = 'True'
-                        if 'source' in element['data'] and element['data']['source'] == source_node_id:
-                            element['data']['invalid_weight'] = 'True'
-                else:
-                    # System weight is valid
-                    feedback_message = "All system weights are valid"
-                    # Mark nodes and edges in this system as valid
-                    for element in elements:
-                        if element['data']['id'] == source_node_id:
-                            element['data']['invalid_weight'] = 'False'
-                        if 'source' in element['data'] and element['data']['source'] == source_node_id:
-                            element['data']['invalid_weight'] = 'False'
+            # Update progress bar
+            progress_value = 0
+            progress_label = ''
+            progress_style = {'display': 'none'}
 
-                # Update progress bar
-                progress_value = max(0.0, min(total_system_weight, 100.0))
-                progress_label = f"{progress_value:.2f}%"
-                progress_style = {'display': 'block', 'width': '100%'}
+            manual_input_feedback_children = feedback_message
 
-                manual_input_feedback_children = feedback_message
-
-                return (
-                    elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
-                    terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label,
-                    traversal_running, manual_input_feedback_children, progress_value, progress_style, progress_label
-                )
-
-            elif mode == 'automatic':
-                # Automatic mode: Adjust the source node's weight to maintain 100%
-                remaining_weight = 100.0 - (total_outgoing_edges_weight - entered_weight)
-                if source_node:
-                    source_node['data']['weight'] = remaining_weight
-
-                # Update feedback
-                feedback_message = "Weights have been automatically adjusted to maintain a total system weight of 100%."
-
-                # Update progress bar to 100%
-                progress_value = 100.0
-                progress_label = "100.00%"
-                progress_style = {'display': 'block', 'width': '100%'}
-
-                manual_input_feedback_children = feedback_message
-
-                # Mark nodes and edges as valid
-                for element in elements:
-                    if element['data']['id'] == source_node_id:
-                        element['data']['invalid_weight'] = 'False'
-                    if 'source' in element['data'] and element['data']['source'] == source_node_id:
-                        element['data']['invalid_weight'] = 'False'
-
-                return (
-                    elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
-                    terminal_node_info, True, multiple_traversal_state, progress_value, progress_style, progress_label,
-                    traversal_running, manual_input_feedback_children, progress_value, progress_style, progress_label
-                )
+            return (
+                elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
+                terminal_node_info, True, multiple_traversal_state,
+                progress_value, progress_style, progress_label,
+                traversal_running, manual_input_feedback_children,
+                progress_value, progress_style, progress_label
+            )
 
     ### Rename Function
     if triggered_id == 'edit-input-button' and enter_clicks and tap_node and new_label and edit_selection == 'rename':
@@ -503,7 +281,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                 'Mood Impact': tap_node['data'].get('Mood Impact', 'N/A'),
                 'Fun Level': tap_node['data'].get('Fun Level', 'N/A'),
                 'traversed': 'False',  # Initialize 'traversed'
-                'common': 'False',      # Initialize 'common'
+                'common': 'False',  # Initialize 'common'
                 'invalid_weight': 'False'  # Initialize 'invalid_weight'
             }
         }
@@ -516,7 +294,7 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                 'target': new_node_id,
                 'weight': 0,  # Set weight as needed
                 'traversed': 'False',  # Initialize 'traversed'
-                'common': 'False',      # Initialize 'common'
+                'common': 'False',  # Initialize 'common'
                 'invalid_weight': 'False'  # Initialize 'invalid_weight'
             }
         }
@@ -584,7 +362,8 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
                 if element['data']['id'] == node_id:
                     element['data']['traversed'] = 'True'
                 # Mark edges as traversed if they are part of the traversal path
-                if i > 0 and element['data'].get('source') == traversal_path[i - 1] and element['data'].get('target') == node_id:
+                if i > 0 and element['data'].get('source') == traversal_path[i - 1] and element['data'].get(
+                        'target') == node_id:
                     element['data']['traversed'] = 'True'
 
         # Check if traversal is complete
@@ -605,7 +384,9 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
 
             # Hide the progress bar
             return (elements, '', traversal_path, current_step, disabled, output_display_class, display_name,
-                    terminal_node_info, True, {}, progress_value, progress_style, progress_label, traversal_running, manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style, system_weights_progress_label)
+                    terminal_node_info, True, {}, progress_value, progress_style, progress_label, traversal_running,
+                    manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style,
+                    system_weights_progress_label)
         else:
             # Continue traversal
             current_step += 1
@@ -784,5 +565,6 @@ def modify_cyto(enter_clicks, remove_clicks, single_traversal_clicks, n_interval
     return (
         elements, dash.no_update, traversal_path, current_step, True, output_display_class, display_name,
         terminal_node_info, True, multiple_traversal_state, dash.no_update, dash.no_update, dash.no_update,
-        traversal_running, manual_input_feedback_children, system_weights_progress_value, system_weights_progress_style, system_weights_progress_label
+        traversal_running, manual_input_feedback_children, system_weights_progress_value,
+        system_weights_progress_style, system_weights_progress_label
     )

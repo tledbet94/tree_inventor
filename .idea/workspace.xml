@@ -6,12 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cytoscape/tree_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/tree_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/weights/weights_input_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/weights/weights_input_callback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/algo/traversal_deactivate.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/algo/traversal_deactivate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/cyto_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/cyto_callback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/algorithims.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/algorithims.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/home.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/elements/bottom_row/button_row.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/bottom_row/button_row.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/weights.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/weights.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,11 +68,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Dev\trees\tree_morph2\tree_maker\layout\callbacks\cyto\helper_functions" />
       <recent name="C:\Dev\tree_builder\layout\callbacks\controls\weights" />
       <recent name="C:\Dev\tree_builder\layout\callbacks\cyto" />
       <recent name="C:\Dev\tree_builder\layout\callbacks\cyto\helper_functions" />
       <recent name="C:\Dev\tree_builder\layout\callbacks\controls\edit" />
-      <recent name="C:\Dev\tree_builder\layout\callbacks\controls\home" />
     </key>
   </component>
   <component name="RunManager">
