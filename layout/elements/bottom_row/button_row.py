@@ -6,50 +6,99 @@ home_button = dbc.Button(
     children=html.I(className="fa-solid fa-house-chimney icon-style-bottom-row"),
     className="bottom-row-button",
     style={'outline': 'none'},
-    disabled=False,  # Add this line
+    disabled=False,
+)
+
+save_load_button = dbc.Button(
+    id='save-load-button',
+    children=html.I(className="fa-solid fa-floppy-disk icon-style-bottom-row"),
+    className="bottom-row-button",
+    style={'outline': 'none'},
+    disabled=False
 )
 
 edit_button = dbc.Button(
     id='edit-button',
     children=html.I(className="fa-solid fa-wrench icon-style-bottom-row"),
     className="bottom-row-button",
-    disabled=False,  # Add this line
+    disabled=False,
 )
 
-algo_button = dbc.Button(
+algo_button = dbc.Button(  # Removed trailing comma here
     id='algo-button',
     children=html.I(className="fa-solid fa-shuffle icon-style-bottom-row"),
     className="bottom-row-button",
-    disabled=False,  # Add this line
-),
+    disabled=False,
+)
 
-weights_button = dbc.Button(
+weights_button = dbc.Button(  # Removed trailing comma here
     id='weights-button',
     children=html.I(className="fa-solid fa-scale-balanced icon-style-bottom-row"),
     className="bottom-row-button",
-    disabled=False,  # Add this line
+    disabled=False,
 )
 
 custom_fields_button = dbc.Button(
     id='custom-fields-button',
     children=html.I(className="fa-solid fa-scroll icon-style-bottom-row"),
     className="bottom-row-button",
-    disabled=False,  # Add this line
+    disabled=False,
 )
 
 templates_button = dbc.Button(
     id='templates-button',
     children=html.I(className="fa-solid fa-parachute-box icon-style-bottom-row"),
     className="bottom-row-button",
-    disabled=False,  # Add this line
+    disabled=False,
 )
+
+theme_button = dbc.Button(
+    id='theme-button',
+    children=html.I(className="fa-solid fa-brush icon-style-bottom-row"),
+    className="bottom-row-button",
+    disabled=False,
+)
+
+user_button = dbc.Button(
+    id='user-button',
+    children=html.I(className="fa-solid fa-user icon-style-bottom-row"),
+    className="bottom-row-button",
+    disabled=False,
+)
+
+settings_button = dbc.Button(
+    id='settings-button',
+    children=html.I(className="fa-solid fa-gear icon-style-bottom-row"),
+    className="bottom-row-button",
+    disabled=False,
+)
+
+dummy_button = dbc.Button(
+    children=html.I(className="fa-solid fa-diamond icon-style-bottom-row"),
+    className="bottom-row-button",
+    disabled=False,
+)
+
+dummy = dbc.Col(dummy_button, style={'opacity': 0})  # Removed trailing comma here
 
 button_row = dbc.Row([
     dcc.Store(id='active-button-store', data='home'),
     dbc.Col(home_button),
+    dbc.Col(save_load_button),
+    dummy,
+    dummy,
+    dummy,
+    dummy,
+    dummy,
     dbc.Col(edit_button),
     dbc.Col(algo_button),
     dbc.Col(weights_button),
     dbc.Col(custom_fields_button),
-    dbc.Col(templates_button)
+    dummy,
+    dummy,
+    dummy,
+    dbc.Col(templates_button),
+    dbc.Col(theme_button),
+    dbc.Col(user_button),
+    dbc.Col(settings_button),
 ], style={'marginLeft': '50px'})
