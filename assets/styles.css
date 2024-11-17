@@ -838,3 +838,60 @@ body {
 .algo-tooltip.bs-tooltip-right .arrow::before {
     border-right-color: #4b80ca; /* Same as tooltip background color */
 }
+
+/* Disabled state styles */
+.edit-button:disabled {
+    opacity: 1;
+    cursor: not-allowed;
+    pointer-events: none;
+    /* Retain existing styles */
+    background-color: #646365 !important;
+    color: #b8b5b9 !important;
+}
+
+
+.fields-button {
+    align-items: center;
+    background-color: #646365 !important;
+    border: 6px solid #45444f;
+    border-radius: 25%;
+    box-shadow: 6px 6px 4px 0px #212123;
+    color: #b8b5b9 !important;
+    display: flex;
+    font-size: 1.5vw;
+    height: 6vw;
+    justify-content: center;
+    outline: none;
+    overflow: hidden;
+    padding: 0px;
+    transition: all 0.2s ease-in-out;
+    height: 10vh;
+    width: 8vw;
+}
+
+/* While button is selected, managed in callback */
+
+.fields-button-selected {
+    align-items: center;
+    background-color: #646365 !important;
+    border: 8px solid #45444f;
+    border-radius: 33%;
+    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
+    color: #f2f0e5 !important;
+    display: flex;
+    height: 6vw;
+    justify-content: center;
+    outline: none;
+    overflow: hidden;
+    padding: 0px;
+    transition: all 0.2s ease-in-out;
+    width: 8vw;
+}
+
+.fields-button:hover {
+    background-color: #646365 !important;
+    border: 10px solid #45444f;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    color: #f2f0e5 !important;
+    outline: none;
+}

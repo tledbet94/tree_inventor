@@ -13,7 +13,7 @@ from app_instance import app
         Output('weights-button', 'active'),
         Output('custom-fields-button', 'active'),
         Output('templates-button', 'active'),
-        Output('theme-button', 'active'),
+        Output('themes-button', 'active'),
         Output('settings-button', 'active'),
         Output('save-load-button', 'active'),
         Output('user-button', 'active'),
@@ -26,7 +26,7 @@ from app_instance import app
         Input('weights-button', 'n_clicks'),
         Input('custom-fields-button', 'n_clicks'),
         Input('templates-button', 'n_clicks'),
-        Input('theme-button', 'n_clicks'),
+        Input('themes-button', 'n_clicks'),
         Input('settings-button', 'n_clicks'),
         Input('save-load-button', 'n_clicks'),
         Input('user-button', 'n_clicks')
@@ -38,7 +38,7 @@ from app_instance import app
         State('weights-button', 'n_clicks_timestamp'),
         State('custom-fields-button', 'n_clicks_timestamp'),
         State('templates-button', 'n_clicks_timestamp'),
-        State('theme-button', 'n_clicks_timestamp'),
+        State('themes-button', 'n_clicks_timestamp'),
         State('settings-button', 'n_clicks_timestamp'),
         State('save-load-button', 'n_clicks_timestamp'),
         State('user-button', 'n_clicks_timestamp')
