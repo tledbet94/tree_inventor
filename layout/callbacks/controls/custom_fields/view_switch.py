@@ -1,4 +1,5 @@
-from dash import callback, Input, Output, State
+from dash import callback, Input, Output
+
 
 @callback(
     [
@@ -6,16 +7,20 @@ from dash import callback, Input, Output, State
         Output('field_values_view', 'style')
     ],
     [
-        Input('field-names-button', 'className'),
-        Input('field-values-button', 'className'),
+        Input('field-names-button', 'active'),
+        Input('field-values-button', 'active'),
     ]
 )
-def change_fields_view(names_class, values_class):
-
+def change_fields_view(names_active, values_active):
+    # Define the styles for visibility
     visible = {'display': 'block'}
     hidden = {'display': 'none'}
 
-    if names_class == 'fields-button active':
+    # Check which button is active and adjust visibility accordingly
+    if names_active:
         return visible, hidden
-    else:
+    elif values_active:
         return hidden, visible
+    else:
+        # Default case: both views hidden (in case no button is active)
+        return hidden, hidden

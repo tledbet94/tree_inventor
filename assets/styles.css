@@ -871,27 +871,68 @@ body {
 
 /* While button is selected, managed in callback */
 
-.fields-button-selected {
+.fields-button.active {
     align-items: center;
     background-color: #646365 !important;
-    border: 8px solid #45444f;
-    border-radius: 33%;
-    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
+    border: 0px solid #45444f;
+    border-radius: 25%;
+    box-shadow: inset -15px 15px 4px #45444f; /* Enhance the shadow on hover */
     color: #f2f0e5 !important;
     display: flex;
+    font-size: 1.5vw;
     height: 6vw;
     justify-content: center;
     outline: none;
     overflow: hidden;
     padding: 0px;
     transition: all 0.2s ease-in-out;
+    height: 10vh;
     width: 8vw;
 }
 
 .fields-button:hover {
     background-color: #646365 !important;
-    border: 10px solid #45444f;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    border: 6px solid #45444f;
+    box-shadow: 2px 2px 2px 0px #212123;
     color: #f2f0e5 !important;
     outline: none;
+}
+
+/* Remove the default blue outline for all buttons with the class 'fields-button' */
+.fields-button:focus {
+    align-items: center;
+    background-color: #646365 !important;
+    border: 0px solid #45444f;
+    border-radius: 25%;
+    box-shadow: inset -15px 15px 4px #45444f; /* Enhance the shadow on hover */
+    color: #f2f0e5 !important;
+    display: flex;
+    font-size: 1.5vw;
+    height: 6vw;
+    justify-content: center;
+    outline: none;
+    overflow: hidden;
+    padding: 0px;
+    transition: all 0.2s ease-in-out;
+    height: 10vh;
+    width: 8vw;
+}
+
+.fields-update-button {
+    align-items: center;
+    background-color: #646365 !important;
+    border: 6px solid #6a536e;
+    border-radius: 40%;
+    box-shadow: 6px 6px 4px 0px #212123;
+    color: #b8b5b9 !important;
+    display: flex;
+    font-size: 1.5vw;
+    height: 6vw;
+    justify-content: center;
+    outline: none;
+    overflow: hidden;
+    padding: 0px;
+    transition: all 0.2s ease-in-out;
+    height: 10vh;
+    width: 8vw;
 }

@@ -19,6 +19,7 @@ from layout.callbacks.controls.weights.manual_active_pressed import update_manua
 from layout.callbacks.controls.custom_fields.active_button_callback import update_fields_buttons
 from layout.callbacks.controls.custom_fields.view_switch import change_fields_view
 
+
 app.layout = layout
 
 if __name__ == '__main__':

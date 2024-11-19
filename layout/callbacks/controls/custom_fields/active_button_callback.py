@@ -1,24 +1,22 @@
 from dash import callback, Input, Output, State
 
+
 @callback(
-    [Output('field-names-button', 'className'),
-     Output('field-values-button', 'className')],
+    [Output('field-names-button', 'active'),
+     Output('field-values-button', 'active')],
     [Input('field-names-button', 'n_clicks'),
      Input('field-values-button', 'n_clicks')],
     [State('field-names-button', 'n_clicks_timestamp'),
      State('field-values-button', 'n_clicks_timestamp')]
 )
-def update_fields_buttons(fields_names_clicks, fields_values_clicks, fields_names_timestamp, fields_values_timestamp):
-    print('test')
-    # Handle None values for timestamps by setting them to -1
-    fields_names_timestamp = fields_names_timestamp or -1
-    fields_values_timestamp = fields_values_timestamp or -1
+def update_fields_buttons(names_clicks, values_clicks):
+    names_clicks = names_clicks or 0
+    values_clicks = values_clicks or 0
 
-    # Determine which button has the most recent timestamp
-    if fields_names_timestamp > fields_values_timestamp:
-        return 'fields-button active', 'fields-button'
-    elif fields_values_timestamp > fields_names_timestamp:
-        return 'fields-button', 'fields-button active'
+    if names_clicks == 0 and values_clicks == 0:
+        # Default state when the app loads
+        return True, False
+    elif names_clicks > values_clicks:
+        return True, False
     else:
-        # Default case when no button has been clicked
-        return 'fields-button active', 'fields-button'
+        return False, True
