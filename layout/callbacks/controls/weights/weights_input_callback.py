@@ -1,11 +1,12 @@
 from dash import callback, Input, Output
+from app_instance import app
 
 neither_node_nor_input = 'Select a Node and enter a weight.'
 only_node = 'Enter a weight.'
 both_selected = 'Press enter to apply weight.'
 
 
-@callback(
+@app.callback(
     [Output("weights-input-feedback", "children"),
      Output("weights-input", "className"),
      Output("weights-input-button", "className"),

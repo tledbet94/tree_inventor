@@ -1,9 +1,7 @@
 from dash import callback, Input, Output
+from app_instance import app
 
-
-# ... [other imports and code]
-
-@callback(
+@app.callback(
     [
         Output('single-traversal-button', 'disabled'),
         Output('multiple-traversal-button', 'disabled'),
