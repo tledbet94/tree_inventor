@@ -5,14 +5,19 @@ import dash_bootstrap_components as dbc
 from .elements.panels import button_panel, control_panel, info_panel
 from cytoscape.cytoscape import cyto_component
 
-from .elements.control_panel.modes.algorithims import algo
 
+from .elements.control_panel.modes.home import home
 from .elements.control_panel.modes.edit import edit
 from .elements.control_panel.modes.edit import edit_input_button
 from .elements.control_panel.modes.edit import edit_input
 from .elements.control_panel.modes.edit import remove_node_button
+from .elements.control_panel.modes.weights import weights
+from .elements.control_panel.modes.custom_fields import custom_fields
+from .elements.control_panel.modes.save_load import save_load
+from .elements.control_panel.modes.themes import themes
+from .elements.control_panel.modes.user import user
+from .elements.control_panel.modes.settings import settings
 
-from .elements.control_panel.modes.home import home
 
 layout = html.Div([
     dcc.Store(id='current-node-data'),

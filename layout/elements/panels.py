@@ -27,7 +27,7 @@ control_panel = html.Div(
         html.Div(weights, id='weights-mode', style={'display': 'none'}),
         html.Div(custom_fields, id='custom-fields-mode', style={'display': 'none'}),
         html.Div(templates, id='templates-mode', style={'display': 'none'}),
-        html.Div(user, id='themes-mode', style={'display': 'none'}),
+        html.Div(themes, id='themes-mode', style={'display': 'none'}),
         html.Div(user, id='user-mode', style={'display': 'none'}),
         html.Div(settings, id='settings-mode', style={'display': 'none'})
     ],

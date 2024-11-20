@@ -1,7 +1,7 @@
 from dash import callback, Input, Output
+from app_instance import app
 
-
-@callback(
+@app.callback(
     [
         Output('field_names_view', 'style'),
         Output('field_values_view', 'style')

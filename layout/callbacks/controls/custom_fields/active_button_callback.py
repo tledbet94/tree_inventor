@@ -1,7 +1,8 @@
 from dash import callback, Input, Output, State
+from app_instance import app
 
 
-@callback(
+@app.callback(
     [Output('field-names-button', 'active'),
      Output('field-values-button', 'active')],
     [Input('field-names-button', 'n_clicks'),
@@ -9,14 +10,16 @@ from dash import callback, Input, Output, State
     [State('field-names-button', 'n_clicks_timestamp'),
      State('field-values-button', 'n_clicks_timestamp')]
 )
-def update_fields_buttons(names_clicks, values_clicks):
-    names_clicks = names_clicks or 0
-    values_clicks = values_clicks or 0
+def update_fields_buttons(names_clicks, values_clicks, names_timestamp, values_timestamp):
 
-    if names_clicks == 0 and values_clicks == 0:
-        # Default state when the app loads
+    names_timestamp = names_timestamp or -1
+    values_timestamp = values_timestamp or -1
+
+    if names_timestamp > values_timestamp:
         return True, False
-    elif names_clicks > values_clicks:
-        return True, False
-    else:
+
+    elif values_timestamp > names_timestamp:
         return False, True
+
+    else:
+        return True, False
