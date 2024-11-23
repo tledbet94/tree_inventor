@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/algo/slider.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/algo/slider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/algo/traversal_deactivate.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/algo/traversal_deactivate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/weights/manual_active_pressed.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/weights/manual_active_pressed.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/weights/weights_input_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/weights/weights_input_callback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/archive.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/cyto_callback.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/helper_functions/weight_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/helper_functions/weight_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/custom_fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/custom_fields.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/layout.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,11 +69,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Dev\tree_builder\layout\callbacks\cyto\sub_cyto" />
       <recent name="C:\Dev\trees\tree_morph2\tree_maker\layout\callbacks\cyto\helper_functions" />
       <recent name="C:\Dev\tree_builder\layout\callbacks\controls\weights" />
       <recent name="C:\Dev\tree_builder\layout\callbacks\cyto" />
       <recent name="C:\Dev\tree_builder\layout\callbacks\cyto\helper_functions" />
-      <recent name="C:\Dev\tree_builder\layout\callbacks\controls\edit" />
     </key>
   </component>
   <component name="RunManager">

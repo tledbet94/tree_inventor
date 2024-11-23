@@ -10,13 +10,13 @@ weight_actual = html.P(id='node-weight', className='info-text-actual')
 level_label = html.P('Level:', className='info-text-label')
 level_actual = html.P(id='node-level', className='info-text-actual')
 
-custom1_label = html.P('Custom 1:', className='info-text-label')
+custom1_label = html.P(id='info-custom1-label', children='Custom 1:', className='info-text-label')
 custom1_actual = html.P(id='node-custom1', className='info-text-actual')
 
-custom2_label = html.P('Custom 2:', className='info-text-label')
+custom2_label = html.P(id='info-custom2-label', children='Custom 2:', className='info-text-label')
 custom2_actual = html.P(id='node-custom2', className='info-text-actual')
 
-custom3_label = html.P('Custom 3:', className='info-text-label')
+custom3_label = html.P(id='info-custom3-label', children='Custom 3:', className='info-text-label')
 custom3_actual = html.P(id='node-custom3', className='info-text-actual')
 
 first_row = dbc.Row([dbc.Col(node_label), dbc.Col(node_name),

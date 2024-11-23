@@ -7,13 +7,19 @@ default_elements = [
             'weight': 25,
             'level': 1,
             'children': 2,
-            'Productive?': 'Yes',
-            'Mood Impact': 'Increase',
-            'Fun Level': '6',
             'traversed': 'False',
             'common': 'False',
             'invalid_weight': 'False',
-            'last_clicked': 'False'
+            'last_clicked': 'False',
+            'custom1':
+                {'field_name': 'Productive?',
+                 'field_value': 'Yes'},
+            'custom2':
+                {'field_name': 'Mood Impact',
+                 'field_value': 'Boost'},
+            'custom3':
+                {'field_name': 'Fun Level',
+                 'field_value': 10},
         }
     },
     {
@@ -22,13 +28,19 @@ default_elements = [
             'label': 'Check Phone',
             'weight': 25,
             'level': 2,
-            'Productive?': 'Yes',
-            'Mood Impact': 'Increase',
-            'Fun Level': '6',
             'traversed': 'False',
             'common': 'False',
             'invalid_weight': 'False',
-            'last_clicked': 'False'
+            'last_clicked': 'False',
+            'custom1':
+                {'field_name': 'Productive?',
+                 'field_value': 'Yes'},
+            'custom2':
+                {'field_name': 'Mood Impact',
+                 'field_value': 'Boost'},
+            'custom3':
+                {'field_name': 'Fun Level',
+                 'field_value': 10},
         }
     },
     {
@@ -38,13 +50,19 @@ default_elements = [
             'weight': 100,
             'children': 0,
             'level': 2,
-            'Productive?': 'Yes',
-            'Mood Impact': 'Increase',
-            'Fun Level': '6',
             'traversed': 'False',
             'common': 'False',
             'invalid_weight': 'False',
-            'last_clicked': 'False'
+            'last_clicked': 'False',
+            'custom1':
+                {'field_name': 'Productive?',
+                 'field_value': 'Yes'},
+            'custom2':
+                {'field_name': 'Mood Impact',
+                 'field_value': 'Boost'},
+            'custom3':
+                {'field_name': 'Fun Level',
+                 'field_value': 10},
         }
     },
     {
@@ -54,13 +72,20 @@ default_elements = [
             'weight': 100,
             'children': 0,
             'level': 3,
-            'Productive?': 'Yes',
-            'Mood Impact': 'Increase',
-            'Fun Level': '6',
             'traversed': 'False',
             'common': 'False',
             'invalid_weight': 'False',
-            'last_clicked': 'False'
+            'last_clicked': 'False',
+            'custom1':
+                {'field_name': 'Productive?',
+                 'field_value': 'Yes'},
+            'custom2':
+                {'field_name': 'Mood Impact',
+                 'field_value': 'Boost'},
+            'custom3':
+                {'field_name': 'Fun Level',
+                 'field_value': 10},
+
         }
     },
     {
@@ -70,13 +95,19 @@ default_elements = [
             'weight': 100,
             'children': 0,
             'level': 3,
-            'Productive?': 'Yes',
-            'Mood Impact': 'Increase',
-            'Fun Level': '6',
             'traversed': 'False',
             'common': 'False',
             'invalid_weight': 'False',
-            'last_clicked': 'False'
+            'last_clicked': 'False',
+            'custom1':
+                {'field_name': 'Productive?',
+                 'field_value': 'Yes'},
+            'custom2':
+                {'field_name': 'Mood Impact',
+                 'field_value': 'Boost'},
+            'custom3':
+                {'field_name': 'Fun Level',
+                 'field_value': 10},
         }
     },
     # Edges with additional properties

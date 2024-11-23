@@ -33,7 +33,7 @@ def show_weights_input(user_input, node_data, edge_data, manual_class):
                 'visible-opacity',
                 'visible-opacity', 'visible-opacity',)
     elif (node_data or edge_data) and (user_input is not None or '') and manual_active is False:
-        return (only_node, 'weights-input', 'weights-input-button',
+        return (both_selected, 'weights-input', 'weights-input-button',
                 'visible-opacity',
                 'hidden-opacity', 'hidden-opacity')
     elif (node_data or edge_data) and (user_input is not None or '') and manual_active is True:

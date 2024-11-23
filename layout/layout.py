@@ -20,6 +20,12 @@ from .elements.control_panel.modes.settings import settings
 
 
 layout = html.Div([
+    # separate elements copy for each function
+    dcc.Store(id='edit-store'),
+    dcc.Store(id='single-interval-store'),
+    dcc.Store(id='multiple-interval-store'),
+    dcc.Store(id='weights-store'),
+    # other stores
     dcc.Store(id='current-node-data'),
     dcc.Interval(id='traversal-interval', interval=1000, n_intervals=0, disabled=True),
     dcc.Store(id='traversal-state'),

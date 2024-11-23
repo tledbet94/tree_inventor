@@ -9,6 +9,5 @@ app = dash.Dash(
         dbc.themes.MORPH,
         "https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css",
         "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    ],
-    suppress_callback_exceptions=True
+    ]
 )

@@ -15,8 +15,6 @@ from layout.callbacks.controls.edit.edit_input import show_edit_input, edit_chec
 
 from layout.callbacks.info import info_callback
 
-from layout.callbacks.cyto.cyto_callback import modify_cyto
-
 from layout.callbacks.controls.algo.slider import display_value
 from layout.callbacks.controls.algo.traversal_deactivate import update_disabled_buttons
 
@@ -25,6 +23,16 @@ from layout.callbacks.controls.weights.manual_active_pressed import update_manua
 
 from layout.callbacks.controls.custom_fields.active_button_callback import update_fields_buttons
 from layout.callbacks.controls.custom_fields.view_switch import change_fields_view
+
+from layout.callbacks.cyto.sub_cyto.custom_fields.cyto_fields import fields_update
+from layout.callbacks.cyto.sub_cyto.custom_fields.update_fields_labels import update_labels
+
+from layout.callbacks.cyto.sub_cyto.cyto_edit import modify_elements
+from layout.callbacks.cyto.sub_cyto.cyto_traversal import handle_traversals
+from layout.callbacks.cyto.sub_cyto.cyto_weights import adjust_weights
+
+from layout.callbacks.cyto.main_cyto import update_cytoscape_elements
+
 
 
 app.layout = layout
