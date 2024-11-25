@@ -22,10 +22,8 @@ from layout.callbacks.controls.weights.weights_input_callback import show_weight
 from layout.callbacks.controls.weights.manual_active_pressed import update_manual_auto_buttons
 
 from layout.callbacks.controls.custom_fields.active_button_callback import update_fields_buttons
-from layout.callbacks.controls.custom_fields.view_switch import change_fields_view
 
-from layout.callbacks.cyto.sub_cyto.custom_fields.cyto_fields import fields_update
-from layout.callbacks.cyto.sub_cyto.custom_fields.update_fields_labels import update_labels
+from layout.callbacks.cyto.sub_cyto.cyto_fields import fields_update
 
 from layout.callbacks.cyto.sub_cyto.cyto_edit import modify_elements
 from layout.callbacks.cyto.sub_cyto.cyto_traversal import handle_traversals

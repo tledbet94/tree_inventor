@@ -936,3 +936,18 @@ body {
     height: 10vh;
     width: 8vw;
 }
+
+.fields-label {
+    text-align: center; /* Centers text horizontally */
+    margin: 0 auto;     /* Centers the block element */
+    display: flex;      /* Allows for vertical centering */
+    justify-content: center;
+    align-items: center;
+    height: 100%;       /* Ensure it spans its container */
+    width: 1.5vw;
+}
+
+.fields-input {
+    height: 3vh;
+    width: 100%;
+}

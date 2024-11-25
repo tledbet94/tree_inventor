@@ -24,7 +24,8 @@ from layout.callbacks.cyto.helper_functions.weight_helper import \
         State('cytoscape', 'tapEdge'),
     ]
 )
-def adjust_weights(weights_enter_clicks, elements, weights_input_value, manual_button_classname, auto_button_classname,
+def adjust_weights(weights_enter_clicks,
+                   elements, weights_input_value, manual_button_classname, auto_button_classname,
                    tap_node, tap_edge):
     elements = copy.deepcopy(elements) if elements else []
     manual_input_feedback = no_update
@@ -51,7 +52,6 @@ def adjust_weights(weights_enter_clicks, elements, weights_input_value, manual_b
     selected_element = None
     for element in elements:
         if element['data']['last_clicked'] == 'True':
-            print('test')
             element['data']['weight'] = entered_weight
             selected_element = element
             break
