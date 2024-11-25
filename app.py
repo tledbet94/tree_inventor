@@ -32,8 +32,7 @@ from layout.callbacks.cyto.sub_cyto.cyto_weights import adjust_weights
 from layout.callbacks.cyto.main_cyto import update_cytoscape_elements
 
 from layout.callbacks.controls.templates.active_button import update_active_template_button
-
-
+from layout.callbacks.cyto.sub_cyto.cyto_template import swap_trees
 
 app.layout = layout
 

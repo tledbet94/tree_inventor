@@ -1,4 +1,4 @@
-from dash import html
+from dash import dcc, html
 import dash_bootstrap_components as dbc
 
 templates_title = html.H1('Templates', className='edit-header-text')
@@ -139,7 +139,10 @@ template_eight = html.Div(
     }
 )
 
+template_store = dcc.Store(id='template-store')
+
 templates = html.Div([
+    template_store,
     templates_title,
     html.Div(style={'height': '8vh'}),
     dbc.Row([dbc.Col(template_one), dbc.Col(template_two)]),

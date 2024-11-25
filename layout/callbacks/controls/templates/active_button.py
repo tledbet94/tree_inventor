@@ -62,7 +62,6 @@ def update_active_template_button(
 
     # Generate active states for each button
     active_state = [timestamps[template] == max_timestamp for template in timestamps]
-    print(active_state)
 
     # Return the active states
     return active_state
