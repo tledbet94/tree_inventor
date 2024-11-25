@@ -9,14 +9,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/custom_fields/view_switch.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/main_cyto.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/main_cyto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/custom_fields/cyto_fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_fields.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/custom_fields/update_fields_labels.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_weights.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_weights.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/info/info_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/info/info_callback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/bottom_row/button_row.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/bottom_row/button_row.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_fields.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/custom_fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/custom_fields.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/templates.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/templates.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +79,7 @@
   <component name="RunManager">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="tree_builder" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>

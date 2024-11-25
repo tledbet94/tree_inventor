@@ -37,18 +37,24 @@ fields_body = html.Div(id='field_names_view',
                            html.Div(style={'height': '1vh'}),
                            dbc.Row(dbc.Col(custom1_label)),
                            dbc.Row([
-                               dbc.Col(dbc.Input(id='custom1_input', className='fields-input')),
+                               dbc.Col(width=1),
+                               dbc.Col(dbc.Input(id='custom1_input', className='weights-input')),
+                               dbc.Col(width=1)
                            ]),
                            html.Div(style={'height': '2vh'}),
                            dbc.Row(dbc.Col(custom2_label), justify='center'),
                            dbc.Row([
-                               dbc.Col(dbc.Input(id='custom2_input', className='fields-input')),
+                               dbc.Col(width=1),
+                               dbc.Col(dbc.Input(id='custom2_input', className='weights-input')),
+                               dbc.Col(width=1)
                            ]),
                            html.Div(style={'height': '2vh'}),
                            dbc.Row(dbc.Col(custom3_label)),
                            html.Div(style={'height': '2vh'}),
                            dbc.Row([
-                               dbc.Col(dbc.Input(id='custom3_input', className='fields-input')),
+                               dbc.Col(width=1),
+                               dbc.Col(dbc.Input(id='custom3_input', className='weights-input')),
+                               dbc.Col(width=1),
                            ])
                        ])
 
@@ -56,12 +62,12 @@ custom_fields = html.Div([
     fields_store,
     dbc.Row(custom_fields_title),
     html.Div(style={'height': '1vh'}),
-    dbc.Row([dbc.Col(field_names_button),
+    dbc.Row([dbc.Col(width=1), dbc.Col(field_names_button),
              dbc.Col(field_values_button)]
             ),
     html.Div(style={'height': '3vh'}),
     html.Div(fields_body),
     html.Div(style={'height': '1vh'}),
-    dbc.Row([dbc.Col(width=3), dbc.Col(custom_update_button), dbc.Col(width=3)])
+    dbc.Row([dbc.Col(width=4), dbc.Col(custom_update_button), dbc.Col(width=4)])
 
 ])

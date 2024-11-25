@@ -938,16 +938,48 @@ body {
 }
 
 .fields-label {
-    text-align: center; /* Centers text horizontally */
-    margin: 0 auto;     /* Centers the block element */
-    display: flex;      /* Allows for vertical centering */
-    justify-content: center;
     align-items: center;
+    text-shadow: 2px 2px 2px #352b42;
+    color: #6a536e;
+    display: flex;      /* Allows for vertical centering */
+    font-size: 1.5vw;
     height: 100%;       /* Ensure it spans its container */
-    width: 1.5vw;
+    justify-content: center;
+    margin: 0 auto;     /* Centers the block element */
+    text-align: center; /* Centers text horizontally */
+
 }
 
-.fields-input {
-    height: 3vh;
-    width: 100%;
+.template_button {
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    display: flex; /* Make sure it's flex to align text */
+    justify-content: center;
+    align-items: center;
+    background-color: #4b80ca;
+    border: 8px double #68c2d3;
+    border-opacity: 0.75;
+    box-shadow: -3px 3px 3px #f2f0e5, 10px -10px 5px #45444f;
+    font-size: 3vh;
+    font-weight: bold;
+    color: #f2f0e5;
+    margin: 20px auto;
+    text-align: center; /* Ensure text is centered */
+}
+
+.template_button:hover {
+    background-color: #4b80ca; /* Lighter shade on hover */
+    border: 8px double #a2dcc7;
+    color: #f2f0e5;
+    box-shadow: -2px 2px 5px #e2dfd0, 8px -8px 4px #3b3a4f; /* Softer shadows */
+}
+
+.template_button:active,
+.template_button:focus {
+    background-color: #b45252; /* Turn red when pressed */
+    border: 8px double #d3a068;
+    box-shadow: inset -3px 3px 8px #2e2e34, inset 5px -5px 10px #1a1a1f; /* Inward shadows to indicate pressed state */
+    color: #f2f0e5; /* Maintain text color */
+    box-shadow: -2px 2px 5px #e2dfd0, 8px -8px 4px #3b3a4f; /* Softer shadows */
 }

@@ -107,9 +107,9 @@ def fields_update(update_clicks, tap_node,
 
     # Default case: update labels based on the selected node
     else:
-        if elements and selected_node_id:
+        if elements:
             for element in elements:
-                if 'source' not in element['data'] and element['data'].get('id') == selected_node_id:
+                if 'source' not in element['data']:
                     name1 = element['data']['custom1']['field_name']
                     name2 = element['data']['custom2']['field_name']
                     name3 = element['data']['custom3']['field_name']
