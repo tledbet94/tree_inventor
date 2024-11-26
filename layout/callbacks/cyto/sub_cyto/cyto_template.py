@@ -1,14 +1,6 @@
 from dash import ctx, Input, Output, State
 from app_instance import app
-
-from cytoscape.templates.wake_up import default_elements as wake_up
-from cytoscape.templates.two import default_elements as df2
-from cytoscape.templates.three import default_elements as df3
-from cytoscape.templates.four import default_elements as df4
-from cytoscape.templates.five import default_elements as df5
-from cytoscape.templates.six import default_elements as df6
-from cytoscape.templates.seven import default_elements as df7
-from cytoscape.templates.eight import default_elements as df8
+import json
 
 
 @app.callback(
@@ -29,21 +21,37 @@ def swap_trees(one_active, two_active, three_active, four_active,
                five_active, six_active, seven_active, eight_active, current_elements):
 
     if one_active:
-        return wake_up
+        with open("cytoscape/templates/one.json", "r") as json_file:
+            loaded_elements = json.load(json_file)
+            return loaded_elements
     elif two_active:
-        return df2
+        with open("cytoscape/templates/one.json", "r") as json_file:
+            loaded_elements = json.load(json_file)
+            return loaded_elements
     elif three_active:
-        return df3
+        with open("cytoscape/templates/one.json", "r") as json_file:
+            loaded_elements = json.load(json_file)
+            return loaded_elements
     elif four_active:
-        return df4
+        with open("cytoscape/templates/one.json", "r") as json_file:
+            loaded_elements = json.load(json_file)
+            return loaded_elements
     elif five_active:
-        return df5
+        with open("cytoscape/templates/one.json", "r") as json_file:
+            loaded_elements = json.load(json_file)
+            return loaded_elements
     elif six_active:
-        return df6
+        with open("cytoscape/templates/one.json", "r") as json_file:
+            loaded_elements = json.load(json_file)
+            return loaded_elements
     elif seven_active:
-        return df7
+        with open("cytoscape/templates/one.json", "r") as json_file:
+            loaded_elements = json.load(json_file)
+            return loaded_elements
     elif eight_active:
-        return df8
+        with open("cytoscape/templates/one.json", "r") as json_file:
+            loaded_elements = json.load(json_file)
+            return loaded_elements
     else:
         return current_elements
 

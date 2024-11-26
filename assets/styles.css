@@ -990,7 +990,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
     font-family: Arial, sans-serif;
 }
 
@@ -1004,7 +1003,7 @@ body {
 
 /* Input field styling */
 .colorpicker-input {
-    width: 20vw;
+    width: 10vw;
     height: 10vh;
     border: none;
     outline: none;
@@ -1027,36 +1026,43 @@ body {
 /* Style the dropdown toggle button */
 .dropdown-toggle {
     background-color: #b8b5b9; /* Base color */
-    color: #ffffff; /* White text for contrast */
+    color: #3a3858; /* White text for contrast */
     border: none;
+    font-size: 2vw;
     transition: background-color 0.2s ease, color 0.2s ease;
+    height: 10vh;
+    width: 90%;
 }
 
 .dropdown-toggle:hover,
 .dropdown-toggle:focus,
 .dropdown-toggle:active {
-    background-color: #868188 !important; /* Darker shade on hover */
-    color: #ffffff;
+    background-color: #b8b5b9 !important; /* Base color */
+    color: #f2f0e5 !important; /* Darker shade on hover */
 }
 
 /* Style the dropdown menu */
 .dropdown-menu {
-    background-color: #f2f0e5; /* Light background color */
-    border: 1px solid #b8b5b9; /* Match the toggle button color */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    color: #f2f0e5; /* White text for contrast */
+    background-color: #6a536e;
+    border: 1px solid #b8b5b9;
+    box-shadow: 0 4px 6px #352b42;
+    text-align: center;
+    width: 90%;
 }
 
 .dropdown-menu:active,
  .dropdown-menu:focus {
-    background-color: #f2f0e5; /* Light background color */
+    color: #68c2d3; /* White text for contrast */
     border: 1px solid #b8b5b9; /* Match the toggle button color */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 6px #352b42; /* Subtle shadow for depth */
 }
 
 /* Style the dropdown items */
 .dropdown-item {
-    background-color: #646365;
+    background-color: #5f556a;
     color: #f2f0e5; /* Text color */
+    font-size: 1vw;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -1073,4 +1079,27 @@ body {
     color: #ffffff;
 }
 
+.themes-apply-button {
+    align-items: center;
+    background-color: #b8b5b9 !important;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px #45444f;
+    color: #3a3858 !important;
+    font-size: 1.5vw;
+    display: flex;
+    height: 10vh;
+    justify-content: center;
+    outline: none;
+    overflow: hidden;
+    padding: 0px;
+    transition: all 0.2s ease-in-out;
+    width: 10vh;
+}
 
+.themes-apply-button:hover {
+    background-color: #b8b5b9 !important;
+    box-shadow: 0px 2px 2px #45444f;
+    color: #f2f0e5 !important;
+    outline: none;
+}

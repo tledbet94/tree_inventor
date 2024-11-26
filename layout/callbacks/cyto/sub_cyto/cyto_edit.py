@@ -4,8 +4,10 @@ import copy
 
 
 @app.callback(
-    Output('edit-store', 'data'),
-    Output('name-store', 'data'),
+    [
+        Output('edit-store', 'data'),
+        Output('name-store', 'data'),
+    ],
     [
         Input('edit-input-button', 'n_clicks'),
         Input('remove-button', 'n_clicks'),

@@ -1,7 +1,6 @@
 import dash_cytoscape as cyto
+import json
 
-# Internal imports
-from .tree_file import default_elements
 
 cytoscape_background_color = '#352b42'
 node_background_color = '#4b80ca'
@@ -103,6 +102,9 @@ stylesheet = [
 },
 ]
 
+with open("cytoscape/tree_structure.json", "r") as json_file:
+    loaded_elements = json.load(json_file)
+
 cyto_component = cyto.Cytoscape(
     id='cytoscape',
     layout={'name': 'dagre', 'spacingFactor': 1, 'animate': True, 'animationDuration': 1000},
@@ -112,7 +114,7 @@ cyto_component = cyto.Cytoscape(
            'border': '15px solid #868188',
            'borderRadius': '30px',
            'box-shadow': 'inset 0px 0px 10px 10px #646365'},
-    elements=default_elements,
+    elements=loaded_elements,
     stylesheet=stylesheet
 )
 

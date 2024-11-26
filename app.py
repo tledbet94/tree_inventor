@@ -34,6 +34,8 @@ from layout.callbacks.cyto.main_cyto import update_cytoscape_elements
 from layout.callbacks.controls.templates.active_button import update_active_template_button
 from layout.callbacks.cyto.sub_cyto.cyto_template import swap_trees
 
+from layout.callbacks.controls.save_load.local_save import local_save
+
 app.layout = layout
 
 if __name__ == '__main__':
