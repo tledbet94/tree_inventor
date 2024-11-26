@@ -4,33 +4,26 @@ from app_instance import app
 
 themes_title = html.H1('Themes', className='edit-header-text')
 
+dropdown = dbc.DropdownMenu(
+    label="Menu",
+    children=[
+        dbc.DropdownMenuItem("Item 1"),
+        dbc.DropdownMenuItem("Item 2"),
+        dbc.DropdownMenuItem("Item 3"),
+    ],
+)
+
 colorpicker = html.Div(
     [
-        dbc.Label(["Select a ", html.Span("color", id="color", className='theme-font')], className="colorpicker-label"),
-        html.Div(
-            id="color-display",
-            className="color-display",
-            style={"background-color": "#000000"},  # Default color
-        ),
+        html.P(children="Select a color below.", className="theme-font"),
         dbc.Input(
             type="color",
             id="colorpicker",
-            value="#b8b5b9",
+            value="#4b80ca",
             className="colorpicker-input",
         ),
     ],
     className="colorpicker-container",
-)
-
-app.clientside_callback(
-    """
-    function(color) {
-        document.getElementById('color-display').style.backgroundColor = color;
-        return {};
-    }
-    """,
-    Output("color", "style"),
-    Input("colorpicker", "value"),
 )
 
 themes = html.Div(

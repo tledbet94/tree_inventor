@@ -1001,41 +1001,25 @@ body {
     margin-bottom: 10px;
 }
 
-/* Circular color display */
-.color-display {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-}
-
-/* Hover effect */
-.color-display:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
 
 /* Input field styling */
 .colorpicker-input {
-    width: 75px;
-    height: 50px;
+    width: 20vw;
+    height: 10vh;
     border: none;
     outline: none;
     cursor: pointer;
     border-radius: 5px;
-    background-color: #f4f4f4;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #b8b5b9;
+    box-shadow: 0 2px 4px #45444f;
     transition: box-shadow 0.3s;
 }
 
 .colorpicker-input:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px #45444f;
 }
 
 .theme-font {
     color: #646365;
-    size: 1.5vw;
+    font-size: 1.5vw;
 }
