@@ -5,16 +5,15 @@ from app_instance import app
 themes_title = html.H1('Themes', className='edit-header-text')
 
 dropdown = dbc.DropdownMenu(
-    label="Menu",
+    label="Choose an element.",
     children=[
         dbc.DropdownMenuItem("Item 1"),
         dbc.DropdownMenuItem("Item 2"),
         dbc.DropdownMenuItem("Item 3"),
-    ],
+    ], style={'marginLeft': '2.5vw'}
 )
 
-colorpicker = html.Div(
-    [
+colorpicker = html.Div([
         html.P(children="Select a color below.", className="theme-font"),
         dbc.Input(
             type="color",
@@ -29,6 +28,8 @@ colorpicker = html.Div(
 themes = html.Div(
     [
         themes_title,
+        html.Div(style={'height': '12vh'}),
+        dropdown,
         html.Div(style={'height': '12vh'}),
         colorpicker
     ]
