@@ -17,11 +17,10 @@ import json
         Input('cytoscape', 'elements'),
     ],
     [
-        State('name-store', 'data'),
         State('info-panel-data', 'data'),  # To store previous data
     ]
 )
-def update_node_info(tap_node_data, tap_edge_data, selected_node_data, selected_edge_data, elements, name_store,
+def update_node_info(tap_node_data, tap_edge_data, selected_node_data, selected_edge_data, elements,
                      info_panel_data):
     ctx = callback_context
     triggered_prop = ctx.triggered[0]['prop_id'] if ctx.triggered else ''
@@ -57,13 +56,6 @@ def update_node_info(tap_node_data, tap_edge_data, selected_node_data, selected_
         name = str(node_data.get('label', 'N/A'))
         weight = str(node_data.get('weight', 'N/A')) + '%'
         level = 'L' + str(node_data.get('level', 'N/A'))
-
-        # Use name_store if available
-        if name_store:
-            name = name_store
-
-        # Update stored elements
-        info_panel_data = {'elements_json': elements_json}
 
         return name, weight, level
 

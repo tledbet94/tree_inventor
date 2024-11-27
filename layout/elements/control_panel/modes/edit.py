@@ -1,28 +1,22 @@
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 
-# Add hover instructions at the top
-# Function to add a child node, remove node(s), or rename node
-
-# Add node - requires input
-# Rename node - requires input
-# Remove node - does not require input
-# So put in that order?
-
-# Prompt for input after pressing button, have enter button appear
+# Tooltips section
+# _info variables represent the tool tips / question marks in app
 
 rename_info = html.Div(
     [
         html.P(
             html.I(
-                className="fa-solid fa-question icon-style-question-mark",
-                id="rename-tooltip-target",  # Add an ID for the tooltip target
-                style={"cursor": "pointer"},  # Optional: pointer cursor for better UX
+                className='fa-solid fa-question icon-style-question-mark',
+                id='rename-tooltip-target',  # Add an ID for the tooltip target
+                style={'cursor': 'pointer'},  # Optional: pointer cursor for better UX
             ),
         ),
         dbc.Tooltip(
-            "Change the label of the selected node through user input",
-            target="rename-tooltip-target",  # Match this to the ID above
+            'Change the label of the selected node.',
+            target='rename-tooltip-target',  # Match this to the ID above
+            style={'font-size': '1vw'}
         ),
     ]
 )
@@ -31,14 +25,15 @@ add_info = html.Div(
     [
         html.P(
             html.I(
-                className="fa-solid fa-question icon-style-question-mark",
-                id="add-tooltip-target",  # Unique ID for the tooltip target
-                style={"cursor": "pointer"},
+                className='fa-solid fa-question icon-style-question-mark',
+                id='add-tooltip-target',  # Unique ID for the tooltip target
+                style={'cursor': 'pointer'},
             ),
         ),
         dbc.Tooltip(
-            "Add a child to the selected node with the input label; \nweight and other properties will default",
-            target="add-tooltip-target",  # Match this to the ID above
+            'Add a child to the selected node; \nprovide a label for the new node',
+            target='add-tooltip-target',  # Match this to the ID above
+            style={'font-size': '1vw'}
         ),
     ]
 )
@@ -47,41 +42,45 @@ remove_info = html.Div(
     [
         html.P(
             html.I(
-                className="fa-solid fa-question icon-style-question-mark",
-                id="remove-tooltip-target",  # Unique ID for the tooltip target
-                style={"cursor": "pointer"},
+                className='fa-solid fa-question icon-style-question-mark',
+                id='remove-tooltip-target',  # Unique ID for the tooltip target
+                style={'cursor': 'pointer'},
             ),
         ),
         dbc.Tooltip(
-            "Remove the selected node - if the selected node is a branch, all its children will be deleted.\n"
-            "The root cannot be deleted.",
-            target="remove-tooltip-target",  # Match this to the ID above
+            'Remove a node and its children - there is no undo button!',
+            target='remove-tooltip-target',  # Match this to the ID above
+            style={'font-size': '1vw'}
         ),
     ]
 )
 
+# Buttons section
+
 rename_node_button = dbc.Button(
     id='rename-button',
-    children=html.I(className="fa-solid fa-pencil icon-style-edit"),
-    className="edit-button",
-    style={'outline': 'none', 'margin_left': '15px'},
+    children=html.I(className='fa-solid fa-pencil icon-style-edit'),
+    className='edit-button',
+    style={'outline': 'none'},
 )
 
 add_node_button = dbc.Button(
     id='add-button',
-    children=html.I(className="fa-solid fa-plus icon-style-edit"),
-    className="edit-button",
-    style={'outline': 'none', 'margin_left': '15px'},
+    children=html.I(className='fa-solid fa-plus icon-style-edit'),
+    className='edit-button',
+    style={'outline': 'none'},
 )
 
 remove_node_button = dbc.Button(
     id='remove-button',
-    children=html.I(className="fa-solid fa-minus icon-style-edit"),
-    className="edit-button",
-    style={'outline': 'none', 'margin_left': '15px'},
+    children=html.I(className='fa-solid fa-minus icon-style-edit'),
+    className='edit-button',
+    style={'outline': 'none'},
 )
 
-# Input components only appear when they are needed
+# Edit input, enter button, and feedback screen
+# Invisible by default
+# Only appear when conditions are met (e.g. add node is pressed, node selected, input is not blank)
 edit_input = (
     dbc.Input(id='edit-input', placeholder='', size='lg', valid=False, className='edit-input'))
 
@@ -94,34 +93,36 @@ edit_input_feedback = (
         className='input-feedback-div'
     ))
 
+# Layout
+# dbc width and vh are key to spacing
 edit = html.Div([
     dcc.Store(id='edit-enter-click-store', data=0),
     dcc.Store(id='enter-pressed-bool', data=False),
     dcc.Store(id='selected-edit', data=''),
     html.H1('MODIFY TREE', className='edit-header-text'),
-    html.Div(style={"height": "2vh"}),
+    html.Div(style={'height': '2vh'}),
     dbc.Row([
         dbc.Col(width=2),
         dbc.Col(rename_node_button, width=5),
         dbc.Col(rename_info, align='end', width=5)
     ]),
-    html.Div(style={"height": "3vh"}),
+    html.Div(style={'height': '3vh'}),
     dbc.Row([
         dbc.Col(width=2),
         dbc.Col(add_node_button, width=5),
         dbc.Col(add_info, align='end', width=5)
     ]),
-    html.Div(style={"height": "3vh"}),
+    html.Div(style={'height': '3vh'}),
     dbc.Row([
         dbc.Col(width=2),
         dbc.Col(remove_node_button, width=5),
         dbc.Col(remove_info, align='end', width=5),
     ]),
-    html.Div(style={"height": "4vh"}),
+    html.Div(style={'height': '4vh'}),
     dbc.Row([
         dbc.Col(edit_input_feedback),
     ], id='edit-input-feedback-row', className='hidden-opacity'),
-    html.Div(style={"height": "2vh"}),
+    html.Div(style={'height': '2vh'}),
     dbc.Row([
         dbc.Col(width=1),
         dbc.Col(edit_input, width=8),

@@ -57,7 +57,17 @@ def get_node_values(elements, node_id):
 def fields_update(update_clicks, tap_node,
                   names_active, values_active, custom1_input, custom2_input, custom3_input,
                   elements, stored_names):
+
+    # make an independent copy and then serve the changes back later
     elements = copy.deepcopy(elements) if elements is not None else []
+
+    # When app starts, initialize with the field names of the current tree
+    if stored_names == ['', '', '']:
+        for element in elements:
+            if 'custom1' in element['data']:
+                stored_names[0] = element['data']['custom1']['field_name']
+                stored_names[1] = element['data']['custom2']['field_name']
+                stored_names[2] = element['data']['custom3']['field_name']
 
     # Identify the selected node
     selected_node_id = None

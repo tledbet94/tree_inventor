@@ -3,6 +3,7 @@ import dash_bootstrap_components as dbc
 
 weights_title = html.H1('WEIGHTS', className='edit-header-text')
 
+# Elements to type / enter/ validate
 # Input components only appear when they are needed
 weights_input_feedback = (
     html.Div(
@@ -15,6 +16,8 @@ weights_input = (
 
 weights_input_button = (
     dbc.Button(id='weights-input-button', children='ENTER', className='hidden-opacity'))
+
+# buttons to select mode
 
 manual_button = dbc.Button(
     id='manual-button',
@@ -30,6 +33,8 @@ auto_button = dbc.Button(
     style={'outline': 'none'},
     disabled=False
 )
+
+# in manual mode, another set of input elements appears
 
 manual_input_feedback = html.Div(
     html.P(
@@ -55,6 +60,7 @@ system_weights_progress = dbc.Progress(
     min=0
 )
 
+# Layout - note use of vh and dbc width
 weights = html.Div([
     dcc.Store(id='weights-enter-click-store', data=0),
     weights_title,

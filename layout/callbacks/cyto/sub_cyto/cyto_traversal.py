@@ -10,9 +10,11 @@ from layout.callbacks.cyto.helper_functions.traversal_helper import (
 @app.callback(
     [
         # Outputs for Multiple Traversal
+        # dcc.Stores that assist with running traversal
         Output('multiple-interval-store', 'data'),
         Output('multiple-traversal-state', 'data'),
         Output('multiple-traversal-interval', 'disabled'),
+        # Progress bar - how far, visibility, and text label
         Output('multiple-traversal-progress', 'value'),
         Output('multiple-traversal-progress', 'style'),
         Output('multiple-traversal-progress', 'label'),
@@ -22,6 +24,7 @@ from layout.callbacks.cyto.helper_functions.traversal_helper import (
         Output('current-step', 'data'),
         Output('traversal-interval', 'disabled'),
         # Shared Outputs
+        # The terminal node display between buttons
         Output('traversal-output-display', 'className'),
         Output('traversal-output-display', 'children'),
         Output('terminal-node-info', 'data'),
@@ -71,22 +74,20 @@ def handle_traversals(multiple_traversal_clicks, multiple_n_intervals,
 
     if triggered_id == 'multiple-traversal-button':
         # Start Multiple Traversal Logic
-        if not multiple_traversal_clicks:
-            raise exceptions.PreventUpdate
 
-        # Reset traversed and common attributes
+        # Reset traversed attributes
         for element in elements:
             element['data']['traversed'] = 'False'
             element['data']['common'] = 'False'
 
+        # a numerical transformation is made to make the slider visually coherent
         total_traversals = int(10 ** selected_traversals)
         traversals_completed = 0
-        batch_size = min(10000, total_traversals)
 
-        # Build the graph
+        # Change into a more robust data structure in code
         graph, node_weights = build_graph(elements)
 
-        # Initialize state
+        # Initialize state, stores key info
         state = {
             'graph': graph,
             'node_weights': node_weights,
@@ -101,6 +102,7 @@ def handle_traversals(multiple_traversal_clicks, multiple_n_intervals,
         }
 
         traversal_running = True
+        # show progress bar and start at 0
         multiple_progress_value = 0
         multiple_progress_style = {'display': 'block', 'width': '100%'}
         multiple_progress_label = '0%'
@@ -116,9 +118,6 @@ def handle_traversals(multiple_traversal_clicks, multiple_n_intervals,
 
     elif triggered_id == 'multiple-traversal-interval':
         # Update Multiple Traversal Logic
-        if not multiple_state or multiple_n_intervals is None:
-            raise exceptions.PreventUpdate
-
         total_traversals = multiple_state.get('total_traversals', 0)
         traversals_completed = multiple_state.get('traversals_completed', 0)
         batch_size = min(10000, total_traversals - traversals_completed)
@@ -138,6 +137,7 @@ def handle_traversals(multiple_traversal_clicks, multiple_n_intervals,
             most_common_edges = set(
                 zip(multiple_state['most_common_path'][:-1], multiple_state['most_common_path'][1:]))
 
+            # update styling to indicate traversed and most common
             for element in elements:
                 data = element['data']
                 if data['id'] in all_visited_nodes:
@@ -179,6 +179,7 @@ def handle_traversals(multiple_traversal_clicks, multiple_n_intervals,
             most_common_edges = set(
                 zip(multiple_state['most_common_path'][:-1], multiple_state['most_common_path'][1:]))
 
+            # visually mark elements for traversed and most common
             for element in elements:
                 data = element['data']
                 if data['id'] in all_visited_nodes:

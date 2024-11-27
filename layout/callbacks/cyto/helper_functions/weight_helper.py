@@ -43,11 +43,9 @@ def get_system_info(elements):
                     system_elements.append(element)
 
     # Calculate the system weight
-    print(system_elements)
     system_weight = sum(element['data'].get('weight', 0) for element in system_elements)
 
     # Determine validity and set appropriate messages
-    print(system_weight)
     if abs(system_weight - 100.0) > 0.01:
         # Mark elements as having an invalid weight if system weight is not 100%
         for element in system_elements:

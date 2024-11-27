@@ -6,7 +6,7 @@ from .bottom_row.button_row import button_row
 from .control_panel.modes.home import home
 from .control_panel.modes.save_load import save_load
 from .control_panel.modes.edit import edit
-from .control_panel.modes.algorithims import algo
+from .control_panel.modes.traversal import algo
 from .control_panel.modes.weights import weights
 from .control_panel.modes.custom_fields import custom_fields
 from .control_panel.modes.templates import templates

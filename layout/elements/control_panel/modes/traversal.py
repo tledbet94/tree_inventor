@@ -1,8 +1,9 @@
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 
-algo_title = html.H1('ALGORITHMS', className='edit-header-text')
+algo_title = html.H1('TRAVERSAL', className='edit-header-text')
 
+# question marks / tooltips
 single_traversal_info = html.Div(
     [
         html.P(
@@ -14,11 +15,11 @@ single_traversal_info = html.Div(
         ),
         dbc.Tooltip(
             "A traversal will randomly select a node in the tree based on the weights assigned to nodes and "
-            "edges. If a node's weight is above 0%, there is a % chance out of 100% that it is selected as the "
-            "terminal node. If an edge's weight is above 0%, there is a % chance that the selected node will transfer"
-            "to a child node based on that edge. The terminal node selected through traversal is returned. "
+            "edges. If a node's internal weight is above 0%, there is a random % chance out of 100% that it is selected"
+            "as the terminal node. If an edge's weight is above 0%, there is a % chance that the selected node will"
+            "transfer to a child node through that edge. The terminal node the output of traversal. "
             "\n"
-            "The color purple designates the traversal path. The node at the end of the path is the terminal node.",
+            "The traversal color designates the traversal path. The node at the end of the path is the terminal node.",
             target="st-tooltip-target",  # Match this to the ID above
             className='algo-tooltip'
         ),
@@ -41,8 +42,8 @@ multiple_traversal_info = html.Div(
         ),
         dbc.Tooltip(
             "Run the selected number of (single) traversals, highlighting both the paths that have been "
-            "traversed and the paths that have been the most traversed over the course of the simulation. The "
-            "most frequent terminal node is returned.",
+            "traversed and the path that has been the most frequently traversed over the course of the simulation. "
+            "The most frequent terminal node is returned.",
             target="mt-tooltip-target",  # Match this to the ID above
             className='algo-tooltip'
         ),
@@ -54,6 +55,7 @@ multiple_traversal_info = html.Div(
     }
 )
 
+# Traversal elements in order they appear on screen
 single_traversal_button = dbc.Button(
     id='single-traversal-button',
     children="SINGLE TRAVERSAL",
@@ -118,6 +120,7 @@ multiple_traversal_progress = dbc.Progress(
     min=0
 )
 
+# Layout - utilizing vh and dbc width
 algo = dbc.Container([
     interval_component,
     dcc.Store(id='terminal-node-info', data={}),

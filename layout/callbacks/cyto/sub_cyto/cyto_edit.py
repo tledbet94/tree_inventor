@@ -1,18 +1,16 @@
-from dash import ctx, no_update, Input, Output, State
+from dash import ctx, Input, Output, State
 from app_instance import app
 import copy
 
 
 @app.callback(
     [
-        Output('edit-store', 'data'),
-        Output('name-store', 'data'),
+        Output('edit-store', 'data')
     ],
     [
         Input('edit-input-button', 'n_clicks'),
         Input('remove-button', 'n_clicks'),
-        Input('cytoscape', 'tapNode'),
-        Input('cytoscape', 'tapEdge'),
+        Input('cytoscape', 'tapNode')
     ],
     [
         State('cytoscape', 'elements'),
@@ -20,43 +18,28 @@ import copy
         State('selected-edit', 'data'),
     ]
 )
-def modify_elements(enter_clicks, remove_clicks, tap_node, tap_edge, elements, new_label, edit_selection):
-    # Copy elements to avoid mutating the original data
+def modify_elements(enter_clicks, remove_clicks, tap_node, elements, new_label, edit_selection):
+    # Working with copied elements is best practice
     elements = copy.deepcopy(elements) if elements else []
-    manual_input_feedback_children = no_update
-    selected_element_id = None
 
-    # Determine which Input triggered the callback
+    # Identify which button was pressed
     triggered_id = ctx.triggered_id if ctx.triggered else None
 
-    # Handle node/edge selection
-    if triggered_id == 'cytoscape' and tap_node:
-        selected_element_id = tap_node['data']['id']
-    elif triggered_id == 'cytoscape' and tap_edge:
-        selected_element_id = tap_edge['data']['id']
-
     # Rename Function
-    if triggered_id == 'edit-input-button' and enter_clicks and tap_node and new_label and edit_selection == 'rename':
+    if (triggered_id == 'edit-input-button' and enter_clicks and tap_node and
+            new_label and edit_selection == 'rename'):
         for element in elements:
             if element['data']['id'] == tap_node['data']['id']:
                 element['data']['label'] = new_label
                 break
-        return elements, new_label
+        return [elements]  # Wrap in a list
 
     # Add Function
-    if triggered_id == 'edit-input-button' and enter_clicks and tap_node and new_label and edit_selection == 'add':
+    if (triggered_id == 'edit-input-button' and enter_clicks and tap_node and
+            new_label and edit_selection == 'add'):
         new_node_id = f"{tap_node['data']['id']}-child-{enter_clicks}"
-        print(new_node_id)
-        print(tap_node['data']['id'])
         level = int(tap_node['data'].get('level', 1)) + 1
         weight = 100  # Adjust as needed
-
-        # Find the parent node
-        parent_node = {}
-        for element in elements:
-            if element['data']['id'] == tap_node['data']['id']:
-                parent_node = element['data']  # Access the 'data' field specifically
-                break
 
         # Create a new node with inherited and default fields
         new_node = {
@@ -65,21 +48,27 @@ def modify_elements(enter_clicks, remove_clicks, tap_node, tap_edge, elements, n
                 'label': new_label,
                 'weight': weight,
                 'level': level,
-                'children': 0,
                 'traversed': 'False',
                 'common': 'False',
                 'invalid_weight': 'False',
                 'last_clicked': False,
-                'custom1': {'field_name': parent_node['custom1']['field_name'], 'field_value': '-'},
-                'custom2': {'field_name': parent_node['custom2']['field_name'], 'field_value': '-'},
-                'custom3': {'field_name': parent_node['custom3']['field_name'], 'field_value': '-'},
+                'custom1': {
+                    'field_name': tap_node['data']['custom1']['field_name'],
+                    'field_value': '-'
+                },
+                'custom2': {
+                    'field_name': tap_node['data']['custom2']['field_name'],
+                    'field_value': '-'
+                },
+                'custom3': {
+                    'field_name': tap_node['data']['custom3']['field_name'],
+                    'field_value': '-'
+                },
             }
         }
 
-        # Add the new node to elements first
+        # Add the new node and edge to elements
         elements.append(new_node)
-
-        # Create a new edge connecting the parent and child
         new_edge = {
             'data': {
                 'id': f"edge-{tap_node['data']['id']}-{new_node_id}",
@@ -91,17 +80,33 @@ def modify_elements(enter_clicks, remove_clicks, tap_node, tap_edge, elements, n
                 'invalid_weight': 'False'
             }
         }
-
-        # Add the new edge to elements
         elements.append(new_edge)
 
-        return elements, new_label
+        return [elements]  # Wrap in a list
 
     # Remove Function
     if triggered_id == 'remove-button' and remove_clicks and tap_node:
-        elements = [element for element in elements if element['data']['id'] != tap_node['data']['id']
-                    and element['data'].get('source') != tap_node['data']['id']
-                    and element['data'].get('target') != tap_node['data']['id']]
-        return elements, ''
+        # Root node cannot be deleted
+        if tap_node['data']['id'] == 'root':
+            return [elements]
+        else:
+            # Find children of the node to be removed
+            children = []
+            for element in elements:
+                if 'source' in element['data']:
+                    if element['data']['source'] == tap_node['data']['id']:
+                        children.append(element['data']['id'])
+                        children.append(element['data']['target'])
+            if len(children) == 0:
+                # Remove the leaf node
+                elements = [element for element in elements if element['data']['id'] != tap_node['data']['id']]
+                return [elements]  # Wrap in a list
+            else:
+                # Remove the branch and its children
+                new_elements = []
+                for element in elements:
+                    if element['data']['id'] != tap_node['data']['id'] and element['data']['id'] not in children:
+                        new_elements.append(element)
+                return [new_elements]  # Wrap in a list
 
-    return elements, no_update
+    return [elements]  # Wrap in a list

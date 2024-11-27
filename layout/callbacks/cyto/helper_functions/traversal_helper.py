@@ -1,6 +1,7 @@
 from collections import Counter
 import random
 
+
 def build_graph(elements):
     graph = {}
     node_weights = {}
@@ -23,6 +24,7 @@ def build_graph(elements):
                 graph[node_id] = []
 
     return graph, node_weights
+
 
 def single_traversal_with_steps(graph, node_weights, current_node_id='root', path=None):
     if path is None:
@@ -57,6 +59,7 @@ def single_traversal_with_steps(graph, node_weights, current_node_id='root', pat
 
     # Recursively traverse the chosen node
     return single_traversal_with_steps(graph, node_weights, current_node_id=next_node_id, path=path)
+
 
 def multiple_traversals_batch(graph, node_weights, batch_size, state=None):
     if state is None:

@@ -58,7 +58,7 @@ fields_body = html.Div(id='field_names_view',
                            ])
                        ])
 
-field_names_store = dcc.Store(id='field-names-store', data=['-', '-', '-'])
+field_names_store = dcc.Store(id='field-names-store', data=['', '', ''])
 
 custom_fields = html.Div([
     fields_store,
