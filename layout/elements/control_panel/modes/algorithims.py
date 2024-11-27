@@ -130,13 +130,14 @@ algo = dbc.Container([
         ),
         justify="center",
     ),
-    html.Div(style={"height": "1vh"}),
+    html.Div(style={"height": "4vh"}),
     dbc.Row([
-        dbc.Col(width=2),
+        dbc.Col(width=3),
         dbc.Col(single_traversal_button, align='center'),
-        dbc.Col(single_traversal_info, width=2)
+        dbc.Col(single_traversal_info),
+        dbc.Col(width=1),
     ], justify='center'),
-    html.Div(style={"height": "13vh"}),
+    html.Div(style={"height": "14vh"}),
     dbc.Row([
         dbc.Col(width=1),
         dbc.Col(
@@ -147,15 +148,16 @@ algo = dbc.Container([
         ),
         dbc.Col(width=1)
     ], justify='center'),
-    html.Div(style={"height": "11vh"}),
+    html.Div(style={"height": "14vh"}),
     dbc.Row([
-        dbc.Col(width=2),
+        dbc.Col(width=3),
         dbc.Col(multiple_traversal_button, align='center'),
-        dbc.Col(multiple_traversal_info, width=2)
+        dbc.Col(multiple_traversal_info),
+        dbc.Col(width=1)
     ], justify='center'),
-    html.Div(style={"height": "1vh"}),
+    html.Div(style={"height": "3vh"}),
     dbc.Row(slider),
-    html.Div(style={"height": "1vh"}),
+    html.Div(style={"height": "2vh"}),
     dbc.Row([
         dbc.Col(width=1),
         dbc.Col(multiple_traversal_progress),

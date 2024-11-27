@@ -105,21 +105,13 @@ def auto_balance_system(elements):
     return elements, message
 
 
-def proximity_to_100(x):
-    print(x)
-    if x <= 0:
-        raise ValueError("x must be greater than 0 to calculate proximity in a meaningful way.")
+def proximity_to_100(system_weight):
+    if 0 <= system_weight <= 100:
+        return system_weight
+    elif system_weight < 0:
+        delta = 100 - abs(system_weight)
+        return delta
+    else:
+        delta = abs(100 - system_weight)
+        return delta
 
-    # Calculate absolute difference from 100
-    difference = abs(100 - x)
-
-    # Calculate the proximity percentage on a logarithmic scale
-    proximity = 100 / (1 + math.log10(1 + difference))
-
-    # Round to 2 decimal places for readability
-    proximity = round(proximity, 2)
-
-    # Ensure the proximity does not go below 1%
-    proximity = max(1, proximity)
-
-    return proximity

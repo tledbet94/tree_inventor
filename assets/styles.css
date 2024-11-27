@@ -461,8 +461,8 @@ body {
 
 /* Feedback screen that pops up in edit mode */
 .input-feedback-div-weights {
-    background-color: #397b44;
-    border: 12px solid #3c5956;
+    background-color: #567b79;
+    border: 12px solid #4e584a;
     border-radius: 35px;
     box-shadow: 5px 5px 5px #45444f;
     color: #f2f0e5;

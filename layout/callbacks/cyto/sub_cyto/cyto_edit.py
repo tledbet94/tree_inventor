@@ -46,24 +46,40 @@ def modify_elements(enter_clicks, remove_clicks, tap_node, tap_edge, elements, n
     # Add Function
     if triggered_id == 'edit-input-button' and enter_clicks and tap_node and new_label and edit_selection == 'add':
         new_node_id = f"{tap_node['data']['id']}-child-{enter_clicks}"
+        print(new_node_id)
+        print(tap_node['data']['id'])
         level = int(tap_node['data'].get('level', 1)) + 1
         weight = 100  # Adjust as needed
 
+        # Find the parent node
+        parent_node = {}
+        for element in elements:
+            if element['data']['id'] == tap_node['data']['id']:
+                parent_node = element['data']  # Access the 'data' field specifically
+                break
+
+        # Create a new node with inherited and default fields
         new_node = {
             'data': {
                 'id': new_node_id,
                 'label': new_label,
                 'weight': weight,
                 'level': level,
-                'Productive?': tap_node['data'].get('Productive?', 'N/A'),
-                'Mood Impact': tap_node['data'].get('Mood Impact', 'N/A'),
-                'Fun Level': tap_node['data'].get('Fun Level', 'N/A'),
+                'children': 0,
                 'traversed': 'False',
                 'common': 'False',
-                'invalid_weight': 'False'
+                'invalid_weight': 'False',
+                'last_clicked': False,
+                'custom1': {'field_name': parent_node['custom1']['field_name'], 'field_value': '-'},
+                'custom2': {'field_name': parent_node['custom2']['field_name'], 'field_value': '-'},
+                'custom3': {'field_name': parent_node['custom3']['field_name'], 'field_value': '-'},
             }
         }
 
+        # Add the new node to elements first
+        elements.append(new_node)
+
+        # Create a new edge connecting the parent and child
         new_edge = {
             'data': {
                 'id': f"edge-{tap_node['data']['id']}-{new_node_id}",
@@ -76,7 +92,9 @@ def modify_elements(enter_clicks, remove_clicks, tap_node, tap_edge, elements, n
             }
         }
 
-        elements.extend([new_node, new_edge])
+        # Add the new edge to elements
+        elements.append(new_edge)
+
         return elements, new_label
 
     # Remove Function

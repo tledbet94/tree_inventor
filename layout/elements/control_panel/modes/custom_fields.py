@@ -58,8 +58,11 @@ fields_body = html.Div(id='field_names_view',
                            ])
                        ])
 
+field_names_store = dcc.Store(id='field-names-store', data=['-', '-', '-'])
+
 custom_fields = html.Div([
     fields_store,
+    field_names_store,
     dbc.Row(custom_fields_title),
     html.Div(style={'height': '1vh'}),
     dbc.Row([dbc.Col(width=1), dbc.Col(field_names_button),
