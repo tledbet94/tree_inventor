@@ -12,7 +12,7 @@ weights_input_feedback = (
     ))
 
 weights_input = (
-    dbc.Input(id='weights-input', placeholder='', size='lg', valid=False, className='weights-input'))
+    dbc.Input(id='weights-input', placeholder='', size='lg', className='weights-input'))
 
 weights_input_button = (
     dbc.Button(id='weights-input-button', children='ENTER', className='hidden-opacity'))

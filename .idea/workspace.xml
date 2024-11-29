@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/templates/two.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/two.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/helper_functions/traversal_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/helper_functions/traversal_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/weights/weights_input_callback.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/helper_functions/weight_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/helper_functions/weight_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_edit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_fields.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_traversal.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_traversal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_weights.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_weights.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/info/info_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/info/info_callback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/algorithims.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/traversal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/custom_fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/custom_fields.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/edit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/weights.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/weights.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/panels.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/panels.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,17 +74,16 @@
       <recent name="C:\Dev\tree_builder\cytoscape" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Dev\trees\tree_morph2\tree_maker\layout\callbacks\controls\weights" />
+      <recent name="C:\Dev\trees\tree_morph2\tree_maker\layout\callbacks\controls\weights\screens" />
       <recent name="C:\Dev\tree_maker\tree_maker\layout\callbacks\cyto\sub_cyto" />
       <recent name="C:\Dev\trees\tree_morph2\tree_maker\layout\callbacks\cyto\sub_cyto" />
       <recent name="C:\Dev\tree_builder\layout\callbacks\cyto\sub_cyto" />
-      <recent name="C:\Dev\trees\tree_morph2\tree_maker\layout\callbacks\cyto\helper_functions" />
-      <recent name="C:\Dev\tree_builder\layout\callbacks\controls\weights" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="app (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tree_maker" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -112,7 +105,6 @@
     </configuration>
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="tree_builder" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>

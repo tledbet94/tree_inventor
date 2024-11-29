@@ -20,6 +20,7 @@ from layout.callbacks.controls.algo.traversal_deactivate import update_disabled_
 
 from layout.callbacks.controls.weights.weights_input_callback import show_weights_input
 from layout.callbacks.controls.weights.manual_active_pressed import update_manual_auto_buttons
+from layout.callbacks.controls.weights.main_screen_callback import update_main_screen
 
 from layout.callbacks.controls.custom_fields.active_button_callback import update_fields_buttons
 
