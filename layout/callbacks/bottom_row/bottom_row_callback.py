@@ -1,5 +1,6 @@
 from dash import Input, Output, State
 from app_instance import app
+import copy
 
 # Description of callback
 # The active state of a button will change if it is clicked
@@ -7,6 +8,7 @@ from app_instance import app
 
 @app.callback(
     [
+        Output('buttons-store', 'data'),
         Output('home-button', 'active'),
         Output('edit-button', 'active'),
         Output('algo-button', 'active'),
@@ -41,15 +43,23 @@ from app_instance import app
         State('themes-button', 'n_clicks_timestamp'),
         State('settings-button', 'n_clicks_timestamp'),
         State('save-load-button', 'n_clicks_timestamp'),
-        State('user-button', 'n_clicks_timestamp')
+        State('user-button', 'n_clicks_timestamp'),
+        State('cytoscape', 'elements')
     ]
 )
 def update_active_button(
-    home_clicks, edit_clicks, algo_clicks, weights_clicks,
-    custom_fields_clicks, templates_clicks, theme_clicks, settings_clicks, save_load_clicks, user_clicks,
-    home_timestamp, edit_timestamp, algo_timestamp, weights_timestamp,
-    custom_fields_timestamp, templates_timestamp, theme_timestamp, settings_timestamp, save_load_timestamp, user_timestamp
+        home_clicks, edit_clicks, algo_clicks, weights_clicks,
+        custom_fields_clicks, templates_clicks, theme_clicks, settings_clicks, save_load_clicks, user_clicks,
+        home_timestamp, edit_timestamp, algo_timestamp, weights_timestamp,
+        custom_fields_timestamp, templates_timestamp, theme_timestamp, settings_timestamp, save_load_timestamp,
+        user_timestamp, elements
 ):
+    # Reset tree styles
+    elements = copy.deepcopy(elements) if elements is not None else []
+    for element in elements:
+        element['data']['traversed'] = 'False'
+        element['data']['common'] = 'False'
+
     # Handle None values for timestamps by setting them to -1
     home_timestamp = home_timestamp or -1
     edit_timestamp = edit_timestamp or -1
@@ -79,16 +89,23 @@ def update_active_button(
     # Determine the button with the most recent timestamp
     max_timestamp = max(timestamps.values())
 
+    buttons = ['home', 'edit', 'algo', 'weights', 'custom_fields', 'templates', 'theme', 'settings', 'save_load', 'user']
+
     if max_timestamp == -1:
-        active_button_name = 'none'
+        # At app start, set 'home' as active
+        active_button_name = 'home'
+        active_states = [button == 'home' for button in buttons]
     else:
-        # Find all buttons that have the max timestamp (handles simultaneous clicks)
+        # Find the buttons that have the max timestamp (handles simultaneous clicks)
         clicked_buttons = [button for button, timestamp in timestamps.items() if timestamp == max_timestamp]
         active_button_name = clicked_buttons[0]  # Choose the first one in case of tie
 
-    # Generate active states for each button
-    buttons = ['home', 'edit', 'algo', 'weights', 'custom_fields', 'templates', 'theme', 'settings', 'save_load', 'user']
-    active_states = [timestamps[button] == max_timestamp and max_timestamp != -1 for button in buttons]
+        # Generate active states for each button
+        active_states = [timestamps[button] == max_timestamp for button in buttons]
 
     # Return the active states and the name of the active button
-    return active_states + [active_button_name]
+    return (
+        elements,       # buttons-store
+        *active_states, # Active states for each button
+        active_button_name  # active-button-store
+    )

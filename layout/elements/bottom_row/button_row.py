@@ -82,6 +82,7 @@ dummy_button = dbc.Button(
 dummy = dbc.Col(dummy_button, style={'opacity': 0})  # Removed trailing comma here
 
 button_row = dbc.Row([
+    dcc.Store(id='buttons-store'),
     dcc.Store(id='active-button-store', data='home'),
     # I want these buttons aligned to the left of the row
     dbc.Col(home_button),

@@ -33,23 +33,23 @@ def swap_trees(one_active, two_active, three_active, four_active,
             loaded_elements = json.load(json_file)
             return loaded_elements
     elif four_active:
-        with open("cytoscape/templates/one.json", "r") as json_file:
+        with open("cytoscape/templates/four.json", "r") as json_file:
             loaded_elements = json.load(json_file)
             return loaded_elements
     elif five_active:
-        with open("cytoscape/templates/one.json", "r") as json_file:
+        with open("cytoscape/templates/five.json", "r") as json_file:
             loaded_elements = json.load(json_file)
             return loaded_elements
     elif six_active:
-        with open("cytoscape/templates/one.json", "r") as json_file:
+        with open("cytoscape/templates/six.json", "r") as json_file:
             loaded_elements = json.load(json_file)
             return loaded_elements
     elif seven_active:
-        with open("cytoscape/templates/one.json", "r") as json_file:
+        with open("cytoscape/templates/seven.json", "r") as json_file:
             loaded_elements = json.load(json_file)
             return loaded_elements
     elif eight_active:
-        with open("cytoscape/templates/one.json", "r") as json_file:
+        with open("cytoscape/templates/eight.json", "r") as json_file:
             loaded_elements = json.load(json_file)
             return loaded_elements
     else:

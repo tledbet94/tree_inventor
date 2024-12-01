@@ -6,6 +6,7 @@ from app_instance import app
 @app.callback(
     Output('cytoscape', 'elements'),
     [
+        Input('buttons-store', 'data'),
         Input('edit-store', 'data'),
         Input('single-interval-store', 'data'),
         Input('multiple-interval-store', 'data'),
@@ -17,7 +18,8 @@ from app_instance import app
     ],
     State('cytoscape', 'elements')
 )
-def update_cytoscape_elements(edit_elements, single_interval_elements, multiple_interval_elements, fields_elements,
+def update_cytoscape_elements(buttons_elements, edit_elements, single_interval_elements,
+                              multiple_interval_elements, fields_elements,
                               template_elements, weights_elements,
                               tap_node, tap_edge, current_elements):
     # Determine which Input triggered the callback
@@ -45,6 +47,8 @@ def update_cytoscape_elements(edit_elements, single_interval_elements, multiple_
                 element['data']['last_clicked'] = 'False'
         return current_elements
 
+    elif triggered_prop_id == 'buttons-store.data':
+        return buttons_elements
     elif triggered_prop_id == 'edit-store.data':
         return edit_elements
 
