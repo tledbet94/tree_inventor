@@ -103,7 +103,7 @@ slider = html.Div([
                className='algo-slider',
                disabled=False
                ),
-    html.Div(style={"height": "3vh"}),
+    html.Div(style={"height": "2vh"}),
     html.H3(id='algo-slider-text', children='', className='algo-slider-text')
 ])
 
@@ -133,14 +133,14 @@ algo = dbc.Container([
         ),
         justify="center",
     ),
-    html.Div(style={"height": "4vh"}),
+    html.Div(style={"height": "0vh"}),
     dbc.Row([
-        dbc.Col(width=3),
+        dbc.Col(width=2),
         dbc.Col(single_traversal_button, align='center'),
         dbc.Col(single_traversal_info),
         dbc.Col(width=1),
     ], justify='center'),
-    html.Div(style={"height": "14vh"}),
+    html.Div(style={"height": "11vh"}),
     dbc.Row([
         dbc.Col(width=1),
         dbc.Col(
@@ -151,14 +151,14 @@ algo = dbc.Container([
         ),
         dbc.Col(width=1)
     ], justify='center'),
-    html.Div(style={"height": "14vh"}),
+    html.Div(style={"height": "10vh"}),
     dbc.Row([
-        dbc.Col(width=3),
+        dbc.Col(width=2),
         dbc.Col(multiple_traversal_button, align='center'),
         dbc.Col(multiple_traversal_info),
         dbc.Col(width=1)
     ], justify='center'),
-    html.Div(style={"height": "3vh"}),
+    html.Div(style={"height": "2vh"}),
     dbc.Row(slider),
     html.Div(style={"height": "2vh"}),
     dbc.Row([

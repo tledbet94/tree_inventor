@@ -23,8 +23,10 @@ from layout.callbacks.controls.weights.manual_active_pressed import update_manua
 from layout.callbacks.controls.weights.main_screen_callback import update_main_screen
 
 from layout.callbacks.controls.custom_fields.active_button_callback import update_fields_buttons
+from layout.callbacks.controls.custom_fields.input_management import manage_inputs
 
 from layout.callbacks.cyto.sub_cyto.cyto_fields import fields_update
+
 
 from layout.callbacks.cyto.sub_cyto.cyto_edit import modify_elements
 from layout.callbacks.cyto.sub_cyto.cyto_traversal import handle_traversals

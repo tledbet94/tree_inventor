@@ -34,26 +34,29 @@ fields_store = dcc.Store(id='fields-store')
 
 fields_body = html.Div(id='field_names_view',
                        children=[
-                           html.Div(style={'height': '1vh'}),
+                           html.Div(style={'height': '0vh'}),
                            dbc.Row(dbc.Col(custom1_label)),
                            dbc.Row([
                                dbc.Col(width=1),
-                               dbc.Col(dbc.Input(id='custom1_input', className='weights-input')),
+                               dbc.Col(dbc.Input(id='custom1_input', className='weights-input',
+                                                 style={'height':'8vh'})),
                                dbc.Col(width=1)
                            ]),
-                           html.Div(style={'height': '2vh'}),
+                           html.Div(style={'height': '1vh'}),
                            dbc.Row(dbc.Col(custom2_label), justify='center'),
                            dbc.Row([
                                dbc.Col(width=1),
-                               dbc.Col(dbc.Input(id='custom2_input', className='weights-input')),
+                               dbc.Col(dbc.Input(id='custom2_input', className='weights-input',
+                                                 style={'height':'8vh'})),
                                dbc.Col(width=1)
                            ]),
-                           html.Div(style={'height': '2vh'}),
+                           html.Div(style={'height': '1vh'}),
                            dbc.Row(dbc.Col(custom3_label)),
-                           html.Div(style={'height': '2vh'}),
+                           html.Div(style={'height': '1vh'}),
                            dbc.Row([
                                dbc.Col(width=1),
-                               dbc.Col(dbc.Input(id='custom3_input', className='weights-input')),
+                               dbc.Col(dbc.Input(id='custom3_input', className='weights-input',
+                                                 style={'height':'8vh'})),
                                dbc.Col(width=1),
                            ])
                        ])
@@ -68,9 +71,9 @@ custom_fields = html.Div([
     dbc.Row([dbc.Col(width=1), dbc.Col(field_names_button),
              dbc.Col(field_values_button)]
             ),
-    html.Div(style={'height': '3vh'}),
+    html.Div(style={'height': '2vh'}),
     html.Div(fields_body),
-    html.Div(style={'height': '1vh'}),
+    html.Div(style={'height': '3vh'}),
     dbc.Row([dbc.Col(width=4), dbc.Col(custom_update_button), dbc.Col(width=4)])
 
 ])

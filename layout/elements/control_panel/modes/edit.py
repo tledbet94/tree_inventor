@@ -124,8 +124,8 @@ edit = html.Div([
     ], id='edit-input-feedback-row', className='hidden-opacity'),
     html.Div(style={'height': '2vh'}),
     dbc.Row([
-        dbc.Col(width=1),
         dbc.Col(edit_input, width=8),
-        dbc.Col(edit_input_button, width=3),
+        dbc.Col(edit_input_button, width=3, align='center'),
+        dbc.Col(width=1),
     ], id='edit-input-row', className='hidden-opacity')
 ])

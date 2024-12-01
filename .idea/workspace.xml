@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/weights/weights_input_callback.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/helper_functions/weight_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/helper_functions/weight_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_weights.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_weights.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/weights.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/weights.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cytoscape/templates/flip.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cytoscape/templates/one.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/one.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_fields.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_template.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/custom_fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/custom_fields.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/edit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/traversal.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/traversal.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,10 +56,11 @@
     &quot;Python.panel_change.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ToolWindowJSON Viewer.ShowToolbar&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Dev/tree_builder/cytoscape/templates&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.JSON&quot;
   }
 }</component>
   <component name="PyConsoleOptionsProvider">

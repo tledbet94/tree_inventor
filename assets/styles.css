@@ -128,9 +128,9 @@ body {
     box-shadow: 12px 12px 8px 0px #212123;
     color: #b8b5b9 !important;
     display: flex;
-    font-size: 2vh;
+    font-size: 2.5vh;
     height: 10vh;
-    width: 10vw;
+    width: 12vw;
     justify-content: center;
     overflow: hidden;
     padding: 0px;
@@ -395,15 +395,18 @@ body {
 
 }
 
-.edit-input-button {
+.edit-input-button,
+ .edit-input-button:active,
+ .edit-input-button:focus{
     align-items: center;
-    background-color: #8ab060;
+    background-color: #6a536e;
     border-radius: 20%;
-    box-shadow: 2px 2px 5px #646365;
+    box-shadow: 2px 2px 5px #4b4158;
     color: #f2f0e5;
     display: flex;
     font-size: 2vh;
     justify-content: center;
+    margin-right: 3vw;
     outline: none;
     overflow: hidden;
     padding: 0px;
@@ -413,17 +416,19 @@ body {
 }
 
 .edit-input-button:hover {
-    background-color: #8ab060 !important;
+    background-color: #6a536e !important;
     box-shadow: 4px 4px 5px #646365;
     color: #f2f0e5 !important;
     outline: none;
 }
 
-.weights-input-button {
+.weights-input-button,
+ .weights-input-button:active,
+ .weights-input-button:focus {
     align-items: center;
-    background-color: #8ab060;
+    background-color: #4e584a;
     border-radius: 20%;
-    box-shadow: 2px 2px 5px #646365;
+    box-shadow: 2px 2px 2px #212123;
     color: #f2f0e5;
     display: flex;
     font-size: 2vh;
@@ -432,13 +437,13 @@ body {
     overflow: hidden;
     padding: 0px;
     transition: all 0.2s ease-in-out;
-    height: 7vh;
-    width: 9vh;
+    height: 8vh;
+    width: 8vh;
 }
 
 .weights-input-button:hover {
-    background-color: #8ab060 !important;
-    box-shadow: 4px 4px 5px #646365;
+    background-color: #567b79 !important;
+    box-shadow: 4px 4px 5px #212123;
     color: #f2f0e5 !important;
     outline: none;
 }
@@ -452,7 +457,7 @@ body {
     color: #f2f0e5;
     display: block;
     font-size: 1vh;
-    height: 8vh;
+    height: 12vh;
     padding: 5px;
     text-align: left;
     vertical-align: top;
@@ -483,6 +488,7 @@ body {
     box-shadow: 2px 2px 5px #646365;
     color: #352b42;
     font-size: 24px;
+    margin-right: 2vw;
     outline: none;
     padding: 10px;
     transition: box-shadow 0.3s ease-in-out;
@@ -616,6 +622,7 @@ body {
 /* General styling for the slider container */
 .algo-slider-text {
     color: #352b42;
+    font-size: 1.5vw;
     text-align: center;
 }
 
