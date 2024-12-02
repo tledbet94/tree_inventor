@@ -1,4 +1,4 @@
-from dash import Input, Output, State
+from dash import Input, Output, State, callback_context
 from app_instance import app
 
 
@@ -14,6 +14,7 @@ from app_instance import app
         Output('template_eight_button', 'active'),
     ],
     [
+        Input('starting-template-number', 'data'),
         Input('template_one_button', 'n_clicks'),
         Input('template_two_button', 'n_clicks'),
         Input('template_three_button', 'n_clicks'),
@@ -22,46 +23,57 @@ from app_instance import app
         Input('template_six_button', 'n_clicks'),
         Input('template_seven_button', 'n_clicks'),
         Input('template_eight_button', 'n_clicks'),
+        Input('custom-fields-button', 'active'),
     ],
-    [
-        State('template_one_button', 'n_clicks_timestamp'),
-        State('template_two_button', 'n_clicks_timestamp'),
-        State('template_three_button', 'n_clicks_timestamp'),
-        State('template_four_button', 'n_clicks_timestamp'),
-        State('template_five_button', 'n_clicks_timestamp'),
-        State('template_six_button', 'n_clicks_timestamp'),
-        State('template_seven_button', 'n_clicks_timestamp'),
-        State('template_eight_button', 'n_clicks_timestamp')
-    ]
 )
 def update_active_template_button(
+        starting_number,
         one_clicks, two_clicks, three_clicks, four_clicks,
-        five_clicks, six_clicks, seven_clicks, eight_clicks,
-        one_timestamp, two_timestamp, three_timestamp, four_timestamp,
-        five_timestamp, six_timestamp, seven_timestamp, eight_timestamp
+        five_clicks, six_clicks, seven_clicks, eight_clicks, bottom_row_button_active
 ):
-    # Handle None values for timestamps by setting them to -1
-    timestamps = {
-        'template_one': one_timestamp or -1,
-        'template_two': two_timestamp or -1,
-        'template_three': three_timestamp or -1,
-        'template_four': four_timestamp or -1,
-        'template_five': five_timestamp or -1,
-        'template_six': six_timestamp or -1,
-        'template_seven': seven_timestamp or -1,
-        'template_eight': eight_timestamp or -1
-    }
+    # Initialize all buttons to inactive
+    active_states = [False] * 8
 
-    # Determine the max timestamp
-    max_timestamp = max(timestamps.values())
+    ctx = callback_context
 
-    # Check if all timestamps are -1 (no button clicked yet)
-    if max_timestamp == -1:
-        # Return False for all buttons
-        return [False] * len(timestamps)
+    # Check if any button has been clicked
+    n_clicks = [
+        one_clicks, two_clicks, three_clicks, four_clicks,
+        five_clicks, six_clicks, seven_clicks, eight_clicks
+    ]
+    button_clicked = any(click > 0 for click in n_clicks if click is not None)
 
-    # Generate active states for each button
-    active_state = [timestamps[template] == max_timestamp for template in timestamps]
+    if not ctx.triggered:
+        # No trigger; return default inactive states
+        return active_states
 
-    # Return the active states
-    return active_state
+    # Get the ID of the Input that triggered the callback
+    trigger_id = ctx.triggered[0]['prop_id'].split('.')[0]
+
+    # List of button IDs in order
+    button_ids = [
+        'template_one_button',
+        'template_two_button',
+        'template_three_button',
+        'template_four_button',
+        'template_five_button',
+        'template_six_button',
+        'template_seven_button',
+        'template_eight_button',
+    ]
+
+    if trigger_id == 'custom-fields-button' and not button_clicked:
+        index = starting_number
+        if index is not None:
+            # Set the corresponding button to active
+            active_states[index - 1] = True
+    elif trigger_id in button_ids:
+        active_states = [False] * 8
+        # Triggered by one of the template buttons
+        index = button_ids.index(trigger_id)
+        active_states[index] = True
+    else:
+        # Some other trigger; return default inactive states
+        pass
+
+    return active_states

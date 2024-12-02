@@ -20,7 +20,6 @@ import copy
 )
 def modify_elements(enter_clicks, remove_clicks, tap_node, elements, new_label, edit_selection):
     # Working with copied elements is best practice
-    elements = copy.deepcopy(elements) if elements else []
 
     # Identify which button was pressed
     triggered_id = ctx.triggered_id if ctx.triggered else None

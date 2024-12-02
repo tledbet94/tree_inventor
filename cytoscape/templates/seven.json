@@ -1,545 +1,595 @@
-[
-    {
-        "data": {
-            "id": "best-picture-winners",
-            "label": "Best Picture Winners",
-            "level": 1,
-            "weight": 0,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "-"
+{
+    "Name": "Best Picture by Year",
+    "Description": "Contains Academy-Award Winners of Best Picture by year",
+    "Author": "Tree-Inventor",
+    "elements": [
+        {
+            "data": {
+                "id": "best-picture-winners",
+                "label": "Best Picture Winners",
+                "level": 1,
+                "weight": 0,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "-"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "-"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "-"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "-"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "-"
+            "position": {
+                "x": 0,
+                "y": 0
             }
         },
-        "position": {"x": 0, "y": 0}
-    },
-    {
-        "data": {
-            "id": "decade-1990s",
-            "label": "1990s",
-            "level": 2,
-            "weight": 0,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "-"
+        {
+            "data": {
+                "id": "decade-1990s",
+                "label": "1990s",
+                "level": 2,
+                "weight": 0,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "-"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "-"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "-"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "-"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "-"
+            "position": {
+                "x": -200,
+                "y": 100
             }
         },
-        "position": {"x": -200, "y": 100}
-    },
-    {
-        "data": {
-            "id": "decade-2000s",
-            "label": "2000s",
-            "level": 2,
-            "weight": 0,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "-"
+        {
+            "data": {
+                "id": "decade-2000s",
+                "label": "2000s",
+                "level": 2,
+                "weight": 0,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "-"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "-"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "-"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "-"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "-"
+            "position": {
+                "x": 200,
+                "y": 100
             }
         },
-        "position": {"x": 200, "y": 100}
-    },
-    {
-        "data": {
-            "id": "year-1990",
-            "label": "1990",
-            "level": 3,
-            "weight": 0,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "-"
+        {
+            "data": {
+                "id": "year-1990",
+                "label": "1990",
+                "level": 3,
+                "weight": 0,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "-"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "-"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "-"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "-"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "-"
+            "position": {
+                "x": -250,
+                "y": 200
             }
         },
-        "position": {"x": -250, "y": 200}
-    },
-    {
-        "data": {
-            "id": "year-1994",
-            "label": "1994",
-            "level": 3,
-            "weight": 0,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "-"
+        {
+            "data": {
+                "id": "year-1994",
+                "label": "1994",
+                "level": 3,
+                "weight": 0,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "-"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "-"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "-"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "-"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "-"
+            "position": {
+                "x": -200,
+                "y": 200
             }
         },
-        "position": {"x": -200, "y": 200}
-    },
-    {
-        "data": {
-            "id": "year-1999",
-            "label": "1999",
-            "level": 3,
-            "weight": 0,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "-"
+        {
+            "data": {
+                "id": "year-1999",
+                "label": "1999",
+                "level": 3,
+                "weight": 0,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "-"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "-"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "-"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "-"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "-"
+            "position": {
+                "x": -150,
+                "y": 200
             }
         },
-        "position": {"x": -150, "y": 200}
-    },
-    {
-        "data": {
-            "id": "year-2000",
-            "label": "2000",
-            "level": 3,
-            "weight": 0,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "-"
+        {
+            "data": {
+                "id": "year-2000",
+                "label": "2000",
+                "level": 3,
+                "weight": 0,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "-"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "-"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "-"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "-"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "-"
+            "position": {
+                "x": 150,
+                "y": 200
             }
         },
-        "position": {"x": 150, "y": 200}
-    },
-    {
-        "data": {
-            "id": "year-2005",
-            "label": "2005",
-            "level": 3,
-            "weight": 0,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "-"
+        {
+            "data": {
+                "id": "year-2005",
+                "label": "2005",
+                "level": 3,
+                "weight": 0,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "-"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "-"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "-"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "-"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "-"
+            "position": {
+                "x": 200,
+                "y": 200
             }
         },
-        "position": {"x": 200, "y": 200}
-    },
-    {
-        "data": {
-            "id": "year-2009",
-            "label": "2009",
-            "level": 3,
-            "weight": 0,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "-"
+        {
+            "data": {
+                "id": "year-2009",
+                "label": "2009",
+                "level": 3,
+                "weight": 0,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "-"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "-"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "-"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "-"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "-"
+            "position": {
+                "x": 250,
+                "y": 200
             }
         },
-        "position": {"x": 250, "y": 200}
-    },
-    {
-        "data": {
-            "id": "movie-dances-with-wolves",
-            "label": "Dances with Wolves",
-            "level": 4,
-            "weight": 100,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "Western, Drama"
+        {
+            "data": {
+                "id": "movie-dances-with-wolves",
+                "label": "Dances with Wolves",
+                "level": 4,
+                "weight": 100,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "Western, Drama"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "Kevin Costner"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "Kevin Costner"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "Kevin Costner"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "Kevin Costner"
+            "position": {
+                "x": -250,
+                "y": 300
             }
         },
-        "position": {"x": -250, "y": 300}
-    },
-    {
-        "data": {
-            "id": "movie-forrest-gump",
-            "label": "Forrest Gump",
-            "level": 4,
-            "weight": 100,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "Drama, Romance"
+        {
+            "data": {
+                "id": "movie-forrest-gump",
+                "label": "Forrest Gump",
+                "level": 4,
+                "weight": 100,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "Drama, Romance"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "Robert Zemeckis"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "Tom Hanks"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "Robert Zemeckis"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "Tom Hanks"
+            "position": {
+                "x": -200,
+                "y": 300
             }
         },
-        "position": {"x": -200, "y": 300}
-    },
-    {
-        "data": {
-            "id": "movie-american-beauty",
-            "label": "American Beauty",
-            "level": 4,
-            "weight": 100,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "Drama"
+        {
+            "data": {
+                "id": "movie-american-beauty",
+                "label": "American Beauty",
+                "level": 4,
+                "weight": 100,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "Drama"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "Sam Mendes"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "Kevin Spacey"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "Sam Mendes"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "Kevin Spacey"
+            "position": {
+                "x": -150,
+                "y": 300
             }
         },
-        "position": {"x": -150, "y": 300}
-    },
-    {
-        "data": {
-            "id": "movie-gladiator",
-            "label": "Gladiator",
-            "level": 4,
-            "weight": 100,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "Action, Drama"
+        {
+            "data": {
+                "id": "movie-gladiator",
+                "label": "Gladiator",
+                "level": 4,
+                "weight": 100,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "Action, Drama"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "Ridley Scott"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "Russell Crowe"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "Ridley Scott"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "Russell Crowe"
+            "position": {
+                "x": 150,
+                "y": 300
             }
         },
-        "position": {"x": 150, "y": 300}
-    },
-    {
-        "data": {
-            "id": "movie-crash",
-            "label": "Crash",
-            "level": 4,
-            "weight": 100,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "Drama, Crime"
+        {
+            "data": {
+                "id": "movie-crash",
+                "label": "Crash",
+                "level": 4,
+                "weight": 100,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "Drama, Crime"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "Paul Haggis"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "Sandra Bullock"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "Paul Haggis"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "Sandra Bullock"
+            "position": {
+                "x": 200,
+                "y": 300
             }
         },
-        "position": {"x": 200, "y": 300}
-    },
-    {
-        "data": {
-            "id": "movie-the-hurt-locker",
-            "label": "The Hurt Locker",
-            "level": 4,
-            "weight": 100,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False",
-            "custom1": {
-                "field_name": "Genre",
-                "field_value": "War, Drama"
+        {
+            "data": {
+                "id": "movie-the-hurt-locker",
+                "label": "The Hurt Locker",
+                "level": 4,
+                "weight": 100,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False",
+                "custom1": {
+                    "field_name": "Genre",
+                    "field_value": "War, Drama"
+                },
+                "custom2": {
+                    "field_name": "Director",
+                    "field_value": "Kathryn Bigelow"
+                },
+                "custom3": {
+                    "field_name": "Notable Actor",
+                    "field_value": "Jeremy Renner"
+                }
             },
-            "custom2": {
-                "field_name": "Director",
-                "field_value": "Kathryn Bigelow"
-            },
-            "custom3": {
-                "field_name": "Notable Actor",
-                "field_value": "Jeremy Renner"
+            "position": {
+                "x": 250,
+                "y": 300
             }
         },
-        "position": {"x": 250, "y": 300}
-    },
-    {
-        "data": {
-            "id": "edge-best-picture-winners-decade-1990s",
-            "source": "best-picture-winners",
-            "target": "decade-1990s",
-            "weight": 50,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
+        {
+            "data": {
+                "id": "edge-best-picture-winners-decade-1990s",
+                "source": "best-picture-winners",
+                "target": "decade-1990s",
+                "weight": 50,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
+        },
+        {
+            "data": {
+                "id": "edge-best-picture-winners-decade-2000s",
+                "source": "best-picture-winners",
+                "target": "decade-2000s",
+                "weight": 50,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
+        },
+        {
+            "data": {
+                "id": "edge-decade-1990s-year-1990",
+                "source": "decade-1990s",
+                "target": "year-1990",
+                "weight": 34,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
+        },
+        {
+            "data": {
+                "id": "edge-decade-1990s-year-1994",
+                "source": "decade-1990s",
+                "target": "year-1994",
+                "weight": 33,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
+        },
+        {
+            "data": {
+                "id": "edge-decade-1990s-year-1999",
+                "source": "decade-1990s",
+                "target": "year-1999",
+                "weight": 33,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
+        },
+        {
+            "data": {
+                "id": "edge-decade-2000s-year-2000",
+                "source": "decade-2000s",
+                "target": "year-2000",
+                "weight": 34,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
+        },
+        {
+            "data": {
+                "id": "edge-decade-2000s-year-2005",
+                "source": "decade-2000s",
+                "target": "year-2005",
+                "weight": 33,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
+        },
+        {
+            "data": {
+                "id": "edge-decade-2000s-year-2009",
+                "source": "decade-2000s",
+                "target": "year-2009",
+                "weight": 33,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
+        },
+        {
+            "data": {
+                "id": "edge-year-1990-movie-dances-with-wolves",
+                "source": "year-1990",
+                "target": "movie-dances-with-wolves",
+                "weight": 100,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
+        },
+        {
+            "data": {
+                "id": "edge-year-1994-movie-forrest-gump",
+                "source": "year-1994",
+                "target": "movie-forrest-gump",
+                "weight": 100,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
+        },
+        {
+            "data": {
+                "id": "edge-year-1999-movie-american-beauty",
+                "source": "year-1999",
+                "target": "movie-american-beauty",
+                "weight": 100,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
+        },
+        {
+            "data": {
+                "id": "edge-year-2000-movie-gladiator",
+                "source": "year-2000",
+                "target": "movie-gladiator",
+                "weight": 100,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
+        },
+        {
+            "data": {
+                "id": "edge-year-2005-movie-crash",
+                "source": "year-2005",
+                "target": "movie-crash",
+                "weight": 100,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
+        },
+        {
+            "data": {
+                "id": "edge-year-2009-movie-the-hurt-locker",
+                "source": "year-2009",
+                "target": "movie-the-hurt-locker",
+                "weight": 100,
+                "last_clicked": "False",
+                "traversed": "False",
+                "common": "False",
+                "invalid_weight": "False"
+            }
         }
-    },
-    {
-        "data": {
-            "id": "edge-best-picture-winners-decade-2000s",
-            "source": "best-picture-winners",
-            "target": "decade-2000s",
-            "weight": 50,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
-        }
-    },
-    {
-        "data": {
-            "id": "edge-decade-1990s-year-1990",
-            "source": "decade-1990s",
-            "target": "year-1990",
-            "weight": 34,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
-        }
-    },
-    {
-        "data": {
-            "id": "edge-decade-1990s-year-1994",
-            "source": "decade-1990s",
-            "target": "year-1994",
-            "weight": 33,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
-        }
-    },
-    {
-        "data": {
-            "id": "edge-decade-1990s-year-1999",
-            "source": "decade-1990s",
-            "target": "year-1999",
-            "weight": 33,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
-        }
-    },
-    {
-        "data": {
-            "id": "edge-decade-2000s-year-2000",
-            "source": "decade-2000s",
-            "target": "year-2000",
-            "weight": 34,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
-        }
-    },
-    {
-        "data": {
-            "id": "edge-decade-2000s-year-2005",
-            "source": "decade-2000s",
-            "target": "year-2005",
-            "weight": 33,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
-        }
-    },
-    {
-        "data": {
-            "id": "edge-decade-2000s-year-2009",
-            "source": "decade-2000s",
-            "target": "year-2009",
-            "weight": 33,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
-        }
-    },
-    {
-        "data": {
-            "id": "edge-year-1990-movie-dances-with-wolves",
-            "source": "year-1990",
-            "target": "movie-dances-with-wolves",
-            "weight": 100,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
-        }
-    },
-    {
-        "data": {
-            "id": "edge-year-1994-movie-forrest-gump",
-            "source": "year-1994",
-            "target": "movie-forrest-gump",
-            "weight": 100,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
-        }
-    },
-    {
-        "data": {
-            "id": "edge-year-1999-movie-american-beauty",
-            "source": "year-1999",
-            "target": "movie-american-beauty",
-            "weight": 100,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
-        }
-    },
-    {
-        "data": {
-            "id": "edge-year-2000-movie-gladiator",
-            "source": "year-2000",
-            "target": "movie-gladiator",
-            "weight": 100,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
-        }
-    },
-    {
-        "data": {
-            "id": "edge-year-2005-movie-crash",
-            "source": "year-2005",
-            "target": "movie-crash",
-            "weight": 100,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
-        }
-    },
-    {
-        "data": {
-            "id": "edge-year-2009-movie-the-hurt-locker",
-            "source": "year-2009",
-            "target": "movie-the-hurt-locker",
-            "weight": 100,
-            "last_clicked": "False",
-            "traversed": "False",
-            "common": "False",
-            "invalid_weight": "False"
-        }
-    }
-]
+    ]
+}

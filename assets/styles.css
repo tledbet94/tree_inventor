@@ -957,11 +957,11 @@ body {
 
 }
 
-.template_button {
+.template-button {
     width: 15vh;
     height: 15vh;
     border-radius: 50%;
-    display: flex; /* Make sure it's flex to align text */
+    display: flex;
     justify-content: center;
     align-items: center;
     background-color: #4b80ca;
@@ -972,24 +972,36 @@ body {
     font-weight: bold;
     color: #f2f0e5;
     margin: 20px auto;
-    text-align: center; /* Ensure text is centered */
+    text-align: center;
+    outline: none;
 }
 
-.template_button:hover {
+.template-button:hover {
     background-color: #4b80ca; /* Lighter shade on hover */
     border: 8px double #a2dcc7;
     color: #f2f0e5;
-    box-shadow: -2px 2px 5px #e2dfd0, 8px -8px 4px #3b3a4f; /* Softer shadows */
+    box-shadow: -2px 2px 5px #e2dfd0, 8px -8px 4px #3b3a4f;
+    outline: none;
 }
 
-.template_button:active,
-.template_button:focus {
+.template-button:active,
+.template-button:focus {
     background-color: #b45252; /* Turn red when pressed */
     border: 8px double #d3a068;
-    box-shadow: inset -3px 3px 8px #2e2e34, inset 5px -5px 10px #1a1a1f; /* Inward shadows to indicate pressed state */
-    color: #f2f0e5; /* Maintain text color */
-    box-shadow: -2px 2px 5px #e2dfd0, 8px -8px 4px #3b3a4f; /* Softer shadows */
+    box-shadow: inset -3px 3px 8px #2e2e34, inset 5px -5px 10px #1a1a1f;
+    color: #f2f0e5;
+    outline: none;
 }
+
+/* Add this CSS rule for the active class */
+.template-button.active {
+    background-color: #b45252; /* Keep red background when active */
+    border: 8px double #d3a068;
+    box-shadow: inset -3px 3px 8px #2e2e34, inset 5px -5px 10px #1a1a1f;
+    color: #f2f0e5;
+    outline: none;
+}
+
 
 /* Container for the color picker */
 .colorpicker-container {

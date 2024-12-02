@@ -3,7 +3,7 @@ import dash_bootstrap_components as dbc
 
 # internal imports
 from .elements.panels import button_panel, control_panel, info_panel
-from cytoscape.cytoscape import cyto_component
+from cytoscape.cytoscape import cyto_component, file_info
 
 
 from .elements.control_panel.modes.home import home
@@ -18,9 +18,24 @@ from .elements.control_panel.modes.themes import themes
 from .elements.control_panel.modes.user import user
 from .elements.control_panel.modes.settings import settings
 
+name_dict = {
+            'Starter Tree': 1,
+            'Coin Flip': 2,
+            'Game on the Line': 3,
+            'Wake Up': 4,
+            'Chess Openings': 5,
+            'Stock Tree': 6,
+            'Best Picture by Year': 7,
+            'Wives of Henry VIII': 8
+        }
+
+name = file_info['name']
+starting_number = name_dict[name]
 
 layout = html.Div([
     # separate elements copy for each function
+    dcc.Store('file-info', data=file_info),
+    dcc.Store('starting-template-number', data=starting_number),
     dcc.Store(id='edit-store'),
     dcc.Store(id='single-interval-store'),
     dcc.Store(id='multiple-interval-store'),

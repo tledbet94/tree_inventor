@@ -1,5 +1,6 @@
 from dash import dcc, html
 import dash_bootstrap_components as dbc
+import random
 
 templates_title = html.H1('Templates', className='edit-header-text')
 
@@ -7,7 +8,7 @@ template_one = html.Div(
     children=[
         dbc.Button(id='template_one_button',
                    children="ONE",
-                   className='template_button',
+                   className='template-button',
                    active=False
                    )
     ],
@@ -24,7 +25,7 @@ template_two = html.Div(
     children=[
         dbc.Button(id='template_two_button',
                    children="TWO",
-                   className='template_button',
+                   className='template-button',
                    active=False
                    )
     ],
@@ -41,7 +42,7 @@ template_three = html.Div(
     children=[
         dbc.Button(id='template_three_button',
                    children="THREE",
-                   className='template_button',
+                   className='template-button',
                    active=False
                    )
     ],
@@ -58,7 +59,7 @@ template_four = html.Div(
     children=[
         dbc.Button(id='template_four_button',
                    children="FOUR",
-                   className='template_button',
+                   className='template-button',
                    active=False
                    )
     ],
@@ -75,7 +76,7 @@ template_five = html.Div(
     children=[
         dbc.Button(id='template_five_button',
                    children="FIVE",
-                   className='template_button',
+                   className='template-button',
                    active=False
                    )
     ],
@@ -92,7 +93,7 @@ template_six = html.Div(
     children=[
         dbc.Button(id='template_six_button',
                    children="SIX",
-                   className='template_button',
+                   className='template-button',
                    active=False
                    )
     ],
@@ -109,7 +110,7 @@ template_seven = html.Div(
     children=[
         dbc.Button(id='template_seven_button',
                    children="SEVEN",
-                   className='template_button',
+                   className='template-button',
                    active=False
                    )
     ],
@@ -126,7 +127,7 @@ template_eight = html.Div(
     children=[
         dbc.Button(id='template_eight_button',
                    children="EIGHT",
-                   className='template_button',
+                   className='template-button',
                    active=False
                    )
     ],
@@ -141,7 +142,11 @@ template_eight = html.Div(
 
 template_store = dcc.Store(id='template-store')
 
+random_number = 1
+current_tree = dcc.Store(id='current-tree', data=random_number)
+
 templates = html.Div([
+    current_tree,
     template_store,
     templates_title,
     html.Div(style={'height': '8vh'}),

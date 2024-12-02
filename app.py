@@ -1,4 +1,4 @@
-# app.py
+import time
 from app_instance import app
 
 # Internal imports
@@ -26,8 +26,6 @@ from layout.callbacks.controls.custom_fields.active_button_callback import updat
 from layout.callbacks.controls.custom_fields.input_management import manage_inputs
 
 from layout.callbacks.cyto.sub_cyto.cyto_fields import fields_update
-
-
 from layout.callbacks.cyto.sub_cyto.cyto_edit import modify_elements
 from layout.callbacks.cyto.sub_cyto.cyto_traversal import handle_traversals
 from layout.callbacks.cyto.sub_cyto.cyto_weights import adjust_weights
@@ -42,4 +40,6 @@ from layout.callbacks.controls.save_load.local_save import local_save
 app.layout = layout
 
 if __name__ == '__main__':
+    # Add a 3-second delay before starting the server
+    time.sleep(1)
     app.run(debug=True, port='8051')

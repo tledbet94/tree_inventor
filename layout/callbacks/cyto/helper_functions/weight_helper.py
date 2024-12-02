@@ -33,8 +33,6 @@ def get_system_info(elements):
         # Add the source node
         for element in elements:
             if element['data']['id'] == source_node_id and element not in system_elements:
-                print(element['data']['id'])
-                print(element['data']['weight'])
                 system_elements.append(element)
                 break
 
@@ -42,15 +40,12 @@ def get_system_info(elements):
         for element in elements:
             if 'source' in element['data'] and element['data']['source'] == source_node_id:
                 if element not in system_elements:
-                    print(element['data']['id'])
-                    print(element['data']['weight'])
                     system_elements.append(element)
 
     # Calculate the system weight
     system_weight = sum(float(element['data'].get('weight', 0)) for element in system_elements)
 
     # Determine validity and set appropriate messages
-    print('system weight: ' + str(system_weight))
     if abs(system_weight - 100.0) > 0.01:
         # Mark elements as having an invalid weight if system weight is not 100%
         for element in system_elements:

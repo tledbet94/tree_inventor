@@ -1,6 +1,6 @@
 import dash_cytoscape as cyto
 import json
-
+import random
 
 cytoscape_background_color = '#352b42'
 node_background_color = '#4b80ca'
@@ -70,40 +70,65 @@ stylesheet = [
             'overlay-opacity': 0
         }
     },
-{
-    'selector': '[traversed = "True"]',
-    'style': {
-        'background-color': '#8e478c',
-        'line-gradient-stop-colors': '#564064 #cd6093',
-        'border-color': '#cd6093',
-        'target-arrow-color': '#ffaeb6',
-        'overlay-opacity': 0
-    }
-},
-{
-    'selector': '[common = "True"]',
-    'style': {
-        'background-color': '#cd6093',
-        'line-gradient-stop-colors': '#cd6093 #ffaeb6',
-        'border-color': '#ffaeb6',
-        'target-arrow-color': '#ffaeb6',
-        'overlay-opacity': 0
-    }
-},
-{
-    'selector': '[invalid_weight = "True"]',
-    'style': {
-        'background-color': '#d3a068',
-        'line-gradient-stop-colors': '#ede19e #d3a068',
-        'border-color': '#ede19e',
-        'target-arrow-color': '#e5ceb4',
-        'overlay-opacity': 0
-    }
-},
+    {
+        'selector': '[traversed = "True"]',
+        'style': {
+            'background-color': '#8e478c',
+            'line-gradient-stop-colors': '#564064 #cd6093',
+            'border-color': '#cd6093',
+            'target-arrow-color': '#ffaeb6',
+            'overlay-opacity': 0
+        }
+    },
+    {
+        'selector': '[common = "True"]',
+        'style': {
+            'background-color': '#cd6093',
+            'line-gradient-stop-colors': '#cd6093 #ffaeb6',
+            'border-color': '#ffaeb6',
+            'target-arrow-color': '#ffaeb6',
+            'overlay-opacity': 0
+        }
+    },
+    {
+        'selector': '[invalid_weight = "True"]',
+        'style': {
+            'background-color': '#d3a068',
+            'line-gradient-stop-colors': '#ede19e #d3a068',
+            'border-color': '#ede19e',
+            'target-arrow-color': '#e5ceb4',
+            'overlay-opacity': 0
+        }
+    },
 ]
 
-with open("cytoscape/tree_structure.json", "r") as json_file:
+
+def random_number_as_string():
+    numbers = {
+        2: "two",
+        3: "three",
+        4: "four",
+        5: "five",
+        6: "six",
+        7: "seven",
+        8: "eight"
+    }
+    random_num = random.randint(2, 8)
+    return numbers[random_num]
+
+
+r = random_number_as_string()
+
+path = 'cytoscape/templates/' + r + '.json'
+
+with open(path, "r") as json_file:
     loaded_elements = json.load(json_file)
+    elements = loaded_elements['elements']
+    file_info = {
+        'name': loaded_elements['Name'],
+        'description': loaded_elements['Description'],
+        'author': loaded_elements['Author']
+    }
 
 cyto_component = cyto.Cytoscape(
     id='cytoscape',
@@ -114,7 +139,7 @@ cyto_component = cyto.Cytoscape(
            'border': '15px solid #868188',
            'borderRadius': '30px',
            'box-shadow': 'inset 0px 0px 10px 10px #646365'},
-    elements=loaded_elements,
+    elements=elements,
     stylesheet=stylesheet
 )
 
@@ -123,3 +148,6 @@ cyto_component.fit = {
     'padding': 50,  # Optional padding
     'fit': True  # Fit graph to the available space
 }
+
+# Ensure both `cyto_component` and `file_info` are available for import
+__all__ = ['cyto_component', 'file_info']

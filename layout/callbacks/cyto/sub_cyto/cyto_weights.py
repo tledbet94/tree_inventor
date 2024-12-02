@@ -36,10 +36,19 @@ def adjust_weights(weights_enter_clicks, weights_input_value,
     progress_style = no_update
     progress_label = no_update
 
-    for element in elements:
-        if element['data']['last_clicked'] == 'True':
-            element['data']['weight'] = float(weights_input_value)
-            break
+    try:
+        for element in elements:
+            if element['data']['last_clicked'] == 'True':
+                if element['data']['weight'] is not None:
+                    try:
+                        element['data']['weight'] = float(weights_input_value)
+                    except (ValueError, TypeError) as e:
+                        pass
+                    break
+    except KeyError as e:
+        print(f"Missing expected key in element: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
 
     # Determine the mode
     mode = 'auto'
