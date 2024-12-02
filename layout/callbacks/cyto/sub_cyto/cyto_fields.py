@@ -73,7 +73,6 @@ def fields_update(update_clicks, tap_node, template_elements,
 
     if trigger_id == 'template-store':
         for element in template_elements:
-            print(element)
             if 'custom1' in element['data']:
                 stored_names[0] = element['data']['custom1']['field_name']
                 stored_names[1] = element['data']['custom2']['field_name']

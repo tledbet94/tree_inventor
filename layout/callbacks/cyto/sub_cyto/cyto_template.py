@@ -77,7 +77,6 @@ def swap_trees(
 
         except FileNotFoundError:
             # Handle missing file gracefully
-            print(f"Template file for tree {current_tree} not found.")
             return current_elements, {
                 'name': '',
                 'description': '',

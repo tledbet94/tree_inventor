@@ -24,15 +24,28 @@ from app_instance import app
         Input('template_seven_button', 'n_clicks'),
         Input('template_eight_button', 'n_clicks'),
         Input('custom-fields-button', 'active'),
-    ],
+        ],
+    [
+        State('template_one_button', 'active'),
+        State('template_two_button', 'active'),
+        State('template_three_button', 'active'),
+        State('template_four_button', 'active'),
+        State('template_five_button', 'active'),
+        State('template_six_button', 'active'),
+        State('template_seven_button', 'active'),
+        State('template_eight_button', 'active')
+    ]
 )
 def update_active_template_button(
         starting_number,
         one_clicks, two_clicks, three_clicks, four_clicks,
-        five_clicks, six_clicks, seven_clicks, eight_clicks, bottom_row_button_active
+        five_clicks, six_clicks, seven_clicks, eight_clicks, bottom_row_button_active,
+        state_one, state_two, state_three, state_four, state_five, state_six, state_seven,
+        state_eight
 ):
     # Initialize all buttons to inactive
     active_states = [False] * 8
+    current_states = [state_one, state_two, state_three, state_four, state_five, state_six, state_seven, state_eight]
 
     ctx = callback_context
 
@@ -67,6 +80,8 @@ def update_active_template_button(
         if index is not None:
             # Set the corresponding button to active
             active_states[index - 1] = True
+    if trigger_id == 'custom-fields-button' and button_clicked:
+        return current_states
     elif trigger_id in button_ids:
         active_states = [False] * 8
         # Triggered by one of the template buttons

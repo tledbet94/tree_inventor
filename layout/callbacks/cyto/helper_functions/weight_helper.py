@@ -113,3 +113,56 @@ def proximity_to_100(system_weight):
         delta = abs(100 - system_weight)
         return delta
 
+
+def balance_post_deletion(elements):
+    # Build mappings for nodes and edges
+    node_elements = {}
+    edge_elements = []
+    child_map = {}
+
+    for element in elements:
+        if 'source' in element['data']:
+            # Edge
+            edge_elements.append(element)
+            source = element['data']['source']
+            target = element['data']['target']
+            child_map.setdefault(source, []).append(target)
+        else:
+            # Node
+            node_elements[element['data']['id']] = element
+
+    # Adjust weights for all nodes
+    def adjust_node_and_edges(node_id):
+        node = node_elements.get(node_id)
+        if not node:
+            return
+
+        # Get outgoing edges
+        outgoing_edges = [edge for edge in edge_elements if edge['data']['source'] == node_id]
+        num_elements = 1 + len(outgoing_edges)  # Node + its edges
+
+        if num_elements > 1:
+            # Distribute 100% among node and edges
+            equal_weight = 100.0 / num_elements
+            node['data']['weight'] = round(equal_weight, 2)
+            for edge in outgoing_edges:
+                edge['data']['weight'] = round(equal_weight, 2)
+        else:
+            # Leaf node, set weight to 100%
+            node['data']['weight'] = 100.0
+
+        # Recursively adjust child nodes
+        for edge in outgoing_edges:
+            child_id = edge['data']['target']
+            adjust_node_and_edges(child_id)
+
+    # Identify root nodes (nodes without incoming edges)
+    all_nodes = set(node_elements.keys())
+    nodes_with_incoming = set(edge['data']['target'] for edge in edge_elements)
+    root_nodes = all_nodes - nodes_with_incoming
+
+    # Start adjusting from root nodes
+    for root_id in root_nodes:
+        adjust_node_and_edges(root_id)
+
+    return elements  # Return the modified elements

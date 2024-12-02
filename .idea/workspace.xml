@@ -8,24 +8,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/cytoscape.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/cytoscape.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/templates/eight.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/eight.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/templates/five.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/five.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/templates/four.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/four.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/templates/henry.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/templates/one.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/one.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/templates/seven.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/seven.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/templates/six.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/six.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/templates/three.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/three.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/templates/two.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/two.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/templates/active_button.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/templates/active_button.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/helper_functions/weight_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/helper_functions/weight_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_edit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_fields.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_template.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_weights.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_weights.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/templates.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/templates.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/layout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/home.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

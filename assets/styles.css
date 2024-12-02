@@ -245,43 +245,13 @@ body {
 
 .home-card-title {
     color: #f2f0e5;
+    font-size: 2vw;
     font-weight: bold;
 }
 
 .home-card-text {
     color: #f2f0e5;
-    font-size: 20px;
-    line-height: 1.5;
-}
-
-/* Clean up, attempt to double style the card? */
-.home-card-body {
-    background-color: #d3a068;
-    border-radius: 50px;
-    box-shadow: inset 0 8px 16px #646365;
-}
-
-.home-card {
-    background-color: #868188;
-    border-radius: 50px;
-    box-shadow: inset 0 8px 16px #45444f;
-    color: #f2f0e5;
-    padding: 20px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.home-card:hover {
-    color: #a2dcc7;
-}
-
-.home-card-title {
-    color: #f2f0e5;
-    font-weight: bold;
-}
-
-.home-card-text {
-    color: #f2f0e5;
-    font-size: 20px;
+    font-size: 1.5vw;
     line-height: 1.5;
 }
 
