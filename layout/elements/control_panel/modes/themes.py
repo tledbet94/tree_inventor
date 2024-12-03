@@ -76,7 +76,7 @@ shape_label = html.P('Node Shape', className='fields-label')
 
 circle_button = dbc.Button(
     id='circle-button',
-    children="CI",
+    children=html.I(className="fa-solid fa-circle icon-style-theme-button"),
     className="theme-button",
     style={'outline': 'none'},
     disabled=False,
@@ -84,7 +84,7 @@ circle_button = dbc.Button(
 
 triangle_button = dbc.Button(
     id='triangle-button',
-    children="TR",
+    children=html.I(className="fa-solid fa-play icon-style-theme-button"),
     className="theme-button",
     style={'outline': 'none'},
     disabled=False,
@@ -92,15 +92,15 @@ triangle_button = dbc.Button(
 
 square_button = dbc.Button(
     id='square-button',
-    children="SQ",
+    children=html.I(className="fa-solid fa-square icon-style-theme-button"),
     className="theme-button",
     style={'outline': 'none'},
     disabled=False,
 )
 
 octagon_button = dbc.Button(
-    id='O-button',
-    children="OC",
+    id='octagon-button',
+    children=html.I(className="fa-solid fa-certificate icon-style-theme-button"),
     className="theme-button",
     style={'outline': 'none'},
     disabled=False,
@@ -111,7 +111,7 @@ outline_label = html.P('Node Outline', className='fields-label')
 
 single_outline_button = dbc.Button(
     id='single-outline-button',
-    children="SOO",
+    children=html.I(className="fa-regular fa-circle icon-style-theme-button"),
     className="theme-button",
     style={'outline': 'none'},
     disabled=False,
@@ -119,7 +119,7 @@ single_outline_button = dbc.Button(
 
 no_outline_button = dbc.Button(
     id='no-outline-button',
-    children="NOO",
+    children='',
     className="theme-button",
     style={'outline': 'none'},
     disabled=False,
@@ -127,7 +127,7 @@ no_outline_button = dbc.Button(
 
 shadow_outline_button = dbc.Button(
     id='shadow-button',
-    children="SHD",
+    children=html.I(className="fa-solid fa-bahai icon-style-theme-button"),
     className="theme-button",
     style={'outline': 'none'},
     disabled=False,
@@ -135,7 +135,7 @@ shadow_outline_button = dbc.Button(
 
 double_outline_button = dbc.Button(
     id='double-button',
-    children="DOU",
+    children=html.I(className="fa-solid fa-2 icon-style-theme-button"),
     className="theme-button",
     style={'outline': 'none'},
     disabled=False,
@@ -146,7 +146,7 @@ pointer_label = html.P('Pointer', className='fields-label')
 
 circle_pointer_button = dbc.Button(
     id='circle-pointer-button',
-    children="CIPO",
+    children=html.I(className="fa-solid fa-circle icon-style-theme-button"),
     className="theme-button",
     style={'outline': 'none'},
     disabled=False,
@@ -154,7 +154,7 @@ circle_pointer_button = dbc.Button(
 
 no_pointer_button = dbc.Button(
     id='no-pointer-button',
-    children="NOPO",
+    children="",
     className="theme-button",
     style={'outline': 'none'},
     disabled=False,
@@ -162,7 +162,7 @@ no_pointer_button = dbc.Button(
 
 arrow_pointer_button = dbc.Button(
     id='arrow-pointer-button',
-    children="ARRP",
+    children=html.I(className="fa-solid fa-arrow-down icon-style-theme-button"),
     className="theme-button",
     style={'outline': 'none'},
     disabled=False,
@@ -170,7 +170,7 @@ arrow_pointer_button = dbc.Button(
 
 tee_pointer_button = dbc.Button(
     id='tee-pointer-button',
-    children="TEPE",
+    children=html.I(className="fa-solid fa-t icon-style-theme-button"),
     className="theme-button",
     style={'outline': 'none'},
     disabled=False,

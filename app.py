@@ -38,6 +38,8 @@ from layout.callbacks.cyto.sub_cyto.cyto_template import swap_trees
 
 from layout.callbacks.controls.save_load.local_save import local_save
 
+from layout.callbacks.controls.themes.active_theme_button import update_buttons
+
 app.layout = layout
 
 if __name__ == '__main__':
