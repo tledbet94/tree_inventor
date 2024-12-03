@@ -3,7 +3,7 @@ from app_instance import app
 import copy
 
 from layout.callbacks.cyto.helper_functions.weight_helper import \
-    get_system_info, auto_balance_system, proximity_to_100, balance_post_deletion
+    get_system_info, auto_balance_system, proximity_to_100
 
 
 @app.callback(
@@ -15,8 +15,7 @@ from layout.callbacks.cyto.helper_functions.weight_helper import \
         Output('system-weights-progress', 'label'),
     ],
     [
-        Input('weights-input-button', 'n_clicks'),
-        Input('remove-button', 'n_clicks'),
+        Input('weights-input-button', 'n_clicks')
     ],
     [
         State('weights-input', 'value'),
@@ -25,22 +24,12 @@ from layout.callbacks.cyto.helper_functions.weight_helper import \
 
     ]
 )
-def adjust_weights(weights_enter_clicks, remove_clicks, weights_input_value,
+def adjust_weights(weights_enter_clicks, weights_input_value,
                    elements, manual_class):
     # best practice is to use a deepcopy of elements
     elements = copy.deepcopy(elements) if elements else []
 
     triggered_id = ctx.triggered_id if ctx.triggered_id else None
-
-    if triggered_id == 'remove-button':
-        elements = balance_post_deletion(elements)
-        progress_value = 0
-        progress_label = ''
-        progress_style = {'display': 'none'}
-        manual_feedback = ''
-
-        # removed manual_input_feedback_children
-        return elements, manual_feedback, progress_value, progress_style, progress_label
 
     # WIP - setting up feedback/screen text on manual mode
     manual_feedback_intro = 'Manual mode status: '

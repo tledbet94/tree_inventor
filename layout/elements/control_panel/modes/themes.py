@@ -4,75 +4,119 @@ from app_instance import app
 
 themes_title = html.H1('Themes', className='edit-header-text')
 
-dropdown = dbc.DropdownMenu(
-    label="Choose ",
-    children=[
-        dbc.DropdownMenuItem("Item 1"),
-        dbc.DropdownMenuItem("Item 2"),
-        dbc.DropdownMenuItem("Item 3"),
-    ], style={'marginLeft': '2.5vw'}
-)
-
-colorpicker_text = html.Div(html.P(children="Select a color below.", className="theme-font"),
-                            style={'textAlign': 'center'})
-
-colorpicker = html.Div(
-    dbc.Input(
-        type="color",
-        id="colorpicker",
-        value="#4b80ca",
-        className="colorpicker-input",
-    ),
-    className="colorpicker-container",
-)
-
-apply_button = dbc.Button(children='Apply', id='themes-apply-button', className='themes-apply-button')
-
-presets_modal = dbc.Modal(
-    [
-        dbc.ModalHeader(dbc.ModalTitle("Preset Themes"), close_button=True,
-                        className='book-modal-header'),
-        dbc.ModalBody(children=html.A('Wikipedia',
-                                      href='https://en.wikipedia.org/wiki/Directed_acyclic_graph'),
-                      className='presets-modal-body'),
-        dbc.ModalFooter(
-            dbc.Button(
-                "Close",
-                id="presets-modal-close-button",
-                className="modal-button",
-                n_clicks=0
-            ), className='presets-modal-footer'
-        ),
-    ],
-    id="presets-modal",
-    centered=True,
-    is_open=False,
-)
-
-presets_button = dbc.Button(
-    id='presets-button',
-    children=('PRESETS'),
-    className="themes-apply-button",
+# Color
+banana_button = dbc.Button(
+    id='banana-button',
+    children="B",
+    className="bottom-row-button",
     style={'outline': 'none'},
-    n_clicks=0)
+    disabled=False,
+)
+
+grape_button = dbc.Button(
+    id='grape-button',
+    children="G",
+    className="bottom-row-button",
+    style={'outline': 'none'},
+    disabled=False,
+)
+
+orange_button = dbc.Button(
+    id='orange-button',
+    children="O",
+    className="bottom-row-button",
+    style={'outline': 'none'},
+    disabled=False,
+)
+
+# Node shape button
+triangle_button = dbc.Button(
+    id='triangle-button',
+    children="TR",
+    className="bottom-row-button",
+    style={'outline': 'none'},
+    disabled=False,
+)
+
+square_button = dbc.Button(
+    id='square-button',
+    children="SQ",
+    className="bottom-row-button",
+    style={'outline': 'none'},
+    disabled=False,
+)
+
+octagon_button = dbc.Button(
+    id='O-button',
+    children="OC",
+    className="bottom-row-button",
+    style={'outline': 'none'},
+    disabled=False,
+)
+
+# Node Outline button
+
+no_outline_button = dbc.Button(
+    id='no-outline-button',
+    children="NOO",
+    className="bottom-row-button",
+    style={'outline': 'none'},
+    disabled=False,
+)
+
+shadow_outline_button = dbc.Button(
+    id='shadow-button',
+    children="SHD",
+    className="bottom-row-button",
+    style={'outline': 'none'},
+    disabled=False,
+),
+
+double_outline_button = dbc.Button(
+    id='double-button',
+    children="DOU",
+    className="bottom-row-button",
+    style={'outline': 'none'},
+    disabled=False,
+)
+
+# Edge pointer
+
+no_pointer_button = dbc.Button(
+    id='no-pointer-button',
+    children="NOPO",
+    className="bottom-row-button",
+    style={'outline': 'none'},
+    disabled=False,
+)
+
+arrow_pointer_button = dbc.Button(
+    id='arrow-pointer-button',
+    children="ARRP",
+    className="bottom-row-button",
+    style={'outline': 'none'},
+    disabled=False,
+)
+
+tee_pointer_button = dbc.Button(
+    id='tee-pointer-button',
+    children="TEPE",
+    className="bottom-row-button",
+    style={'outline': 'none'},
+    disabled=False,
+)
+
+themes_div = html.Div(children='test', className='themes-div')
 
 themes = html.Div(
     [
         themes_title,
-        html.Div(style={'height': '4vh'}),
-        dropdown,
-        html.Div(style={'height': '14vh'}),
-        colorpicker_text,
-        html.Div(style={'height': '8vh'}),
-        dbc.Row([dbc.Col(width=2), dbc.Col(colorpicker), dbc.Col(apply_button), dbc.Col(width=2)]),
-        html.Div(style={'height': '8vh'}),
-        dbc.Row(
-            [
-                dbc.Col(width=4),
-                dbc.Col([presets_button, presets_modal]),
-                dbc.Col(width=4)
-                 ]
-        )
+        html.Div(style={'height': '5vw'}),
+        themes_div,
+        html.Div(style={'height': '5vw'}),
+        themes_div,
+        html.Div(style={'height': '5vw'}),
+        themes_div
 
     ]
 )

@@ -1013,7 +1013,7 @@ body {
 }
 
 /* Style the dropdown toggle button */
-.dropdown-toggle {
+.themes-div {
     background-color: #b8b5b9; /* Base color */
     color: #3a3858; /* White text for contrast */
     border: none;
@@ -1021,38 +1021,6 @@ body {
     transition: background-color 0.2s ease, color 0.2s ease;
     height: 10vh;
     width: 90%;
-}
-
-.dropdown-toggle:hover,
-.dropdown-toggle:focus,
-.dropdown-toggle:active {
-    background-color: #b8b5b9 !important; /* Base color */
-    color: #f2f0e5 !important; /* Darker shade on hover */
-}
-
-/* Style the dropdown menu */
-.dropdown-menu {
-    color: #f2f0e5; /* White text for contrast */
-    background-color: #6a536e;
-    border: 1px solid #b8b5b9;
-    box-shadow: 0 4px 6px #352b42;
-    text-align: center;
-    width: 90%;
-}
-
-.dropdown-menu:active,
- .dropdown-menu:focus {
-    color: #68c2d3; /* White text for contrast */
-    border: 1px solid #b8b5b9; /* Match the toggle button color */
-    box-shadow: 0 4px 6px #352b42; /* Subtle shadow for depth */
-}
-
-/* Style the dropdown items */
-.dropdown-item {
-    background-color: #5f556a;
-    color: #f2f0e5; /* Text color */
-    font-size: 1vw;
-    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Hover state for dropdown items */
