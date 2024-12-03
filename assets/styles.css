@@ -973,90 +973,67 @@ body {
 }
 
 
-/* Container for the color picker */
-.colorpicker-container {
-    display: flex;
-    flex-direction: column;
+/* Center content vertically and horizontally in buttons */
+.theme-button {
     align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-}
-
-/* Label styling */
-.colorpicker-label {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-
-/* Input field styling */
-.colorpicker-input {
-    width: 10vw;
-    height: 10vh;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border-radius: 5px;
     background-color: #b8b5b9;
-    box-shadow: 0 2px 4px #45444f;
-    transition: box-shadow 0.3s;
-}
-
-.colorpicker-input:hover {
-    box-shadow: 0 4px 8px #45444f;
-}
-
-.theme-font {
-    color: #646365;
-    font-size: 1.5vw;
-}
-
-/* Style the dropdown toggle button */
-.themes-div {
-    background-color: #b8b5b9; /* Base color */
-    color: #3a3858; /* White text for contrast */
-    border: none;
-    font-size: 2vw;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    height: 10vh;
-    width: 90%;
-}
-
-/* Hover state for dropdown items */
-.dropdown-item:hover {
-    background-color: #b8b5b9; /* Highlighted background on hover */
-    color: #ffffff;
-}
-
-/* Active state for dropdown items */
-.dropdown-item:active,
-.dropdown-item:focus,{
-    background-color: #868188; /* Darker background when active */
-    color: #ffffff;
-}
-
-.themes-apply-button {
-    align-items: center;
-    background-color: #b8b5b9 !important;
-    border: none;
     border-radius: 50%;
-    box-shadow: 0px 4px 4px #45444f;
-    color: #3a3858 !important;
-    font-size: 1.5vw;
+    color: #5f556a !important;
     display: flex;
-    height: 10vh;
+    font-size: 14px;
+    height: 8vh;
     justify-content: center;
-    outline: none;
     overflow: hidden;
-    padding: 0px;
+    padding:0px;
     transition: all 0.2s ease-in-out;
-    width: 10vh;
+    width: 8vh;
 }
 
-.themes-apply-button:hover {
-    background-color: #b8b5b9 !important;
-    box-shadow: 0px 2px 2px #45444f;
+/* Disabled state styles */
+.theme-button:disabled {
+    opacity: 1; /* Ensure opacity is not reduced */
+    cursor: not-allowed; /* Optionally change cursor */
+    pointer-events: none; /* Disable interactions */
+    /* Retain existing styles */
+    background-color: #b8b5b9;
+    color: #45444f !important;
+}
+
+.theme-button:active,
+.theme-button:focus,
+.theme-button.active {
+    background-color: #868188!important;
     color: #f2f0e5 !important;
+    box-shadow: inset -20px 20px 5px #646365;
+    border: 5px solid #f2f0e5;
     outline: none;
+}
+
+.theme-button:hover {
+    background-color: #b8b5b9 !important;
+    color: #e5ceb4 !important;
+}
+
+/* icon part of the button */
+.icon-style-theme-button {
+    color: inherit;
+    font-size: 4vh;
+}
+
+.pixel-art {
+    image-rendering: pixelated; /* Ensure pixel-perfect scaling */
+    image-rendering: crisp-edges; /* Fallback for non-Chrome browsers */
+    transition: filter 0.3s ease; /* Smooth transition for hover and active state */
+}
+
+.pixel-art:hover,
+.pixel-art:focus,
+.pixel-art:active {
+    filter: brightness(1.5); /* Brighten icon */
+}
+
+/* Ensure brightness persists when the button is active */
+.theme-button.active,
+.theme-button.focus {
+    filter: brightness(1.5); /* Keep icon bright while active */
 }

@@ -8,9 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/helper_functions/weight_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/helper_functions/weight_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_edit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_weights.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_weights.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/themes.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/themes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,6 +84,7 @@
   <component name="RunManager">
     <configuration name="app (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tree_maker" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -108,6 +106,7 @@
     </configuration>
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="tree_builder" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
