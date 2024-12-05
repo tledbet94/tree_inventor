@@ -6,7 +6,9 @@ groups = {
     'colors': ['blueberry-button', 'banana-button', 'grape-button', 'orange-button'],
     'shapes': ['circle-button', 'triangle-button', 'square-button', 'octagon-button'],
     'outlines': ['single-outline-button', 'no-outline-button', 'shadow-button', 'double-button'],
-    'pointers': ['circle-pointer-button', 'no-pointer-button', 'arrow-pointer-button', 'tee-pointer-button']
+    'pointers': ['circle-pointer-button', 'no-pointer-button', 'arrow-pointer-button', 'tee-pointer-button'],
+    'background': ['blue_background_button', 'brown_background_button',
+                   'green_background_button', 'black_background_button']
 }
 
 # Flatten the list of button IDs
@@ -17,6 +19,7 @@ outputs = [Output(button_id, 'active') for button_id in button_ids]
 
 # Create Inputs dynamically based on button IDs using 'n_clicks_timestamp'
 inputs = [Input(button_id, 'n_clicks_timestamp') for button_id in button_ids]
+
 
 @app.callback(outputs, inputs)
 def update_buttons(*n_clicks_timestamps):

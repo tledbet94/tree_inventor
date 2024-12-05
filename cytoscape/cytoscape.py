@@ -18,7 +18,7 @@ stylesheet = [
             'height': '60px',
             'width': '60px',
             'background-color': node_background_color,
-            'border-width': '4px',
+            'border-width': '4vh',
             'border-color': node_border_color,
             'border-style': 'solid',
             'label': 'data(label)',
