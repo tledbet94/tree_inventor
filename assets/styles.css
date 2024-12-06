@@ -180,13 +180,12 @@ body {
     box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
     color: #a77b5b !important;
     display: flex;
-    height: 100%;
+    height: 10vh;
     justify-content: center;
     outline: none;
     overflow: hidden;
-    padding: 0px;
     transition: all 0.2s ease-in-out;
-    width: 100%;
+    width: 5vw;
 }
 
 .book-button:hover {
@@ -198,7 +197,7 @@ body {
 
 /* Is icon part of the button */
 .icon-style-book {
-    font-size: 5rem; /* Increase or decrease as needed */
+    font-size: 4vw; /* Increase or decrease as needed */
     color: inherit;
 
 }
@@ -1036,4 +1035,40 @@ body {
 .theme-button.active,
 .theme-button.focus {
     filter: brightness(1.5); /* Keep icon bright while active */
+}
+
+.save-load-button {
+    align-items: center;
+    background-color: #b8b5b9 !important;
+    border: none;
+    border-radius: 20%;
+    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
+    color: #45444f !important;
+    display: flex;
+    height: 8vh;
+    justify-content: center;
+    outline: none;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    width: 4vw;
+}
+
+.save-load-button:hover {
+    background-color: #b8b5b9 !important;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    color: #567b79 !important;
+    outline: none;
+}
+
+/* Is icon part of the button */
+.icon-style-save-load {
+    font-size: 4vh; /* Increase or decrease as needed */
+    color: inherit;
+
+}
+
+.save-load-text {
+    color: #646365;
+    font-size: 1.5vw;
+    line-height: 1.5;
 }

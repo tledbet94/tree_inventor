@@ -32,9 +32,11 @@ name_dict = {
 name = file_info['name']
 starting_number = name_dict[name]
 
+file_info = dcc.Store(id='file-info', data=file_info)
+
 layout = html.Div([
     # separate elements copy for each function
-    dcc.Store('file-info', data=file_info),
+    file_info,
     dcc.Store('starting-template-number', data=starting_number),
     dcc.Store(id='edit-store'),
     dcc.Store(id='single-interval-store'),

@@ -16,12 +16,16 @@ import json
         Input('template_seven_button', 'active'),
         Input('template_eight_button', 'active'),
     ],
-    State('cytoscape', 'elements')  # Use current elements as fallback
+    [
+        State('cytoscape', 'elements'),
+        State('file-info', 'data')
+        ]
+    # Use current elements as fallback
 )
 def swap_trees(
         active_one, active_two, active_three, active_four,
         active_five, active_six, active_seven, active_eight,
-        current_elements
+        current_elements, file_info_state
 ):
     # Map active states to template numbers
     active_states = [
@@ -50,42 +54,31 @@ def swap_trees(
 
     # If no button is active, return current elements in file-info
     if current_tree is None:
-        return current_elements, {
-            'name': '',
-            'description': '',
-            'author': ''
-        }
+        return current_elements, file_info_state
 
     # Load the corresponding template
     if current_tree in template_files:
         try:
             with open(template_files[current_tree], "r") as json_file:
                 loaded_elements = json.load(json_file)
+                print(loaded_elements)
                 elements = loaded_elements['elements']
-                name = loaded_elements.get('name', '')
-                description = loaded_elements.get('description', '')
-                author = loaded_elements.get('author', '')
+                name = loaded_elements.get('Name', '')
+                description = loaded_elements.get('Description', '')
+                author = loaded_elements.get('Author', '')
 
                 # Construct file_info dictionary
                 file_info = {
-                    'name': name,
-                    'description': description,
-                    'author': author
+                    'Name': name,
+                    'Description': description,
+                    'Author': author
                 }
-
+                print(file_info)
                 return elements, file_info
 
         except FileNotFoundError:
             # Handle missing file gracefully
-            return current_elements, {
-                'name': '',
-                'description': '',
-                'author': ''
-            }
+            return current_elements, file_info_state
     else:
         # Fallback: return current elements if no valid template is found
-        return current_elements, {
-            'name': '',
-            'description': '',
-            'author': ''
-        }
+        return current_elements, file_info_state
