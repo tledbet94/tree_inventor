@@ -2,6 +2,7 @@
   "Name": "Wives of Henry VIII",
   "Description": "This tree visualizes the relationships and lineage of Henry VIII, his wives, and their children.",
   "Author": "Tree-Inventor",
+  "theme_data": {"colors": "blue", "shape": "circle", "outlines":  "single-outline", "pointers":  "circle-pointer",  "background": "blue-background"},
   "elements": [
     {
       "data": {

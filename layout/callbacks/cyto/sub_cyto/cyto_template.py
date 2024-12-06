@@ -61,19 +61,19 @@ def swap_trees(
         try:
             with open(template_files[current_tree], "r") as json_file:
                 loaded_elements = json.load(json_file)
-                print(loaded_elements)
                 elements = loaded_elements['elements']
                 name = loaded_elements.get('Name', '')
                 description = loaded_elements.get('Description', '')
                 author = loaded_elements.get('Author', '')
+                theme_data = loaded_elements.get('theme_data', '')
 
                 # Construct file_info dictionary
                 file_info = {
                     'Name': name,
                     'Description': description,
-                    'Author': author
+                    'Author': author,
+                    'theme_data': theme_data
                 }
-                print(file_info)
                 return elements, file_info
 
         except FileNotFoundError:

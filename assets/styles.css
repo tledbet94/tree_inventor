@@ -1072,3 +1072,35 @@ body {
     font-size: 1.5vw;
     line-height: 1.5;
 }
+
+.upload-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 25vh;
+    border: 1vh inset #868188; /* Bootstrap gray */
+    border-radius: 8px;
+    background-color: #f2f0e5; /* Bootstrap light */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 3vh;
+    color: #45444f; /* Bootstrap dark */
+}
+
+.upload-area:hover {
+    background-color: #e5ceb4; /* Slightly darker light */
+    border-color: #a77b5b; /* Bootstrap dark */
+    color: #352b42; /* Bootstrap darker */
+}
+
+.upload-area:active {
+    background-color: #d3a068; /* Even darker light */
+    border-color: #352b42; /* Bootstrap darker gray */
+}
+
+.upload-text {
+    font-size: 1.2em;
+    font-weight: bold;
+}

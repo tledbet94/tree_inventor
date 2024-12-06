@@ -2,6 +2,7 @@
     "Name": "Best Picture by Year",
     "Description": "Contains Academy-Award Winners of Best Picture by year",
     "Author": "Tree-Inventor",
+    "theme_data": {"colors": "blue", "shape": "circle", "outlines":  "single-outline", "pointers":  "circle-pointer",  "background": "blue-background"},
     "elements": [
         {
             "data": {

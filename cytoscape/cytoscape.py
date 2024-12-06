@@ -127,7 +127,15 @@ with open(path, "r") as json_file:
     file_info = {
         'name': loaded_elements['Name'],
         'description': loaded_elements['Description'],
-        'author': loaded_elements['Author']
+        'author': loaded_elements['Author'],
+        'theme_data': {
+            'colors': loaded_elements['theme_data']['color'],
+            'shape': loaded_elements['theme_data']['shape'],
+            'outlines': loaded_elements['theme_data']['outline'],
+            'pointers': loaded_elements['theme_data']['pointer'],
+            'background': loaded_elements['theme_data']['background'],
+        }
+
     }
 
 cyto_component = cyto.Cytoscape(
