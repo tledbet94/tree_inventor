@@ -2,8 +2,6 @@ from dash import Input, Output, State
 from app_instance import app
 
 
-
-
 @app.callback(
     [
         Output('card-title', 'children'),
@@ -13,4 +11,6 @@ from app_instance import app
     Input('file-info', 'data')
 )
 def update_card(file_info):
+    print('updating card')
+    print(file_info)
     return file_info['Name'], file_info['Author'], file_info['Description']

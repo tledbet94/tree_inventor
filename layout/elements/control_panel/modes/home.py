@@ -9,7 +9,6 @@ card = dbc.Card(
             html.H3(id='card-title', className="card-title"),
             html.P('Author:', style={'font-size': '1vw'}),
             html.H4(id='card-author', className='card-text'),
-            html.P('Author:', style={'font-size': '1vw'}),
             html.P('Description:'),
             html.Pre(id='card-description',
                      className="card-text",
@@ -27,8 +26,18 @@ book_modal = dbc.Modal(
     [
         dbc.ModalHeader(dbc.ModalTitle("Resources"), close_button=True,
                         className='book-modal-header'),
-        dbc.ModalBody(children=html.A('Wikipedia',
-                                      href='https://en.wikipedia.org/wiki/Directed_acyclic_graph'),
+        dbc.ModalBody(children=[html.A('Wikipedia: DAG',
+                                       href='https://en.wikipedia.org/wiki/Directed_acyclic_graph'),
+                                html.P(''),
+                                html.A('Cytoscape.js',
+                                       href='https://js.cytoscape.org/'),
+                                html.P(''),
+                                html.A('Dash Cytoscape',
+                                       href='https://dash.plotly.com/cytoscape'),
+                                html.P(''),
+                                html.A('cytoscape-dagre',
+                                       href='https://github.com/cytoscape/cytoscape.js-dagre'),
+                                ],
                       className='book-modal-body'),
         dbc.ModalFooter(
             dbc.Button(

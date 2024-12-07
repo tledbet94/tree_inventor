@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cytoscape/cytoscape.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/cytoscape.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cytoscape/templates/eight.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/eight.json" afterDir="false" />
@@ -16,11 +17,15 @@
       <change beforePath="$PROJECT_DIR$/cytoscape/templates/six.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/six.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cytoscape/templates/three.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/three.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cytoscape/templates/two.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/two.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/tree_structure.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/themes/active_theme_button.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/themes/active_theme_button.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/home/card.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/home/card.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/save_load/local_save.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/save_load/local_save.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/templates/active_button.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/templates/active_button.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/themes/theme_update.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/themes/theme_update.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/main_cyto.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/main_cyto.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_template.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/home.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/save_load.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/save_load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

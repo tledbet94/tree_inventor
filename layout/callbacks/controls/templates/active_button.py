@@ -1,4 +1,4 @@
-from dash import Input, Output, State, callback_context
+from dash import callback_context, Input, Output, State
 from app_instance import app
 
 
@@ -24,6 +24,7 @@ from app_instance import app
         Input('template_seven_button', 'n_clicks'),
         Input('template_eight_button', 'n_clicks'),
         Input('custom-fields-button', 'active'),
+        Input('upload-area', 'contents')
         ],
     [
         State('template_one_button', 'active'),
@@ -33,21 +34,24 @@ from app_instance import app
         State('template_five_button', 'active'),
         State('template_six_button', 'active'),
         State('template_seven_button', 'active'),
-        State('template_eight_button', 'active')
+        State('template_eight_button', 'active'),
+        State('upload-active', 'data')
     ]
 )
 def update_active_template_button(
         starting_number,
         one_clicks, two_clicks, three_clicks, four_clicks,
-        five_clicks, six_clicks, seven_clicks, eight_clicks, bottom_row_button_active,
+        five_clicks, six_clicks, seven_clicks, eight_clicks, upload, bottom_row_button_active,
         state_one, state_two, state_three, state_four, state_five, state_six, state_seven,
-        state_eight
-):
+        state_eight, upload_active):
     # Initialize all buttons to inactive
     active_states = [False] * 8
-    current_states = [state_one, state_two, state_three, state_four, state_five, state_six, state_seven, state_eight]
 
     ctx = callback_context
+    if ctx.triggered_id == 'upload-area' or upload_active:
+        return active_states
+
+    current_states = [state_one, state_two, state_three, state_four, state_five, state_six, state_seven, state_eight]
 
     # Check if any button has been clicked
     n_clicks = [

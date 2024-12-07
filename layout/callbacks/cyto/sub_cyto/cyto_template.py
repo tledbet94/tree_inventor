@@ -5,7 +5,6 @@ import json
 
 @app.callback(
     Output('template-store', 'data'),
-    Output('file-info', 'data'),
     [
         Input('template_one_button', 'active'),
         Input('template_two_button', 'active'),
@@ -14,18 +13,17 @@ import json
         Input('template_five_button', 'active'),
         Input('template_six_button', 'active'),
         Input('template_seven_button', 'active'),
-        Input('template_eight_button', 'active'),
+        Input('template_eight_button', 'active')
     ],
     [
-        State('cytoscape', 'elements'),
-        State('file-info', 'data')
-        ]
+        State('cytoscape', 'elements')
+    ]
     # Use current elements as fallback
 )
 def swap_trees(
         active_one, active_two, active_three, active_four,
         active_five, active_six, active_seven, active_eight,
-        current_elements, file_info_state
+        current_elements
 ):
     # Map active states to template numbers
     active_states = [
@@ -54,7 +52,7 @@ def swap_trees(
 
     # If no button is active, return current elements in file-info
     if current_tree is None:
-        return current_elements, file_info_state
+        return current_elements
 
     # Load the corresponding template
     if current_tree in template_files:
@@ -62,23 +60,11 @@ def swap_trees(
             with open(template_files[current_tree], "r") as json_file:
                 loaded_elements = json.load(json_file)
                 elements = loaded_elements['elements']
-                name = loaded_elements.get('Name', '')
-                description = loaded_elements.get('Description', '')
-                author = loaded_elements.get('Author', '')
-                theme_data = loaded_elements.get('theme_data', '')
-
-                # Construct file_info dictionary
-                file_info = {
-                    'Name': name,
-                    'Description': description,
-                    'Author': author,
-                    'theme_data': theme_data
-                }
-                return elements, file_info
+                return elements
 
         except FileNotFoundError:
             # Handle missing file gracefully
-            return current_elements, file_info_state
+            return current_elements
     else:
         # Fallback: return current elements if no valid template is found
-        return current_elements, file_info_state
+        return current_elements

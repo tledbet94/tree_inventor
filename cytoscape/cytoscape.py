@@ -129,10 +129,10 @@ with open(path, "r") as json_file:
         'description': loaded_elements['Description'],
         'author': loaded_elements['Author'],
         'theme_data': {
-            'colors': loaded_elements['theme_data']['color'],
+            'color': loaded_elements['theme_data']['color'],
             'shape': loaded_elements['theme_data']['shape'],
-            'outlines': loaded_elements['theme_data']['outline'],
-            'pointers': loaded_elements['theme_data']['pointer'],
+            'outline': loaded_elements['theme_data']['outline'],
+            'pointer': loaded_elements['theme_data']['pointer'],
             'background': loaded_elements['theme_data']['background'],
         }
 

@@ -12,6 +12,7 @@ from app_instance import app
         Input('multiple-interval-store', 'data'),
         Input('fields-store', 'data'),
         Input('template-store', 'data'),
+        Input('upload-store', 'data'),
         Input('weights-store', 'data'),
         Input('cytoscape', 'tapNode'),
         Input('cytoscape', 'tapEdge')
@@ -20,7 +21,7 @@ from app_instance import app
 )
 def update_cytoscape_elements(buttons_elements, edit_elements, single_interval_elements,
                               multiple_interval_elements, fields_elements,
-                              template_elements, weights_elements,
+                              template_elements, uploaded_elements, weights_elements,
                               tap_node, tap_edge, current_elements):
     # Determine which Input triggered the callback
     triggered_prop_id = ctx.triggered[0]['prop_id'] if ctx.triggered else None
@@ -63,6 +64,9 @@ def update_cytoscape_elements(buttons_elements, edit_elements, single_interval_e
 
     elif triggered_prop_id == 'template-store.data':
         return template_elements
+
+    elif triggered_prop_id == 'upload-store.data':
+        return uploaded_elements
 
     elif triggered_prop_id == 'weights-store.data':
         return weights_elements
