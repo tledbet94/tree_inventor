@@ -61,7 +61,7 @@ theme_button = dbc.Button(
 
 user_button = dbc.Button(
     id='user-button',
-    children=html.I(className="fa-solid fa-user icon-style-bottom-row"),
+    children=html.I(className="fa-solid fa-info fa-3x"),
     className="bottom-row-button",
     disabled=False,
 )
@@ -71,6 +71,7 @@ settings_button = dbc.Button(
     children=html.I(className="fa-solid fa-gear icon-style-bottom-row"),
     className="bottom-row-button",
     disabled=False,
+    style={'display': 'none'}
 )
 
 dummy_button = dbc.Button(
@@ -86,17 +87,17 @@ button_row = dbc.Row([
     dcc.Store(id='active-button-store', data='home'),
     # I want these buttons aligned to the left of the row
     dbc.Col(home_button),
+    dbc.Col(user_button),
     dbc.Col(save_load_button),
-    html.Div(style={'width': '25vw'}),
+    html.Div(style={'width': '23vw'}),
     # I want these buttons aligned to the middle of the row
     dbc.Col(edit_button),
-    dbc.Col(algo_button),
     dbc.Col(weights_button),
     dbc.Col(custom_fields_button),
     # I want these buttons aligned to the right of the row
-    html.Div(style={'width': '8vw'}),
+    html.Div(style={'width': '23vw'}),
+    dbc.Col(algo_button),
     dbc.Col(templates_button),
     dbc.Col(theme_button),
-    dbc.Col(user_button),
     dbc.Col(settings_button),
 ], style={'marginLeft': '2vw'})
