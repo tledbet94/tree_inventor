@@ -1,5 +1,4 @@
-from dash import ctx, Input, Output, State
-from app_instance import app
+from dash import callback, ctx, Input, Output, State
 import copy
 
 
@@ -15,7 +14,7 @@ def get_node_values(elements, node_id):
     return field_one, field_two, field_three
 
 
-@app.callback(
+@callback(
     [
         Output('fields-store', 'data'),
         # Custom field inputs

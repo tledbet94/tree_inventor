@@ -1,8 +1,7 @@
 from dash import callback, Input, Output
-from app_instance import app
 
 
-@app.callback(
+@callback(
     [Output("weights-input", "className"),
      Output("weights-input-button", "className"),
      Output('manual-auto-row', 'className'),

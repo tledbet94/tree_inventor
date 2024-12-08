@@ -1,8 +1,8 @@
-from dash import ctx, Input, Output, State
-from app_instance import app
+from dash import callback, ctx, Input, Output, State
 
 
-@app.callback(
+
+@callback(
     Output('weights-input-feedback', 'children'),
     [
         Input('weights-input-button', 'n_clicks'),

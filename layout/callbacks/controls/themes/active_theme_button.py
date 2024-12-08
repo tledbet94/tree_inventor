@@ -1,5 +1,4 @@
-from dash import Input, Output, State, callback_context
-from app_instance import app
+from dash import callback, Input, Output, State, callback_context
 
 # Define the groups
 groups = {
@@ -22,7 +21,7 @@ inputs = [Input(button_id, 'n_clicks_timestamp') for button_id in button_ids]
 
 
 # Add an Input for the file-info store
-@app.callback(
+@callback(
     outputs,
     inputs + [Input('file-info', 'data')]
 )

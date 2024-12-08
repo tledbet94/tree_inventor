@@ -1,12 +1,12 @@
-from dash import Input, Output, State
-from app_instance import app
+from dash import callback, Input, Output, State
 import copy
+
 
 # Description of callback
 # The active state of a button will change if it is clicked
 # Using timestamp to drive the active state to ensure only the most recent button is active
 
-@app.callback(
+@callback(
     [
         Output('buttons-store', 'data'),
         Output('home-button', 'active'),
@@ -89,7 +89,8 @@ def update_active_button(
     # Determine the button with the most recent timestamp
     max_timestamp = max(timestamps.values())
 
-    buttons = ['home', 'edit', 'algo', 'weights', 'custom_fields', 'templates', 'theme', 'settings', 'save_load', 'user']
+    buttons = ['home', 'edit', 'algo', 'weights', 'custom_fields', 'templates', 'theme', 'settings', 'save_load',
+               'user']
 
     if max_timestamp == -1:
         # At app start, set 'home' as active
@@ -105,7 +106,7 @@ def update_active_button(
 
     # Return the active states and the name of the active button
     return (
-        elements,       # buttons-store
-        *active_states, # Active states for each button
+        elements,  # buttons-store
+        *active_states,  # Active states for each button
         active_button_name  # active-button-store
     )

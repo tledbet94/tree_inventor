@@ -1,5 +1,4 @@
-from dash import dcc, html, Input, Output, State, ctx
-from app_instance import app
+from dash import callback, dcc, html, Input, Output, State, ctx
 
 # Define the button in your layout
 layout = html.Div([
@@ -8,7 +7,7 @@ layout = html.Div([
 ])
 
 # Callback to update the button appearance
-@app.callback(
+@callback(
     Output("single-traversal-button", "className"),
     Input('traversal-output-display', 'children'),
 )

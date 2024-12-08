@@ -1,5 +1,4 @@
-from dash import exceptions, no_update, Input, Output, State, ctx
-from app_instance import app
+from dash import callback, exceptions, no_update, Input, Output, State, ctx
 import copy
 
 from layout.callbacks.cyto.helper_functions.traversal_helper import (
@@ -7,7 +6,7 @@ from layout.callbacks.cyto.helper_functions.traversal_helper import (
 )
 
 
-@app.callback(
+@callback(
     [
         # Outputs for Multiple Traversal
         # dcc.Stores that assist with running traversal

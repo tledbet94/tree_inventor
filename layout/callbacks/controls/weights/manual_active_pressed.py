@@ -1,7 +1,6 @@
 from dash import callback, Input, Output, State
-from app_instance import app
 
-@app.callback(
+@callback(
     [Output('auto-button', 'className'),
      Output('manual-button', 'className')],
     [Input('auto-button', 'n_clicks'),

@@ -1,9 +1,8 @@
 # panel_change.py
-from dash import callback_context, Input, Output
-from app_instance import app
+from dash import callback, callback_context, Input, Output
 
 
-@app.callback(
+@callback(
     Output('home-mode', 'style'),
     Output('save-load-mode', 'style'),
     Output('edit-mode', 'style'),

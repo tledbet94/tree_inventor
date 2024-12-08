@@ -1,8 +1,7 @@
-from dash import Input, Output, State, callback_context
-from app_instance import app
+from dash import callback, Input, Output, State, callback_context
 
 
-@app.callback(
+@callback(
     [
         Output('cytoscape', 'stylesheet'),
         Output('cytoscape', 'style')

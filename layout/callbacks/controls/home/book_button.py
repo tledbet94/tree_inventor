@@ -1,8 +1,7 @@
-from dash import Input, Output, State
-from app_instance import app
+from dash import callback, Input, Output, State
 
 
-@app.callback(
+@callback(
     Output("book-modal", "is_open"),
     [Input("book-button", "n_clicks"),
      Input("modal-close-button", "n_clicks")],

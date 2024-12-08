@@ -1,8 +1,8 @@
-from dash import callback_context, Input, Output, State
-from app_instance import app
+from dash import callback, callback_context, Input, Output, State
 
 
-@app.callback(
+
+@callback(
     [
         Output('template_one_button', 'active'),
         Output('template_two_button', 'active'),

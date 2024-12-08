@@ -1,6 +1,10 @@
 import time
 import gunicorn
-from app_instance import app
+import dash
+import dash_bootstrap_components as dbc
+import gunicorn
+from layout.layout import layout
+
 
 # Internal imports
 from layout.layout import layout
@@ -43,6 +47,19 @@ from layout.callbacks.controls.save_load.local_upload import upload_tree
 
 from layout.callbacks.controls.themes.active_theme_button import update_buttons
 from layout.callbacks.controls.themes.theme_update import theme_update
+
+app = dash.Dash(
+    __name__,
+    external_stylesheets=[
+        dbc.themes.MORPH,
+        "https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    ]
+)
+
+server = app.server
+app.layout = layout
+
 
 if __name__ == '__main__':
     # Add a 3-second delay before starting the server

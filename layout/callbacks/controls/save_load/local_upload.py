@@ -1,10 +1,9 @@
-from dash import Input, Output, State
-from app_instance import app
+from dash import callback, Input, Output, State
 import base64
 import json
 
 
-@app.callback(
+@callback(
     Output('upload-store', 'data'),
     Output('upload-active', 'data'),
     Input('upload-area', 'contents'),

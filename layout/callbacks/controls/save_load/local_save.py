@@ -1,8 +1,7 @@
-from dash import Input, Output, State, exceptions, dcc
-from app_instance import app
+from dash import callback, Input, Output, State, exceptions, dcc
 import json
 
-@app.callback(
+@callback(
     Output('local-download', 'data'),
     Input('local-save-button', 'n_clicks'),
     [

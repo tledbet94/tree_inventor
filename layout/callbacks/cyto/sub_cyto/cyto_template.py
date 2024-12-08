@@ -1,9 +1,8 @@
-from dash import ctx, Input, Output, State
-from app_instance import app
+from dash import callback, Input, Output, State
 import json
 
 
-@app.callback(
+@callback(
     Output('template-store', 'data'),
     [
         Input('template_one_button', 'active'),

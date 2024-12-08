@@ -1,9 +1,8 @@
-from dash import ctx, Input, Output, State
-from app_instance import app
+from dash import callback, ctx, Input, Output, State
 import copy
 
 
-@app.callback(
+@callback(
     [
         Output('edit-store', 'data')
     ],

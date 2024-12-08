@@ -1,9 +1,8 @@
-from dash import ctx, Input, Output, State
-from app_instance import app
+from dash import callback, ctx, Input, Output, State
 
 
 # Callback to update cytoscape elements with the latest modified store's data
-@app.callback(
+@callback(
     Output('cytoscape', 'elements'),
     [
         Input('buttons-store', 'data'),

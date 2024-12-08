@@ -1,8 +1,7 @@
-from dash import Input, Output, State
-from app_instance import app
+from dash import callback, Input, Output, State
 
 
-@app.callback(
+@callback(
     [
         Output('custom1_label', 'style'),
         Output('custom2_label', 'style'),

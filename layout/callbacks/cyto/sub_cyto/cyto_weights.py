@@ -1,12 +1,11 @@
-from dash import ctx, no_update, Input, Output, State
-from app_instance import app
+from dash import callback, ctx, no_update, Input, Output, State
 import copy
 
 from layout.callbacks.cyto.helper_functions.weight_helper import \
     get_system_info, auto_balance_system, proximity_to_100
 
 
-@app.callback(
+@callback(
     [
         Output('weights-store', 'data'),
         Output('manual-input-feedback', 'children'),

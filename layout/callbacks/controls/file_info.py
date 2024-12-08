@@ -1,10 +1,10 @@
 import base64
 import json
-from dash import ctx, Input, Output, State, exceptions, dcc
-from app_instance import app
+from dash import callback, ctx, Input, Output, State, exceptions, dcc
 
 
-@app.callback(
+
+@callback(
     Output('file-info', 'data'),
     [
         Input('upload-area', 'contents'),

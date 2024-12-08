@@ -1,8 +1,7 @@
 from dash import callback, Input, Output, State
-from app_instance import app
 
 
-@app.callback(
+@callback(
     [Output('field-names-button', 'active'),
      Output('field-values-button', 'active')],
     [Input('field-names-button', 'n_clicks'),

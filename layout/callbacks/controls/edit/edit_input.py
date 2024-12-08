@@ -1,8 +1,7 @@
-from dash import Input, Output, State
-from app_instance import app
+from dash import callback, Input, Output, State
 
 
-@app.callback(
+@callback(
     [Output("edit-input-row", "className"),
      Output("edit-input-feedback-row", "className")],
     [Input("rename-button", "n_clicks"),
@@ -28,7 +27,7 @@ def show_edit_input(rename_clicks, add_clicks, remove_clicks,
         return 'hidden-opacity', 'hidden-opacity'
 
 
-@app.callback(
+@callback(
     [Output("edit-input-feedback", "children"),
      Output("edit-input-button", "className"),
      Output("edit-enter-click-store", "data"),

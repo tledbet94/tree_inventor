@@ -1,9 +1,8 @@
-from dash import Input, Output, State, callback_context
-from app_instance import app
+from dash import callback, Input, Output, State, callback_context
 import json
 
 
-@app.callback(
+@callback(
     [
         Output('node-name', 'children'),
         Output('node-weight', 'children'),

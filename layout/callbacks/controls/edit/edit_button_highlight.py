@@ -1,8 +1,7 @@
-from dash import Input, Output, State
-from app_instance import app
+from dash import callback, Input, Output, State
 
 
-@app.callback(
+@callback(
     [Output("rename-button", "className"),
      Output("add-button", "className"),
      Output("remove-button", "className"),

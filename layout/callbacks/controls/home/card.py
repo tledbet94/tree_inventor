@@ -1,8 +1,7 @@
-from dash import Input, Output, State
-from app_instance import app
+from dash import callback, Input, Output, State
 
 
-@app.callback(
+@callback(
     [
         Output('card-title', 'children'),
         Output('card-author', 'children'),
