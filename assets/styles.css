@@ -1101,6 +1101,19 @@ body {
 }
 
 .upload-text {
-    font-size: 1.2em;
+    font-size: 1vh;
     font-weight: bold;
+}
+
+
+/* Sleek link styling */
+.sleek-link {
+    font-size: 2vh;
+    color: #68c2d3;
+    transition: all 0.3s ease-in-out;
+}
+
+.sleek-link:hover {
+    color: #a2dcc7;
+    transform: scale(1.25);
 }
