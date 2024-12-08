@@ -13,6 +13,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 /* Force landscape orientation styles */
+/* Force landscape orientation styles */
 @media screen and (orientation: portrait) {
     body {
         transform: rotate(-90deg);
@@ -25,7 +26,7 @@
         left: 0;
     }
 
-    /* Add overlay message to notify users to rotate their device */
+    /* Overlay message prompting user to rotate their device */
     #rotate-device-message {
         display: flex;
         position: fixed;
@@ -33,14 +34,20 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: white;
+        background: #fff;
         z-index: 9999;
         align-items: center;
         justify-content: center;
         text-align: center;
         font-size: 24px;
         color: #000;
+        font-family: sans-serif; /* Optional: set a font family */
+        padding: 20px;
     }
+
+    /* You can customize the message text by placing it in your HTML:
+       <div id="rotate-device-message">Please rotate your device to landscape mode.</div>
+    */
 }
 
 @media screen and (orientation: landscape) {
@@ -57,6 +64,29 @@
         display: none;
     }
 }
+
+html, body {
+    /* Default styles */
+    margin: 0;
+    padding: 0;
+    background: #fff;
+
+    /* Add safe-area padding for devices like iPhone X and later */
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+
+/* If you have a fixed header or footer bar, you can also use these values: */
+.header {
+    padding-top: env(safe-area-inset-top);
+}
+
+.footer {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
 
 
 body {

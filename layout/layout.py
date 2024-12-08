@@ -33,46 +33,48 @@ starting_number = name_dict[name]
 
 file_info = dcc.Store(id='file-info', data=file_info)
 
-layout = dbc.Container(fluid=True, children=[
-    # Stores
+layout = html.Div([
+    # separate elements copy for each function
     file_info,
+    html.Div("Please rotate your device to landscape mode.", id='rotate-device-message'),
     dcc.Store('starting-template-number', data=starting_number),
     dcc.Store(id='edit-store'),
     dcc.Store(id='single-interval-store'),
     dcc.Store(id='multiple-interval-store'),
     dcc.Store(id='weights-store'),
+    # other stores
     dcc.Store(id='current-node-data'),
     dcc.Interval(id='traversal-interval', interval=1000, n_intervals=0, disabled=True),
     dcc.Store(id='traversal-state'),
     dcc.Store(id='traversal-path'),
     dcc.Store(id='current-step'),
+    # To assist with proper updating of selected node's name
     dcc.Store(id='name-store', data=''),
-
-    # Main Row: Control Panel (left) and Cytoscape + Info (right)
     dbc.Row([
-        # On small screens, control panel takes full width; on larger screens, a fraction.
         dbc.Col(
             control_panel,
-            xs=12, sm=12, md=4, lg=3,  # Adjust as needed
-            className="p-0"
+            width=3,
+            style={'padding': '0', 'height': '100%'}
         ),
         dbc.Col([
             cyto_component,
             info_panel,
         ],
-            xs=12, sm=12, md=8, lg=9,  # Remainder of space on larger screens
-            className="p-0"
+            width=9,
+            style={'padding': '0', 'height': '100%'}
         )
-    ], className="m-0 p-0"),
+    ],
+        justify='start',
+        style={'margin': '0', 'padding': '0', 'height': '100%'}),
 
-    # Bottom Row for Buttons
     dbc.Row(
         dbc.Col(
             button_panel,
-            xs=12,  # Full width on mobile
-            className="p-0"
+            width=12,
+            style={'padding': '0', 'height': '10vh'}
         ),
-        className="m-0 p-0"
+        style={'margin': '0', 'padding': '0', 'height': '10vh'}
     )
-], className="m-0 p-0")
-
+],
+    style={'margin': '0', 'padding': '0', 'height': '100%', 'overflow': 'hidden'}
+)

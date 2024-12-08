@@ -1,6 +1,8 @@
 from dash import dcc, html
+
 # Internal imports
 from .bottom_row.button_row import button_row
+# For control panel
 from .control_panel.modes.home import home
 from .control_panel.modes.save_load import save_load
 from .control_panel.modes.edit import edit
@@ -12,9 +14,8 @@ from .control_panel.modes.themes import themes
 from .control_panel.modes.user import user
 from .control_panel.modes.settings import settings
 
+# For info panel
 from .info_panel.info_components import info_contents
-
-import dash_bootstrap_components as dbc
 
 control_panel = html.Div(
     id='control-panel',
@@ -30,11 +31,11 @@ control_panel = html.Div(
         html.Div(user, id='user-mode', style={'display': 'none'}),
         html.Div(settings, id='settings-mode', style={'display': 'none'})
     ],
-    className="p-2 menu-div",  # Add some padding
     style={
-        'height': 'auto',  # Remove fixed heights
-        'overflowY': 'auto'  # Allow scroll if needed on small screens
-    }
+        'height': '90vh',
+        'padding': '10px'
+    },
+    className="menu-div"
 )
 
 info_panel = html.Div(
@@ -42,21 +43,23 @@ info_panel = html.Div(
         dcc.Store(id='info-panel-data'),
         info_contents,
     ],
-    className="p-2 info-div",
     style={
-        'height': 'auto',  # Let it size naturally
-        'overflowY': 'auto'  # Scrolling if needed
-    }
+        'height': '22vh',
+        'padding': '10px'
+    },
+    className="info-div"
 )
 
 button_panel = html.Div(
     children=[
         button_row,
     ],
-    className="d-flex align-items-center p-2 menu-div",
     style={
-        'width': '100%',
-        'justify-content': 'flex-start',  # Align left
-        'overflowX': 'auto'  # Allow horizontal scroll on small screens if needed
-    }
+        'height': '100%',
+        'padding': '10px',
+        'display': 'flex',
+        'justify-content': 'left',  # Centers horizontally
+        'align-items': 'center'  # Centers vertically
+    },
+    className="menu-div"
 )
