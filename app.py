@@ -44,8 +44,6 @@ from layout.callbacks.controls.save_load.local_upload import upload_tree
 from layout.callbacks.controls.themes.active_theme_button import update_buttons
 from layout.callbacks.controls.themes.theme_update import theme_update
 
-app.layout = layout
-
 if __name__ == '__main__':
     # Add a 3-second delay before starting the server
     time.sleep(1)

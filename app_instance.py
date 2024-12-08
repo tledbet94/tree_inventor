@@ -3,6 +3,7 @@ import dash
 import dash_bootstrap_components as dbc
 import gunicorn
 
+from layout.layout import layout
 
 app = dash.Dash(
     __name__,
@@ -14,3 +15,4 @@ app = dash.Dash(
 )
 
 server = app.server
+app.layout = layout
