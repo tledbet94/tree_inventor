@@ -44,10 +44,6 @@
         font-family: sans-serif; /* Optional: set a font family */
         padding: 20px;
     }
-
-    /* You can customize the message text by placing it in your HTML:
-       <div id="rotate-device-message">Please rotate your device to landscape mode.</div>
-    */
 }
 
 @media screen and (orientation: landscape) {

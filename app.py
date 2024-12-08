@@ -60,6 +60,28 @@ app = dash.Dash(
 server = app.server
 app.layout = layout
 
+app.index_string = '''
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>My Dash App</title>
+        {%css%}
+        {%config%}
+        {%scripts%}
+        {%renderer%}
+    </head>
+    <body>
+        {%app_entry%}
+        <footer>
+            {%config%}
+            {%scripts%}
+            {%renderer%}
+        </footer>
+    </body>
+</html>
+'''
+
 
 if __name__ == '__main__':
     # Add a 3-second delay before starting the server
