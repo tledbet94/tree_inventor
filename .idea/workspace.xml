@@ -5,36 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_instance.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/bottom_row/bottom_row_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/bottom_row/bottom_row_callback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/algo/pressed_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/algo/pressed_callback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/algo/slider.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/algo/slider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/algo/traversal_deactivate.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/algo/traversal_deactivate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/custom_fields/active_button_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/custom_fields/active_button_callback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/custom_fields/input_management.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/custom_fields/input_management.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/edit/edit_button_highlight.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/edit/edit_button_highlight.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/edit/edit_input.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/edit/edit_input.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/file_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/file_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/home/book_button.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/home/book_button.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/home/card.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/home/card.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/panel_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/panel_change.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/save_load/local_save.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/save_load/local_save.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/save_load/local_upload.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/save_load/local_upload.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/templates/active_button.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/templates/active_button.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/themes/active_theme_button.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/themes/active_theme_button.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/themes/theme_update.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/themes/theme_update.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/weights/main_screen_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/weights/main_screen_callback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/weights/manual_active_pressed.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/weights/manual_active_pressed.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/weights/weights_input_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/weights/weights_input_callback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/main_cyto.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/main_cyto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_edit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_fields.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_template.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_traversal.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_traversal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_weights.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/sub_cyto/cyto_weights.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/info/info_callback.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/info/info_callback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/themes.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/themes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/layout.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +82,7 @@
       <recent name="C:\Dev\trees\tree_morph2\tree_maker\layout\callbacks\controls\weights\screens" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager">
     <configuration name="app (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tree_maker" />
       <option name="ENV_FILES" value="" />

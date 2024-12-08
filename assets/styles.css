@@ -1,6 +1,7 @@
 /* Styles for entire app.py */
 
 
+
 /* METHODOLOGY: highest level components at the top & vice versa, e.g. body>panels>panel components> children of ... */
 /* within elements, properties in alphabetical order */
 
@@ -10,6 +11,52 @@
 
 /* Importing Rboto Mono */
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* Force landscape orientation styles */
+@media screen and (orientation: portrait) {
+    body {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh; /* Viewport height becomes the width */
+        height: 100vw; /* Viewport width becomes the height */
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    /* Add overlay message to notify users to rotate their device */
+    #rotate-device-message {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 24px;
+        color: #000;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    body {
+        transform: rotate(0);
+        width: 100vw;
+        height: 100vh;
+        overflow: auto;
+        position: static;
+    }
+
+    /* Hide the overlay message in landscape mode */
+    #rotate-device-message {
+        display: none;
+    }
+}
 
 
 body {
