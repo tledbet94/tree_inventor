@@ -2,8 +2,6 @@ import time
 import gunicorn
 import dash
 import dash_bootstrap_components as dbc
-import gunicorn
-from layout.layout import layout
 
 
 # Internal imports
