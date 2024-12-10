@@ -1,15 +1,13 @@
-from dash import dcc, html
+from dash import dcc, html, Input, Output, State, callback, clientside_callback
 import dash_bootstrap_components as dbc
+import dash_cytoscape as cyto
 
 # internal imports
 from .elements.panels import button_panel, control_panel, info_panel
 from cytoscape.cytoscape import cyto_component, file_info
 
 from .elements.control_panel.modes.home import home
-from .elements.control_panel.modes.edit import edit
-from .elements.control_panel.modes.edit import edit_input_button
-from .elements.control_panel.modes.edit import edit_input
-from .elements.control_panel.modes.edit import remove_node_button
+from .elements.control_panel.modes.edit import edit, edit_input_button, edit_input, remove_node_button
 from .elements.control_panel.modes.weights import weights
 from .elements.control_panel.modes.custom_fields import custom_fields
 from .elements.control_panel.modes.save_load import save_load
@@ -33,27 +31,36 @@ starting_number = name_dict[name]
 
 file_info = dcc.Store(id='file-info', data=file_info)
 
+# Orientation detection: Store and Interval
+orientation_store = dcc.Store(id='orientation-store')
+orientation_check = dcc.Interval(id='orientation-check', interval=1000, n_intervals=0)
+
+change_screen = dbc.Button(children='SWITCH VIEW', id='switch-view-button', className='switch-button',
+                           style={'display': 'none'})
+
 layout = html.Div([
-    # separate elements copy for each function
     file_info,
-    html.Div("Please rotate your device to landscape mode.", id='rotate-device-message'),
+    orientation_store,
+    orientation_check,
     dcc.Store('starting-template-number', data=starting_number),
     dcc.Store(id='edit-store'),
     dcc.Store(id='single-interval-store'),
     dcc.Store(id='multiple-interval-store'),
     dcc.Store(id='weights-store'),
-    # other stores
     dcc.Store(id='current-node-data'),
     dcc.Interval(id='traversal-interval', interval=1000, n_intervals=0, disabled=True),
     dcc.Store(id='traversal-state'),
     dcc.Store(id='traversal-path'),
     dcc.Store(id='current-step'),
-    # To assist with proper updating of selected node's name
     dcc.Store(id='name-store', data=''),
+
+    dbc.Row(dbc.Col(change_screen)),
+
     dbc.Row([
         dbc.Col(
             control_panel,
             width=3,
+            id='control-col',
             style={'padding': '0', 'height': '100%'}
         ),
         dbc.Col([
@@ -61,6 +68,7 @@ layout = html.Div([
             info_panel,
         ],
             width=9,
+            id='cyto-col',
             style={'padding': '0', 'height': '100%'}
         )
     ],
@@ -77,4 +85,21 @@ layout = html.Div([
     )
 ],
     style={'margin': '0', 'padding': '0', 'height': '100%', 'overflow': 'hidden'}
+)
+
+# Cytoscape background and styling for reference
+cytoscape_background_color = '#352b42'
+
+# Client-side callback to detect orientation
+# Returns 'landscape' if width > height, else 'portrait'
+# This runs in the browser and updates the orientation-store
+clientside_callback(
+    """
+    function(n) {
+        const isLandscape = window.innerWidth > window.innerHeight;
+        return isLandscape ? 'landscape' : 'portrait';
+    }
+    """,
+    Output('orientation-store', 'data'),
+    Input('orientation-check', 'n_intervals')
 )

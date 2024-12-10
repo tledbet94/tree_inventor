@@ -1,4 +1,5 @@
 from dash import dcc, html
+import dash_bootstrap_components as dbc
 
 # Internal imports
 from .bottom_row.button_row import button_row
@@ -17,20 +18,20 @@ from .control_panel.modes.settings import settings
 # For info panel
 from .info_panel.info_components import info_contents
 
-control_panel = html.Div(
+control_panel = dbc.Container(
     id='control-panel',
     children=[
-        html.Div(home, id='home-mode', style={'display': 'block'}),
-        html.Div(save_load, id='save-load-mode', style={'display': 'none'}),
-        html.Div(edit, id='edit-mode', style={'display': 'none'}),
-        html.Div(algo, id='algo-mode', style={'display': 'none'}),
-        html.Div(weights, id='weights-mode', style={'display': 'none'}),
-        html.Div(custom_fields, id='custom-fields-mode', style={'display': 'none'}),
-        html.Div(templates, id='templates-mode', style={'display': 'none'}),
-        html.Div(themes, id='themes-mode', style={'display': 'none'}),
-        html.Div(user, id='user-mode', style={'display': 'none'}),
-        html.Div(settings, id='settings-mode', style={'display': 'none'})
-    ],
+        dbc.Container(home, id='home-mode', style={'display': 'block'}, fluid=True),
+        dbc.Container(save_load, id='save-load-mode', style={'display': 'none'}, fluid=True),
+        dbc.Container(edit, id='edit-mode', style={'display': 'none'}, fluid=True),
+        dbc.Container(algo, id='algo-mode', style={'display': 'none'}, fluid=True),
+        dbc.Container(weights, id='weights-mode', style={'display': 'none'}, fluid=True),
+        dbc.Container(custom_fields, id='custom-fields-mode', style={'display': 'none'}, fluid=True),
+        dbc.Container(templates, id='templates-mode', style={'display': 'none'}, fluid=True),
+        dbc.Container(themes, id='themes-mode', style={'display': 'none'}, fluid=True),
+        dbc.Container(user, id='user-mode', style={'display': 'none'}, fluid=True),
+        dbc.Container(settings, id='settings-mode', style={'display': 'none'}, fluid=True)
+    ], fluid=True,
     style={
         'height': '90vh',
         'padding': '10px'
@@ -38,28 +39,8 @@ control_panel = html.Div(
     className="menu-div"
 )
 
-info_panel = html.Div(
-    children=[
-        dcc.Store(id='info-panel-data'),
-        info_contents,
-    ],
-    style={
-        'height': '22vh',
-        'padding': '10px'
-    },
-    className="info-div"
-)
+info_panel = info_contents
 
-button_panel = html.Div(
-    children=[
-        button_row,
-    ],
-    style={
-        'height': '100%',
-        'padding': '10px',
-        'display': 'flex',
-        'justify-content': 'left',  # Centers horizontally
-        'align-items': 'center'  # Centers vertically
-    },
-    className="menu-div"
-)
+
+button_panel = button_row
+

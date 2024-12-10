@@ -31,11 +31,9 @@ body {
 
 .menu-div {
     background-color: #b8b5b9;
-    border: 10px solid #868188;
-    border-radius: 30px;
+    border: 1vh solid #868188;
+    border-radius: 2vh;
     box-shadow: inset -6px -6px 15px #868188;
-    margin: 0;
-    padding: 0px;
 }
 
 .info-div {
@@ -45,11 +43,12 @@ body {
     box-shadow: inset -6px -6px 15px #666092;
     color: #f2f0e5;
     margin: 0;
-    padding: 0px;
+    padding: 1vh;
+    height: 18vh;
 }
 
 .info-text-label {
-    font-size: 2vh;
+    font-size: 1rem;
     /* colors and ofset create 3d effect */
     text-shadow:
         1px 1px 0px #9a9a97,
@@ -59,8 +58,8 @@ body {
 }
 
 .info-text-actual {
-    font-size: 2vh;
-    text-align: center;
+    font-size: 1rem;
+    text-align: left;
     /* colors and ofset create 3d effect */
     text-shadow:
         1px 1px 0px #9a9a97,
@@ -81,11 +80,11 @@ body {
     border-radius: 50%;
     color: #5f556a !important;
     display: flex;
-    font-size: 14px;
+    font-size: 1vw;
     height: 8vh;
     justify-content: center;
     overflow: hidden;
-    padding:0px;
+    margin-left:1vw;
     transition: all 0.2s ease-in-out;
     width: 8vh;
 }
@@ -106,7 +105,7 @@ body {
     background-color: #868188!important;
     color: #68c2d3 !important;
     box-shadow: inset -20px 20px 5px #646365;
-    border: 5px solid #a2dcc7;
+    border: 0.5vh solid #a2dcc7;
     outline: none;
 }
 
@@ -1116,4 +1115,26 @@ body {
 .sleek-link:hover {
     color: #a2dcc7;
     transform: scale(1.25);
+}
+
+.switch-button {
+    color: #f2f0e5;
+    background-color: #3a3858;
+    outline: none;
+}
+
+.switch-button:hover {
+    color: #f2f0e5;
+    background-color: #3a3858;
+}
+
+.switch-button:active {
+    color: #f2f0e5;
+    background-color: #6a536e !important;
+}
+
+.switch-button:focus {
+    color: #f2f0e5;
+    background-color: #3a3858;
+    outline: none;
 }

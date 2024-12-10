@@ -61,7 +61,7 @@ theme_button = dbc.Button(
 
 user_button = dbc.Button(
     id='user-button',
-    children=html.I(className="fa-solid fa-info fa-3x"),
+    children=html.I(className="fa-solid fa-info fa-2x"),
     className="bottom-row-button",
     disabled=False,
 )
@@ -81,23 +81,46 @@ dummy_button = dbc.Button(
 )
 
 dummy = dbc.Col(dummy_button, style={'opacity': 0})  # Removed trailing comma here
+button_row = dbc.Row(
+    [
+        dcc.Store(id='buttons-store'),
+        dcc.Store(id='active-button-store', data='home'),
 
-button_row = dbc.Row([
-    dcc.Store(id='buttons-store'),
-    dcc.Store(id='active-button-store', data='home'),
-    # I want these buttons aligned to the left of the row
-    dbc.Col(home_button),
-    dbc.Col(user_button),
-    dbc.Col(save_load_button),
-    html.Div(style={'width': '23vw'}),
-    # I want these buttons aligned to the middle of the row
-    dbc.Col(edit_button),
-    dbc.Col(weights_button),
-    dbc.Col(custom_fields_button),
-    # I want these buttons aligned to the right of the row
-    html.Div(style={'width': '23vw'}),
-    dbc.Col(algo_button),
-    dbc.Col(templates_button),
-    dbc.Col(theme_button),
-    dbc.Col(settings_button),
-], style={'marginLeft': '2vw'})
+        # Left-aligned buttons
+        dbc.Col(
+            [home_button, user_button, save_load_button],
+            width="auto",
+            className="d-flex justify-content-start align-items-center"
+        ),
+
+        # Spacer column for centering
+        dbc.Col(
+            width="auto",  # Flexible spacer
+            className="flex-grow-1 d-none d-md-block"  # Visible only on medium+ screens
+        ),
+
+        # Center-aligned buttons
+        dbc.Col(
+            [edit_button, weights_button, custom_fields_button],
+            width="auto",
+            className="d-flex justify-content-center align-items-center"
+        ),
+
+        # Spacer column for right alignment
+        dbc.Col(
+            width="auto",
+            className="flex-grow-1 d-none d-md-block"  # Visible only on medium+ screens
+        ),
+
+        # Right-aligned buttons
+        dbc.Col(
+            [algo_button, templates_button, theme_button, settings_button],
+            width="auto",
+            className="d-flex justify-content-end align-items-center"
+        ),
+    ],
+    className="menu-div",  # Ensures vertical alignment across all buttons
+    style={"flex-wrap": "nowrap", 'height': '10vh',
+           'display': 'flex',
+           'align-items': 'center'}  # Prevents buttons from wrapping to the next row
+)
