@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cytoscape/cytoscape.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/cytoscape.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/bottom_row/button_row.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/bottom_row/button_row.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/elements/info_panel/info_components.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/info_panel/info_components.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/elements/panels.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/panels.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/layout.py" afterDir="false" />
@@ -63,7 +63,7 @@
     "ToolWindowJSON Viewer.ShowToolbar": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Dev/tree_builder/app.py",
+    "last_opened_file_path": "C:/Dev/tree_maker/tree_maker/layout/elements/control_panel",
     "settings.editor.selected.configurable": "preferences.sourceCode.JSON"
   }
 }]]></component>
@@ -76,8 +76,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Dev\tree_builder\cytoscape\templates" />
-      <recent name="C:\Dev\tree_builder\cytoscape" />
+      <recent name="C:\Dev\tree_maker\tree_maker\layout\elements\control_panel" />
+      <recent name="C:\Dev\tree_maker\tree_maker\layout\elements\bottom_row" />
+      <recent name="C:\Dev\tree_maker\tree_maker\layout\elements" />
+      <recent name="C:\Dev\tree_maker\tree_maker\layout\callbacks" />
+      <recent name="C:\Dev\tree_maker\tree_maker\layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Dev\tree_maker\tree_maker\layout\callbacks\controls" />
@@ -90,7 +93,6 @@
   <component name="RunManager">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="tree_builder" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>

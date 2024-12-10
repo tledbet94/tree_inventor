@@ -48,7 +48,7 @@ from layout.callbacks.controls.save_load.local_upload import upload_tree
 from layout.callbacks.controls.themes.active_theme_button import update_buttons
 
 
-from layout.callbacks.cyto.switch_view import cytoscape_background_color
+from layout.callbacks.cyto.switch_view import change_cyto_view
 
 app = dash.Dash(
     __name__,

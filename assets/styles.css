@@ -1120,6 +1120,9 @@ body {
 .switch-button {
     color: #f2f0e5;
     background-color: #3a3858;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0rem;
     outline: none;
 }
 
@@ -1137,4 +1140,9 @@ body {
     color: #f2f0e5;
     background-color: #3a3858;
     outline: none;
+}
+
+.top-div {
+    background-color: #45444f;
+    height: 5vh;
 }

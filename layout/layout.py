@@ -35,8 +35,7 @@ file_info = dcc.Store(id='file-info', data=file_info)
 orientation_store = dcc.Store(id='orientation-store')
 orientation_check = dcc.Interval(id='orientation-check', interval=1000, n_intervals=0)
 
-change_screen = dbc.Button(children='SWITCH VIEW', id='switch-view-button', className='switch-button',
-                           style={'display': 'none'})
+change_screen = dbc.Button(children='SWITCH VIEW', id='change-view-button', className='switch-button')
 
 layout = html.Div([
     file_info,
@@ -54,7 +53,7 @@ layout = html.Div([
     dcc.Store(id='current-step'),
     dcc.Store(id='name-store', data=''),
 
-    dbc.Row(dbc.Col(change_screen)),
+    dbc.Row([dbc.Col(width=11), dbc.Col(change_screen)], className='top-div'),
 
     dbc.Row([
         dbc.Col(

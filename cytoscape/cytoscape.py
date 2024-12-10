@@ -141,7 +141,7 @@ with open(path, "r") as json_file:
 cyto_component = cyto.Cytoscape(
     id='cytoscape',
     layout={'name': 'dagre', 'spacingFactor': 1, 'animate': True, 'animationDuration': 1000},
-    style={'height': '72vh',
+    style={'height': '55vhh',
            'width': '100%',
            'backgroundColor': cytoscape_background_color,
            'border': '15px solid #868188',
