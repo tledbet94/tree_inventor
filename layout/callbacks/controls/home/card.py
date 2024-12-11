@@ -10,6 +10,4 @@ from dash import callback, Input, Output, State
     Input('file-info', 'data')
 )
 def update_card(file_info):
-    print('updating card')
-    print(file_info)
     return file_info['Name'], file_info['Author'], file_info['Description']

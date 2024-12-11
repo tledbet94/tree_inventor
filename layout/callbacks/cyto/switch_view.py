@@ -22,23 +22,30 @@ full_screen_cyto_style = {
 default_control_style = {'padding': '0', 'height': '100%', 'display': 'flex'}
 hidden_control_style = {'padding': '0', 'height': '100%', 'display': 'none'}
 
+# use active instead of n clicks to control state
 @callback(
     [
         Output('cytoscape', 'style'),
         Output('cyto-col', 'width'),
-        Output('control-col', 'style')
+        Output('control-col', 'style'),
+        Output('change-view-button', 'n_clicks')
     ],
     [
         Input('change-view-button', 'n_clicks'),
         Input('orientation-store', 'data')
     ],
-    State('cyto-col', 'width'),
-    prevent_initial_call=True
+    State('cyto-col', 'width')
 )
 def change_cyto_view(n_clicks, orientation, current_cyto_width):
-    if orientation == 'portrait' or (orientation == 'landscape' and (n_clicks or 0) > 0):
-        return full_screen_cyto_style, 12, hidden_control_style
-    elif current_cyto_width == 12 and (n_clicks or 0) > 0:
-        return default_cyto_style, 9, default_control_style
+    print('switch')
+    print(orientation)
+    if n_clicks is None:
+        n_clicks = 0
+    if orientation == 'portrait' or (current_cyto_width == 9 and n_clicks or 0 > 0):
+        return full_screen_cyto_style, 12, hidden_control_style, 0
+    elif current_cyto_width == 12 and n_clicks > 0:
+        print('switch back')
+        return default_cyto_style, 9, default_control_style, 0
     else:
-        return default_cyto_style, 9, default_control_style
+        print('base case')
+        return default_cyto_style, 9, default_control_style, 0

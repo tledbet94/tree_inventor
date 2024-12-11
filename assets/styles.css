@@ -43,8 +43,8 @@ body {
     box-shadow: inset -6px -6px 15px #666092;
     color: #f2f0e5;
     margin: 0;
-    padding: 1vh;
-    height: 18vh;
+    padding: 0.5vh;
+    height: 14vh;
 }
 
 .info-text-label {
@@ -1122,8 +1122,10 @@ body {
     background-color: #3a3858;
     font-size: 1rem;
     padding: 0.5rem;
-    border-radius: 0rem;
+    border-radius: 1vh;
     outline: none;
+    box-shadow: 0px 0px 0px 0px transparent; /* No shadow */
+    height: 4vh;
 }
 
 .switch-button:hover {
@@ -1144,5 +1146,5 @@ body {
 
 .top-div {
     background-color: #45444f;
-    height: 5vh;
+    height: 4vh;
 }

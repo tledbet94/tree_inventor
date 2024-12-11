@@ -65,4 +65,4 @@ app.layout = layout
 if __name__ == '__main__':
     # Add a 3-second delay before starting the server
     time.sleep(1)
-    app.run(debug=False)
+    app.run(debug=True, port='8054')
