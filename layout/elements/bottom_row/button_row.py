@@ -93,10 +93,10 @@ button_row = dbc.Row(
             className="d-flex justify-content-start align-items-center"
         ),
 
-        # Spacer column for centering
+        # Spacer column always visible
         dbc.Col(
             width="auto",  # Flexible spacer
-            className="flex-grow-1 d-none d-md-block"  # Visible only on medium+ screens
+            className="flex-grow-1"  # Remove d-none d-md-block
         ),
 
         # Center-aligned buttons
@@ -106,10 +106,10 @@ button_row = dbc.Row(
             className="d-flex justify-content-center align-items-center"
         ),
 
-        # Spacer column for right alignment
+        # Spacer column always visible
         dbc.Col(
             width="auto",
-            className="flex-grow-1 d-none d-md-block"  # Visible only on medium+ screens
+            className="flex-grow-1"  # Remove d-none d-md-block
         ),
 
         # Right-aligned buttons
@@ -119,8 +119,8 @@ button_row = dbc.Row(
             className="d-flex justify-content-end align-items-center"
         ),
     ],
-    className="menu-div",  # Ensures vertical alignment across all buttons
-    style={"flex-wrap": "nowrap", 'height': '10vh',
-           'display': 'flex',
-           'align-items': 'center'}  # Prevents buttons from wrapping to the next row
+    className="menu-div",
+    style={"flex-wrap": "nowrap", "height": "10vh", "display": "flex", "align-items": "center",
+           'margin-left': '0vw'}
 )
+

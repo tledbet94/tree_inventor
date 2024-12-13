@@ -6,10 +6,9 @@ import dash_bootstrap_components as dbc
 card = dbc.Card(
     dbc.CardBody(
         [
-            html.H3(id='card-title', className="card-title"),
-            html.P('Author:', style={'font-size': '1vw'}),
-            html.H4(id='card-author', className='card-text'),
-            html.P('Description:'),
+            html.Div(style={'height': '6vh'}),
+            html.P(id='card-title', className="card-title", style={'font-size': '1vw'}),
+            html.P(id='card-author', className='card-text', style={'font-size': '1vw'}),
             html.Pre(id='card-description',
                      className="card-text",
                      style={
@@ -19,7 +18,7 @@ card = dbc.Card(
                      }
                      ),
         ], className='home-card'
-    ), className='home-card',
+    ), className='home-card', style={'height': '65vh', 'width': '15vw'}
 )
 
 book_modal = dbc.Modal(
@@ -57,25 +56,24 @@ book_button = dbc.Button(
     id='book-button',
     children=html.I(className="fa-solid fa-book icon-style-book"),
     className="book-button",
-    style={'outline': 'none', 'marginTop': '20px'},
+    style={'outline': 'none', 'marginTop': '5vh'},
     n_clicks=0)
 
 # this gets exported
 
-home = dbc.Container([
-    dbc.Row(
-        dbc.Col(
-            card,
-            width={"xs": 12, "sm": 10, "md": 8, "lg": 6, "xl": 4},
-            className="mb-2"
+home = dbc.Container(
+    [
+        dbc.Row(
+            dbc.Col(card, width="auto"),
+            className="d-flex justify-content-center align-items-center",
+            style={"height": "50vh"}  # Give some vertical space to see the centering clearly
         ),
-        justify="center",
-    ),
-    dbc.Row([
-        dbc.Col(width=4),
-        dbc.Col([book_button, book_modal]),
-        dbc.Col(width=4)
-    ])
-],
-    fluid=True,
+        html.Div(style={'height':'12vh'}),
+        dbc.Row([
+            dbc.Col(width=4),
+            dbc.Col([book_button, book_modal]),
+            dbc.Col(width=4)
+        ])
+    ]
 )
+

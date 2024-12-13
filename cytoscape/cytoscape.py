@@ -142,11 +142,12 @@ cyto_component = cyto.Cytoscape(
     id='cytoscape',
     layout={'name': 'dagre', 'spacingFactor': 1, 'animate': True, 'animationDuration': 1000},
     style={
-           'width': '100%',
-           'backgroundColor': cytoscape_background_color,
-           'border': '15px solid #868188',
-           'borderRadius': '30px',
-           'box-shadow': 'inset 0px 0px 10px 10px #646365'},
+        'width': '100%',
+        'backgroundColor': cytoscape_background_color,
+        'border': '1px solid #868188',
+        'borderRadius': '1px',
+        'box-shadow': 'inset 0px 0px 10px 10px #646365',
+        'height': '62vh'},
     elements=elements,
     stylesheet=stylesheet
 )

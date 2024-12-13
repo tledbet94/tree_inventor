@@ -53,7 +53,7 @@ layout = html.Div([
     dcc.Store(id='current-step'),
     dcc.Store(id='name-store', data=''),
 
-    dbc.Row([dbc.Col(width=11), dbc.Col(change_screen)], className='top-div'),
+    dbc.Row([dbc.Col(width=11), dbc.Col(change_screen)], className='top-div', style={'position': 'relative'}),
 
     dbc.Row([
         dbc.Col(

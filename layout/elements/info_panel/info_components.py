@@ -29,4 +29,5 @@ third_row = dbc.Row([dbc.Col(level_label), dbc.Col(level_actual),
                      dbc.Col(custom3_label), dbc.Col(custom3_actual)])
 
 info_contents = dbc.Container([dcc.Store(id='info-panel-data'),
-                               first_row, second_row, third_row], fluid=True, className='info-div')
+                               first_row, second_row, third_row], fluid=True, className='info-div',
+                              )

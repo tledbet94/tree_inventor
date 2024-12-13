@@ -34,21 +34,22 @@ body {
     border: 1vh solid #868188;
     border-radius: 2vh;
     box-shadow: inset -6px -6px 15px #868188;
+    width: 100%;
 }
 
 .info-div {
     background-color: #3a3858;
-    border: 10px solid #868188;
-    border-radius: 30px;
+    border: 3px solid #868188;
+    border-radius: 15px;
     box-shadow: inset -6px -6px 15px #666092;
     color: #f2f0e5;
     margin: 0;
     padding: 0.5vh;
-    height: 14vh;
+    height: 18vh;
 }
 
 .info-text-label {
-    font-size: 1rem;
+    font-size: 1.5vh;
     /* colors and ofset create 3d effect */
     text-shadow:
         1px 1px 0px #9a9a97,
@@ -58,7 +59,7 @@ body {
 }
 
 .info-text-actual {
-    font-size: 1rem;
+    font-size: 1.5vh;
     text-align: left;
     /* colors and ofset create 3d effect */
     text-shadow:
@@ -233,7 +234,7 @@ body {
     border-radius: 50px;
     box-shadow: inset 0 8px 16px #45444f;
     color: #f2f0e5;
-    padding: 20px;
+    padding: 2vh;
     transition: transform 0.2s ease-in-out;
 }
 
@@ -243,17 +244,16 @@ body {
 
 .home-card-title {
     color: #f2f0e5;
-    font-size: 2vw;
+    font-size: 1vh;
     font-weight: bold;
 }
 
 .home-card-text {
     color: #f2f0e5;
-    font-size: 1.5vw;
-    line-height: 1.5;
+    font-size: 1vh;
 }
 
-/* Clean up, attempt to double style the card? */
+/* attempt to double style the card? */
 .home-card-body {
     background-color: #d3a068;
     border-radius: 50px;
@@ -1117,16 +1117,23 @@ body {
     transform: scale(1.25);
 }
 
+
 .switch-button {
     color: #f2f0e5;
     background-color: #3a3858;
-    font-size: 1rem;
-    padding: 0.5rem;
+    font-size: 1vh;
+    padding: 0.5vh;
     border-radius: 1vh;
     outline: none;
-    box-shadow: 0px 0px 0px 0px transparent; /* No shadow */
-    height: 4vh;
+    box-shadow: 0px 0px 0px 0px transparent;
+    height: 5vh;
+    margin-right: 4vh;
+
+    position: absolute;  /* Position absolutely within parent */
+    top: 0;              /* Aligns to the top of the parent */
+    right: 0;            /* Aligns to the right of the parent */
 }
+
 
 .switch-button:hover {
     color: #f2f0e5;
@@ -1146,5 +1153,5 @@ body {
 
 .top-div {
     background-color: #45444f;
-    height: 4vh;
+    height: 5vh;
 }
