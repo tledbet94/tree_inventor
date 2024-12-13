@@ -33,7 +33,7 @@ control_panel = dbc.Container(
         dbc.Container(settings, id='settings-mode', style={'display': 'none'}, fluid=True)
     ], fluid=True,
     style={
-        'height': '76vh',
+        'height': '70vh',
         'padding': '10px'
     },
     className="menu-div"

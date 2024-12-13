@@ -18,7 +18,7 @@ card = dbc.Card(
                      }
                      ),
         ], className='home-card'
-    ), className='home-card', style={'height': '65vh', 'width': '15vw'}
+    ), className='home-card', style={'height': '55vh', 'width': '15vw'}
 )
 
 book_modal = dbc.Modal(
@@ -68,7 +68,7 @@ home = dbc.Container(
             className="d-flex justify-content-center align-items-center",
             style={"height": "50vh"}  # Give some vertical space to see the centering clearly
         ),
-        html.Div(style={'height':'12vh'}),
+        html.Div(style={'height':'1vh'}),
         dbc.Row([
             dbc.Col(width=4),
             dbc.Col([book_button, book_modal]),

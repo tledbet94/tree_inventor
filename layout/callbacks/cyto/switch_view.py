@@ -4,7 +4,7 @@ cytoscape_background_color = '#352b42'
 
 # Predefined styles
 default_cyto_style = {
-    'height': '58vh',
+    'height': '52vh',
     'width': '100%',
     'backgroundColor': cytoscape_background_color,
     'border': '3px solid #868188',
