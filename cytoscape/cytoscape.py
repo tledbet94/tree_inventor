@@ -147,7 +147,7 @@ cyto_component = cyto.Cytoscape(
         'border': '1px solid #868188',
         'borderRadius': '1px',
         'box-shadow': 'inset 0px 0px 10px 10px #646365',
-        'height': '62vh'},
+        'height': '58vh'},
     elements=elements,
     stylesheet=stylesheet
 )
