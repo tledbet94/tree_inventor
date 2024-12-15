@@ -99,24 +99,17 @@ edit = html.Div([
     dcc.Store(id='edit-enter-click-store', data=0),
     dcc.Store(id='enter-pressed-bool', data=False),
     dcc.Store(id='selected-edit', data=''),
-    html.H1('MODIFY TREE', className='edit-header-text'),
-    html.Div(style={'height': '2vh'}),
     dbc.Row([
-        dbc.Col(width=2),
-        dbc.Col(rename_node_button, width=5),
-        dbc.Col(rename_info, align='end', width=5)
+        dbc.Col(rename_node_button, width=4),
+        dbc.Col(rename_info, align='end', width=2),
+        dbc.Col(add_node_button, width=4),
+        dbc.Col(add_info, align='end', width=2)
     ]),
     html.Div(style={'height': '3vh'}),
     dbc.Row([
-        dbc.Col(width=2),
-        dbc.Col(add_node_button, width=5),
-        dbc.Col(add_info, align='end', width=5)
-    ]),
-    html.Div(style={'height': '3vh'}),
-    dbc.Row([
-        dbc.Col(width=2),
-        dbc.Col(remove_node_button, width=5),
-        dbc.Col(remove_info, align='end', width=5),
+        dbc.Col(remove_node_button, width=4),
+        dbc.Col(remove_info, align='end', width=2),
+        dbc.Col(width=6)
     ]),
     html.Div(style={'height': '4vh'}),
     dbc.Row([

@@ -103,7 +103,6 @@ slider = html.Div([
                className='algo-slider',
                disabled=False
                ),
-    html.Div(style={"height": "2vh"}),
     html.H3(id='algo-slider-text', children='', className='algo-slider-text')
 ])
 
@@ -127,36 +126,21 @@ algo = dbc.Container([
     dcc.Interval(id='multiple-traversal-interval', interval=500, n_intervals=0, disabled=True),
     dcc.Store(id='multiple-traversal-state', data={}),
     dcc.Store(id='traversal-running', data=False),
-    dbc.Row(
-        dbc.Col(
-            algo_title
-        ),
-        justify="center",
-    ),
-    html.Div(style={"height": "0vh"}),
     dbc.Row([
-        dbc.Col(width=2),
-        dbc.Col(single_traversal_button, align='center'),
-        dbc.Col(single_traversal_info),
-        dbc.Col(width=1),
+        dbc.Col(single_traversal_button, width='auto', align='center')
     ], justify='center'),
-    html.Div(style={"height": "11vh"}),
+    html.Div(style={"height": "12vh"}),
     dbc.Row([
-        dbc.Col(width=1),
         dbc.Col(
             children=[
                 traversal_output_display,
             ],
-            align='center',
+            align='center', width='auto',
         ),
-        dbc.Col(width=1)
     ], justify='center'),
-    html.Div(style={"height": "10vh"}),
+    html.Div(style={"height": "12vh"}),
     dbc.Row([
-        dbc.Col(width=2),
-        dbc.Col(multiple_traversal_button, align='center'),
-        dbc.Col(multiple_traversal_info),
-        dbc.Col(width=1)
+        dbc.Col(multiple_traversal_button, width='auto', align='center')
     ], justify='center'),
     html.Div(style={"height": "2vh"}),
     dbc.Row(slider),

@@ -140,23 +140,29 @@ with open(path, "r") as json_file:
 
 cyto_component = cyto.Cytoscape(
     id='cytoscape',
-    layout={'name': 'dagre', 'spacingFactor': 1, 'animate': True, 'animationDuration': 1000},
+    layout={
+        'name': 'dagre',
+        'spacingFactor': 1,
+        'animate': True,
+        'animationDuration': 1000,
+        'fit': True,
+        'padding': 50
+    },
     style={
         'width': '100%',
         'backgroundColor': cytoscape_background_color,
         'border': '1px solid #868188',
         'borderRadius': '1px',
-        'box-shadow': 'inset 0px 0px 10px 10px #646365',
-        'height': '58vh'},
+        'box-shadow': 'inset 0px 0px 10px 10px #646365'
+    },
     elements=elements,
-    stylesheet=stylesheet
+    stylesheet=stylesheet,
+    className='tree-height'
 )
 
-# Fit the graph to the viewport when first loading
-cyto_component.fit = {
-    'padding': 50,  # Optional padding
-    'fit': True  # Fit graph to the available space
-}
+
+
+
 
 # Ensure both `cyto_component` and `file_info` are available for import
 __all__ = ['cyto_component', 'file_info']

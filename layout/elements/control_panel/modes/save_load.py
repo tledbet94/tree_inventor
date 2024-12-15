@@ -4,7 +4,7 @@ import dash_bootstrap_components as dbc
 save_load_title = html.H1('Save & Load', className='edit-header-text')
 
 # Download section
-local_save_text = html.Div(html.P(children="Download Tree", className="save-load-text"),
+local_save_text = html.Div(html.P(children="Download/Upload", className="save-load-text"),
                            style={'textAlign': 'center'})
 
 # author, title
@@ -29,7 +29,7 @@ local_load_text = html.Div(html.P(children="Upload Tree", className="save-load-t
 
 upload_area = html.Div(dcc.Upload(
     id='upload-area',
-    children=html.P('Drag & Drop || Click to Select File'),
+    children=html.P(children='Drag & Drop || Click to Select File', style={'marginTop': '1vh'}),
     multiple=False,  # Set to True if you want to allow multiple files
     className='upload-area'
 ), style={'text-align': 'center'})
@@ -40,8 +40,6 @@ save_load = html.Div(
         local_download,
         dcc.Store('upload-store'),
         dcc.Store('upload-active', data=True),
-        save_load_title,
-        html.Div(style={'height': '0vh'}),
         local_save_text,
         dbc.Row([dbc.Col(local_save_input, align='center', width=8), dbc.Col(local_save_button, width=4)]),
         html.Div(style={'height': '2vh'}),
@@ -49,7 +47,6 @@ save_load = html.Div(
         html.Div(style={'height': '2vh'}),
         dbc.Row(dbc.Col(description_input)),
         html.Div(style={'height': '3vh'}),
-        local_load_text,
         dbc.Row(dbc.Col(upload_area))
     ]
 )

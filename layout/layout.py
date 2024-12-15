@@ -36,6 +36,7 @@ orientation_store = dcc.Store(id='orientation-store')
 orientation_check = dcc.Interval(id='orientation-check', interval=1000, n_intervals=0)
 
 change_screen = dbc.Button(children='SWITCH VIEW', id='change-view-button', className='switch-button')
+view_warning_text = html.P(children='', id='view-warning-text')
 
 layout = html.Div([
     file_info,
@@ -53,14 +54,14 @@ layout = html.Div([
     dcc.Store(id='current-step'),
     dcc.Store(id='name-store', data=''),
 
-    dbc.Row([dbc.Col(width=11), dbc.Col(change_screen)], className='top-div', style={'position': 'relative'}),
+    dbc.Row([dbc.Col(view_warning_text), dbc.Col(width=10), dbc.Col(change_screen)], className='top-div'),
 
     dbc.Row([
         dbc.Col(
             control_panel,
             width=3,
             id='control-col',
-            style={'padding': '0', 'height': '100%'}
+            style={'padding': '0', 'height': '100%'},
         ),
         dbc.Col([
             cyto_component,

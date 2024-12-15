@@ -66,14 +66,12 @@ field_names_store = dcc.Store(id='field-names-store', data=['', '', ''])
 custom_fields = html.Div([
     fields_store,
     field_names_store,
-    dbc.Row(custom_fields_title),
-    html.Div(style={'height': '1vh'}),
-    dbc.Row([dbc.Col(width=1), dbc.Col(field_names_button),
-             dbc.Col(field_values_button)]
+    dbc.Row([dbc.Col(field_names_button, width='auto'),
+             dbc.Col(field_values_button, width='auto')], justify='center',
             ),
     html.Div(style={'height': '2vh'}),
     html.Div(fields_body),
     html.Div(style={'height': '3vh'}),
-    dbc.Row([dbc.Col(width=4), dbc.Col(custom_update_button), dbc.Col(width=4)])
+    dbc.Row(dbc.Col(custom_update_button, width='auto'), justify='center')
 
 ])

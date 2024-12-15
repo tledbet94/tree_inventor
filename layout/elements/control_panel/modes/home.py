@@ -69,11 +69,14 @@ home = dbc.Container(
             style={"height": "50vh"}  # Give some vertical space to see the centering clearly
         ),
         html.Div(style={'height':'1vh'}),
-        dbc.Row([
-            dbc.Col(width=4),
-            dbc.Col([book_button, book_modal]),
-            dbc.Col(width=4)
-        ])
+        dbc.Row(
+            dbc.Col(
+                [book_button, book_modal],  # Content to be centered
+                width="auto",  # Shrink the column to fit its content
+                className="d-flex justify-content-center"
+            ),
+            className="justify-content-center"  # Center the column within the row
+        )
     ]
 )
 

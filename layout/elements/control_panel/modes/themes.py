@@ -12,8 +12,6 @@ blueberry_button = dbc.Button(
         src="/assets/blueberry.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "60px",  # Adjust the height
-            "width": "60px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -28,8 +26,6 @@ banana_button = dbc.Button(
         src="/assets/banana.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -44,8 +40,6 @@ grape_button = dbc.Button(
         src="/assets/grape.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -60,8 +54,6 @@ orange_button = dbc.Button(
         src="/assets/orange.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -79,8 +71,6 @@ circle_button = dbc.Button(
         src="/assets/button_icons/sphere.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -95,8 +85,6 @@ triangle_button = dbc.Button(
         src="/assets/button_icons/star.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -111,8 +99,6 @@ square_button = dbc.Button(
         src="/assets/button_icons/cube.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -127,8 +113,6 @@ octagon_button = dbc.Button(
         src="/assets/button_icons/octagon.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -146,8 +130,6 @@ single_outline_button = dbc.Button(
         src="/assets/button_icons/single_outline.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -170,8 +152,6 @@ shadow_outline_button = dbc.Button(
         src="/assets/button_icons/shadow_outline.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -186,8 +166,6 @@ double_outline_button = dbc.Button(
         src="/assets/button_icons/double_outline.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -205,8 +183,6 @@ circle_pointer_button = dbc.Button(
         src="/assets/button_icons/circle_pointer.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -229,8 +205,6 @@ arrow_pointer_button = dbc.Button(
         src="/assets/button_icons/arrow_pointer.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -245,8 +219,6 @@ tee_pointer_button = dbc.Button(
         src="/assets/button_icons/tee_pointer.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -265,8 +237,6 @@ blue_background_button = dbc.Button(
         src="/assets/button_icons/blue_background.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -281,8 +251,6 @@ brown_background_button = dbc.Button(
         src="/assets/button_icons/brown_background.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -297,8 +265,6 @@ green_background_button = dbc.Button(
         src="/assets/button_icons/green_background.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -313,8 +279,6 @@ black_background_button = dbc.Button(
         src="/assets/button_icons/black_background.png",  # Path to the image
         className="pixel-art",
         style={
-            "height": "50px",  # Adjust the height
-            "width": "50px",  # Adjust the width
             "verticalAlign": "middle",  # Center the image vertically within the button
         }
     ),
@@ -324,43 +288,80 @@ black_background_button = dbc.Button(
 )
 
 # styled row
-color_row = dbc.Row([dbc.Col(blueberry_button), dbc.Col(banana_button), dbc.Col(grape_button),
-                     dbc.Col(orange_button)],
-                    className='themes-row')
+color_row = dbc.Row(
+    [
+        dbc.Col(blueberry_button, width=3),
+        dbc.Col(banana_button, width=3),
+        dbc.Col(grape_button, width=3),
+        dbc.Col(orange_button, width=3),
+    ],
+    className='themes-row',
+    justify='center',  # Center the buttons
+    style={"flex-wrap": "nowrap"},  # Prevent wrapping
+)
 
-shape_row = dbc.Row([dbc.Col(circle_button), dbc.Col(triangle_button),
-                     dbc.Col(square_button), dbc.Col(octagon_button)],
-                    className='themes-row')
+shape_row = dbc.Row(
+    [
+        dbc.Col(circle_button, width=3),
+        dbc.Col(triangle_button, width=3),
+        dbc.Col(square_button, width=3),
+        dbc.Col(octagon_button, width=3),
+    ],
+    className='themes-row',
+    justify='center',
+    style={"flex-wrap": "nowrap"},
+)
 
-outline_row = dbc.Row([dbc.Col(single_outline_button), dbc.Col(no_outline_button),
-                       dbc.Col(shadow_outline_button),
-                       dbc.Col(double_outline_button)],
-                      className='themes-row')
+outline_row = dbc.Row(
+    [
+        dbc.Col(single_outline_button, width=3),
+        dbc.Col(no_outline_button, width=3),
+        dbc.Col(shadow_outline_button, width=3),
+        dbc.Col(double_outline_button, width=3),
+    ],
+    className='themes-row',
+    justify='center',
+    style={"flex-wrap": "nowrap"},
+)
 
-pointer_row = dbc.Row([dbc.Col(circle_pointer_button), dbc.Col(no_pointer_button),
-                       dbc.Col(arrow_pointer_button),
-                       dbc.Col(tee_pointer_button)],
-                      className='themes-row')
+pointer_row = dbc.Row(
+    [
+        dbc.Col(circle_pointer_button, width=3),
+        dbc.Col(no_pointer_button, width=3),
+        dbc.Col(arrow_pointer_button, width=3),
+        dbc.Col(tee_pointer_button, width=3),
+    ],
+    className='themes-row',
+    justify='center',
+    style={"flex-wrap": "nowrap"},
+)
 
-background_row = dbc.Row([dbc.Col(blue_background_button), dbc.Col(brown_background_button),
-                          dbc.Col(green_background_button),
-                          dbc.Col(black_background_button)],
-                         className='themes-row')
+background_row = dbc.Row(
+    [
+        dbc.Col(blue_background_button, width=3),
+        dbc.Col(brown_background_button, width=3),
+        dbc.Col(green_background_button, width=3),
+        dbc.Col(black_background_button, width=3),
+    ],
+    className='themes-row',
+    justify='center',
+    style={"flex-wrap": "nowrap"},
+)
 
 themes = html.Div(
     [
         dbc.Row(dbc.Col(color_label)),
         color_row,
-        html.Div(style={'height': '2vw'}),
+        html.Div(className='theme-spacer'),
         dbc.Row(dbc.Col(shape_label)),
         shape_row,
-        html.Div(style={'height': '2vw'}),
+        html.Div(className='theme-spacer'),
         dbc.Row(dbc.Col(outline_label)),
         outline_row,
-        html.Div(style={'height': '2vw'}),
+        html.Div(className='theme-spacer'),
         dbc.Row(dbc.Col(pointer_label)),
         pointer_row,
-        html.Div(style={'height': '2vw'}),
+        html.Div(className='theme-spacer'),
         dbc.Row(dbc.Col(background_label)),
         background_row
     ]

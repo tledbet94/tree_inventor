@@ -32,11 +32,7 @@ control_panel = dbc.Container(
         dbc.Container(user, id='user-mode', style={'display': 'none'}, fluid=True),
         dbc.Container(settings, id='settings-mode', style={'display': 'none'}, fluid=True)
     ], fluid=True,
-    style={
-        'height': '70vh',
-        'padding': '10px'
-    },
-    className="menu-div"
+    className="control-div"
 )
 
 info_panel = info_contents

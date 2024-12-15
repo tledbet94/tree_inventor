@@ -87,5 +87,4 @@ def update_buttons(*args):
                 group_active_states = [True] + [False] * (len(group_buttons) - 1)
 
         active_states.extend(group_active_states)
-
     return active_states

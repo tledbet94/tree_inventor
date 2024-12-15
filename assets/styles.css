@@ -37,6 +37,24 @@ body {
     width: 100%;
 }
 
+
+.control-div {
+    background-color: #b8b5b9;
+    border: 1vh solid #868188;
+    border-radius: 2vh;
+    box-shadow: inset -6px -6px 15px #868188;
+    height: 85vh;
+    padding: 10px;
+    width: 100%;
+}
+
+/* Control Div Styles for Smaller Screens */
+@media (max-width: 1000px) {
+    .control-div {
+        height: 70vh; /* Smaller screen height */
+    }
+}
+
 .info-div {
     background-color: #3a3858;
     border: 3px solid #868188;
@@ -45,8 +63,23 @@ body {
     color: #f2f0e5;
     margin: 0;
     padding: 0.5vh;
-    height: 18vh;
+    height: 12vh;
 }
+
+/* Adjust for smaller screens (e.g., iPhone) */
+@media (max-width: 1000px) {
+    .info-div {
+        height: 18vh; /* Adjust height for smaller screens */
+    }
+
+    .info-div .row,
+    .info-div .col {
+    margin: 0 !important;
+    padding: 0.1vh !important;
+}
+}
+
+
 
 .info-text-label {
     font-size: 1.5vh;
@@ -132,6 +165,7 @@ body {
     height: 10vh;
     width: 12vw;
     justify-content: center;
+    margin-left: 0vh;
     overflow: hidden;
     padding: 0px;
     transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -167,6 +201,30 @@ body {
     transition: box-shadow 0.1s ease-in-out, border 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
+
+/* Media Query: Adjust for Screens 1000px or Smaller */
+@media (max-width: 1000px) {
+    .algo-button {
+        height: 6vh; /* Smaller height */
+        width: 8vw; /* Smaller width */
+        font-size: 1.5vh; /* Reduce font size */
+        margin-left: 0vh; /* Reduce left margin */
+        border: 4px double #68c2d3; /* Thinner border */
+        box-shadow: 6px 6px 4px 0px #212123; /* Adjust shadow for smaller size */
+    }
+
+    .algo-button:hover {
+        border: 4px double #68c2d3; /* Match hover border size */
+        box-shadow: 2px 2px 3px 0px #212123; /* Adjust hover shadow */
+    }
+
+    .algo-button:active,
+    .algo-button:focus,
+    .algo-button.active {
+        border: 4px double #a2dcc7 !important; /* Match active border size */
+        box-shadow: inset 12px 12px 4px 0px #212123; /* Adjust active shadow */
+    }
+}
 
 
 
@@ -383,6 +441,7 @@ body {
     width: 9vh;
 }
 
+
 .edit-input-button:hover {
     background-color: #6a536e !important;
     box-shadow: 4px 4px 5px #646365;
@@ -409,6 +468,20 @@ body {
     width: 8vh;
 }
 
+/* Adjust styles for screens 1000px or smaller */
+@media (max-width: 1000px) {
+    .weights-input-button,
+    .weights-input-button:active,
+    .weights-input-button:focus {
+        font-size: 1.6vh; /* Smaller font size */
+        height: 6vh;      /* Smaller height */
+        width: 6vh;       /* Smaller width */
+        border-radius: 15%; /* Slightly less rounded corners */
+        box-shadow: 1px 1px 1px #212123; /* Subtler shadow */
+    }
+}
+
+
 .weights-input-button:hover {
     background-color: #567b79 !important;
     box-shadow: 4px 4px 5px #212123;
@@ -419,8 +492,8 @@ body {
 /* Feedback screen that pops up in edit mode */
 .input-feedback-div {
     background-color: #3a3858;
-    border: 12px solid #5f556a;
-    border-radius: 35px;
+    border: 2vh solid #5f556a;
+    border-radius: 24vh;
     box-shadow: 5px 5px 5px #45444f;
     color: #f2f0e5;
     display: block;
@@ -447,19 +520,41 @@ body {
     width: 100%;
 }
 
+/* Styles for screens 1000px or smaller */
+@media (max-width: 1000px) {
+    .input-feedback-div-weights {
+        border: 2vh solid #4e584a;  /* Thinner border */
+        border-radius: 20px;        /* Smaller rounded corners */
+        height: 12vh;               /* Reduce height */
+        padding: 3px;               /* Smaller padding */
+        font-size: 0.9em;           /* Slightly smaller text */
+    }
+}
 /* The input that pops up in edit mode */
 
 .edit-input {
-    border: 12px solid #b8b5b9;
+    border: 2vh solid #b8b5b9;
     background-color: #f2f0e5;
-    border-radius: 20px;
+    border-radius: 2vh;
     box-shadow: 2px 2px 5px #646365;
     color: #352b42;
-    font-size: 24px;
+    font-size: 1.5vw;
     margin-right: 2vw;
     outline: none;
-    padding: 10px;
+    padding: 1vh;
     transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Adjust styles for screens 1000px or smaller */
+@media (max-width: 1000px) {
+    .edit-input {
+        border: 8px solid #b8b5b9;  /* Thinner border */
+        font-size: 1vh;           /* Smaller font size */
+        padding: 3px;              /* Reduce padding */
+        border-radius: 1vh;       /* Slightly smaller border-radius */
+        margin-right: 1.5vw;       /* Adjust margin for spacing */
+        box-shadow: 1px 1px 4px #646365; /* Subtler shadow for smaller input */
+    }
 }
 
 /* Change border and shadow when the input is focused */
@@ -488,6 +583,16 @@ body {
     transition: box-shadow 0.3s ease-in-out;
 }
 
+@media (max-width: 1000px) {
+    .weights-input {
+        border: 4px solid #b8b5b9;  /* Thinner border */
+        font-size: 1vh;           /* Smaller font size */
+        padding: 3px;              /* Reduce padding */
+        border-radius: 1vh;       /* Slightly smaller border-radius */
+        margin-right: 4vw;       /* Adjust margin for spacing */
+        box-shadow: 1px 1px 4px #646365; /* Subtler shadow for smaller input */
+    }
+}
 
 /* Change border and shadow when the input is focused */
 .weights-input:focus {
@@ -592,13 +697,28 @@ body {
     color: #352b42;
     font-size: 1.5vw;
     text-align: center;
+    margin-top: 2vh; /* Ensure no additional top margin */
+    vertical-align: top; /* Aligns inline content to the top */
 }
+
+/* Adjust font size for screens 1000px or smaller */
+@media (max-width: 1000px) {
+    .algo-slider-text {
+        font-size: 1.25vw; /* Smaller font size for smaller screens */
+        margin-top: 0vh; /* Ensure no additional top margin */
+        margin-bottom: 2vh; /* Ensure no additional top margin */
+    }
+}
+
 
 /* Styling for the entire slider */
 .algo-slider {
     width: 100%;
     margin: auto;
     position: relative;
+    display: flex;
+    align-items: flex-start; /* Align children to the top */
+    justify-content: center; /* Center horizontally (optional) */
 }
 
 /* Track styling (the line on which the slider handle moves) */
@@ -970,6 +1090,38 @@ body {
     outline: none;
 }
 
+        /* Media Query for Smaller Screens */
+@media (max-width: 1000px) {
+    .template-button {
+        width: 12vh; /* Reduce button size */
+        height: 12vh;
+        border: 6px double #68c2d3; /* Thinner border */
+        box-shadow: -2px 2px 2px #f2f0e5, 8px -8px 4px #45444f; /* Adjust shadow */
+        font-size: 2.5vh; /* Smaller font size */
+        margin: 15px auto; /* Smaller margin */
+    }
+
+    .template-button:hover {
+        background-color: #4b80ca;
+        border: 6px double #a2dcc7; /* Match border size */
+        box-shadow: -1px 1px 4px #e2dfd0, 6px -6px 3px #3b3a4f; /* Adjust hover shadow */
+    }
+
+    .template-button:active,
+    .template-button:focus {
+        background-color: #b45252;
+        border: 6px double #d3a068; /* Match border size */
+        box-shadow: inset -2px 2px 6px #2e2e34, inset 4px -4px 8px #1a1a1f; /* Adjust pressed shadow */
+    }
+
+    .template-button.active {
+        background-color: #b45252;
+        border: 6px double #d3a068;
+        box-shadow: inset -2px 2px 6px #2e2e34, inset 4px -4px 8px #1a1a1f;
+    }
+}
+
+
 
 /* Center content vertically and horizontally in buttons */
 .theme-button {
@@ -1018,10 +1170,37 @@ body {
     font-size: 4vh;
 }
 
+/* Media Query: Adjust for Smaller Screens */
+@media (max-width: 1000px) {
+    .theme-button {
+        font-size: 12px; /* Slightly smaller font size */
+        height: 6vh;     /* Reduce height */
+        width: 6vh;      /* Reduce width */
+        border-radius: 50%; /* Maintain circular shape */
+    }
+
+    .theme-button:active,
+    .theme-button:focus,
+    .theme-button.active {
+        border: 0.5vh solid #f2f0e5; /* Thinner border for smaller buttons */
+        box-shadow: inset -15px 15px 4px #646365; /* Adjust shadow for smaller size */
+    }
+}
+
 .pixel-art {
     image-rendering: pixelated; /* Ensure pixel-perfect scaling */
     image-rendering: crisp-edges; /* Fallback for non-Chrome browsers */
+    height: 50px;
+    width: 50px;
     transition: filter 0.3s ease; /* Smooth transition for hover and active state */
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 1000px) {
+    .pixel-art {
+        height: 4vh; /* Reduced height */
+        width: 4vh;  /* Reduced width */
+    }
 }
 
 .pixel-art:hover,
@@ -1084,8 +1263,17 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: center;
+    vertical-align: center;
     font-size: 3vh;
     color: #45444f; /* Bootstrap dark */
+}
+
+/* Adjust styles for screens 1000px or smaller */
+@media (max-width: 1000px) {
+    .upload-area {
+        height: 14vh; /* Reduce height */
+        font-size: 2vh; /* Adjust font size to match smaller height */
+    }
 }
 
 .upload-area:hover {
@@ -1110,6 +1298,8 @@ body {
     font-size: 2vh;
     color: #68c2d3;
     transition: all 0.3s ease-in-out;
+    text-align: center;
+    vertical-align: top; /* Aligns the link to the top */
 }
 
 .sleek-link:hover {
@@ -1119,39 +1309,109 @@ body {
 
 
 .switch-button {
-    color: #f2f0e5;
-    background-color: #3a3858;
-    font-size: 1vh;
-    padding: 0.5vh;
-    border-radius: 1vh;
-    outline: none;
-    box-shadow: 0px 0px 0px 0px transparent;
-    height: 5vh;
-    margin-right: 4vh;
-
-    position: absolute;  /* Position absolutely within parent */
-    top: 0;              /* Aligns to the top of the parent */
-    right: 0;            /* Aligns to the right of the parent */
-}
-
-
-.switch-button:hover {
-    color: #f2f0e5;
-    background-color: #3a3858;
+    color: #f2f0e5 !important;
+    background-color: #3a3858 !important;
+    font-size: 3vh !important;
+    outline: none !important;
+    width: auto !important;
+    border-radius: 0px !important;
+    padding: 0.5vh 0.8vh !important;
+    line-height: 1 !important;
+    margin-right: 3vh !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
 }
 
 .switch-button:active {
-    color: #f2f0e5;
+    color: #f2f0e5 !important;
     background-color: #6a536e !important;
+    outline: none !important;
 }
 
 .switch-button:focus {
-    color: #f2f0e5;
-    background-color: #3a3858;
-    outline: none;
+    color: #f2f0e5 !important;
+    background-color: #3a3858 !important;
+    outline: none !important;
 }
+
 
 .top-div {
     background-color: #45444f;
     height: 5vh;
+    position: relative; /* Needed for child absolute positioning */
+}
+
+/* Control Column Styles */
+.default-control-style {
+    padding: 0;
+    height: 100%;
+    display: flex;
+}
+
+.hidden-control-style {
+    padding: 0;
+    height: 100%;
+    display: none;
+}
+
+.theme-spacer {
+    height: 2vw;
+}
+
+/* Cytoscape Styles for Smaller Screens */
+@media (max-width: 1000px) {
+    .theme-spacer {
+        height: .5vh; /* Smaller screen height */
+    }
+}
+
+.tree-height {
+    height: 73vh;
+}
+
+/* Cytoscape Styles for Smaller Screens */
+@media (max-width: 1000px) {
+    .tree-height {
+        height: 52vh; /* Smaller screen height */
+    }
+}
+
+/* Default Cytoscape Style */
+.default-cyto-style {
+    height: 73vh;
+    width: 100%;
+    background-color: #352b42;
+    border: 3px solid #868188;
+    border-radius: 30px;
+    box-shadow: inset 0px 0px 10px 10px #646365;
+    flex: 1;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 1000px) {
+    .default-cyto-style {
+        height: 52vh; /* Smaller height */
+    }
+}
+
+/* Full-Screen Cytoscape Style */
+.full-screen-cyto-style {
+    height: 95vh;
+    width: 100%;
+    background-color: #352b42;
+    border: 3px solid #868188;
+    border-radius: 30px;
+    box-shadow: inset 0px 0px 10px 10px #646365;
+    flex: 1;
+}
+
+
+
+
+/* Adjust for smaller screens */
+@media (max-width: 1000px) {
+    .full-screen-cyto-style {
+        height: 80vh; /* Smaller height */
+    }
 }

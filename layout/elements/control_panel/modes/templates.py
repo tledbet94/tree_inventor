@@ -148,8 +148,7 @@ current_tree = dcc.Store(id='current-tree', data=random_number)
 templates = html.Div([
     current_tree,
     template_store,
-    templates_title,
-    html.Div(style={'height': '8vh'}),
+    html.Div(style={'height': '3vh'}),
     dbc.Row([dbc.Col(template_one), dbc.Col(template_two)]),
     html.Div(style={'height': '12vh'}),
     dbc.Row([dbc.Col(template_three), dbc.Col(template_four)]),
