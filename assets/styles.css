@@ -525,7 +525,7 @@ body {
     .input-feedback-div-weights {
         border: 2vh solid #4e584a;  /* Thinner border */
         border-radius: 20px;        /* Smaller rounded corners */
-        height: 12vh;               /* Reduce height */
+        height: 16vh;               /* Reduce height */
         padding: 3px;               /* Smaller padding */
         font-size: 0.9em;           /* Slightly smaller text */
     }

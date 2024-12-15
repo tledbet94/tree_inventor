@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/templates.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/templates.py" afterDir="false" />
-    </list>
+    <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
