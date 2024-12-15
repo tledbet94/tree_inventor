@@ -43,7 +43,6 @@ def theme_update(blueberry_color_active, banana_color_active, grape_color_active
                  blue_background_active, brown_background_active, green_background_active, black_background_active,
                  current_cyto_style, background_style):
     # Color
-    print('theme_update')
     if blueberry_color_active:
         current_cyto_style[0]['style']['background-color'] = '#4b80ca'
         current_cyto_style[0]['style']['border-color'] = '#68c2d3'

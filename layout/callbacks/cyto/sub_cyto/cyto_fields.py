@@ -3,9 +3,9 @@ import copy
 
 
 def get_node_values(elements, node_id):
-    field_one = ''
-    field_two = ''
-    field_three = ''
+    field_one = '-'
+    field_two = '-'
+    field_three = '-'
     for e in elements:
         if node_id == e['data']['id']:
             field_one = e['data']['custom1']['field_value']

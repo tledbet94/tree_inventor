@@ -69,6 +69,7 @@ def adjust_weights(weights_enter_clicks, weights_input_value,
         else:
             progress_style = {'display': 'none'}
         manual_feedback = manual_feedback_intro + '\n' + message
+        print(manual_feedback)
     elif mode == 'auto':
         # Adjust weights automatically
         elements = auto_balance_system(elements)[0]
@@ -77,7 +78,7 @@ def adjust_weights(weights_enter_clicks, weights_input_value,
         progress_value = 0
         progress_label = ''
         progress_style = {'display': 'none'}
-        manual_feedback = ''
+        manual_feedback = manual_feedback_intro
 
     # removed manual_input_feedback_children
     return elements, manual_feedback, progress_value, progress_style, progress_label

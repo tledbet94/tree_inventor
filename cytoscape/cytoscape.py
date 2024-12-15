@@ -83,20 +83,20 @@ stylesheet = [
     {
         'selector': '[common = "True"]',
         'style': {
-            'background-color': '#cd6093',
-            'line-gradient-stop-colors': '#cd6093 #ffaeb6',
-            'border-color': '#ffaeb6',
-            'target-arrow-color': '#ffaeb6',
+            'background-color': '#d3a068',
+            'line-gradient-stop-colors': '#ede19e #d3a068', # 'line-gradient-stop-colors': '#cd6093 #ffaeb6'
+            'border-color': '#ede19e',
+            'target-arrow-color': '#e5ceb4',
             'overlay-opacity': 0
         }
     },
     {
         'selector': '[invalid_weight = "True"]',
         'style': {
-            'background-color': '#d3a068',
-            'line-gradient-stop-colors': '#ede19e #d3a068',
-            'border-color': '#ede19e',
-            'target-arrow-color': '#e5ceb4',
+            'background-color': '#cd6093',
+            'line-gradient-stop-colors': '#cd6093 #ffaeb6',
+            'border-color': '#ffaeb6',
+            'target-arrow-color': '#ffaeb6',
             'overlay-opacity': 0
         }
     },
