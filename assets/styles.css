@@ -1412,6 +1412,6 @@ body {
 /* Adjust for smaller screens */
 @media (max-width: 1000px) {
     .full-screen-cyto-style {
-        height: 80vh; /* Smaller height */
+        height: 85vh; /* Smaller height */
     }
 }

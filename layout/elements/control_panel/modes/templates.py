@@ -148,12 +148,48 @@ current_tree = dcc.Store(id='current-tree', data=random_number)
 templates = html.Div([
     current_tree,
     template_store,
-    html.Div(style={'height': '3vh'}),
-    dbc.Row([dbc.Col(template_one), dbc.Col(template_two)]),
+    html.Div(style={'height': '5vh'}),
+
+    # First Row
+    dbc.Row(
+        [
+            dbc.Col(template_one, width=6),  # Adjust column width if needed
+            dbc.Col(template_two, width=6)
+        ],
+        justify="center",  # Optional: aligns columns in the center
+        className="flex-nowrap no-gutters"
+    ),
     html.Div(style={'height': '12vh'}),
-    dbc.Row([dbc.Col(template_three), dbc.Col(template_four)]),
+
+    # Second Row
+    dbc.Row(
+        [
+            dbc.Col(template_three, width=6),
+            dbc.Col(template_four, width=6)
+        ],
+        justify="center",
+        className="flex-nowrap no-gutters"
+    ),
     html.Div(style={'height': '12vh'}),
-    dbc.Row([dbc.Col(template_five), dbc.Col(template_six)]),
+    # Third Row
+    dbc.Row(
+
+        [
+            dbc.Col(template_five, width=6),
+            dbc.Col(template_six, width=6)
+        ],
+        justify="center",
+        className="flex-nowrap no-gutters"
+    ),
     html.Div(style={'height': '12vh'}),
-    dbc.Row([dbc.Col(template_seven), dbc.Col(template_eight)])
+
+    # Fourth Row
+    dbc.Row(
+        [
+            dbc.Col(template_seven, width=6),
+            dbc.Col(template_eight, width=6)
+        ],
+        justify="center",
+        className="flex-nowrap no-gutters"
+    )
 ])
