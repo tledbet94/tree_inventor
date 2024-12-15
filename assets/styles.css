@@ -1093,12 +1093,12 @@ body {
         /* Media Query for Smaller Screens */
 @media (max-width: 1000px) {
     .template-button {
-        width: 12vh; /* Reduce button size */
-        height: 12vh;
+        width: 8vh; /* Reduce button size */
+        height: 8vh;
         border: 6px double #68c2d3; /* Thinner border */
         box-shadow: -2px 2px 2px #f2f0e5, 8px -8px 4px #45444f; /* Adjust shadow */
         font-size: 2.5vh; /* Smaller font size */
-        margin: 15px auto; /* Smaller margin */
+        margin: 1vh; /* Smaller margin */
     }
 
     .template-button:hover {

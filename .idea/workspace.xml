@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cytoscape/cytoscape.py" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/cytoscape.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/themes/theme_update.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/themes/theme_update.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/switch_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/switch_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/custom_fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/custom_fields.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/edit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/home.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/save_load.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/save_load.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/templates.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/templates.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/themes.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/themes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/traversal.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/traversal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/weights.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/weights.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/elements/panels.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/panels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/layout.py" afterDir="false" />
-    </list>
+    <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
