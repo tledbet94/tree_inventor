@@ -6,7 +6,7 @@
   "elements": [
     {
       "data": {
-        "id": "henry-viii",
+        "id": "root",
         "label": "Henry VIII",
         "level": 1,
         "weight": 0,
@@ -121,7 +121,7 @@
         "id": "anne-of-cleves",
         "label": "Anne of Cleves",
         "level": 2,
-        "weight": 0,
+        "weight": 100,
         "last_clicked": "False",
         "traversed": "False",
         "common": "False",
@@ -149,7 +149,7 @@
         "id": "catherine-howard",
         "label": "Catherine Howard",
         "level": 2,
-        "weight": 0,
+        "weight": 100,
         "last_clicked": "False",
         "traversed": "False",
         "common": "False",
@@ -177,7 +177,7 @@
         "id": "catherine-parr",
         "label": "Catherine Parr",
         "level": 2,
-        "weight": 0,
+        "weight": 100,
         "last_clicked": "False",
         "traversed": "False",
         "common": "False",
@@ -299,7 +299,7 @@
     {
       "data": {
         "id": "edge-henry-viii-catherine-of-aragon",
-        "source": "henry-viii",
+        "source": "root",
         "target": "catherine-of-aragon",
         "weight": 20,
         "last_clicked": "False",
@@ -311,7 +311,7 @@
     {
       "data": {
         "id": "edge-henry-viii-anne-boleyn",
-        "source": "henry-viii",
+        "source": "root",
         "target": "anne-boleyn",
         "weight": 20,
         "last_clicked": "True",
@@ -323,7 +323,7 @@
     {
       "data": {
         "id": "edge-henry-viii-jane-seymour",
-        "source": "henry-viii",
+        "source": "root",
         "target": "jane-seymour",
         "weight": 20,
         "last_clicked": "False",
@@ -335,7 +335,7 @@
     {
       "data": {
         "id": "edge-henry-viii-anne-of-cleves",
-        "source": "henry-viii",
+        "source": "root",
         "target": "anne-of-cleves",
         "weight": 10,
         "last_clicked": "False",
@@ -347,7 +347,7 @@
     {
       "data": {
         "id": "edge-henry-viii-catherine-howard",
-        "source": "henry-viii",
+        "source": "root",
         "target": "catherine-howard",
         "weight": 20,
         "last_clicked": "False",
@@ -359,7 +359,7 @@
     {
       "data": {
         "id": "edge-henry-viii-catherine-parr",
-        "source": "henry-viii",
+        "source": "root",
         "target": "catherine-parr",
         "weight": 10,
         "last_clicked": "False",

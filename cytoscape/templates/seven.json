@@ -6,7 +6,7 @@
     "elements": [
         {
             "data": {
-                "id": "best-picture-winners",
+                "id": "root",
                 "label": "Best Picture Winners",
                 "level": 1,
                 "weight": 0,
@@ -427,7 +427,7 @@
         {
             "data": {
                 "id": "edge-best-picture-winners-decade-1990s",
-                "source": "best-picture-winners",
+                "source": "root",
                 "target": "decade-1990s",
                 "weight": 50,
                 "last_clicked": "False",
@@ -439,7 +439,7 @@
         {
             "data": {
                 "id": "edge-best-picture-winners-decade-2000s",
-                "source": "best-picture-winners",
+                "source": "root",
                 "target": "decade-2000s",
                 "weight": 50,
                 "last_clicked": "False",

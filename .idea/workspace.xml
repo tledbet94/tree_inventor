@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tree_maker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tree_maker.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/callbacks/controls/algo/traversal_deactivate.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/controls/algo/traversal_deactivate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/layout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cytoscape/templates/eight.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/eight.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cytoscape/templates/seven.json" beforeDir="false" afterPath="$PROJECT_DIR$/cytoscape/templates/seven.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,14 +91,12 @@
   <component name="RunManager">
     <configuration name="T_PC_APP" type="PythonConfigurationType" factoryName="Python">
       <module name="tree_maker" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.13 (tree_maker)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
