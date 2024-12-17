@@ -35,7 +35,8 @@ file_info = dcc.Store(id='file-info', data=file_info)
 orientation_store = dcc.Store(id='orientation-store')
 orientation_check = dcc.Interval(id='orientation-check', interval=1000, n_intervals=0)
 
-change_screen = dbc.Button(children='SWITCH VIEW', id='change-view-button', className='switch-button')
+change_screen = dbc.Button(children='SWITCH VIEW', id='change-view-button',
+                           className='switch-button', disabled=False)
 view_warning_text = html.P(children='', id='view-warning-text')
 
 layout = html.Div([

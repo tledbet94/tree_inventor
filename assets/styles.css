@@ -721,6 +721,14 @@ body {
     justify-content: center; /* Center horizontally (optional) */
 }
 
+@media (max-width: 1000px) {
+    .algo-slider {
+        width: 175%;               /* Wider than parent container */
+        margin-left: -37%;         /* Shift it left by half of the extra width */
+        position: relative;        /* Ensure it respects the centering */
+    }
+}
+
 /* Track styling (the line on which the slider handle moves) */
 .rc-slider-track {
     background-color: #4b80ca; /* Track color */
