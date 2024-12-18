@@ -69,7 +69,7 @@ def theme_update(blueberry_color_active, banana_color_active, grape_color_active
     if circle_shape_active:
         current_cyto_style[0]['style']['shape'] = 'circle'
     elif triangle_shape_active:
-        current_cyto_style[0]['style']['shape'] = 'triangle'
+        current_cyto_style[0]['style']['shape'] = 'star'
     elif square_shape_active:
         current_cyto_style[0]['style']['shape'] = 'square'
     elif octagon_shape_active:
