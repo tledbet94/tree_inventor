@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Dash App</title>
+    <!-- Include GA script here -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LF8QB976G"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4LF8QB976G');
+    </script>
+  </head>
+  <body>
+    {%app_entry%}
+    <footer>
+      {%config%}
+      {%scripts%}
+      <script id="_dash-renderer" type="application/javascript">
+        var renderer = new DashRenderer();
+      </script>
+    </footer>
+  </body>
+</html>
