@@ -14,6 +14,18 @@ def get_node_values(elements, node_id):
     return field_one, field_two, field_three
 
 
+def get_field_names(elements, node_id):
+    field_one = '-'
+    field_two = '-'
+    field_three = '-'
+    for e in elements:
+        if node_id == e['data']['id']:
+            field_one = e['data']['custom1']['field_name']
+            field_two = e['data']['custom2']['field_name']
+            field_three = e['data']['custom3']['field_name']
+    return field_one, field_two, field_three
+
+
 @callback(
     [
         Output('fields-store', 'data'),
@@ -38,7 +50,8 @@ def get_node_values(elements, node_id):
     [
         Input('custom-update-button', 'n_clicks'),
         Input('cytoscape', 'tapNode'),
-        Input('template-store', 'data')
+        Input('template-store', 'data'),
+        Input('upload-area', 'contents'),
     ],
     [
         # check which mode is active - names or values
@@ -54,9 +67,8 @@ def get_node_values(elements, node_id):
     ]
 )
 def fields_update(update_clicks, tap_node, template_elements,
-                  names_active, values_active, custom1_input, custom2_input, custom3_input,
+                  upload_contents, names_active, values_active, custom1_input, custom2_input, custom3_input,
                   elements, stored_names):
-
     # Make an independent copy and then serve the changes back later
     elements = copy.deepcopy(elements) if elements is not None else []
 
@@ -102,7 +114,7 @@ def fields_update(update_clicks, tap_node, template_elements,
                 else:
                     custom3_input = stored_names[2]
                 value1, value2, value3 = get_node_values(elements, selected_node_id)
-                names_list = [custom1_input, custom2_input, custom3_input]
+
                 return (elements, '', '', '', custom1_input, custom2_input, custom3_input,
                         custom1_input, custom2_input, custom3_input,
                         value1, value2, value3, stored_names)
@@ -127,10 +139,12 @@ def fields_update(update_clicks, tap_node, template_elements,
                 name2 = stored_names[1]
                 name3 = stored_names[2]
                 value1, value2, value3 = get_node_values(elements, selected_node_id)
+                stored_names = [name1, name2, name3]
                 return (elements, '', '', '', name1, name2, name3,
                         name1, name2, name3,
                         value1, value2, value3, stored_names)
 
+    stored_names = get_field_names(elements, 'root')
     name1 = stored_names[0]
     name2 = stored_names[1]
     name3 = stored_names[2]
