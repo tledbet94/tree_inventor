@@ -26,7 +26,7 @@ hidden_control_style = {'padding': '0', 'height': '100%', 'display': 'none'}
 def change_cyto_view(n_clicks, orientation, current_cyto_width):
     if orientation == 'portrait' or (current_cyto_width == 9 and (n_clicks or 0) > 0):
         if orientation == 'portrait':
-            return 'full-screen-cyto-style', 12, 'hidden-control-style', 0, 'ROTATE TO SWITCH'
+            return 'full-screen-cyto-style', 12, 'hidden-control-style', 0, 'ROTATE DEVICE TO ...'
         else:
             return 'full-screen-cyto-style', 12, 'hidden-control-style', 0, ''
     elif current_cyto_width == 12 and (n_clicks or 0) > 0:

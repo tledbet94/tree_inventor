@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e5b322fb-7ba5-4774-8b51-d24dc963e7bf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/callbacks/cyto/switch_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/callbacks/cyto/switch_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/custom_fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/custom_fields.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/elements/control_panel/modes/save_load.py" beforeDir="false" afterPath="$PROJECT_DIR$/layout/elements/control_panel/modes/save_load.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -38,30 +43,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.T_PC_APP.executor&quot;: &quot;Run&quot;,
-    &quot;Python.app.executor&quot;: &quot;Run&quot;,
-    &quot;Python.app_instance.executor&quot;: &quot;Run&quot;,
-    &quot;Python.assembled.executor&quot;: &quot;Run&quot;,
-    &quot;Python.bottom_row_callback.executor&quot;: &quot;Run&quot;,
-    &quot;Python.controls.executor&quot;: &quot;Run&quot;,
-    &quot;Python.cyto_callback.executor&quot;: &quot;Run&quot;,
-    &quot;Python.edit_input.executor&quot;: &quot;Run&quot;,
-    &quot;Python.info_callback.executor&quot;: &quot;Run&quot;,
-    &quot;Python.info_components.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main_pc_app.executor&quot;: &quot;Run&quot;,
-    &quot;Python.panel_change.executor&quot;: &quot;Run&quot;,
-    &quot;Python.themes.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ToolWindowJSON Viewer.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Dev/tree_maker/app.py&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.JSON&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.T_PC_APP.executor": "Run",
+    "Python.app.executor": "Run",
+    "Python.app_instance.executor": "Run",
+    "Python.assembled.executor": "Run",
+    "Python.bottom_row_callback.executor": "Run",
+    "Python.controls.executor": "Run",
+    "Python.cyto_callback.executor": "Run",
+    "Python.edit_input.executor": "Run",
+    "Python.info_callback.executor": "Run",
+    "Python.info_components.executor": "Run",
+    "Python.main_pc_app.executor": "Run",
+    "Python.panel_change.executor": "Run",
+    "Python.themes.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ToolWindowJSON Viewer.ShowToolbar": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Dev/tree_maker/app.py",
+    "settings.editor.selected.configurable": "preferences.sourceCode.JSON"
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings is-module-sdk="true">

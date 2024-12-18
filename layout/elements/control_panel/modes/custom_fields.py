@@ -7,7 +7,7 @@ field_names_button = dbc.Button(
     id='field-names-button',
     children="FIELD NAMES",
     className="fields-button",
-    style={'outline': 'none', 'margin_left': '15px'},
+    style={'outline': 'none'},
     active=True
 )
 
@@ -15,7 +15,7 @@ field_values_button = dbc.Button(
     id='field-values-button',
     children="VALUES",
     className="fields-button",
-    style={'outline': 'none', 'margin_left': '15px'},
+    style={'outline': 'none'},
     active=False
 )
 
