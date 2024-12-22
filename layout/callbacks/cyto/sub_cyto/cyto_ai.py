@@ -4,6 +4,7 @@ import dash
 from dash import dcc, html, callback, ctx, Input, Output, State, no_update
 import dash_cytoscape as cyto
 import openai
+import traceback
 
 # Retrieve your API key from an environment variable (preferred).
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -102,161 +103,166 @@ def ai_summon(update_clicks, expand_clicks, user_prompt, tap_node, current_eleme
     # Build a minimal prompt
     # 'developer' role is the new 'system' role per latest docs.
     # 'user' is the specific request. We also embed reference JSON.
-
-    response = openai.chat.completions.create(
-        model="gpt-4o",
-        messages=[
-            {
-                "role": "system",
-                "content": (
-                    "You produce JSON trees in a directed acyclic graph structure.\n\n"
-                    "Constraints:\n"
-                    "1) Output MUST follow the JSON schema exactly—no extra keys.\n"
-                    "2) All nodes must have at least one edge except for the root.\n"
-                    "3) All edges must have data.source, data.target, and weight > 0.\n"
-                    "4) Position data must exist for nodes.\n"
-                    "5) No markdown in the output.\n\n"
-
-                    "Behavior:\n"
-                    "- If ai_task='expand', build a larger tree from existing tree"
-                    "Instead, add nodes/edges from the 'starting_point' node.\n"
-                    "- Return valid JSON only.\n"
-                )
-            },
-            {"role": "user",
-             "content": prompt},
-        ],
-        response_format={
-            "type": "json_schema",
-            "json_schema": {
-                "name": "my_custom_tree_schema",
-                "schema": {
-                    "type": "object",
-                    "properties": {
-                        "Name": {"type": "string"},
-                        "Description": {"type": "string"},
-                        "Author": {"type": "string"},
-                        "theme_data": {
-                            "type": "object",
-                            "properties": {
-                                "color": {"type": "string"},
-                                "shape": {"type": "string"},
-                                "outline": {"type": "string"},
-                                "pointer": {"type": "string"},
-                                "background": {"type": "string"}
-                            },
-                            "required": [
-                                "color", "shape", "outline",
-                                "pointer", "background"
-                            ],
-                            "additionalProperties": False
-                        },
-                        "elements": {
-                            "type": "array",
-                            "items": {
+    try:
+        response = openai.chat.completions.create(
+            model="gpt-4o",
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You produce JSON trees in a directed acyclic graph structure.\n\n"
+                        "Constraints:\n"
+                        "1) Output MUST follow the JSON schema exactly—no extra keys.\n"
+                        "2) All nodes must have at least one edge except for the root.\n"
+                        "3) All edges must have data.source, data.target, and weight > 0.\n"
+                        "4) Position data must exist for nodes.\n"
+                        "5) No markdown in the output.\n\n"
+    
+                        "Behavior:\n"
+                        "- If ai_task='expand', build a larger tree from existing tree"
+                        "Instead, add nodes/edges from the 'starting_point' node.\n"
+                        "- Return valid JSON only.\n"
+                    )
+                },
+                {"role": "user",
+                 "content": prompt},
+            ],
+            response_format={
+                "type": "json_schema",
+                "json_schema": {
+                    "name": "my_custom_tree_schema",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "Name": {"type": "string"},
+                            "Description": {"type": "string"},
+                            "Author": {"type": "string"},
+                            "theme_data": {
                                 "type": "object",
-                                "oneOf": [
-                                    {
-                                        # Node schema
-                                        "properties": {
-                                            "data": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "id": {"type": "string"},
-                                                    "label": {"type": "string"},
-                                                    "weight": {"type": "number"},
-                                                    "level": {"type": "number"},
-                                                    "children": {"type": "number"},
-                                                    "traversed": {"type": "string"},
-                                                    "common": {"type": "string"},
-                                                    "invalid_weight": {"type": "string"},
-                                                    "last_clicked": {"type": "string"},
-                                                    "custom1": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "field_name": {"type": "string"},
-                                                            "field_value": {"type": "string"}
+                                "properties": {
+                                    "color": {"type": "string"},
+                                    "shape": {"type": "string"},
+                                    "outline": {"type": "string"},
+                                    "pointer": {"type": "string"},
+                                    "background": {"type": "string"}
+                                },
+                                "required": [
+                                    "color", "shape", "outline",
+                                    "pointer", "background"
+                                ],
+                                "additionalProperties": False
+                            },
+                            "elements": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "oneOf": [
+                                        {
+                                            # Node schema
+                                            "properties": {
+                                                "data": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {"type": "string"},
+                                                        "label": {"type": "string"},
+                                                        "weight": {"type": "number"},
+                                                        "level": {"type": "number"},
+                                                        "children": {"type": "number"},
+                                                        "traversed": {"type": "string"},
+                                                        "common": {"type": "string"},
+                                                        "invalid_weight": {"type": "string"},
+                                                        "last_clicked": {"type": "string"},
+                                                        "custom1": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "field_name": {"type": "string"},
+                                                                "field_value": {"type": "string"}
+                                                            },
+                                                            "required": ["field_name", "field_value"],
+                                                            "additionalProperties": False
                                                         },
-                                                        "required": ["field_name", "field_value"],
-                                                        "additionalProperties": False
+                                                        "custom2": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "field_name": {"type": "string"},
+                                                                "field_value": {"type": "string"}
+                                                            },
+                                                            "required": ["field_name", "field_value"],
+                                                            "additionalProperties": False
+                                                        },
+                                                        "custom3": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "field_name": {"type": "string"},
+                                                                "field_value": {"type": "string"}
+                                                            },
+                                                            "required": ["field_name", "field_value"],
+                                                            "additionalProperties": False
+                                                        }
                                                     },
-                                                    "custom2": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "field_name": {"type": "string"},
-                                                            "field_value": {"type": "string"}
-                                                        },
-                                                        "required": ["field_name", "field_value"],
-                                                        "additionalProperties": False
-                                                    },
-                                                    "custom3": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "field_name": {"type": "string"},
-                                                            "field_value": {"type": "string"}
-                                                        },
-                                                        "required": ["field_name", "field_value"],
-                                                        "additionalProperties": False
-                                                    }
+                                                    "required": [
+                                                        "id", "label", "weight", "level",
+                                                        "children", "traversed", "common",
+                                                        "invalid_weight", "last_clicked",
+                                                        "custom1", "custom2", "custom3"
+                                                    ],
+                                                    "additionalProperties": False
                                                 },
-                                                "required": [
-                                                    "id", "label", "weight", "level",
-                                                    "children", "traversed", "common",
-                                                    "invalid_weight", "last_clicked",
-                                                    "custom1", "custom2", "custom3"
-                                                ],
-                                                "additionalProperties": False
+                                                "position": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "x": {"type": "number"},
+                                                        "y": {"type": "number"}
+                                                    },
+                                                    "required": ["x", "y"],
+                                                    "additionalProperties": False
+                                                }
                                             },
-                                            "position": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "x": {"type": "number"},
-                                                    "y": {"type": "number"}
-                                                },
-                                                "required": ["x", "y"],
-                                                "additionalProperties": False
-                                            }
+                                            "required": ["data", "position"],
+                                            "additionalProperties": False
                                         },
-                                        "required": ["data", "position"],
-                                        "additionalProperties": False
-                                    },
-                                    {
-                                        # Edge schema
-                                        "properties": {
-                                            "data": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "id": {"type": "string"},
-                                                    "source": {"type": "string"},  # Edge source node
-                                                    "target": {"type": "string"},  # Edge target node
-                                                    "weight": {"type": "number", "minimum": 0.0001},  # Weight > 0
-                                                    "traversed": {"type": "string"},
-                                                    "last_clicked": {"type": "string"}
-                                                },
-                                                "required": ["id", "source", "target", "weight"],
-                                                "additionalProperties": False
-                                            }
-                                        },
-                                        "required": ["data"],
-                                        "additionalProperties": False
-                                    }
-                                ]
+                                        {
+                                            # Edge schema
+                                            "properties": {
+                                                "data": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {"type": "string"},
+                                                        "source": {"type": "string"},  # Edge source node
+                                                        "target": {"type": "string"},  # Edge target node
+                                                        "weight": {"type": "number", "minimum": 0.0001},  # Weight > 0
+                                                        "traversed": {"type": "string"},
+                                                        "last_clicked": {"type": "string"}
+                                                    },
+                                                    "required": ["id", "source", "target", "weight"],
+                                                    "additionalProperties": False
+                                                }
+                                            },
+                                            "required": ["data"],
+                                            "additionalProperties": False
+                                        }
+                                    ]
+                                }
                             }
-                        }
-                    },
-                    "required": [
-                        "Name", "Description", "Author",
-                        "theme_data", "elements"
-                    ],
-                    "additionalProperties": False
+                        },
+                        "required": [
+                            "Name", "Description", "Author",
+                            "theme_data", "elements"
+                        ],
+                        "additionalProperties": False
+                    }
                 }
             }
-        }
 
-    )
+        )
 
-    ai_output = response.choices[0].message.content
-    print(ai_output)
-    json_data = json.loads(ai_output)
-    json_data = json_data['elements']
-    return json_data
+        ai_output = response.choices[0].message.content
+        print(ai_output)
+        json_data = json.loads(ai_output)
+        json_data = json_data['elements']
+        return json_data
+
+    except Exception as e:
+            print("Error in callback:")
+            print(traceback.format_exc())
+            return no_update
