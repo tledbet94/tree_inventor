@@ -82,7 +82,7 @@ body {
 
 
 .info-text-label {
-    font-size: 1.5vh;
+    font-size: 1.75vh;
     /* colors and ofset create 3d effect */
     text-shadow:
         1px 1px 0px #9a9a97,
@@ -92,7 +92,7 @@ body {
 }
 
 .info-text-actual {
-    font-size: 1.5vh;
+    font-size: 1.75vh;
     text-align: left;
     /* colors and ofset create 3d effect */
     text-shadow:

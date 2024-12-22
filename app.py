@@ -47,6 +47,8 @@ from layout.callbacks.controls.themes.theme_update import theme_update
 
 from layout.callbacks.cyto.switch_view import change_cyto_view
 
+from layout.callbacks.cyto.sub_cyto.cyto_ai import ai_summon
+
 app = dash.Dash(
     __name__,
     external_stylesheets=[

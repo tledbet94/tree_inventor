@@ -1,0 +1,16 @@
+To ChatGPT or other Generative AI:
+
+You are asked to construct a JSON that can be plugged into a Dash-cytoscape DAG style tree. Example JSONs will be
+shared to show the desired structure of the tree. You will be provided with user input describing a tree and will
+use that to either modify the existing tree or create a new tree.
+
+Rules: The structure of the JSON must match that of the examples so that no keys or values are missing outright
+       Note the elements section of the JSON typical to that of cytoscape dash and the meta-deta that is separate
+       but is necessary for the app
+       If the description entered does not make sense then generate a short random tree
+       AI will always be the "author" of the tree
+       If custom fields do not seem necessary, leave them at "Custom1", "Custom2", "Custom3" and blank values
+       If weights are not necessary they can be used in any order. However you must follow these rules for weights:
+
+       Between a node and any nodes attached below it (from source to target), weights must add up to 100%
+       Leaf nodes are always 1005

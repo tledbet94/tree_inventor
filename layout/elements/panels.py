@@ -15,6 +15,8 @@ from .control_panel.modes.themes import themes
 from .control_panel.modes.user import user
 from .control_panel.modes.settings import settings
 
+from .control_panel.modes.ai import ai
+
 # For info panel
 from .info_panel.info_components import info_contents
 
@@ -30,13 +32,12 @@ control_panel = dbc.Container(
         dbc.Container(templates, id='templates-mode', style={'display': 'none'}, fluid=True),
         dbc.Container(themes, id='themes-mode', style={'display': 'none'}, fluid=True),
         dbc.Container(user, id='user-mode', style={'display': 'none'}, fluid=True),
-        dbc.Container(settings, id='settings-mode', style={'display': 'none'}, fluid=True)
+        dbc.Container(settings, id='settings-mode', style={'display': 'none'}, fluid=True),
+        dbc.Container(ai, id='ai-mode', style={'display': 'none'}, fluid=True)
     ], fluid=True,
     className="control-div"
 )
 
 info_panel = info_contents
 
-
 button_panel = button_row
-

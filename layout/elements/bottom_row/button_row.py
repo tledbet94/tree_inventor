@@ -74,6 +74,13 @@ settings_button = dbc.Button(
     style={'display': 'none'}
 )
 
+ai_button = dbc.Button(
+    id='ai-button',
+    children=html.I(children='AI', className="icon-style-bottom-row"),
+    className="bottom-row-button",
+    disabled=False,
+)
+
 dummy_button = dbc.Button(
     children=html.I(className="fa-solid fa-diamond icon-style-bottom-row"),
     className="bottom-row-button",
@@ -88,7 +95,7 @@ button_row = dbc.Row(
 
         # Left-aligned buttons
         dbc.Col(
-            [home_button, user_button, save_load_button],
+            [home_button, user_button, save_load_button, ai_button],
             width="auto",
             className="d-flex justify-content-start align-items-center"
         ),

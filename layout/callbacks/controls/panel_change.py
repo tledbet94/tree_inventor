@@ -1,7 +1,6 @@
 # panel_change.py
 from dash import callback, callback_context, Input, Output
 
-
 @callback(
     Output('home-mode', 'style'),
     Output('save-load-mode', 'style'),
@@ -13,23 +12,25 @@ from dash import callback, callback_context, Input, Output
     Output('themes-mode', 'style'),
     Output('user-mode', 'style'),
     Output('settings-mode', 'style'),
+    Output('ai-mode', 'style'),    # <-- New output for AI mode
     [
         Input('home-button', 'n_clicks'),
         Input('edit-button', 'n_clicks'),
         Input('algo-button', 'n_clicks'),
         Input('weights-button', 'n_clicks'),
-        Input('save-load-button', 'n_clicks'),      # New input
-        Input('custom-fields-button', 'n_clicks'), # New input
-        Input('templates-button', 'n_clicks'),     # New input
-        Input('themes-button', 'n_clicks'),        # New input
-        Input('user-button', 'n_clicks'),          # New input
-        Input('settings-button', 'n_clicks'),      # New input
+        Input('save-load-button', 'n_clicks'),
+        Input('custom-fields-button', 'n_clicks'),
+        Input('templates-button', 'n_clicks'),
+        Input('themes-button', 'n_clicks'),
+        Input('user-button', 'n_clicks'),
+        Input('settings-button', 'n_clicks'),
+        Input('ai-button', 'n_clicks'),  # <-- New input for AI button
     ],
 )
 def update_mode(
     home_clicks, edit_clicks, algo_clicks, weights_clicks,
     save_load_clicks, custom_fields_clicks, templates_clicks,
-    themes_clicks, user_clicks, settings_clicks
+    themes_clicks, user_clicks, settings_clicks, ai_clicks
 ):
     ctx = callback_context
 
@@ -52,6 +53,7 @@ def update_mode(
             {'display': 'none'},   # themes-mode
             {'display': 'none'},   # user-mode
             {'display': 'none'},   # settings-mode
+            {'display': 'none'},   # ai-mode
         )
     elif button_id == 'edit-button':
         return (
@@ -65,6 +67,7 @@ def update_mode(
             {'display': 'none'},   # themes-mode
             {'display': 'none'},   # user-mode
             {'display': 'none'},   # settings-mode
+            {'display': 'none'},   # ai-mode
         )
     elif button_id == 'algo-button':
         return (
@@ -78,6 +81,7 @@ def update_mode(
             {'display': 'none'},   # themes-mode
             {'display': 'none'},   # user-mode
             {'display': 'none'},   # settings-mode
+            {'display': 'none'},   # ai-mode
         )
     elif button_id == 'weights-button':
         return (
@@ -91,6 +95,7 @@ def update_mode(
             {'display': 'none'},   # themes-mode
             {'display': 'none'},   # user-mode
             {'display': 'none'},   # settings-mode
+            {'display': 'none'},   # ai-mode
         )
     elif button_id == 'save-load-button':
         return (
@@ -104,6 +109,7 @@ def update_mode(
             {'display': 'none'},   # themes-mode
             {'display': 'none'},   # user-mode
             {'display': 'none'},   # settings-mode
+            {'display': 'none'},   # ai-mode
         )
     elif button_id == 'custom-fields-button':
         return (
@@ -117,6 +123,7 @@ def update_mode(
             {'display': 'none'},   # themes-mode
             {'display': 'none'},   # user-mode
             {'display': 'none'},   # settings-mode
+            {'display': 'none'},   # ai-mode
         )
     elif button_id == 'templates-button':
         return (
@@ -130,6 +137,7 @@ def update_mode(
             {'display': 'none'},   # themes-mode
             {'display': 'none'},   # user-mode
             {'display': 'none'},   # settings-mode
+            {'display': 'none'},   # ai-mode
         )
     elif button_id == 'themes-button':
         return (
@@ -143,6 +151,7 @@ def update_mode(
             {'display': 'block'},  # themes-mode
             {'display': 'none'},   # user-mode
             {'display': 'none'},   # settings-mode
+            {'display': 'none'},   # ai-mode
         )
     elif button_id == 'user-button':
         return (
@@ -156,6 +165,7 @@ def update_mode(
             {'display': 'none'},   # themes-mode
             {'display': 'block'},  # user-mode
             {'display': 'none'},   # settings-mode
+            {'display': 'none'},   # ai-mode
         )
     elif button_id == 'settings-button':
         return (
@@ -169,6 +179,21 @@ def update_mode(
             {'display': 'none'},   # themes-mode
             {'display': 'none'},   # user-mode
             {'display': 'block'},  # settings-mode
+            {'display': 'none'},   # ai-mode
+        )
+    elif button_id == 'ai-button':  # <-- New AI button check
+        return (
+            {'display': 'none'},   # home-mode
+            {'display': 'none'},   # save-load-mode
+            {'display': 'none'},   # edit-mode
+            {'display': 'none'},   # algo-mode
+            {'display': 'none'},   # weights-mode
+            {'display': 'none'},   # custom-fields-mode
+            {'display': 'none'},   # templates-mode
+            {'display': 'none'},   # themes-mode
+            {'display': 'none'},   # user-mode
+            {'display': 'none'},   # settings-mode
+            {'display': 'block'},  # ai-mode
         )
     else:
         # Default case if no recognized button is clicked
@@ -183,4 +208,5 @@ def update_mode(
             {'display': 'none'},   # themes-mode
             {'display': 'none'},   # user-mode
             {'display': 'none'},   # settings-mode
+            {'display': 'none'},   # ai-mode
         )
